@@ -156,6 +156,19 @@ const octagon: Template<'case'> = (props) => {
     .join(' ');
   // Screws sit midway between the crystal opening and the octagon's corners.
   const screwR = (bezelR + layout.crystalRadius + 0.55) / 2;
+  // Cushion-shaped body: flanks curve in from full width at 3/9 to the bracelet width, ending just past
+  // the bezel's flat. The first bracelet links (drawn underneath) make up the rest of the lug-to-lug.
+  const endY = Math.min(half, bezelR * Math.cos(22.5 * (Math.PI / 180)) + 2.6);
+  const endX = Math.min(R * 0.66, layout.lugWidth / 2);
+  const body = [
+    `M ${f(R)} 0`,
+    `C ${f(R)} ${f(-endY * 0.55)} ${f(endX + (R - endX) * 0.35)} ${f(-endY * 0.92)} ${f(endX)} ${f(-endY)}`,
+    `L ${f(-endX)} ${f(-endY)}`,
+    `C ${f(-endX - (R - endX) * 0.35)} ${f(-endY * 0.92)} ${f(-R)} ${f(-endY * 0.55)} ${f(-R)} 0`,
+    `C ${f(-R)} ${f(endY * 0.55)} ${f(-endX - (R - endX) * 0.35)} ${f(endY * 0.92)} ${f(-endX)} ${f(endY)}`,
+    `L ${f(endX)} ${f(endY)}`,
+    `C ${f(endX + (R - endX) * 0.35)} ${f(endY * 0.92)} ${f(R)} ${f(endY * 0.55)} ${f(R)} 0 Z`,
+  ].join(' ');
 
   return (
     <g>
@@ -165,16 +178,7 @@ const octagon: Template<'case'> = (props) => {
       <CaseBody
         {...props}
         silhouette={(fill) => ({
-          shapes: [
-            <circle key="body" r={R} fill={fill} />,
-            // Integrated lugs: trapezoids that flow into the bracelet.
-            <path
-              key="lugs"
-              fill={fill}
-              d={`M ${f(-R * 0.82)} ${f(-R * 0.55)} L ${f(-R * 0.66)} ${f(-half)} L ${f(R * 0.66)} ${f(-half)} L ${f(R * 0.82)} ${f(-R * 0.55)} Z
-                  M ${f(-R * 0.82)} ${f(R * 0.55)} L ${f(-R * 0.66)} ${f(half)} L ${f(R * 0.66)} ${f(half)} L ${f(R * 0.82)} ${f(R * 0.55)} Z`}
-            />,
-          ],
+          shapes: [<path key="body" fill={fill} d={body} />],
           detail: (
             <g>
               <polygon points={octagonPts} fill={url(polishId)} stroke={darken(metal, 0.5)} strokeWidth={0.25} />
