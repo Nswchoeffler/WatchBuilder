@@ -9,7 +9,9 @@ export function App() {
   const state = useCatalog();
   const route = useHashRoute();
 
-  useEffect(() => window.scrollTo(0, 0), [route.name]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route.name]);
 
   return (
     <Layout route={route}>
