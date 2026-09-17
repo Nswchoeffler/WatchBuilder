@@ -1,0 +1,62 @@
+import { tpl, type SeedPart } from './helpers';
+
+const NH_HOLES = { hour: 1.5, minute: 0.9, seconds: 0.2 } as const;
+/** Lengths sized for a 28.5mm dial. Cosmetic only (R-HD-1 warning). */
+const LEN_28 = { hour: 8.5, minute: 12.5, seconds: 13.0 } as const;
+
+export const hands: SeedPart<'hands'>[] = [
+  {
+    type: 'hands',
+    id: 'hd-nh-mercedes',
+    name: 'Mercedes (NH)',
+    confidence: 'verified',
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/mercedes', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-sword',
+    name: 'Sword (NH)',
+    confidence: 'verified',
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/sword', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#c8302c' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh34-gmt',
+    name: 'GMT Mercedes (NH34)',
+    confidence: 'community',
+    holes: { ...NH_HOLES, gmt: 2.2 },
+    lengths: { ...LEN_28, gmt: 12.5 },
+    visual: tpl('hands/mercedes', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#c8302c' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-m8215-baton',
+    name: 'Baton (Miyota 8215)',
+    confidence: 'verified',
+    holes: { hour: 1.52, minute: 1.0, seconds: 0.17 },
+    lengths: LEN_28,
+    visual: tpl('hands/baton', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-eta-dauphine',
+    name: 'Dauphine (ETA / Sellita)',
+    confidence: 'community',
+    holes: { hour: 1.5, minute: 0.9, seconds: 0.25 },
+    lengths: LEN_28,
+    visual: tpl('hands/dauphine', { metal: '#e6e7e9', lume: null, accent: '#e6e7e9' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-vh31-pencil',
+    name: 'Pencil (VH31)',
+    confidence: 'unverified',
+    holes: { hour: 1.2, minute: 0.7, seconds: 0.17 },
+    lengths: LEN_28,
+    visual: tpl('hands/pencil', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e39b2d' }),
+  },
+];
