@@ -61,3 +61,14 @@ export function viewBoxFor(layout: Layout, framing: Framing): [number, number, n
   const halfH = layout.lugToLug / 2 + strap;
   return [-halfW, -halfH, halfW * 2, halfH * 2];
 }
+
+/** One viewBox that fits every watch, so several can be drawn side by side at the same scale. */
+export function sharedViewBox(layouts: readonly Layout[], framing: Framing): [number, number, number, number] {
+  const boxes = layouts.map((l) => viewBoxFor(l, framing));
+  if (!boxes.length) return [-25, -35, 50, 70];
+  const x0 = Math.min(...boxes.map((b) => b[0]));
+  const y0 = Math.min(...boxes.map((b) => b[1]));
+  const x1 = Math.max(...boxes.map((b) => b[0] + b[2]));
+  const y1 = Math.max(...boxes.map((b) => b[1] + b[3]));
+  return [x0, y0, x1 - x0, y1 - y0];
+}

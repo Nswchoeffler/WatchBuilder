@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-16. Phases 0–3 done; Phase 4 next._
+_Last updated 2026-09-17. Phases 0–3 done; Phase 4 built, awaiting browser check._
 
 ## 1. Context
 
@@ -24,12 +24,12 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 
 ---
 
-## 2. Current state (end of Phase 3)
+## 2. Current state (Phase 4 built)
 
-- **Runs:** `npm run dev` → Gallery (7 sample builds with fit status + SVG/PNG export) and Parts catalog (58 parts, confidence badges).
-- **Checks:** `npm test` (207 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
-- **Git:** Phases 0–3 committed on `main`.
-- **Not verified in a real browser by the assistant:** gallery rendering and PNG export (only resvg previews were reviewed).
+- **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`).
+- **Checks:** `npm test` (229 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
+- **Not verified in a real browser by the assistant:** the Phase 4 screens and PNG export (tests run in jsdom; watch drawings reviewed via resvg previews).
 
 ### Architecture as built
 ```
@@ -49,7 +49,7 @@ src/
     layout.ts    geometry derived from measurements, framing/viewBox
     templates/   case, bezel (+inserts, rings, crowns), dial generator, hands, crystal, strap
     export.ts    sizedSvg, svgToPngBlob, downloads
-  ui/            CatalogView.tsx, GalleryView.tsx (temporary; replaced by Phase 4 screens)
+  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, common.tsx, labels.ts
 scripts/render-previews.tsx
 ```
 
@@ -77,7 +77,10 @@ True-scale scene; templates for 4 case styles, 2 bezels, 2 insert types, 2 ring 
 
 ---
 
-## 4. Phase 4 — Builder UI (first version you can actually use)
+## 4. Phase 4 — Builder UI (first version you can actually use) — built
+
+**Status (2026-09-17):** screens, autosave, undo/redo, mods, parts list, compare and a new visual design (warm paper / graphite theme, brass accent, Instrument Serif + Manrope + JetBrains Mono, bundled via Fontsource) are in. 22 UI tests cover routes, draft history, picker filtering, the day-wheel acceptance case, missing-slot links, rename/autosave, library CRUD and compare. The octagon case drawing was reshaped (shorter case ends).
+**Still open:** manual browser check of the acceptance criteria (esp. 375 px width, PNG export); golden-image diffs for previews; lazily rendered part thumbnails in the picker; performance measurement against the < 50 ms budget. Mods live inside `CheckPanel.tsx` rather than a separate `ModsPanel.tsx`.
 
 **Goal:** design, check, save and compare your own builds end to end without touching code.
 
@@ -243,11 +246,11 @@ src/ui/
 
 | Item | When |
 |---|---|
-| ~~Commit Phases 1–3~~ ✅; add a GitHub remote | Now, before Phase 4 |
-| CI (GitHub Actions): lint, typecheck, test, previews golden diff | Start of Phase 4 |
+| ~~Commit Phases 1–3, add a GitHub remote~~ ✅ | Done |
+| CI (GitHub Actions): lint, typecheck, test, build ✅; previews golden diff still to add | Phase 4 |
 | Browser verification: manual checklist per phase until a browser test tool is chosen | Every phase |
 | Accessibility: keyboard navigation, focus states, colour contrast, SVG titles | Phase 4 onward |
-| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (currently ~147 KB gzip) | Phase 4 onward |
+| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (currently ~158 KB gzip JS) | Phase 4 onward |
 | Docs kept in sync (spec rule ids already enforced by a test) | Always |
 
 ---
@@ -266,7 +269,7 @@ src/ui/
 
 ## 10. Open decisions
 
-1. **Commit & remote:** commit now, and push to a GitHub repo?
+1. ~~**Commit & remote**~~ ✅ private GitHub repo.
 2. **Hosting the personal version:** local only, or a static deploy (e.g. Vercel) so you can use it on your phone? (Works without a backend.)
 3. **Preview style:** keep the current shaded look, or offer a flat "technical drawing" mode as well?
 4. **Parts you own:** any real cases/dials/movements to use as reference products and calipers for Phase 6?

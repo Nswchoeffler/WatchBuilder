@@ -62,4 +62,13 @@ export async function saveBuild(db: ModWatchDB, build: Build): Promise<Build> {
 
 export const listBuilds = (db: ModWatchDB): Promise<Build[]> => db.builds.orderBy('updatedAt').reverse().toArray();
 
+export const getBuild = (db: ModWatchDB, id: string): Promise<Build | undefined> => db.builds.get(id);
+
 export const deleteBuild = (db: ModWatchDB, id: string): Promise<void> => db.builds.delete(id);
+
+/** Rename without touching slots; empty names are ignored. */
+export async function renameBuild(db: ModWatchDB, id: string, name: string): Promise<void> {
+  const trimmed = name.trim().slice(0, 80);
+  if (!trimmed) return;
+  await db.builds.update(id, { name: trimmed, updatedAt: new Date().toISOString() });
+}

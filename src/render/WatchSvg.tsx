@@ -15,6 +15,8 @@ export interface WatchSvgProps {
   parts: ResolvedParts;
   time?: DisplayTime;
   framing?: Framing;
+  /** Override the framed viewBox, e.g. to draw several watches at the same scale. */
+  viewBox?: readonly [number, number, number, number];
   /** Deterministic id prefix (tests/exports). Defaults to a React id. */
   idPrefix?: string;
   title?: string;
@@ -83,11 +85,11 @@ function StrapLayer({ part, ctx, viewTop }: { part: PartOf<'strap'> | undefined;
   );
 }
 
-export function WatchSvg({ parts, time = DISPLAY_TIME, framing = 'watch', idPrefix, title, className }: WatchSvgProps) {
+export function WatchSvg({ parts, time = DISPLAY_TIME, framing = 'watch', viewBox, idPrefix, title, className }: WatchSvgProps) {
   const reactId = useId();
   const prefix = idPrefix ?? `w${reactId.replace(/[^a-zA-Z0-9]/g, '')}`;
   const layout = computeLayout(parts);
-  const [vx, vy, vw, vh] = viewBoxFor(layout, framing);
+  const [vx, vy, vw, vh] = viewBox ?? viewBoxFor(layout, framing);
   const ctx: RenderCtx = { layout, parts, id: (name) => `${prefix}-${name}`, time };
   const dialClip = ctx.id('dial-clip');
 

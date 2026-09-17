@@ -1,43 +1,30 @@
-import { useState } from 'react';
-import { useCatalog } from './storage/useCatalog';
-import { CatalogView } from './ui/CatalogView';
-import { GalleryView } from './ui/GalleryView';
-
-type View = 'gallery' | 'catalog';
+import { useEffect } from 'react';
+import { AppProvider } from './ui/app/AppContext';
+import { Layout } from './ui/app/Layout';
+import { Router } from './ui/app/Router';
+import { useHashRoute } from './ui/app/useHashRoute';
+import { db, useCatalog } from './storage/useCatalog';
 
 export function App() {
   const state = useCatalog();
-  const [view, setView] = useState<View>('gallery');
+  const route = useHashRoute();
 
-  if (state.status === 'loading') return <main className="app">Loading catalog…</main>;
-  if (state.status === 'error') {
-    return (
-      <main className="app">
-        <h1>Catalog failed to load</h1>
-        <pre className="error">{state.error.message}</pre>
-      </main>
-    );
-  }
+  useEffect(() => window.scrollTo(0, 0), [route.name]);
 
   return (
-    <main className="app">
-      <header className="app-header">
-        <div>
-          <h1>Mod Watch Builder</h1>
-          <p className="muted">
-            Catalog: {state.catalog.packs.map((p) => `${p.name} v${p.version}`).join(', ')}
-          </p>
+    <Layout route={route}>
+      {state.status === 'loading' && <div className="center-message muted">Loading catalog…</div>}
+      {state.status === 'error' && (
+        <div className="center-message">
+          <h2>Catalog failed to load</h2>
+          <pre className="error-text">{state.error.message}</pre>
         </div>
-        <nav className="tabs" aria-label="Views">
-          <button aria-pressed={view === 'gallery'} onClick={() => setView('gallery')}>
-            Gallery
-          </button>
-          <button aria-pressed={view === 'catalog'} onClick={() => setView('catalog')}>
-            Parts catalog
-          </button>
-        </nav>
-      </header>
-      {view === 'gallery' ? <GalleryView catalog={state.catalog} /> : <CatalogView catalog={state.catalog} />}
-    </main>
+      )}
+      {state.status === 'ready' && (
+        <AppProvider db={db} catalog={state.catalog}>
+          <Router route={route} />
+        </AppProvider>
+      )}
+    </Layout>
   );
 }
