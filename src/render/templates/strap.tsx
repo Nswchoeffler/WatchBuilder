@@ -87,7 +87,9 @@ function LinkBracelet({ props, g, rows, springY }: { props: TemplateProps<'strap
   );
 }
 
-function FabricStrap({ props, g, springY, texture }: { props: TemplateProps<'strap'>; g: StrapGeometry; springY: number; texture: 'nato' | 'rubber' | 'leather' | 'tropic' }) {
+type Texture = 'nato' | 'rubber' | 'leather' | 'tropic' | 'waffle';
+
+function FabricStrap({ props, g, springY, texture }: { props: TemplateProps<'strap'>; g: StrapGeometry; springY: number; texture: Texture }) {
   const fallback = texture === 'leather' ? '#6b4428' : texture === 'nato' ? '#1b1c1e' : '#18191b';
   const base = color(props.params, 'primary', props.part.color ?? fallback);
   const d = band(g, springY, -0.5, 0.5, g.start, g.end);
@@ -106,9 +108,15 @@ function FabricStrap({ props, g, springY, texture }: { props: TemplateProps<'str
             <circle cx={1} cy={1} r={0.32} fill="#000" opacity={0.55} />
           </pattern>
         )}
+        {texture === 'waffle' && (
+          <pattern id={pid} width={2.4} height={2.4} patternUnits="userSpaceOnUse">
+            <rect x={0.3} y={0.3} width={1.8} height={1.8} rx={0.3} fill="#fff" opacity={0.07} />
+            <rect x={0.3} y={0.3} width={1.8} height={1.8} rx={0.3} fill="none" stroke="#000" strokeWidth={0.18} opacity={0.5} />
+          </pattern>
+        )}
       </defs>
       <path d={d} fill={base} stroke={darken(base, 0.45)} strokeWidth={0.15} />
-      {(texture === 'nato' || texture === 'tropic') && <path d={d} fill={url(pid)} />}
+      {(texture === 'nato' || texture === 'tropic' || texture === 'waffle') && <path d={d} fill={url(pid)} />}
       {texture === 'rubber' &&
         range(Math.floor((g.start - g.end) / 2.2)).map((i) => {
           const y = g.start - 3 - i * 2.2;
@@ -135,7 +143,7 @@ const bracelet =
   (props, g, springY) => <LinkBracelet props={props} g={g} rows={rows} springY={springY} />;
 
 const fabric =
-  (texture: 'nato' | 'rubber' | 'leather' | 'tropic'): StrapTemplate =>
+  (texture: Texture): StrapTemplate =>
   (props, g, springY) => <FabricStrap props={props} g={g} springY={springY} texture={texture} />;
 
 export const strapDrawers: Record<string, StrapTemplate> = {
@@ -166,6 +174,7 @@ export const strapDrawers: Record<string, StrapTemplate> = {
   'strap/rubber': fabric('rubber'),
   'strap/leather': fabric('leather'),
   'strap/tropic': fabric('tropic'),
+  'strap/waffle': fabric('waffle'),
 };
 
 /** Default drawer per strap kind when the template is unknown. */

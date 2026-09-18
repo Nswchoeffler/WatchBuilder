@@ -52,9 +52,29 @@ const flutedBezel: Template<'bezel'> = ({ params, ctx }) => {
   );
 };
 
+/** Plain polished bezel with no grip and no insert seat markings. */
+const smoothBezel: Template<'bezel'> = ({ part, params, ctx }) => {
+  const { layout, id } = ctx;
+  const metal = color(params, 'metal', '#d4d7db');
+  const gid = id(`bezel-${part.id}`);
+  const inner = part.insert ? part.insert.outerDiameter / 2 - 0.25 : layout.bezelInnerRadius;
+  const outer = layout.bezelOuterRadius;
+  return (
+    <g>
+      <defs>
+        <MetalGradient id={gid} base={metal} finish="polished" r={outer} />
+      </defs>
+      <path d={annulus(inner, outer)} fill={url(gid)} fillRule="evenodd" stroke={darken(metal, 0.5)} strokeWidth={0.18} />
+      {/* A single highlight ring reads as the crown of the dome. */}
+      <circle r={f(inner + (outer - inner) * 0.55)} fill="none" stroke={lighten(metal, 0.5)} strokeWidth={0.18} opacity={0.5} />
+    </g>
+  );
+};
+
 export const bezelTemplates: Record<string, Template<'bezel'>> = {
   'bezel/coin-edge': coinEdge,
   'bezel/fluted': flutedBezel,
+  'bezel/smooth': smoothBezel,
 };
 
 // ---------------------------------------------------------------- inserts
@@ -185,9 +205,111 @@ const gmtInsert: Template<'bezelInsert'> = ({ part, params, ctx }) => {
   );
 };
 
+/** Shared shell for the plainer scales: base ring, then whatever the scale draws on it. */
+const scaleInsert =
+  (draw: (g: { inner: number; outer: number; band: number; mid: number; ink: string; lume: string | null }) => React.ReactNode): Template<'bezelInsert'> =>
+  function ScaleInsert({ part, params, ctx }) {
+    const inner = part.innerDiameter / 2;
+    const outer = part.outerDiameter / 2;
+    const primary = color(params, 'primary', '#141518');
+    const ink = color(params, 'secondary', '#e6e7e9');
+    const band = outer - inner;
+    return (
+      <g>
+        <InsertBase
+          inner={inner}
+          outer={outer}
+          sloped={part.profile === 'sloped'}
+          ceramic={choice(params, 'finish', ['ceramic', 'aluminium'], 'aluminium') === 'ceramic'}
+          gid={ctx.id(`insert-shade-${part.id}`)}
+          fill={<path d={annulus(inner, outer)} fill={primary} fillRule="evenodd" />}
+        />
+        {draw({ inner, outer, band, mid: inner + band * 0.5, ink, lume: optionalColor(params, 'lume', null) })}
+      </g>
+    );
+  };
+
+/** Units-per-hour scale: crowded near 12, opening out towards 40 seconds. */
+const TACHY_VALUES = [60, 70, 80, 90, 100, 120, 150, 200, 300, 400];
+
+// 60 units/hour falls at 12 o'clock, so the scale reads from there clockwise.
+const tachymeterInsert = scaleInsert(({ mid, outer, band, ink }) => (
+  <g>
+    <g stroke={ink} strokeLinecap="butt" opacity={0.8}>
+      {range(60).map((m) => {
+        if (m % 5 !== 0) return null;
+        const [x1, y1] = polar(outer - band * 0.3, m * 6);
+        const [x2, y2] = polar(outer - band * 0.12, m * 6);
+        return <line key={m} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} strokeWidth={0.16} />;
+      })}
+    </g>
+    {TACHY_VALUES.map((v) => (
+      <Numeral key={v} r={mid} angle={((3600 / v) * 6) % 360} size={band * 0.42} fill={ink}>
+        {String(v)}
+      </Numeral>
+    ))}
+  </g>
+));
+
+/** Count-down scale: 60 at 12, running backwards. */
+const countdownInsert = scaleInsert(({ mid, outer, band, ink, lume }) => (
+  <g>
+    <g stroke={ink} strokeLinecap="butt">
+      {range(60).map((m) => {
+        if (m % 5 === 0) return null;
+        const [x1, y1] = polar(outer - band * 0.38, m * 6);
+        const [x2, y2] = polar(outer - band * 0.12, m * 6);
+        return <line key={m} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} strokeWidth={0.16} />;
+      })}
+    </g>
+    {[55, 50, 45, 40, 35, 30, 25, 20, 15, 10, 5].map((v, i) => (
+      <Numeral key={v} r={mid} angle={(i + 1) * 30} size={band * 0.46} fill={ink}>
+        {String(v)}
+      </Numeral>
+    ))}
+    <Pip r={mid} lume={lume ?? ink} ink={ink} />
+  </g>
+));
+
+const COMPASS_POINTS: [string, number][] = [
+  ['N', 0],
+  ['NE', 45],
+  ['E', 90],
+  ['SE', 135],
+  ['S', 180],
+  ['SW', 225],
+  ['W', 270],
+  ['NW', 315],
+];
+
+const compassInsert = scaleInsert(({ mid, outer, band, ink }) => (
+  <g>
+    <g stroke={ink} strokeLinecap="butt">
+      {range(36).map((i) => {
+        const major = i % 3 === 0;
+        const [x1, y1] = polar(outer - band * (major ? 0.5 : 0.32), i * 10);
+        const [x2, y2] = polar(outer - band * 0.12, i * 10);
+        return <line key={i} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} strokeWidth={major ? 0.3 : 0.14} />;
+      })}
+    </g>
+    {COMPASS_POINTS.map(([label, angle]) => (
+      <Numeral key={label} r={mid - band * 0.08} angle={angle} size={band * (label.length > 1 ? 0.34 : 0.46)} fill={ink}>
+        {label}
+      </Numeral>
+    ))}
+  </g>
+));
+
+/** Nothing but the ring: a plain coloured or steel insert. */
+const plainInsert = scaleInsert(() => null);
+
 export const insertTemplates: Record<string, Template<'bezelInsert'>> = {
   'bezelInsert/dive': diveInsert,
   'bezelInsert/gmt': gmtInsert,
+  'bezelInsert/tachymeter': tachymeterInsert,
+  'bezelInsert/countdown': countdownInsert,
+  'bezelInsert/compass': compassInsert,
+  'bezelInsert/plain': plainInsert,
 };
 
 // ---------------------------------------------------------------- chapter rings

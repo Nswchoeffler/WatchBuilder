@@ -1,4 +1,8 @@
-import { AT_3, tpl, type SeedPart } from './helpers';
+import { AT_3, tpl, variantOf, type SeedPart } from './helpers';
+
+/** Insert seats already modelled on the Diver 42 / Sub-style 40 bezels. */
+const SLOPED_SEAT = { outerDiameter: 38.0, innerDiameter: 30.6, profile: 'sloped' } as const;
+const FLAT_SEAT = { outerDiameter: 38.0, innerDiameter: 31.5, profile: 'flat' } as const;
 
 export const chapterRings: SeedPart<'chapterRing'>[] = [
   {
@@ -44,6 +48,28 @@ export const chapterRings: SeedPart<'chapterRing'>[] = [
     innerDiameter: 26.5,
     height: 1.5,
     visual: tpl('chapterRing/plain', { color: '#d4d7db' }),
+  },
+  {
+    type: 'chapterRing',
+    id: 'cr-diver42-blue',
+    name: 'Diver 42 Ring, Blue',
+    confidence: 'verified',
+    notes: variantOf('cr-diver42-silver'),
+    outerDiameter: 30.5,
+    innerDiameter: 27.5,
+    height: 2.3,
+    visual: tpl('chapterRing/minutes', { color: '#17305c', marks: '#e6e7e9' }),
+  },
+  {
+    type: 'chapterRing',
+    id: 'cr-diver42-plain-black',
+    name: 'Diver 42 Ring, Plain Black',
+    confidence: 'verified',
+    notes: variantOf('cr-diver42-silver', 'the unmarked face and colour'),
+    outerDiameter: 30.5,
+    innerDiameter: 27.5,
+    height: 2.3,
+    visual: tpl('chapterRing/plain', { color: '#141518' }),
   },
 ];
 
@@ -97,6 +123,28 @@ export const bezels: SeedPart<'bezel'>[] = [
     action: 'fixed',
     insert: null,
     visual: tpl('bezel/fluted', { metal: '#e1e3e6' }),
+  },
+  {
+    type: 'bezel',
+    id: 'bz-diver42-smooth',
+    name: 'Diver 42 Bezel (smooth, no insert)',
+    confidence: 'community',
+    notes: variantOf('bz-diver42-sloped', 'the smooth profile and deleted insert seat'),
+    seat: 'diver42',
+    action: 'fixed',
+    insert: null,
+    visual: tpl('bezel/smooth', { metal: '#d4d7db' }),
+  },
+  {
+    type: 'bezel',
+    id: 'bz-sub40-smooth',
+    name: 'Sub-style 40 Bezel (smooth, no insert)',
+    confidence: 'unverified',
+    notes: variantOf('bz-sub40', 'the smooth profile and deleted insert seat'),
+    seat: 'sub40',
+    action: 'fixed',
+    insert: null,
+    visual: tpl('bezel/smooth', { metal: '#d4d7db' }),
   },
 ];
 
@@ -155,6 +203,89 @@ export const bezelInserts: SeedPart<'bezelInsert'>[] = [
     profile: 'sloped',
     scale: 'gmt-24',
     visual: tpl('bezelInsert/gmt', { primary: '#0c0c0d', secondary: '#1d3a78', accent: '#d9d9d9', finish: 'ceramic' }),
+  },
+
+  // ── More scales and colours on the two insert seats already modelled ──────
+
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-dive-green',
+    name: 'Diver 42 Dive Insert, Green',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-dive-black'),
+    ...SLOPED_SEAT,
+    scale: 'dive-60',
+    visual: tpl('bezelInsert/dive', { primary: '#123b2c', secondary: '#e6e7e9' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-dive-grey-ceramic',
+    name: 'Diver 42 Ceramic Insert, Grey',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-dive-black', 'the ceramic finish and colour'),
+    ...SLOPED_SEAT,
+    scale: 'dive-60',
+    visual: tpl('bezelInsert/dive', { primary: '#3b3f45', secondary: '#e6e7e9', finish: 'ceramic' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-gmt-black-grey',
+    name: 'Diver 42 GMT Insert, Black/Grey',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-gmt-pepsi'),
+    ...FLAT_SEAT,
+    scale: 'gmt-24',
+    visual: tpl('bezelInsert/gmt', { primary: '#4a4e55', secondary: '#141518', accent: '#e6e7e9' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-tachy-silver',
+    name: 'Diver 42 Tachymeter Insert, Silver',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-gmt-pepsi', 'the tachymeter scale and colour'),
+    ...FLAT_SEAT,
+    scale: 'tachymeter',
+    visual: tpl('bezelInsert/tachymeter', { primary: '#d4d7db', secondary: '#16171a' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-countdown-black',
+    name: 'Diver 42 Countdown Insert, Black',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-dive-black', 'the countdown scale'),
+    ...SLOPED_SEAT,
+    scale: 'countdown',
+    visual: tpl('bezelInsert/countdown', { primary: '#141518', secondary: '#e6e7e9' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-compass-black',
+    name: 'Diver 42 Compass Insert, Black',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-dive-black', 'the compass scale'),
+    ...SLOPED_SEAT,
+    scale: 'compass',
+    visual: tpl('bezelInsert/compass', { primary: '#16171a', secondary: '#e0c67a' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver42-plain-steel',
+    name: 'Diver 42 Plain Insert, Steel',
+    confidence: 'verified',
+    notes: variantOf('in-diver42-dive-black', 'the unmarked face and colour'),
+    ...SLOPED_SEAT,
+    scale: 'plain',
+    visual: tpl('bezelInsert/plain', { primary: '#c9ccd1' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-sub40-dive-green',
+    name: 'Sub-style 40 Ceramic Insert, Green',
+    confidence: 'unverified',
+    notes: variantOf('in-sub40-ceramic-black'),
+    ...SLOPED_SEAT,
+    scale: 'dive-60',
+    visual: tpl('bezelInsert/dive', { primary: '#0d3a25', secondary: '#d9d9d9', finish: 'ceramic' }),
   },
 ];
 
@@ -219,6 +350,58 @@ export const crystals: SeedPart<'crystal'>[] = [
     arCoating: 'clear',
     visual: tpl('crystal/flat'),
   },
+  {
+    type: 'crystal',
+    id: 'cy-diver42-single-dome',
+    name: 'Diver 42 Sapphire, Single Dome',
+    confidence: 'verified',
+    notes: variantOf('cy-diver42-dd', 'the dome profile and coating'),
+    diameter: 31.5,
+    thickness: 3.8,
+    shape: 'single-dome',
+    magnifier: null,
+    arCoating: 'blue',
+    visual: tpl('crystal/dome'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-diver42-magnifier',
+    name: 'Diver 42 Sapphire, Date Magnifier',
+    confidence: 'verified',
+    notes: variantOf('cy-diver42-flat', 'the added magnifier'),
+    diameter: 31.5,
+    thickness: 3.0,
+    shape: 'flat',
+    magnifier: AT_3,
+    arCoating: 'clear',
+    visual: tpl('crystal/flat'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-sub40-dd',
+    name: 'Sub-style 40 Sapphire, Double Dome',
+    confidence: 'unverified',
+    notes: variantOf('cy-sub40-magnifier', 'the dome profile and deleted magnifier'),
+    diameter: 31.0,
+    thickness: 4.5,
+    shape: 'double-dome',
+    magnifier: null,
+    arCoating: 'blue',
+    visual: tpl('crystal/dome'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-octagon41-dd',
+    name: 'Octagon 41 Sapphire, Double Dome',
+    confidence: 'unverified',
+    notes: variantOf('cy-octagon41-flat', 'the dome profile'),
+    diameter: 32.0,
+    thickness: 3.5,
+    shape: 'double-dome',
+    magnifier: null,
+    arCoating: 'clear',
+    visual: tpl('crystal/dome'),
+  },
 ];
 
 export const crowns: SeedPart<'crown'>[] = [
@@ -226,6 +409,10 @@ export const crowns: SeedPart<'crown'>[] = [
   { type: 'crown', id: 'cw-sub40', name: 'Sub-style 40 Crown', confidence: 'unverified', tube: 'sub40', diameter: 7.0, signed: false, visual: tpl('crown/knurled', { metal: '#d4d7db' }) },
   { type: 'crown', id: 'cw-fluted36', name: 'Fluted Classic Crown', confidence: 'unverified', tube: 'fluted36', diameter: 5.5, signed: false, visual: tpl('crown/fluted', { metal: '#e1e3e6' }) },
   { type: 'crown', id: 'cw-octagon41', name: 'Octagon 41 Crown', confidence: 'unverified', tube: 'octagon41', diameter: 6.0, signed: false, visual: tpl('crown/hex-guard', { metal: '#c9ccd1' }) },
+  // Same tubes and diameters as above; signing and plating are cosmetic.
+  { type: 'crown', id: 'cw-diver42-signed', name: 'Diver 42 Crown, Signed', confidence: 'unverified', notes: variantOf('cw-diver42', 'the signed face'), tube: 'diver42', diameter: 6.5, signed: true, visual: tpl('crown/knurled', { metal: '#c9ccd1' }) },
+  { type: 'crown', id: 'cw-diver42-gold', name: 'Diver 42 Crown, Gold', confidence: 'unverified', notes: variantOf('cw-diver42', 'the plating colour'), tube: 'diver42', diameter: 6.5, signed: false, visual: tpl('crown/knurled', { metal: '#d9b06a' }) },
+  { type: 'crown', id: 'cw-sub40-signed', name: 'Sub-style 40 Crown, Signed', confidence: 'unverified', notes: variantOf('cw-sub40', 'the signed face'), tube: 'sub40', diameter: 7.0, signed: true, visual: tpl('crown/knurled', { metal: '#d4d7db' }) },
 ];
 
 export const straps: SeedPart<'strap'>[] = [
@@ -235,4 +422,20 @@ export const straps: SeedPart<'strap'>[] = [
   { type: 'strap', id: 'st-oyster-20', name: 'Oyster 20', confidence: 'community', kind: 'oyster', width: 20, visual: tpl('strap/oyster', { metal: '#d4d7db' }) },
   { type: 'strap', id: 'st-jubilee-20', name: 'Jubilee 20', confidence: 'community', kind: 'jubilee', width: 20, visual: tpl('strap/jubilee', { metal: '#d4d7db' }) },
   { type: 'strap', id: 'st-octagon41-bracelet', name: 'Octagon 41 Integrated Bracelet', confidence: 'community', kind: 'integrated', width: null, integratedProfile: 'octagon41', visual: tpl('strap/integrated-octagon', { metal: '#c9ccd1' }) },
+
+  // ── More kinds and colours at the two widths already modelled ─────────────
+  // Strap width is the only measurement fitment uses, and 20mm and 22mm are both above.
+
+  { type: 'strap', id: 'st-nato-22-green', name: 'NATO 22, Green', confidence: 'verified', notes: variantOf('st-nato-22-black'), kind: 'nato', width: 22, color: '#3d4a2a', visual: tpl('strap/nato', { primary: '#3d4a2a' }) },
+  { type: 'strap', id: 'st-nato-22-grey', name: 'NATO 22, Grey', confidence: 'verified', notes: variantOf('st-nato-22-black'), kind: 'nato', width: 22, color: '#5a5e66', visual: tpl('strap/nato', { primary: '#5a5e66' }) },
+  { type: 'strap', id: 'st-nato-20-black', name: 'NATO 20, Black', confidence: 'verified', notes: variantOf('st-nato-22-black', 'the width'), kind: 'nato', width: 20, color: '#1b1c1e', visual: tpl('strap/nato', { primary: '#1b1c1e' }) },
+  { type: 'strap', id: 'st-waffle-22-black', name: 'Waffle Rubber 22, Black', confidence: 'community', notes: variantOf('st-nato-22-black', 'the moulded rubber texture'), kind: 'rubber', width: 22, color: '#18191b', visual: tpl('strap/waffle', { primary: '#18191b' }) },
+  { type: 'strap', id: 'st-waffle-20-blue', name: 'Waffle Rubber 20, Blue', confidence: 'community', notes: variantOf('st-nato-22-black', 'the moulded rubber texture and width'), kind: 'rubber', width: 20, color: '#1d3a78', visual: tpl('strap/waffle', { primary: '#1d3a78' }) },
+  { type: 'strap', id: 'st-rubber-22-black', name: 'Ribbed Rubber 22, Black', confidence: 'community', notes: variantOf('st-nato-22-black', 'the moulded rubber texture'), kind: 'rubber', width: 22, color: '#18191b', visual: tpl('strap/rubber', { primary: '#18191b' }) },
+  { type: 'strap', id: 'st-tropic-22-black', name: 'Tropic 22, Black', confidence: 'community', notes: variantOf('st-nato-22-black', 'the moulded rubber texture'), kind: 'tropic', width: 22, color: '#18191b', visual: tpl('strap/tropic', { primary: '#18191b' }) },
+  { type: 'strap', id: 'st-leather-22-black', name: 'Leather 22, Black', confidence: 'community', notes: variantOf('st-nato-22-black', 'the material and stitching'), kind: 'leather', width: 22, color: '#241f1c', visual: tpl('strap/leather', { primary: '#241f1c' }) },
+  { type: 'strap', id: 'st-leather-20-brown', name: 'Leather 20, Brown', confidence: 'community', notes: variantOf('st-nato-22-black', 'the material, stitching and width'), kind: 'leather', width: 20, color: '#6b4428', visual: tpl('strap/leather', { primary: '#6b4428' }) },
+  { type: 'strap', id: 'st-mesh-22', name: 'Mesh 22', confidence: 'community', notes: variantOf('st-oyster-22-diver42', 'the weave'), kind: 'mesh', width: 22, visual: tpl('strap/mesh', { metal: '#c9ccd1' }) },
+  { type: 'strap', id: 'st-mesh-20', name: 'Mesh 20', confidence: 'community', notes: variantOf('st-oyster-20', 'the weave'), kind: 'mesh', width: 20, visual: tpl('strap/mesh', { metal: '#d4d7db' }) },
+  { type: 'strap', id: 'st-president-20', name: 'President 20', confidence: 'community', notes: variantOf('st-jubilee-20', 'the link pattern'), kind: 'president', width: 20, visual: tpl('strap/president', { metal: '#d4d7db' }) },
 ];

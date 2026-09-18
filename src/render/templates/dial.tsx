@@ -6,11 +6,11 @@ import { DropShadow, url, type Template, type TemplateProps } from './common';
 // Parametric dial generator. Everything is derived from the dial diameter and window positions,
 // so a 28.5mm diver dial and a 30.8mm tapisserie dial share the same code.
 
-type Finish = 'matte' | 'gloss' | 'sunburst' | 'tapisserie';
-type Markers = 'dots-bars' | 'mercedes-classic' | 'batons' | 'roman' | 'arabic';
+type Finish = 'matte' | 'gloss' | 'sunburst' | 'tapisserie' | 'fume';
+type Markers = 'dots-bars' | 'mercedes-classic' | 'batons' | 'roman' | 'arabic' | 'explorer' | 'california' | 'sector' | 'pilot';
 
-const FINISHES = ['matte', 'gloss', 'sunburst', 'tapisserie'] as const;
-const MARKERS = ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic'] as const;
+const FINISHES = ['matte', 'gloss', 'sunburst', 'tapisserie', 'fume'] as const;
+const MARKERS = ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot'] as const;
 
 /** Radius (as a fraction of dial radius) where date/day windows sit. */
 export const DATE_RADIUS = 0.76;
@@ -70,6 +70,23 @@ function Finish({ r, base, finish, id }: { r: number; base: string; finish: Fini
     );
   }
 
+  // Fumé: bright at the centre, smoked almost to black at the rim.
+  if (finish === 'fume') {
+    const fume = id('dial-fume');
+    layers.push(
+      <g key="fume">
+        <defs>
+          <radialGradient id={fume} gradientUnits="userSpaceOnUse" cx={0} cy={0} r={r}>
+            <stop offset={0} stopColor={lighten(base, 0.3)} />
+            <stop offset={0.45} stopColor={base} />
+            <stop offset={1} stopColor={darken(base, 0.78)} />
+          </radialGradient>
+        </defs>
+        <circle r={r} fill={url(fume)} />
+      </g>,
+    );
+  }
+
   layers.push(
     <g key="vignette">
       <defs>
@@ -77,7 +94,7 @@ function Finish({ r, base, finish, id }: { r: number; base: string; finish: Fini
         <radialGradient id={vignette} gradientUnits="userSpaceOnUse" cx={0} cy={0} r={r}>
           <stop offset={0} stopColor="#fff" stopOpacity={finish === 'gloss' ? 0.14 : 0.04} />
           <stop offset={0.7} stopColor="#000" stopOpacity={0} />
-          <stop offset={1} stopColor="#000" stopOpacity={finish === 'matte' ? 0.28 : 0.2} />
+          <stop offset={1} stopColor="#000" stopOpacity={finish === 'matte' ? 0.28 : finish === 'fume' ? 0 : 0.2} />
         </radialGradient>
       </defs>
       <circle r={r} fill={url(vignette)} />
@@ -180,6 +197,129 @@ function Numerals({ r, ink, lume, blocked, style }: MarkerStyle & { style: 'roma
           </text>
         );
       })}
+    </g>
+  );
+}
+
+/** 3-6-9 arabics with batons elsewhere and a triangle at 12. */
+function Explorer({ r, lume, metal, ink, blocked }: MarkerStyle) {
+  const w = r * 0.07;
+  return (
+    <g>
+      <LumePlot lume={lume} metal={metal} width={0.18}>
+        {() =>
+          range(12)
+            .filter((h) => h === 0 && !isBlocked(0, blocked))
+            .map((h) => <Triangle12 key={h} r={r} inner={0.66} outer={0.92} base={r * 0.22} />)
+        }
+      </LumePlot>
+      <g fontFamily={FONT} textAnchor="middle" dominantBaseline="central">
+        {range(12).map((h) => {
+          const angle = h * 30;
+          if (h === 0 || isBlocked(angle, blocked)) return null;
+          if (h % 3 === 0) {
+            const [x, y] = polar(r * 0.75, angle);
+            return (
+              <text key={h} x={f(x)} y={f(y)} fontSize={f(r * 0.22)} fontWeight={700} fill={lume ?? ink} stroke={darken(lume ?? ink, 0.55)} strokeWidth={0.08}>
+                {String(h)}
+              </text>
+            );
+          }
+          return (
+            <g key={h} transform={`rotate(${f(angle)})`}>
+              <rect x={f(-w / 2)} y={f(-r * 0.9)} width={f(w)} height={f(r * 0.17)} rx={0.08} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.07} />
+              {lume && <rect x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.13)} fill={lume} />}
+            </g>
+          );
+        })}
+      </g>
+    </g>
+  );
+}
+
+/** Roman numerals on the top half, arabics on the bottom, batons on the quarters between. */
+function California({ r, lume, metal, ink, blocked }: MarkerStyle) {
+  const w = r * 0.075;
+  return (
+    <g fontFamily={FONT} textAnchor="middle" dominantBaseline="central">
+      {range(12).map((h) => {
+        const angle = h * 30;
+        if (isBlocked(angle, blocked)) return null;
+        // 11–1 o'clock and 5–7 o'clock read as the two halves; 3 and 9 stay batons.
+        const roman = h === 0 || h === 1 || h === 2 || h === 10 || h === 11;
+        const arabic = h >= 4 && h <= 8;
+        if (!roman && !arabic) {
+          return (
+            <g key={h} transform={`rotate(${f(angle)})`}>
+              <rect x={f(-w / 2)} y={f(-r * 0.9)} width={f(w)} height={f(r * 0.2)} rx={0.1} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.08} />
+              {lume && <rect x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.16)} fill={lume} />}
+            </g>
+          );
+        }
+        const label = roman ? ROMAN[h]! : String(h);
+        const [x, y] = polar(r * (roman ? 0.76 : 0.74), angle);
+        return (
+          <text key={h} x={f(x)} y={f(y)} fontSize={f(r * (roman ? 0.14 : 0.2))} fontWeight={roman ? 400 : 700} fill={ink}>
+            {label}
+          </text>
+        );
+      })}
+    </g>
+  );
+}
+
+/** Concentric sector rings with slim printed batons — a two-tone, instrument-dial look. */
+function Sector({ r, lume, ink, blocked }: MarkerStyle) {
+  return (
+    <g>
+      <g fill="none" stroke={ink} opacity={0.55}>
+        <circle r={f(r * 0.66)} strokeWidth={0.1} />
+        <circle r={f(r * 0.34)} strokeWidth={0.1} />
+      </g>
+      <g stroke={ink}>
+        {range(12).map((h) => {
+          const angle = h * 30;
+          if (isBlocked(angle, blocked)) return null;
+          const long = h % 3 === 0;
+          const [x1, y1] = polar(r * 0.66, angle);
+          const [x2, y2] = polar(r * (long ? 0.88 : 0.8), angle);
+          return <line key={h} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} strokeWidth={f(r * (long ? 0.05 : 0.025))} strokeLinecap="butt" />;
+        })}
+      </g>
+      {lume && (
+        <g fill={lume}>
+          {range(12).map((h) => {
+            const angle = h * 30;
+            if (h % 3 !== 0 || isBlocked(angle, blocked)) return null;
+            const [x, y] = polar(r * 0.84, angle);
+            return <circle key={h} cx={f(x)} cy={f(y)} r={f(r * 0.03)} />;
+          })}
+        </g>
+      )}
+    </g>
+  );
+}
+
+/** Full set of large arabics with a triangle at 12: the flieger layout. */
+function Pilot({ r, lume, metal, ink, blocked }: MarkerStyle) {
+  const fill = lume ?? ink;
+  return (
+    <g>
+      <LumePlot lume={lume} metal={metal} width={0.16}>
+        {() => (isBlocked(0, blocked) ? null : <Triangle12 r={r} inner={0.62} outer={0.9} base={r * 0.2} />)}
+      </LumePlot>
+      <g fontFamily={FONT} textAnchor="middle" dominantBaseline="central" fill={fill}>
+        {range(12).map((h) => {
+          const angle = h * 30;
+          if (h === 0 || isBlocked(angle, blocked)) return null;
+          const [x, y] = polar(r * 0.72, angle);
+          return (
+            <text key={h} x={f(x)} y={f(y)} fontSize={f(r * 0.21)} fontWeight={700}>
+              {String(h)}
+            </text>
+          );
+        })}
+      </g>
     </g>
   );
 }
@@ -343,6 +483,10 @@ const generatedDial: Template<'dial'> = ({ part, params, ctx }: TemplateProps<'d
         {(s.markers === 'dots-bars' || s.markers === 'mercedes-classic') && <DotsBars {...marker} mercedes={s.markers === 'mercedes-classic'} />}
         {s.markers === 'batons' && <Batons {...marker} />}
         {(s.markers === 'roman' || s.markers === 'arabic') && <Numerals {...marker} style={s.markers} />}
+        {s.markers === 'explorer' && <Explorer {...marker} />}
+        {s.markers === 'california' && <California {...marker} />}
+        {s.markers === 'sector' && <Sector {...marker} />}
+        {s.markers === 'pilot' && <Pilot {...marker} />}
         <DateWindow dial={part} r={r} opts={{ date: 17, day: 'SUN', wheel: s.wheel, metal: s.metal }} />
       </g>
       <OpenHeart dial={part} r={r} metal={s.metal} id={(n) => ctx.id(`${n}-${part.id}`)} />
@@ -357,5 +501,10 @@ export const dialTemplates: Record<string, Template<'dial'>> = {
   'dial/gmt': generatedDial,
   'dial/tapisserie': generatedDial,
   'dial/field': generatedDial,
+  'dial/explorer': generatedDial,
+  'dial/california': generatedDial,
+  'dial/sector': generatedDial,
+  'dial/pilot': generatedDial,
+  'dial/fume': generatedDial,
   'dial/generated': generatedDial,
 };

@@ -70,4 +70,39 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
       strap: 'st-nato-22-black',
     },
   },
+  {
+    id: 'explorer-snowflake',
+    name: 'Explorer 3-6-9 on Waffle',
+    slots: {
+      case: 'cs-diver42-38', movement: 'mv-nh35', dial: 'dl-explorer-black', hands: 'hd-nh-snowflake', bezel: 'bz-diver42-smooth',
+      chapterRing: 'cr-diver42-plain-black', crystal: 'cy-diver42-single-dome', crown: 'cw-diver42-signed',
+      strap: 'st-waffle-22-black',
+    },
+  },
+  {
+    id: 'pilot-tachymeter',
+    name: 'Pilot Type B, Tachymeter',
+    slots: {
+      case: 'cs-diver42-38', movement: 'mv-nh38', dial: 'dl-pilot-black', hands: 'hd-nh-cathedral', bezel: 'bz-diver42-flat',
+      bezelInsert: 'in-diver42-tachy-silver', chapterRing: 'cr-diver42-blue', crystal: 'cy-diver42-flat', crown: 'cw-diver42-gold',
+      strap: 'st-leather-22-black',
+    },
+  },
+  {
+    id: 'fume-sector',
+    name: 'Fumé Blue on Mesh',
+    slots: {
+      case: 'cs-fluted36', movement: 'mv-nh35', dial: 'dl-fume-blue', hands: 'hd-nh-syringe', bezel: 'bz-fluted36',
+      chapterRing: 'cr-mid-thin-silver', crystal: 'cy-fluted36-flat', crown: 'cw-fluted36', strap: 'st-mesh-20',
+    },
+  },
+  {
+    id: 'california-compass',
+    name: 'California Dial, Compass Bezel',
+    slots: {
+      case: 'cs-diver42-30', movement: 'mv-nh38', dial: 'dl-california-black', hands: 'hd-nh-plongeur', bezel: 'bz-diver42-sloped',
+      bezelInsert: 'in-diver42-compass-black', chapterRing: 'cr-diver42-silver', crystal: 'cy-diver42-dd', crown: 'cw-diver42',
+      strap: 'st-tropic-22-black',
+    },
+  },
 ];

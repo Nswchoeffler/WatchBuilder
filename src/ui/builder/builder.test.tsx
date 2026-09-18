@@ -59,8 +59,11 @@ describe('PartPicker', () => {
 
   it('filters by search text', () => {
     render(<PartPicker slot="dial" build={build} catalog={catalog} onPick={() => {}} onPreview={() => {}} />);
-    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'DIVER B' } });
-    expect(options()).toEqual(['Diver Black']);
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'DIVER BLUE' } });
+    expect(options()).toEqual(['Diver Blue']);
+
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'explorer' } });
+    expect(options()).toEqual(['Explorer-style Black 3-6-9', 'Explorer-style White 3-6-9']);
   });
 });
 

@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-18. Phases 0–3 done; Phase 4 built, awaiting browser check; Phase 5.1 (part editor) built._
+_Last updated 2026-09-18. Phases 0–3 done; Phase 4 built, awaiting browser check; Phase 5.1 (part editor) built; Phase 6.2 variant pass done (112 parts)._
 
 ## 1. Context
 
@@ -27,7 +27,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 ## 2. Current state (Phase 4 built, Phase 5.1 built)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (280 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (346 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Not verified in a real browser by the assistant:** the Phase 4 screens and PNG export (tests run in jsdom; watch drawings reviewed via resvg previews).
 
@@ -215,6 +215,24 @@ no browser check yet.
 - Add `npm run catalog:report`: lists unverified parts/fields and parts that can't form any valid build.
 
 ### 6.2 More parts & styles
+
+**Variant pass done (2026-09-18):** catalog 58 → 112 parts. Every part added inherits its measurements from one
+already researched — the NH 28.5mm dial geometry, the NH hand holes, the two Diver 42 insert seats, the 20/22mm strap
+widths — and only the appearance differs. Each carries a `notes` line naming the part its measurements came from, so the
+confidence label keeps meaning "how sure are we of the measurements". **No new platform was invented**: new cases and
+movements wait for real measurements (see 6.1 and the decision below).
+
+New drawing templates: hands snowflake / cathedral / plongeur / syringe / arrow; dial markers explorer 3-6-9 /
+california / sector / pilot, plus a fumé finish; the four insert scales the schema already allowed but nothing could
+draw (tachymeter, countdown, compass, plain); a smooth bezel; a waffle rubber strap. Four sample builds added so
+previews exercise them.
+
+By type: dial 8→24, hands 6→13, bezelInsert 5→13, strap 6→18, crystal 5→9, bezel 5→7, crown 4→7, chapterRing 4→6.
+Movements and cases unchanged at 9 and 6.
+
+**Measurement sourcing decision:** genuinely new parts are measured by the user (calipers or listings) and modelled from
+what they supply. Nothing is estimated into the catalog.
+
 - **Movements:** NH39, NH70/NH72 (skeleton/open-worked), Miyota 9039, SW200 variants; `feetSystem` angle data once measured.
 - **Cases (templates + reference products):** Turtle-style cushion, Tuna-style shroud, Samurai-style angular, SKX013-style 38mm, field/pilot, Explorer-style 36/39, Nautilus-style integrated.
 - **Dials:** Explorer 3-6-9, pilot type A/B, California, sector, fumé gradient, guilloché; open-worked dials for skeleton movements; dial logo/text controls.

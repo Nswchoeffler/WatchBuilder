@@ -173,7 +173,8 @@ describe('candidatesFor', () => {
 
   it('grades every dial against the rest of the build, with reasons', () => {
     const dials = byId(candidatesFor('dial', build(T1_NO_DIAL), coreCatalog));
-    expect(Object.keys(dials)).toHaveLength(8);
+    // Every dial in the catalog is graded, not just the ones that fit.
+    expect(Object.keys(dials)).toHaveLength(coreCatalog.list('dial').length);
     expect(dials['dl-diver-black']?.compatibility).toBe('compatible');
     expect(dials['dl-sub-black']?.compatibility).toBe('incompatible');
     expect(dials['dl-sub-black']?.results.map((r) => r.ruleId)).toEqual(['R-CD-1']);

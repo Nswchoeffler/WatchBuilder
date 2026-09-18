@@ -34,10 +34,21 @@ const INSERT_FINISH: ParamSpec = { key: 'finish', label: 'Material', kind: 'choi
 
 const metal = (fallback: string): ParamSpec[] => [color('metal', 'Metal', fallback)];
 
+const FABRIC_STRAPS = new Set(['strap/nato', 'strap/rubber', 'strap/leather', 'strap/tropic', 'strap/waffle']);
+
+/** The plainer insert scales all take a base colour and an ink. */
+const SCALE_PARAMS: ParamSpec[] = [color('primary', 'Insert colour', '#141518'), color('secondary', 'Markings', '#e6e7e9'), INSERT_FINISH];
+
 const DIAL_PARAMS: ParamSpec[] = [
   color('color', 'Dial colour', '#141518'),
-  { key: 'finish', label: 'Finish', kind: 'choice', choices: ['matte', 'gloss', 'sunburst', 'tapisserie'], fallback: 'matte' },
-  { key: 'markers', label: 'Markers', kind: 'choice', choices: ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic'], fallback: 'dots-bars' },
+  { key: 'finish', label: 'Finish', kind: 'choice', choices: ['matte', 'gloss', 'sunburst', 'tapisserie', 'fume'], fallback: 'matte' },
+  {
+    key: 'markers',
+    label: 'Markers',
+    kind: 'choice',
+    choices: ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot'],
+    fallback: 'dots-bars',
+  },
   color('lume', 'Lume', '#e8f0d8', { nullable: true }),
   color('metal', 'Marker metal', '#dcdde0'),
   color('ink', 'Text & marker ink', '#f2f2ef', { hint: 'Leave blank to pick automatically from the dial colour.' }),
@@ -70,7 +81,7 @@ export const TEMPLATE_CATALOG: Record<PartType, readonly TemplateInfo[]> = {
     info('chapterRing/minutes', [color('color', 'Ring colour', '#c9ccd1'), color('marks', 'Markings', '#141518')]),
     info('chapterRing/plain', [color('color', 'Ring colour', '#d4d7db')]),
   ],
-  bezel: Object.keys(bezelTemplates).map((id) => info(id, metal(id === 'bezel/fluted' ? '#e1e3e6' : '#c9ccd1'))),
+  bezel: Object.keys(bezelTemplates).map((id) => info(id, metal(id === 'bezel/fluted' ? '#e1e3e6' : id === 'bezel/smooth' ? '#d4d7db' : '#c9ccd1'))),
   bezelInsert: [
     info('bezelInsert/dive', [
       color('primary', 'Insert colour', '#141518'),
@@ -84,13 +95,16 @@ export const TEMPLATE_CATALOG: Record<PartType, readonly TemplateInfo[]> = {
       color('accent', 'Numerals', '#e6e7e9'),
       INSERT_FINISH,
     ]),
+    info('bezelInsert/tachymeter', SCALE_PARAMS),
+    info('bezelInsert/countdown', [...SCALE_PARAMS, color('lume', 'Pip lume', '#e8f0d8', { nullable: true })]),
+    info('bezelInsert/compass', SCALE_PARAMS),
+    info('bezelInsert/plain', [color('primary', 'Insert colour', '#c9ccd1'), INSERT_FINISH]),
   ],
   crystal: [info('crystal/flat', []), info('crystal/dome', [])],
   crown: Object.keys(crownTemplates).map((id) => info(id, metal(id === 'crown/fluted' ? '#e1e3e6' : '#c9ccd1'))),
+  // Bracelets take a metal; anything woven, moulded or stitched takes a strap colour.
   strap: Object.keys(strapDrawers).map((id) =>
-    info(id, id === 'strap/nato' || id === 'strap/rubber' || id === 'strap/leather' || id === 'strap/tropic'
-      ? [color('primary', 'Strap colour', '#1b1c1e')]
-      : metal('#c9ccd1')),
+    info(id, FABRIC_STRAPS.has(id) ? [color('primary', 'Strap colour', '#1b1c1e')] : metal('#c9ccd1')),
   ),
 };
 

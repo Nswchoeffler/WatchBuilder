@@ -1,4 +1,4 @@
-import { tpl, type SeedPart } from './helpers';
+import { tpl, variantOf, type SeedPart } from './helpers';
 
 const NH_HOLES = { hour: 1.5, minute: 0.9, seconds: 0.2 } as const;
 /** Lengths sized for a 28.5mm dial. Cosmetic only (R-HD-1 warning). */
@@ -58,5 +58,79 @@ export const hands: SeedPart<'hands'>[] = [
     holes: { hour: 1.2, minute: 0.7, seconds: 0.17 },
     lengths: LEN_28,
     visual: tpl('hands/pencil', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e39b2d' }),
+  },
+
+  // ── Style variants on the NH hole sizes ───────────────────────────────────
+  // Same holes and lengths as the verified NH sets above; only the shape differs.
+
+  {
+    type: 'hands',
+    id: 'hd-nh-snowflake',
+    name: 'Snowflake (NH)',
+    confidence: 'community',
+    notes: variantOf('hd-nh-sword', 'the hand shape'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/snowflake', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#c8302c' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-cathedral',
+    name: 'Cathedral (NH)',
+    confidence: 'community',
+    notes: variantOf('hd-nh-sword', 'the hand shape'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/cathedral', { metal: '#d9b06a', lume: '#e8dfc0', accent: '#d9b06a' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-plongeur',
+    name: 'Plongeur (NH)',
+    confidence: 'community',
+    notes: variantOf('hd-nh-sword', 'the hand shape'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/plongeur', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-syringe',
+    name: 'Syringe (NH)',
+    confidence: 'community',
+    notes: variantOf('hd-nh-sword', 'the hand shape'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/syringe', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-arrow',
+    name: 'Arrow (NH)',
+    confidence: 'community',
+    notes: variantOf('hd-nh-sword', 'the hand shape'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/arrow', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e39b2d' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-sword-gold',
+    name: 'Sword Gold (NH)',
+    confidence: 'verified',
+    notes: variantOf('hd-nh-sword', 'the plating colour'),
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    visual: tpl('hands/sword', { metal: '#d9b06a', lume: '#e8dfc0', accent: '#d9b06a' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh34-gmt-arrow',
+    name: 'GMT Arrow (NH34)',
+    confidence: 'community',
+    notes: variantOf('hd-nh34-gmt', 'the hand shape'),
+    holes: { ...NH_HOLES, gmt: 2.2 },
+    lengths: { ...LEN_28, gmt: 12.5 },
+    visual: tpl('hands/arrow', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#3d7dd6' }),
   },
 ];

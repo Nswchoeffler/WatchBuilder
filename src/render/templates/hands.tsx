@@ -88,7 +88,91 @@ const pencil: Shape = (L, c, kind) => {
   );
 };
 
-const SHAPES: Record<string, Shape> = { sword, mercedes, baton, dauphine, pencil };
+/** Faceted, squared-off hands with a large lume field. */
+const snowflake: Shape = (L, c, kind) => {
+  const w = kind === 'hour' ? 1.15 : 0.72;
+  const outline = mirrored([[0.42, 1.2], [0.42, -L * 0.3], [w, -L * 0.46], [w, -L * 0.7], [0, -L]]);
+  const inlay = mirrored([[0.16, -L * 0.34], [w - 0.3, -L * 0.48], [w - 0.3, -L * 0.68], [0, -L + 1.0]]);
+  return (
+    <>
+      <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+      {c.lume && <polygon points={inlay} fill={c.lume} />}
+    </>
+  );
+};
+
+/** Long stem that swells to a leaf before tapering, with the lume split either side of the waist. */
+const cathedral: Shape = (L, c, kind) => {
+  const w = kind === 'hour' ? 0.92 : 0.7;
+  const outline = mirrored([
+    [0.38, 1.2],
+    [0.38, -L * 0.2],
+    [w, -L * 0.36],
+    [w * 0.6, -L * 0.56],
+    [w * 0.9, -L * 0.74],
+    [0, -L],
+  ]);
+  const lobe = mirrored([[0.14, -L * 0.24], [w - 0.3, -L * 0.37], [w * 0.5 - 0.1, -L * 0.55], [0, -L * 0.52]]);
+  const tip = mirrored([[0.14, -L * 0.6], [w * 0.62, -L * 0.73], [0, -L + 0.9]]);
+  return (
+    <>
+      <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+      {c.lume && (
+        <>
+          <polygon points={lobe} fill={c.lume} />
+          <polygon points={tip} fill={c.lume} />
+        </>
+      )}
+    </>
+  );
+};
+
+/** Broad arrowhead on the hour, plain lumed baton on the minute. */
+const plongeur: Shape = (L, c, kind) => {
+  if (kind === 'hour') {
+    const w = 1.25;
+    const neck = 0.38;
+    return (
+      <>
+        <polygon points={mirrored([[neck, 1.2], [neck, -L * 0.58], [w, -L * 0.58], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+        {c.lume && <polygon points={mirrored([[w - 0.55, -L * 0.62], [0, -L + 1.0]])} fill={c.lume} />}
+      </>
+    );
+  }
+  const w = 0.5;
+  return (
+    <>
+      <polygon points={mirrored([[w, 1.1], [w, -L + 0.4], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+      {c.lume && <rect x={f(-w * 0.55)} y={f(-L + 1.0)} width={f(w * 1.1)} height={f(L * 0.72)} fill={c.lume} />}
+    </>
+  );
+};
+
+/** Needle stem opening into a lumed triangle at the tip. */
+const syringe: Shape = (L, c, kind) => {
+  const w = kind === 'hour' ? 0.62 : 0.48;
+  const stem = 0.26;
+  return (
+    <>
+      <polygon points={mirrored([[stem, 1.2], [stem, -L * 0.56], [w, -L * 0.7], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+      {c.lume && <polygon points={mirrored([[w - 0.28, -L * 0.72], [0, -L + 0.7]])} fill={c.lume} />}
+    </>
+  );
+};
+
+/** Flat-shouldered arrowhead, the plainest of the lumed shapes. */
+const arrow: Shape = (L, c, kind) => {
+  const w = kind === 'hour' ? 1.1 : 0.82;
+  const neck = kind === 'hour' ? 0.36 : 0.3;
+  return (
+    <>
+      <polygon points={mirrored([[neck, 1.2], [neck, -L * 0.6], [w, -L * 0.6], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
+      {c.lume && <polygon points={mirrored([[w - 0.45, -L * 0.64], [0, -L + 0.85]])} fill={c.lume} />}
+    </>
+  );
+};
+
+const SHAPES: Record<string, Shape> = { sword, mercedes, baton, dauphine, pencil, snowflake, cathedral, plongeur, syringe, arrow };
 
 function Seconds({ L, c, lollipop }: { L: number; c: HandColors; lollipop: boolean }) {
   return (
@@ -115,7 +199,7 @@ const handSet = (shapeName: string): Template<'hands'> =>
     const c: HandColors = { metal, lume: optionalColor(params, 'lume', '#e8f0d8'), accent: color(params, 'accent', metal), edge: darken(metal, 0.55) };
     const a = handAngles(ctx.time);
     const shadow = ctx.id(`hands-shadow-${part.id}`);
-    const lollipop = shapeName === 'mercedes' || shapeName === 'sword' || shapeName === 'pencil';
+    const lollipop = ['mercedes', 'sword', 'pencil', 'plongeur'].includes(shapeName);
     return (
       <g>
         <defs>
@@ -148,4 +232,9 @@ export const handsTemplates: Record<string, Template<'hands'>> = {
   'hands/baton': handSet('baton'),
   'hands/dauphine': handSet('dauphine'),
   'hands/pencil': handSet('pencil'),
+  'hands/snowflake': handSet('snowflake'),
+  'hands/cathedral': handSet('cathedral'),
+  'hands/plongeur': handSet('plongeur'),
+  'hands/syringe': handSet('syringe'),
+  'hands/arrow': handSet('arrow'),
 };
