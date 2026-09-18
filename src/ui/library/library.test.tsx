@@ -50,7 +50,7 @@ describe('library storage', () => {
 describe('LibraryScreen', () => {
   const renderLibrary = () =>
     render(
-      <AppProvider db={db} catalog={catalog}>
+      <AppProvider db={db} catalog={catalog} reloadCatalog={async () => {}}>
         <LibraryScreen />
       </AppProvider>,
     );

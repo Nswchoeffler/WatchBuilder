@@ -1,8 +1,9 @@
 import Dexie, { type EntityTable } from 'dexie';
-import type { Build, Pack } from '../domain/schemas';
+import type { Build, Pack, Part } from '../domain/schemas';
 import { Build as BuildSchema } from '../domain/schemas';
 import { loadCorePack } from '../data/catalog';
 import { validatePack } from '../data/packs';
+import { emptyUserPack, MY_PARTS_ID, withPart, withoutPart } from '../data/userPack';
 
 export interface PackRecord {
   id: string;
@@ -44,6 +45,28 @@ export async function saveUserPack(db: ModWatchDB, input: unknown): Promise<Pack
   if (existing?.origin === 'core') throw new Error(`"${pack.id}" is reserved for the built-in catalog.`);
   await db.packs.put({ id: pack.id, version: pack.version, origin: 'user', pack, updatedAt: new Date().toISOString() });
   return pack;
+}
+
+/** The user pack with this id, creating an empty one on first use. Never returns the core pack. */
+export async function ensureUserPack(db: ModWatchDB, id = MY_PARTS_ID, name?: string): Promise<Pack> {
+  const existing = await db.packs.get(id);
+  if (existing?.origin === 'core') throw new Error(`"${id}" is reserved for the built-in catalog.`);
+  if (existing) return existing.pack;
+  return saveUserPack(db, emptyUserPack(id, name));
+}
+
+/**
+ * Add or replace a part in a user pack (creating the pack if needed) and bump its version.
+ * Pass `replacesId` when an edit changed the part's id, so the old entry is not left behind.
+ */
+export async function savePart(db: ModWatchDB, packId: string, part: Part, replacesId?: string): Promise<Pack> {
+  const pack = await ensureUserPack(db, packId);
+  return saveUserPack(db, withPart(pack, part, replacesId));
+}
+
+export async function deletePart(db: ModWatchDB, packId: string, partId: string): Promise<Pack> {
+  const pack = await ensureUserPack(db, packId);
+  return saveUserPack(db, withoutPart(pack, partId));
 }
 
 export async function loadPacks(db: ModWatchDB): Promise<Pack[]> {

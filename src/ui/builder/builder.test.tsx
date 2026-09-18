@@ -31,7 +31,7 @@ afterEach(async () => {
 async function openBuilder(build: Build) {
   await saveBuild(db, build);
   render(
-    <AppProvider db={db} catalog={catalog}>
+    <AppProvider db={db} catalog={catalog} reloadCatalog={async () => {}}>
       <BuilderScreen id={build.id} />
     </AppProvider>,
   );

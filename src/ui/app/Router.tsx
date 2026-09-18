@@ -1,6 +1,7 @@
 import { BuilderScreen } from '../builder/BuilderScreen';
 import { CatalogView } from '../catalog/CatalogView';
 import { CompareScreen } from '../compare/CompareScreen';
+import { PartEditorScreen } from '../editor/PartEditorScreen';
 import { LibraryScreen } from '../library/LibraryScreen';
 import { href, type Route } from './route';
 
@@ -14,6 +15,9 @@ export function Router({ route }: { route: Route }) {
       return <CompareScreen ids={route.ids} />;
     case 'catalog':
       return <CatalogView />;
+    case 'part-new':
+    case 'part':
+      return <PartEditorScreen route={route} />;
     case 'not-found':
       return (
         <div className="center-message">

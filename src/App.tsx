@@ -23,7 +23,7 @@ export function App() {
         </div>
       )}
       {state.status === 'ready' && (
-        <AppProvider db={db} catalog={state.catalog}>
+        <AppProvider db={db} catalog={state.catalog} reloadCatalog={state.reload}>
           <Router route={route} />
         </AppProvider>
       )}

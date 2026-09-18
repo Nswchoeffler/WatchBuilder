@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-17. Phases 0–3 done; Phase 4 built, awaiting browser check._
+_Last updated 2026-09-18. Phases 0–3 done; Phase 4 built, awaiting browser check; Phase 5.1 (part editor) built._
 
 ## 1. Context
 
@@ -24,10 +24,10 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 
 ---
 
-## 2. Current state (Phase 4 built)
+## 2. Current state (Phase 4 built, Phase 5.1 built)
 
-- **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`).
-- **Checks:** `npm test` (229 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
+- **Checks:** `npm test` (280 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Not verified in a real browser by the assistant:** the Phase 4 screens and PNG export (tests run in jsdom; watch drawings reviewed via resvg previews).
 
@@ -43,13 +43,16 @@ src/
     catalog.ts   loadCorePack(), Catalog (lookup by pack-scoped ref)
     packs.ts     validatePack / parsePackJson / serializePack with readable errors
     sampleBuilds.ts
-  storage/       db.ts (Dexie: packs, builds), useCatalog.ts
+    userPack.ts  "My Parts" pack: add/replace/remove a part, patch version bumps, id slugs
+    blankParts.ts starting measurements for a new part of each type
+  storage/       db.ts (Dexie: packs, builds; ensureUserPack/savePart/deletePart), useCatalog.ts
   render/
     WatchSvg.tsx layer stack, template lookup + fallback, strap mirroring, dial clip
     layout.ts    geometry derived from measurements, framing/viewBox
     templates/   case, bezel (+inserts, rings, crowns), dial generator, hands, crystal, strap
     export.ts    sizedSvg, svgToPngBlob, downloads
-  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, common.tsx, labels.ts
+    templateCatalog.ts  which templates each part type offers and the settings they read
+  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, editor/, common.tsx, labels.ts
 scripts/render-previews.tsx
 ```
 
@@ -147,16 +150,31 @@ src/ui/
 
 **Goal:** add your own parts (by settings or by uploading art), and share parts and builds without a server.
 
-### 5.1 Part editor
-- **Start points:** "New part" (choose type) or "Duplicate & edit" from any existing part (the expected common path).
-- **Measurements form** per part type, validated live with the Zod schema; errors inline next to the field. Shared field components:
-  - `MmField` (number + unit, step 0.01)
-  - `CrownStepsField` (3:00 / 3.8 / 4.1)
-  - `AngleField` (clock-position presets + custom degrees)
-  - `HandHolesField`, enum selects, profile/seat/tube pickers that list values already used in the catalog (with "new…")
-- **Confidence + notes + source link** fields; user parts default to `unverified`.
-- **Live preview:** the part shown in a **reference build**: other slots auto-filled with the first compatible core part (`candidatesFor`), with the findings for that combination displayed, so the editor shows immediately whether the new part fits anything.
-- **Visual tab:** template picker (templates valid for the type) + settings editor (colour pickers, finish, markers, lume on/off, dial text lines, metal finish).
+### 5.1 Part editor ✅
+
+**Status (2026-09-18):** built. `#/part/new` (type chooser) → `#/part/new?type=dial` (blank) or `?from=core/dl-diver-black`
+(duplicate); `#/part/:packId/:partId` edits a saved part; core parts open read-only with "Duplicate & edit".
+Saving creates the **"My Parts"** pack on first use and bumps its patch version on every write. 50 tests added (280 total).
+
+- **Start points:** "New part" (choose type) or "Duplicate & edit" from any part in the catalog. Copies are always
+  `unverified`, since the measurements are no longer the original's.
+- **Measurements form** per part type (`ui/editor/PartForm.tsx`), validated live against the Zod schema. Fields address the
+  draft by the same path Zod reports issues on (`dialSeat.min`), so messages land on the input that caused them with no mapping.
+  Shared fields in `ui/editor/form.tsx`: `MmField`, `NumberField`, `AngleField` (clock presets + custom degrees),
+  `CrownStepsField` / `CrownStepsSetField`, `SlugField` (existing profile/seat/tube ids + "New…"), `ColorField` (nullable),
+  `MultiSelectField`, `NullableGroup` (date window, magnifier, bezel insert).
+- **Coupled fields:** where the schema requires two fields to agree, one control drives both — a case is either integrated or
+  has a lug width; a hands part's seconds hole and seconds length appear and disappear together.
+- **Confidence + notes** fields; user parts default to `unverified`. Sources go in `notes` (no separate URL field: that would
+  change the part schema and need a migration — worth doing in 5.3 alongside the other schema work).
+- **Live preview:** the part in a **reference build**, other slots filled by `candidatesFor` in assembly order.
+  The surrounding parts are **pinned** while you edit: without that the preview quietly swaps in a case that still fits after
+  every keystroke, hiding the problem being introduced. "Re-pick parts" refreshes them on demand.
+- **Drawing tab:** template picker + settings, driven by `render/templateCatalog.ts` (labels and defaults for each template's
+  params). A test keeps it in step with the renderer's registries and with every template the core catalog uses.
+
+**Known gaps:** no pack picker yet (everything saves to My Parts — 5.3); deleting a part doesn't warn about builds that use it;
+no browser check yet.
 
 ### 5.2 Uploaded SVG art
 - Dependency: `dompurify`.
@@ -177,8 +195,11 @@ src/ui/
 
 ### 5.5 Tests & acceptance
 - Unit: sanitiser fixtures, id prefixing, share-link round trip, bundle round trip, migrations.
-- Component: editor shows Zod errors inline; duplicating a dial and changing its diameter to 30.8 makes it incompatible with Diver 42 in the preview.
+- ~~Component: editor shows Zod errors inline; duplicating a dial and changing its diameter to 30.8 makes it incompatible with
+  Diver 42 in the preview~~ ✅ both covered in `ui/editor/editor.test.tsx`, plus draft paths, user-pack writes, blank parts,
+  the reference build and the template catalog.
 - **Acceptance:** (1) create a custom dial by settings and use it in a saved build; (2) upload an SVG bezel insert, see it drawn at the right size; (3) export "My Parts", delete it, re-import it, and the build that uses it recovers; (4) open a share link in a private window and see the same build.
+  (1) is code-complete — the part editor saves into My Parts and the builder picks it up — but not yet walked through in a browser.
 
 ---
 

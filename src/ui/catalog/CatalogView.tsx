@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { CORE_PACK_ID } from '../../data/seed';
 import { PART_TYPES, type PartType } from '../../domain/schemas';
 import { useApp } from '../app/AppContext';
+import { href } from '../app/route';
+import { icons } from '../common';
 import { summarize, TYPE_LABELS } from '../labels';
 
 export function CatalogView() {
@@ -16,6 +19,7 @@ export function CatalogView() {
           <h1>Parts catalog</h1>
           <p className="muted">Every part the fit checks know about, with how sure we are of its measurements.</p>
         </div>
+        <a className="btn primary" href={href.newPart()}>{icons.plus} New part</a>
       </header>
 
       <nav className="chips" aria-label="Part types">
@@ -28,16 +32,28 @@ export function CatalogView() {
       </nav>
 
       <ul className="part-list">
-        {entries.map(({ ref, part }) => (
-          <li key={`${ref.packId}/${ref.partId}`} className="part-item">
-            <div className="part-item-head">
-              <strong>{part.name}</strong>
-              <span className={`badge ${part.confidence}`}>{part.confidence}</span>
-            </div>
-            <p className="specs">{summarize(part)}</p>
-            {part.notes && <p className="notes">{part.notes}</p>}
-          </li>
-        ))}
+        {entries.map(({ ref, part }) => {
+          const core = ref.packId === CORE_PACK_ID;
+          return (
+            <li key={`${ref.packId}/${ref.partId}`} className="part-item">
+              <div className="part-item-head">
+                <strong>{part.name}</strong>
+                <span className={`badge ${part.confidence}`}>{part.confidence}</span>
+              </div>
+              <p className="specs">{summarize(part)}</p>
+              {part.notes && <p className="notes">{part.notes}</p>}
+              <div className="part-item-actions">
+                {!core && <span className="badge neutral">{ref.packId}</span>}
+                <a className="btn small" href={href.part(ref.packId, ref.partId)}>
+                  {core ? 'View' : 'Edit'}
+                </a>
+                <a className="btn small" href={href.newPart(part.type, `${ref.packId}/${ref.partId}`)}>
+                  Duplicate
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
