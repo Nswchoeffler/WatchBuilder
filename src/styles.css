@@ -548,12 +548,25 @@ select.input { width: auto; padding-right: 28px; }
 
 .sources { font-size: 0.8rem; color: var(--muted); margin: 4px 0 0; overflow-wrap: anywhere; }
 
+/* Sharing */
+.share-view { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 16px; align-items: start; }
+.share-view .preview .stage { height: min(70vh, 700px); min-height: 320px; padding: 20px; }
+.share-notes { padding-top: 14px; white-space: pre-wrap; }
+.share-link { display: flex; gap: 8px; margin: 12px 0; }
+.share-link .input { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 0.78rem; }
+@media (max-width: 760px) {
+  .share-view { grid-template-columns: minmax(0, 1fr); }
+  .share-view .preview { position: static; }
+  .share-view .preview .stage { height: 60vh; min-height: 0; }
+}
+
 /* Packs */
 .pack-empty { margin-top: 16px; }
 .import-result { margin-bottom: 16px; padding: 10px 14px; border-left: 3px solid var(--ok); }
 .import-result.bad { border-left-color: var(--bad); }
 .import-result-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .import-result-head p { margin: 4px 0; }
+.import-notes { margin: 4px 0; padding-left: 18px; font-size: 0.86rem; color: var(--muted); }
 .import-issues { margin: 6px 0 4px; padding-left: 18px; max-height: 260px; overflow: auto; color: var(--bad); overflow-wrap: anywhere; }
 
 /* ── Part editor ────────────────────────────────────────────────────────── */

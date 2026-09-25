@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-25. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phase 5.3 (packs, schema v2) built, not yet browser-checked; Phase 6.2 variant pass done (112 parts)._
+_Last updated 2026-09-25. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phases 5.3 (packs, schema v2) and 5.4 (share links, build files) built, not yet browser-checked; Phase 6.2 variant pass done (112 parts)._
 
 ## 1. Context
 
@@ -26,8 +26,8 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 
 ## 2. Current state (Phase 4 done, Phase 5.1 built, Phase 5.2 done)
 
-- **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (453 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), packs (`#/packs`), shared build (`#/share/…`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
+- **Checks:** `npm test` (480 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
 - **Not yet walked through in a browser:** the Phase 5.1 part editor's create-and-save flow (its screens were checked for layout at 375 px, but no custom part was authored end to end).
@@ -47,6 +47,7 @@ src/
     userPack.ts  "My Parts" pack: add/replace/remove a part, patch version bumps, id slugs
     blankParts.ts starting measurements for a new part of each type
     migrations.ts raw-JSON pack migrations by schemaVersion, run before validation
+    share.ts     share-link encode/decode;  bundle.ts  build files (build + the non-core parts it uses)
   storage/       db.ts (Dexie: packs, builds; ensureUserPack/savePart/deletePart), useCatalog.ts
   render/
     WatchSvg.tsx layer stack, template lookup + fallback, strap mirroring, dial clip
@@ -54,7 +55,7 @@ src/
     templates/   case, bezel (+inserts, rings, crowns), dial generator, hands, crystal, strap
     export.ts    sizedSvg, svgToPngBlob, downloads
     templateCatalog.ts  which templates each part type offers and the settings they read
-  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, editor/, packs/, common.tsx, labels.ts
+  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, editor/, packs/, share/, common.tsx, labels.ts
 scripts/render-previews.tsx
 ```
 
@@ -248,12 +249,32 @@ here has been driven in a real browser yet.
 **Not done:** renaming a pack or editing its author/description; moving a part between packs (duplicate it instead);
 exporting the core pack.
 
-### 5.4 Sharing builds
-- **Share link:** build (name, slots, flags) → JSON → `CompressionStream('deflate-raw')` → base64url in the URL hash (`#/share/…`). Opening it shows a read-only preview and "Save to my builds". If parts are missing, list the packs needed.
-- **Build bundle file:** a `.json` export that embeds any non-core parts (and their assets) used by the build, so a build shares completely without separate packs.
+### 5.4 Sharing builds (built, not yet browser-checked)
+
+**Status (2026-09-25):** built. 27 tests added (480 total). Not driven in a real browser yet (the Chrome extension
+wasn't available).
+
+- **Share link** (`data/share.ts`): name, slots, mods and notes → compact JSON (`{v, n, s: {slot: "pack/part"}, f, o}`)
+  → `deflate-raw` → base64url, opened at `#/share/<code>` (about 200–300 characters for a full build). Decoding
+  validates the payload: a damaged or truncated link and one from a newer app version each get their own message.
+  The builder's **Share** dialog shows the link with a Copy button, and warns when the build uses non-core packs,
+  which the link alone can't carry.
+- **Shared build page** (`ui/share/ShareScreen.tsx`): read-only drawing, status, parts list and notes, plus **Save to my builds**
+  (a new build with a new id). Parts from packs the viewer doesn't have are listed by pack, pointing them to the
+  build file or the Packs page.
+- **Build file** (`data/bundle.ts`, `*.build.json`, format `modwatch-build` v1): the build plus a copy of each non-core pack
+  it uses, trimmed to the parts and uploaded drawings it needs. Parsing names the pack and part behind every problem, migrates
+  old packs, refuses a copy of the core pack, and points a pack file at the Packs page. **Import build** on the
+  Builds page merges the parts into your packs of the same id (`mergeBundlePack`): parts you don't have are added
+  (one version bump per import); parts you do have are **never overwritten**, and ones that differ are listed.
+  `importBundle` writes packs and the build in one Dexie transaction, so a refused pack leaves nothing half-imported.
+- **Acceptance (4):** a share link of an all-core build needs nothing but the app, so it should open in a private window.
+  Covered in jsdom (decode → preview → save); still needs the private-window run.
+
+**Not done:** the link can't carry your own parts (the build file does); there's no "import packs from this link".
 
 ### 5.5 Tests & acceptance
-- Unit: sanitiser fixtures, id prefixing, share-link round trip, bundle round trip, migrations.
+- ~~Unit: sanitiser fixtures, id prefixing, share-link round trip, bundle round trip, migrations.~~ ✅ all covered.
 - ~~Component: editor shows Zod errors inline; duplicating a dial and changing its diameter to 30.8 makes it incompatible with
   Diver 42 in the preview~~ ✅ both covered in `ui/editor/editor.test.tsx`, plus draft paths, user-pack writes, blank parts,
   the reference build and the template catalog.
@@ -348,7 +369,7 @@ what they supply. Nothing is estimated into the catalog.
 | CI (GitHub Actions): lint, typecheck, test, build ✅; previews golden diff still to add | Phase 4 |
 | Browser verification: manual checklist per phase until a browser test tool is chosen | Every phase |
 | Accessibility: keyboard navigation, focus states, colour contrast, SVG titles | Phase 4 onward |
-| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (~181 KB gzip main chunk as of 5.3, plus the lazily loaded sanitiser) | Phase 4 onward |
+| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (~184 KB gzip main chunk as of 5.4, plus the lazily loaded sanitiser) | Phase 4 onward |
 | Docs kept in sync (spec rule ids already enforced by a test) | Always |
 
 ---

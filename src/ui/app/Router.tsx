@@ -4,6 +4,7 @@ import { CompareScreen } from '../compare/CompareScreen';
 import { PartEditorScreen } from '../editor/PartEditorScreen';
 import { LibraryScreen } from '../library/LibraryScreen';
 import { PacksScreen } from '../packs/PacksScreen';
+import { ShareScreen } from '../share/ShareScreen';
 import { href, type Route } from './route';
 
 export function Router({ route }: { route: Route }) {
@@ -18,6 +19,8 @@ export function Router({ route }: { route: Route }) {
       return <CatalogView />;
     case 'packs':
       return <PacksScreen />;
+    case 'share':
+      return <ShareScreen key={route.code} code={route.code} />;
     case 'part-new':
     case 'part':
       return <PartEditorScreen route={route} />;

@@ -12,6 +12,7 @@ import { SLOT_LABELS, SLOT_ORDER } from '../labels';
 import { CheckPanel } from './CheckPanel';
 import { PartPicker } from './PartPicker';
 import { PartsList } from './PartsList';
+import { ShareDialog } from './ShareDialog';
 import { SlotList } from './SlotList';
 import { useBuildDraft, type SaveState } from './useBuildDraft';
 
@@ -57,6 +58,7 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
   const [framing, setFraming] = useState<Framing>('watch');
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [sharing, setSharing] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
   // Hovering a candidate shows it in the watch before committing.
@@ -143,6 +145,7 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
           <button type="button" className="btn icon" onClick={() => dispatch({ type: 'undo' })} disabled={!canUndo} aria-label="Undo" title="Undo (Ctrl+Z)">{icons.undo}</button>
           <button type="button" className="btn icon" onClick={() => dispatch({ type: 'redo' })} disabled={!canRedo} aria-label="Redo" title="Redo (Ctrl+Shift+Z)">{icons.redo}</button>
           <button type="button" className="btn" onClick={duplicate}>{icons.copy} Duplicate</button>
+          <button type="button" className="btn" onClick={() => setSharing(true)} disabled={isEmpty}>{icons.share} Share</button>
           <button type="button" className="btn" onClick={() => withSvg((el) => exportSvg(el, build.name))} disabled={isEmpty || exporting}>{icons.download} SVG</button>
           <button type="button" className="btn" onClick={() => withSvg((el) => exportPng(el, build.name))} disabled={isEmpty || exporting}>{icons.download} PNG</button>
           <button type="button" className="btn icon danger" onClick={() => setConfirmDelete(true)} aria-label="Delete build" title="Delete build">{icons.trash}</button>
@@ -224,6 +227,7 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
         onConfirm={remove}
         onCancel={() => setConfirmDelete(false)}
       />
+      <ShareDialog open={sharing} build={build} onClose={() => setSharing(false)} />
     </div>
   );
 }

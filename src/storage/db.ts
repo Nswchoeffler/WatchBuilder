@@ -1,6 +1,8 @@
 import Dexie, { type EntityTable } from 'dexie';
 import type { Build, Pack, Part } from '../domain/schemas';
 import { Build as BuildSchema } from '../domain/schemas';
+import { newBuild } from '../data/builds';
+import { mergeBundlePack, type BuildBundle } from '../data/bundle';
 import { loadCorePack } from '../data/catalog';
 import { migratePack } from '../data/migrations';
 import { validatePack } from '../data/packs';
@@ -112,6 +114,29 @@ export async function saveBuild(db: ModWatchDB, build: Build): Promise<Build> {
   const parsed = BuildSchema.parse(build);
   await db.builds.put(parsed);
   return parsed;
+}
+
+export interface BundleImport {
+  build: Build;
+  /** Per pack the bundle carried: what was added and which of your parts were kept over the bundle's copy. */
+  packs: { id: string; name: string; created: boolean; added: string[]; keptYours: string[] }[];
+}
+
+/** Store a bundle's parts (merged into packs of the same id) and its build, as a new build, in one transaction. */
+export async function importBundle(db: ModWatchDB, bundle: BuildBundle): Promise<BundleImport> {
+  return db.transaction('rw', db.packs, db.builds, async () => {
+    const packs: BundleImport['packs'] = [];
+    for (const incoming of bundle.packs) {
+      const record = await db.packs.get(incoming.id);
+      if (record?.origin === 'core') throw new Error(`"${incoming.id}" is reserved for the built-in catalog.`);
+      const merge = mergeBundlePack(record?.pack, incoming);
+      if (merge.pack) await saveUserPack(db, merge.pack);
+      packs.push({ id: incoming.id, name: record?.pack.name ?? incoming.name, created: !record, added: merge.added, keptYours: merge.keptYours });
+    }
+    const { name, slots, flags, notes } = bundle.build;
+    const build = await saveBuild(db, { ...newBuild(name, slots, flags), ...(notes ? { notes } : {}) });
+    return { build, packs };
+  });
 }
 
 export const listBuilds = (db: ModWatchDB): Promise<Build[]> => db.builds.orderBy('updatedAt').reverse().toArray();

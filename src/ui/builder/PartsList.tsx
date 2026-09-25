@@ -28,7 +28,7 @@ export function partsListText(build: Pick<Build, 'name' | 'slots' | 'flags'>, ca
   return lines.join('\n');
 }
 
-export function PartsList({ build, catalog }: { build: Build; catalog: Catalog }) {
+export function PartsList({ build, catalog }: { build: Pick<Build, 'name' | 'slots' | 'flags'>; catalog: Catalog }) {
   const rows = partsListRows(build, catalog);
   const [copied, setCopied] = useState(false);
 

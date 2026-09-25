@@ -1,9 +1,11 @@
 import { useLiveQuery } from 'dexie-react-hooks';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { buildFromSample, duplicateBuild, newBuild, sampleSlots } from '../../data/builds';
+import { parseBundleJson } from '../../data/bundle';
+import { PackError } from '../../data/packs';
 import { SAMPLE_BUILDS, type SampleBuild } from '../../data/sampleBuilds';
 import type { Build } from '../../domain/schemas';
-import { deleteBuild, listBuilds, renameBuild, saveBuild } from '../../storage/db';
+import { deleteBuild, importBundle, listBuilds, renameBuild, saveBuild, type BundleImport } from '../../storage/db';
 import { useApp } from '../app/AppContext';
 import { href, navigate } from '../app/route';
 import { ConfirmDialog, icons, Modal } from '../common';
@@ -12,19 +14,35 @@ import { BuildCard } from './BuildCard';
 
 export const MAX_COMPARE = 3;
 
+type ImportState = null | { kind: 'error'; fileName: string; message: string; issues: string[] } | { kind: 'done'; result: BundleImport };
+
 /** Stable build shapes for sample cards, so their previews aren't recomputed on every render. */
 const SAMPLE_CARDS = SAMPLE_BUILDS.map((sample) => ({ sample, build: { name: sample.name, slots: sampleSlots(sample), flags: sample.flags ?? [] } }));
 
 export function LibraryScreen() {
-  const { db } = useApp();
+  const { db, reloadCatalog } = useApp();
   const builds = useLiveQuery(() => listBuilds(db), [db]);
   const [selected, setSelected] = useState<string[]>([]);
   const [toDelete, setToDelete] = useState<Build | null>(null);
   const [renaming, setRenaming] = useState<Build | null>(null);
+  const [imported, setImported] = useState<ImportState>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
 
   const create = async (build: Build) => {
     await saveBuild(db, build);
     navigate(href.build(build.id));
+  };
+
+  const importFile = async (file: File) => {
+    try {
+      const result = await importBundle(db, parseBundleJson(await file.text()));
+      if (result.packs.some((p) => p.added.length)) await reloadCatalog();
+      setImported({ kind: 'done', result });
+    } catch (e) {
+      const issues = e instanceof PackError ? e.issues : [];
+      const message = e instanceof Error ? e.message.split('\n')[0]! : String(e);
+      setImported({ kind: 'error', fileName: file.name, message, issues });
+    }
   };
 
   const toggleSelect = (id: string) =>
@@ -41,10 +59,27 @@ export function LibraryScreen() {
           <h1>Builds</h1>
           <p className="muted">Assemble a watch from real parts. Every combination is checked for fit, and drawn to scale.</p>
         </div>
-        <button type="button" className="btn primary" onClick={() => create(newBuild())}>
-          {icons.plus} New build
-        </button>
+        <div className="toolbar">
+          <button type="button" className="btn" onClick={() => fileInput.current?.click()}>{icons.upload} Import build</button>
+          <button type="button" className="btn primary" onClick={() => create(newBuild())}>
+            {icons.plus} New build
+          </button>
+          <input
+            ref={fileInput}
+            type="file"
+            accept=".json,application/json"
+            hidden
+            aria-label="Build file"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              e.target.value = '';
+              if (file) void importFile(file);
+            }}
+          />
+        </div>
       </header>
+
+      <BuildImportResult state={imported} onDismiss={() => setImported(null)} />
 
       {builds.length === 0 ? (
         <EmptyLibrary onStart={(s) => create(buildFromSample(s))} onBlank={() => create(newBuild())} />
@@ -190,5 +225,50 @@ function RenameDialog({ build, onClose, onRename }: { build: Build | null; onClo
         </div>
       </form>
     </Modal>
+  );
+}
+
+function BuildImportResult({ state, onDismiss }: { state: ImportState; onDismiss: () => void }) {
+  if (!state) return null;
+  if (state.kind === 'error') {
+    return (
+      <section className="panel import-result bad" role="alert" aria-label="Import result">
+        <div className="import-result-head">
+          <p>
+            <strong>{state.fileName}</strong> wasn't imported. {state.message}
+          </p>
+          <button type="button" className="btn ghost icon small" onClick={onDismiss} aria-label="Dismiss">{icons.close}</button>
+        </div>
+        {state.issues.length > 0 && (
+          <ul className="import-issues mono">
+            {state.issues.map((issue, i) => (
+              <li key={i}>{issue}</li>
+            ))}
+          </ul>
+        )}
+      </section>
+    );
+  }
+  const { build, packs } = state.result;
+  const parts = (n: number) => `${n} ${n === 1 ? 'part' : 'parts'}`;
+  return (
+    <section className="panel import-result ok" role="status" aria-label="Import result">
+      <div className="import-result-head">
+        <p>
+          Imported <strong>{build.name}</strong>. <a href={href.build(build.id)}>Open it</a>
+        </p>
+        <button type="button" className="btn ghost icon small" onClick={onDismiss} aria-label="Dismiss">{icons.close}</button>
+      </div>
+      {packs.length > 0 && (
+        <ul className="import-notes">
+          {packs.map((p) => (
+            <li key={p.id}>
+              {p.created ? `Added the pack “${p.name}” with ${parts(p.added.length)}.` : p.added.length ? `Added ${parts(p.added.length)} to “${p.name}”.` : `“${p.name}” already had every part.`}
+              {p.keptYours.length > 0 && ` Kept your own version of ${p.keptYours.join(', ')}, which differs from the file's.`}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }

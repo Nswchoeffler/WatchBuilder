@@ -6,6 +6,7 @@ export type Route =
   | { name: 'compare'; ids: string[] }
   | { name: 'catalog' }
   | { name: 'packs' }
+  | { name: 'share'; code: string }
   | { name: 'part-new'; type: PartType | null; from: string | null }
   | { name: 'part'; packId: string; partId: string }
   | { name: 'not-found'; path: string };
@@ -20,6 +21,7 @@ export function parseHash(hash: string): Route {
   if (parts.length === 0 || (parts.length === 1 && parts[0] === 'builds')) return { name: 'builds' };
   if (parts.length === 1 && parts[0] === 'catalog') return { name: 'catalog' };
   if (parts.length === 1 && parts[0] === 'packs') return { name: 'packs' };
+  if (parts.length === 2 && parts[0] === 'share') return { name: 'share', code: parts[1]! };
   if (parts.length === 2 && parts[0] === 'build') return { name: 'build', id: parts[1]! };
   if (parts.length === 1 && parts[0] === 'compare') {
     const ids = (params.get('ids') ?? '').split(',').filter(Boolean);
@@ -45,6 +47,7 @@ export const href = {
   compare: (ids: readonly string[]) => `#/compare?ids=${ids.map(encodeURIComponent).join(',')}`,
   catalog: () => '#/catalog',
   packs: () => '#/packs',
+  share: (code: string) => `#/share/${code}`,
   /** `from` is a `packId/partId` pair to copy measurements from. */
   newPart: (type?: PartType, from?: string) => `#/part/new${q({ type, from })}`,
   part: (packId: string, partId: string) => `#/part/${encodeURIComponent(packId)}/${encodeURIComponent(partId)}`,

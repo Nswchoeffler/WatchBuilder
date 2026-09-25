@@ -12,6 +12,7 @@ describe('hash routes', () => {
     expect(parseHash('#/build/abc-123')).toEqual({ name: 'build', id: 'abc-123' });
     expect(parseHash('#/catalog')).toEqual({ name: 'catalog' });
     expect(parseHash(href.packs())).toEqual({ name: 'packs' });
+    expect(parseHash(href.share('abc_-12'))).toEqual({ name: 'share', code: 'abc_-12' });
     expect(parseHash('#/compare?ids=a,b,a,c')).toEqual({ name: 'compare', ids: ['a', 'b', 'c'] });
     expect(parseHash('#/compare')).toEqual({ name: 'compare', ids: [] });
   });

@@ -199,7 +199,9 @@ describe('editing a saved part', () => {
     });
 
     await user.click(screen.getByRole('button', { name: 'Delete part' }));
-    await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Delete' }));
+    // The confirmation fills in once the builds using the part have been counted.
+    const dialog = await screen.findByRole('dialog', {}, { timeout: 3000 });
+    await user.click(within(dialog).getByRole('button', { name: 'Delete' }));
     await waitFor(async () => expect((await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)?.parts).toHaveLength(0));
   });
 

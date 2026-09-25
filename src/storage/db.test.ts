@@ -5,6 +5,7 @@ import type { Build } from '../domain/schemas';
 import { resolveParts } from '../domain/rules';
 import { buildFromSample, buildsUsing } from '../data/builds';
 import { Catalog, loadCorePack } from '../data/catalog';
+import { makeBundle, parseBundleJson, serializeBundle } from '../data/bundle';
 import { parsePackJson, serializePack } from '../data/packs';
 import { SAMPLE_BUILDS } from '../data/sampleBuilds';
 import { MY_PARTS_ID } from '../data/userPack';
@@ -13,6 +14,7 @@ import {
   createUserPack,
   deleteBuild,
   deleteUserPack,
+  importBundle,
   listBuilds,
   loadPacks,
   saveBuild,
@@ -107,6 +109,45 @@ describe('pack management', () => {
     expect(await unresolved()).toContain('dial');
     await saveUserPack(db, parsePackJson(file));
     expect(await unresolved()).toEqual([]);
+  });
+});
+
+describe('build bundles', () => {
+  it('recreates a build and the parts it needs in a browser that has neither', async () => {
+    // The sender: a build with a dial from My Parts.
+    await syncCorePack(db);
+    const dial = { ...core.parts.find((p) => p.id === 'dl-diver-black')!, id: 'dl-mine', name: 'My dial' };
+    await savePart(db, MY_PARTS_ID, dial);
+    const build = buildFromSample(SAMPLE_BUILDS[0]!);
+    build.slots.dial = { packId: MY_PARTS_ID, partId: 'dl-mine' };
+    const file = serializeBundle(makeBundle(build, new Catalog(await loadPacks(db))).bundle);
+
+    // The recipient: a fresh database with only the core pack.
+    const other = new ModWatchDB(`recipient-${n++}`);
+    try {
+      await syncCorePack(other);
+      const result = await importBundle(other, parseBundleJson(file));
+      expect(result.packs).toEqual([{ id: MY_PARTS_ID, name: 'My Parts', created: true, added: ['dl-mine'], keptYours: [] }]);
+      expect(result.build.id).not.toBe(build.id);
+      expect(result.build).toMatchObject({ name: build.name, slots: build.slots, flags: build.flags });
+      expect(await listBuilds(other)).toHaveLength(1);
+      expect(resolveParts(result.build, new Catalog(await loadPacks(other))).unresolved).toEqual([]);
+
+      // Importing again adds the build again but no parts.
+      const again = await importBundle(other, parseBundleJson(file));
+      expect(again.packs[0]).toMatchObject({ created: false, added: [], keptYours: [] });
+      expect(await listBuilds(other)).toHaveLength(2);
+    } finally {
+      await other.delete();
+    }
+  });
+
+  it('writes nothing when a bundle pack claims a core id', async () => {
+    await syncCorePack(db);
+    const bundle = { ...makeBundle(buildFromSample(SAMPLE_BUILDS[0]!), new Catalog([core])).bundle };
+    bundle.packs = [{ ...core, parts: [] }];
+    await expect(importBundle(db, bundle)).rejects.toThrow(/reserved/);
+    expect(await listBuilds(db)).toEqual([]);
   });
 });
 
