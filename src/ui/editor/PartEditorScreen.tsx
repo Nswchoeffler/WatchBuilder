@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react';
 import { blankPart, duplicatePart, NEW_PART_NAMES } from '../../data/blankParts';
 import { CORE_PACK_ID } from '../../data/seed';
 import { MY_PARTS_ID, slugify, uniquePartId } from '../../data/userPack';
-import { PART_TYPES, type Part, type PartRef, type PartType, type Slot } from '../../domain/schemas';
+import { PART_TYPES, type Part, type PartRef, type PartType, type Slot, type Visual } from '../../domain/schemas';
+import { artIds, artWarnings, measureArt } from '../../render/uploaded/scaleCheck';
 import { deletePart, savePart } from '../../storage/db';
 import { useApp } from '../app/AppContext';
 import { href, navigate, type Route } from '../app/route';
@@ -43,14 +44,22 @@ export function PartEditorScreen({ route }: { route: EditorRoute }) {
     const draft = source
       ? duplicatePart(source, uniquePartId(`${source.id}-copy`, taken), copyName(source.name))
       : blankPart(route.type, uniquePartId(slugify(NEW_PART_NAMES[route.type], route.type), taken));
-    return <Editor key={`new-${route.type}-${route.from ?? ''}`} draft={draft} packId={MY_PARTS_ID} existing={null} />;
+    return (
+      <Editor
+        key={`new-${route.type}-${route.from ?? ''}`}
+        draft={draft}
+        art={from ? catalog.assetFor(from) : undefined}
+        packId={MY_PARTS_ID}
+        existing={null}
+      />
+    );
   }
 
   const ref = { packId: route.packId, partId: route.partId };
   const part = catalog.get(ref);
   if (!part) return <NotFound message="This part is not in any installed pack." />;
   if (route.packId === CORE_PACK_ID) return <CorePartView part={part} />;
-  return <Editor key={`${route.packId}/${route.partId}`} draft={part} packId={route.packId} existing={ref} />;
+  return <Editor key={`${route.packId}/${route.partId}`} draft={part} art={catalog.assetFor(ref)} packId={route.packId} existing={ref} />;
 }
 
 const refFrom = (value: string): PartRef | null => {
@@ -64,7 +73,7 @@ const copyName = (name: string) => (name.length <= 73 ? `${name} (copy)` : `${na
 
 type Tab = 'measurements' | 'drawing';
 
-function Editor({ draft: initial, packId, existing }: { draft: Part; packId: string; existing: PartRef | null }) {
+function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: Part; art?: string; packId: string; existing: PartRef | null }) {
   const { db, catalog, reloadCatalog } = useApp();
   const draft = usePartDraft(initial as unknown as Record<string, unknown>);
   const [tab, setTab] = useState<Tab>('measurements');
@@ -73,6 +82,21 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   const type = initial.type;
+
+  // Uploaded art sits beside the draft: the part only names an asset, the pack holds the markup.
+  const [art, setArt] = useState(initialArt);
+  const [savedArt, setSavedArt] = useState(initialArt);
+  const [lastTemplate, setLastTemplate] = useState<Visual>(() =>
+    initial.visual.kind === 'template' ? initial.visual : blankPart(type, 'template').visual,
+  );
+  const uploaded = (draft.value.visual as Visual | undefined)?.kind === 'svg';
+  const missingArt = uploaded && !art;
+  // Measuring lays the art out off-screen, so it only runs when the art changes, not on every keystroke.
+  const artShape = useMemo(() => (art ? { ids: artIds(art) ?? new Set<string>(), measure: measureArt(art, type) } : null), [art, type]);
+  const artWarningList = useMemo(
+    () => (uploaded && artShape && draft.lastValid ? artWarnings(draft.lastValid, artShape.ids, artShape.measure) : []),
+    [uploaded, artShape, draft.lastValid],
+  );
   const suggestions = useMemo(() => collectSuggestions(catalog), [catalog]);
 
   // The id must be free inside the target pack; elsewhere it may repeat, since refs are pack-scoped.
@@ -99,15 +123,24 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
     [draft.lastValid, catalog, type],
   );
 
+  // The draft preview draws the edited part from `art`; the parts around it from their packs.
+  const previewArt = useMemo(
+    () => ({ ...(preview ? catalog.artFor(preview.slots) : {}), ...(uploaded && art ? { [type]: art } : {}) }),
+    [preview, catalog, uploaded, art, type],
+  );
+
   const save = async () => {
-    if (!draft.part || clash) return;
+    if (!draft.part || clash || missingArt) return;
     setSaving(true);
     setSaveError(null);
     try {
-      await savePart(db, packId, draft.part, savedAs ?? undefined);
+      const pack = await savePart(db, packId, draft.part, savedAs ?? undefined, uploaded ? art : undefined);
       setSavedAs(draft.part.id);
+      setSavedArt(art);
       await reloadCatalog();
-      draft.reset(draft.value);
+      // The stored part, not the draft: saving points an upload's assetId at the part's id.
+      const stored = pack.parts.find((p) => p.id === draft.part!.id) ?? draft.part;
+      draft.reset(stored as unknown as Record<string, unknown>);
       if (!existing || existing.partId !== draft.part.id) navigate(href.part(packId, draft.part.id));
     } catch (e) {
       setSaveError(e instanceof Error ? e.message : String(e));
@@ -125,7 +158,8 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
     navigate(href.catalog());
   };
 
-  const errorCount = draft.errors.size + (clash ? 1 : 0);
+  const errorCount = draft.errors.size + (clash ? 1 : 0) + (missingArt ? 1 : 0);
+  const dirty = draft.dirty || (uploaded && art !== savedArt);
 
   return (
     <div className="page page-wide">
@@ -140,13 +174,13 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
           </div>
         </div>
         <span className="save-state" role="status">
-          {saving ? 'Saving…' : errorCount > 0 ? `${errorCount} ${errorCount === 1 ? 'problem' : 'problems'} to fix` : draft.dirty ? 'Unsaved changes' : 'Saved'}
+          {saving ? 'Saving…' : errorCount > 0 ? `${errorCount} ${errorCount === 1 ? 'problem' : 'problems'} to fix` : dirty ? 'Unsaved changes' : 'Saved'}
         </span>
         <div className="toolbar">
           {existing && (
             <a className="btn" href={href.newPart(type, `${existing.packId}/${existing.partId}`)}>{icons.copy} Duplicate</a>
           )}
-          <button type="button" className="btn primary" onClick={() => void save()} disabled={!draft.part || !!clash || saving || !draft.dirty}>
+          <button type="button" className="btn primary" onClick={() => void save()} disabled={!draft.part || !!clash || saving || !dirty || missingArt}>
             {existing ? 'Save' : 'Save to My Parts'}
           </button>
           {existing && (
@@ -168,6 +202,11 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
             </button>
             <button type="button" role="tab" aria-selected={tab === 'drawing'} onClick={() => setTab('drawing')}>
               Drawing
+              {missingArt ? (
+                <span className="tab-count" title="Upload an SVG file">1</span>
+              ) : (
+                artWarningList.length > 0 && <span className="tab-count warn">{artWarningList.length}</span>
+              )}
             </button>
           </div>
           <div role="tabpanel" className="panel-body">
@@ -179,7 +218,10 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
                   <PartForm type={type} suggestions={suggestions} />
                 </>
               ) : (
-                <VisualForm type={type} />
+                <VisualForm
+                  type={type}
+                  upload={{ art, onArt: setArt, warnings: artWarningList, lastTemplate, onLeaveTemplate: setLastTemplate }}
+                />
               )}
             </FormProvider>
           </div>
@@ -187,7 +229,7 @@ function Editor({ draft: initial, packId, existing }: { draft: Part; packId: str
 
         <div className="side editor-preview">
           <div className="panel preview">
-            <WatchStage parts={preview?.parts ?? {}} framing="head" title="Part preview" highlight={[type]} />
+            <WatchStage parts={preview?.parts ?? {}} art={previewArt} framing="head" title="Part preview" highlight={[type]} />
             <div className="preview-caption">
               <span>
                 {draft.part

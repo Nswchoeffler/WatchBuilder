@@ -48,6 +48,24 @@ describe('user pack', () => {
     expect(() => validatePack(pack)).not.toThrow();
   });
 
+  it('stores uploaded art under the part id and drops it once no part draws from it', () => {
+    const art = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 2 2"><circle r="1"/></svg>';
+    const uploaded = { ...blankPart('dial', 'dl-art'), visual: { kind: 'svg' as const, assetId: 'upload' } };
+
+    const saved = withPart(emptyUserPack(), uploaded, undefined, art);
+    expect(saved.parts[0]!.visual).toEqual({ kind: 'svg', assetId: 'dl-art' });
+    expect(saved.assets).toEqual({ 'dl-art': { mime: 'image/svg+xml', data: art } });
+    expect(() => validatePack(saved)).not.toThrow();
+
+    // Renaming carries the art to the new id instead of leaving it under the old one.
+    const renamed = withPart(saved, { ...uploaded, id: 'dl-art-2' }, 'dl-art', art);
+    expect(Object.keys(renamed.assets)).toEqual(['dl-art-2']);
+
+    // Switching back to a template, or deleting the part, removes the art too.
+    expect(withPart(renamed, blankPart('dial', 'dl-art-2')).assets).toEqual({});
+    expect(withoutPart(renamed, 'dl-art-2').assets).toEqual({});
+  });
+
   it('bumps the patch version', () => {
     expect(bumpPatch('1.0.0')).toBe('1.0.1');
     expect(bumpPatch('2.4.9')).toBe('2.4.10');

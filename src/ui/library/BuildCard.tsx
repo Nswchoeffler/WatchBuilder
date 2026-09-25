@@ -14,12 +14,12 @@ interface Props {
 
 export function BuildCard({ build, href, meta, selected, select, actions }: Props) {
   const { catalog } = useApp();
-  const { report, parts } = useEvaluation(build, catalog);
+  const { report, parts, art } = useEvaluation(build, catalog);
   return (
     <article className={`build-card${selected ? ' selected' : ''}`}>
       {href && <a className="build-card-link" href={href} aria-label={`Open ${build.name}`} />}
       {select && <div className="build-card-select">{select}</div>}
-      <WatchStage parts={parts} framing="head" title={build.name} />
+      <WatchStage parts={parts} art={art} framing="head" title={build.name} />
       <div className="build-card-body">
         <div className="build-card-title">
           <h3>{build.name}</h3>

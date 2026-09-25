@@ -84,4 +84,5 @@ A mismatch shows a warning in the part editor so contributors notice a drawing a
 - Every layer is a `<g data-layer="…" data-part="…">`; a template fallback adds `data-fallback`.
 - All `id`s are prefixed per render, so several watches can share a page (`idPrefix` prop, or a React id).
 - Date/day window centre sits at 0.76 × dial radius; window size scales with the dial.
-- Uploaded SVG visuals currently render with the type's default template (`data-fallback="svg-pending"`); drawing uploaded art is Phase 5.
+- Uploaded art (Phase 5.2) is drawn by `render/uploaded/UploadedLayer.tsx` with `data-art="uploaded"` on the layer. A part with `kind: 'svg'` whose asset is missing falls back to the type's default template (`data-fallback="svg-pending"`).
+- §5 checks live in `render/uploaded/scaleCheck.ts`. Bounds come from `getBBox`, which excludes strokes. The bezel insert's inner diameter is not checked.

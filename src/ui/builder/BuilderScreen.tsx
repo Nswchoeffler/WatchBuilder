@@ -60,9 +60,10 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
   const stageRef = useRef<HTMLDivElement>(null);
 
   // Hovering a candidate shows it in the watch before committing.
-  const shownParts = useMemo(() => {
-    if (!preview) return parts;
-    return resolveParts({ slots: { ...build.slots, [active]: preview }, flags: build.flags }, catalog).parts;
+  const { shownParts, shownArt } = useMemo(() => {
+    const slots = preview ? { ...build.slots, [active]: preview } : build.slots;
+    const shown = preview ? resolveParts({ slots, flags: build.flags }, catalog).parts : parts;
+    return { shownParts: shown, shownArt: catalog.artFor(slots) };
   }, [preview, parts, build, active, catalog]);
   const previewName = preview ? catalog.get(preview)?.name : null;
 
@@ -161,7 +162,7 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
         />
 
         <div className="panel preview" ref={stageRef}>
-          <WatchStage parts={shownParts} framing={framing} title={build.name} highlight={preview ? [active] : (highlight ?? undefined)}>
+          <WatchStage parts={shownParts} art={shownArt} framing={framing} title={build.name} highlight={preview ? [active] : (highlight ?? undefined)}>
             <div className="preview-tools">
               <div className="segmented" role="group" aria-label="Framing">
                 <button type="button" aria-pressed={framing === 'watch'} onClick={() => setFraming('watch')}>Watch</button>

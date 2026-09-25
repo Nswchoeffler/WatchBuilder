@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-18. Phases 0–3 done; Phase 4 built, awaiting browser check; Phase 5.1 (part editor) built; Phase 6.2 variant pass done (112 parts)._
+_Last updated 2026-09-24. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phase 6.2 variant pass done (112 parts)._
 
 ## 1. Context
 
@@ -24,12 +24,13 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 
 ---
 
-## 2. Current state (Phase 4 built, Phase 5.1 built)
+## 2. Current state (Phase 4 done, Phase 5.1 built, Phase 5.2 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (346 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (423 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
-- **Not verified in a real browser by the assistant:** the Phase 4 screens and PNG export (tests run in jsdom; watch drawings reviewed via resvg previews).
+- **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
+- **Not yet walked through in a browser:** the Phase 5.1 part editor's create-and-save flow (its screens were checked for layout at 375 px, but no custom part was authored end to end).
 
 ### Architecture as built
 ```
@@ -80,10 +81,11 @@ True-scale scene; templates for 4 case styles, 2 bezels, 2 insert types, 2 ring 
 
 ---
 
-## 4. Phase 4 — Builder UI (first version you can actually use) — built
+## 4. Phase 4 — Builder UI (first version you can actually use) ✅
 
 **Status (2026-09-17):** screens, autosave, undo/redo, mods, parts list, compare and a new visual design (warm paper / graphite theme, brass accent, Instrument Serif + Manrope + JetBrains Mono, bundled via Fontsource) are in. 22 UI tests cover routes, draft history, picker filtering, the day-wheel acceptance case, missing-slot links, rename/autosave, library CRUD and compare. The octagon case drawing was reshaped (shorter case ends).
-**Still open:** manual browser check of the acceptance criteria (esp. 375 px width, PNG export); golden-image diffs for previews; lazily rendered part thumbnails in the picker; performance measurement against the < 50 ms budget. Mods live inside `CheckPanel.tsx` rather than a separate `ModsPanel.tsx`.
+**Verified in a browser (2026-09-22):** all five acceptance criteria below, plus PNG export — assembly from empty with incompatible dials hidden and reasons shown, the day-wheel warning clearing via `day-wheel-swap`, reload persistence, compare at a shared scale, and 375 px with no horizontal scrolling (`.bom` and `.compare-table` have no mobile override and were the suspected overflow risk; they held up).
+**Still open:** golden-image diffs for previews; lazily rendered part thumbnails in the picker; performance measurement against the < 50 ms budget. Mods live inside `CheckPanel.tsx` rather than a separate `ModsPanel.tsx`.
 
 **Goal:** design, check, save and compare your own builds end to end without touching code.
 
@@ -174,14 +176,51 @@ Saving creates the **"My Parts"** pack on first use and bumps its patch version 
   params). A test keeps it in step with the renderer's registries and with every template the core catalog uses.
 
 **Known gaps:** no pack picker yet (everything saves to My Parts — 5.3); deleting a part doesn't warn about builds that use it;
-no browser check yet.
+no functional browser check yet (the editor's layout was checked at 375 px on 2026-09-22, but no part has been authored and saved in a real browser).
 
-### 5.2 Uploaded SVG art
-- Dependency: `dompurify`.
-- **Sanitise on upload** per `svg-canvas-spec.md` §4: size limit, root/viewBox checks, centred viewBox, element allow-list, no scripts/handlers/external refs/`foreignObject`/`image`; re-serialise the cleaned markup.
-- **Scale check** per §5 (measure the drawing's bounds in the browser vs the entered measurements) → warnings, not rejection.
-- **Renderer:** `render/uploaded/UploadedLayer.tsx` replaces the `svg-pending` fallback. It places art per part type (crown rotation, hands split by `#hour/#minute/#seconds/#gmt` groups and rotated, strap `#top/#bottom`), applies `data-role` recolouring, and prefixes all ids inside the art to keep references unique.
-- **Security tests:** fixtures with `<script>`, `onload`, `javascript:` hrefs, external `url()`, `foreignObject`, `<image>`, CSS `@import`, and id collisions must all be rejected or neutralised.
+### 5.2 Uploaded SVG art ✅
+
+**Status (2026-09-24):** done. Sanitiser, renderer, the editor's upload control and the §5 scale check are in, and
+the whole path was driven in Chrome on 2026-09-24 (see below). 77 tests added over the phase (423 total).
+No schema change was needed: `Pack.assets` holds sanitised markup inline and `Pack`'s superRefine enforces that
+every `kind: 'svg'` part's `assetId` resolves, so art travels with the pack, and pack export (5.3) and bundles
+(5.4) will carry it for free.
+
+- `domain/svg/sanitize.ts` — spec §4 as **rejections with reasons**, not silent stripping, then DOMPurify as a
+  backstop that refuses the file if it still finds anything to remove. DOMPurify lists `use` in `svgDisallowed`;
+  it is added back because the strap and hand formats need it, and that is safe **only** because every href that
+  isn't a local `#fragment` has already been rejected. Loaded with `import()` on first upload, so DOMPurify
+  (12 KB gzip) stays out of the main bundle.
+- `domain/svg/ids.ts` — `prefixIdsInPlace` / `prefixSvgIds`, so two uploads can't clobber each other's ids.
+- `render/uploaded/prepare.ts` — drops the root `<svg>` (a nested one would open a new viewport and rescale the
+  art off the mm grid), re-wraps children in a `<g>` carrying the root's presentation attributes, applies
+  `data-role` recolouring (outlines recolour on stroke), prefixes ids, extracts named groups.
+- `render/uploaded/UploadedLayer.tsx` — hands split by `#hour/#minute/#seconds/#gmt` and rotated to the display
+  time, strap `#top`/`#bottom` placed on the spring bars (top mirrored when `#bottom` is absent), crown moved out
+  to the case edge. `WatchSvg` takes an `art` prop by slot and `Catalog.artFor(slots)` builds it; every stage
+  (library cards, builder incl. hover preview, compare, editor) passes it. A part whose art is missing still
+  falls back to `svg-pending`.
+- `render/uploaded/scaleCheck.ts` — spec §5. `measureArt` lays the art out off-screen and reads `getBBox`
+  (null without a layout engine, so jsdom skips size checks); `artWarnings` compares case width (±1.0), dial
+  diameter (±0.3), insert outer diameter (±0.3) and minute-hand length (±0.5), and also warns when hands art lacks
+  a group the part needs or a strap has no `#top`. The insert's **inner** diameter is not measured: that needs
+  the hole's edge, not the bounding box.
+- **Editor** (`ui/editor/VisualForm.tsx`) — Drawing tab has *Template / Uploaded SVG*. The upload shows each
+  rejection reason, the §5 warnings (with a count on the tab), and a colour field per `data-role` the file
+  actually uses. The art lives beside the draft, not in it; an upload with no file counts as a problem and blocks
+  saving. Switching back restores the previous template.
+- **Storage** (`data/userPack.ts`) — `withPart(pack, part, replacesId, art)` stores art under the **part's id**
+  (unique in the pack) and points `assetId` at it; assets no part draws from are pruned on every save and delete.
+
+**Browser check (2026-09-24, Chrome, driven by script rather than by hand):** an unsafe file (`onload`, `<image>`,
+uncentred viewBox) was refused with all three reasons; a fumé dial using `linearGradient` + `clipPath` rendered
+correctly — `dangerouslySetInnerHTML` produced real `SVGLinearGradientElement`/`SVGClipPathElement` nodes with
+prefixed ids, and `getBBox` measured exactly 28.5mm; a 36mm drawing raised the scale warning; an accent outline
+recoloured on its stroke; saving wrote the asset into My Parts; the dial drew in the Diver 42 builder; uploaded hands
+rotated to 10:08:37 (304.3° / 51.7° / 222°).
+
+**Not covered:** strap, crown and crystal art were only tested in jsdom; the upload control was not checked at 375 px;
+acceptance (2) names a **bezel insert**, which was not uploaded in the browser (a dial was).
 
 ### 5.3 Packs
 - A default editable **"My Parts"** user pack; users can create more.

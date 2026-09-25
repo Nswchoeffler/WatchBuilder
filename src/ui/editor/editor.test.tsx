@@ -201,3 +201,86 @@ describe('editing a saved part', () => {
     await waitFor(async () => expect((await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)?.parts).toHaveLength(0));
   });
 });
+
+describe('uploaded art (Phase 5.2)', () => {
+  const dialArt = (diameter: number) =>
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 30 30"><circle r="${diameter / 2}" data-role="primary" fill="#111111"/></svg>`;
+  const file = (markup: string, name = 'dial.svg') => new File([markup], name, { type: 'image/svg+xml' });
+
+  async function switchToUpload(user: ReturnType<typeof userEvent.setup>) {
+    await user.click(screen.getByRole('tab', { name: /Drawing/ }));
+    await user.click(screen.getByRole('button', { name: 'Uploaded SVG' }));
+  }
+
+  it('refuses an unsafe file and says why, keeping save disabled until there is art', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    await switchToUpload(user);
+
+    // Choosing an upload with no file yet is a problem to fix, not something to save.
+    expect(screen.getByRole('status').textContent).toBe('1 problem to fix');
+    expect(screen.getByRole('button', { name: 'Save to My Parts' })).toHaveProperty('disabled', true);
+
+    await user.upload(screen.getByLabelText('SVG file'), file(dialArt(28.5).replace('<circle', '<script>x()</script><circle'), 'bad.svg'));
+    const alert = await screen.findByRole('alert');
+    expect(alert.textContent).toMatch(/bad\.svg was not used/);
+    expect(alert.textContent).toMatch(/scripts/);
+    expect(screen.getByRole('button', { name: 'Save to My Parts' })).toHaveProperty('disabled', true);
+  });
+
+  it('draws the upload in the preview, offers its colour roles and saves it into the pack', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    await type(user, 'Id', 'dl-drawn');
+    await switchToUpload(user);
+
+    await user.upload(screen.getByLabelText('SVG file'), file(dialArt(28.5)));
+    await waitFor(() => expect(document.querySelector('[data-layer="dial"][data-art="uploaded"]')).toBeTruthy());
+    expect(screen.getByText(/Using dial\.svg/)).toBeTruthy();
+    expect(screen.getByLabelText('Primary')).toBeTruthy();
+
+    await user.click(screen.getByRole('button', { name: 'Save to My Parts' }));
+    await waitFor(async () => {
+      const mine = (await loadPacks(db)).find((p) => p.id === MY_PARTS_ID);
+      expect(mine?.parts[0]?.visual).toEqual({ kind: 'svg', assetId: 'dl-drawn' });
+      expect(mine?.assets['dl-drawn']?.data).toContain('<circle');
+    });
+
+    // Reopened, the part still draws from its stored art.
+    cleanup();
+    catalog = new Catalog(await loadPacks(db));
+    open(`#/part/${MY_PARTS_ID}/dl-drawn`);
+    expect(document.querySelector('[data-layer="dial"][data-art="uploaded"]')).toBeTruthy();
+    await user.click(screen.getByRole('tab', { name: /Drawing/ }));
+    expect(screen.getByText(/Using the stored drawing/)).toBeTruthy();
+  });
+
+  it('switching back to a template restores it and drops the art on save', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    await type(user, 'Id', 'dl-back');
+    await switchToUpload(user);
+    await user.upload(screen.getByLabelText('SVG file'), file(dialArt(28.5)));
+    await user.click(screen.getByRole('button', { name: 'Template' }));
+
+    expect((screen.getByLabelText('Template') as HTMLSelectElement).value).toBe('dial/generated');
+    await user.click(screen.getByRole('button', { name: 'Save to My Parts' }));
+    await waitFor(async () => {
+      const mine = (await loadPacks(db)).find((p) => p.id === MY_PARTS_ID);
+      expect(mine?.parts[0]?.visual.kind).toBe('template');
+      expect(mine?.assets).toEqual({});
+    });
+  });
+
+  it('warns about hands art without the groups it needs', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=hands');
+    await switchToUpload(user);
+    const art = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 20 20"><g id="hour"><path d="M0 0V-6"/></g></svg>';
+    await user.upload(screen.getByLabelText('SVG file'), file(art, 'hands.svg'));
+
+    const warnings = await screen.findByRole('list', { name: 'Drawing warnings' });
+    expect(warnings.textContent).toContain('<g id="minute">');
+    expect(screen.getByRole('tab', { name: /Drawing/ }).textContent).toMatch(/1$/);
+  });
+});

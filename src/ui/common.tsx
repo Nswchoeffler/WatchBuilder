@@ -60,7 +60,7 @@ export function useEvaluation(build: Pick<Build, 'slots' | 'flags'>, catalog: Ca
   return useMemo(() => {
     const report: BuildReport = evaluate(build, catalog);
     const { parts } = resolveParts(build, catalog);
-    return { report, parts };
+    return { report, parts, art: catalog.artFor(build.slots) };
   }, [build, catalog]);
 }
 
@@ -71,19 +71,21 @@ interface StageProps {
   framing?: Framing;
   viewBox?: readonly [number, number, number, number];
   title: string;
+  /** Uploaded art by slot, from `Catalog.artFor`. */
+  art?: Partial<Record<Slot, string>>;
   /** Dim every layer except these. */
   highlight?: readonly Slot[];
   className?: string;
   children?: ReactNode;
 }
 
-export function WatchStage({ parts, framing = 'watch', viewBox, title, highlight, className = '', children }: StageProps) {
+export function WatchStage({ parts, art, framing = 'watch', viewBox, title, highlight, className = '', children }: StageProps) {
   const empty = Object.keys(parts).length === 0;
   const lit = highlight?.length ? highlight.map((s) => `[data-layer="${s}"]`).join(',') : null;
   return (
     <div className={`stage ${className}`} data-highlight={lit ? '' : undefined}>
       {lit && <style>{`.stage[data-highlight] [data-layer]{opacity:.18} .stage[data-highlight] :is(${lit}){opacity:1}`}</style>}
-      {empty ? <EmptyWatch /> : <WatchSvg parts={parts} framing={framing} viewBox={viewBox} title={title} />}
+      {empty ? <EmptyWatch /> : <WatchSvg parts={parts} art={art} framing={framing} viewBox={viewBox} title={title} />}
       {children}
     </div>
   );

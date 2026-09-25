@@ -591,6 +591,14 @@ select.input { width: auto; padding-right: 28px; }
 .field-hint { margin: 0; font-size: 0.74rem; line-height: 1.35; color: var(--faint); }
 .field-error { margin: 0; font-size: 0.74rem; line-height: 1.35; color: var(--bad); }
 .field.invalid .input { border-color: var(--bad); }
+.field > .field-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+.field .segmented { justify-self: start; }
+.upload-field { grid-column: 1 / -1; }
+.upload-row { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.upload-row .input[type='file'] { flex: 1; min-width: 0; padding: 6px; }
+.upload-rejected { margin: 0; font-weight: 600; }
+.upload-reasons, .upload-warnings { margin: 0; padding-left: 18px; display: grid; gap: 3px; }
+.upload-warnings { font-size: 0.78rem; line-height: 1.35; color: var(--warn); background: var(--warn-soft); border-radius: 8px; padding: 8px 10px 8px 26px; }
 
 .field-row { grid-column: 1 / -1; display: grid; gap: 6px; }
 .field-row-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); }

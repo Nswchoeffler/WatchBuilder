@@ -2,7 +2,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { useMemo, type ReactNode } from 'react';
 import type { Catalog } from '../../data/catalog';
 import { evaluate, resolveParts, type BuildReport, type ResolvedParts } from '../../domain/rules';
-import type { Build } from '../../domain/schemas';
+import type { Build, Slot } from '../../domain/schemas';
 import { computeLayout, sharedViewBox } from '../../render/layout';
 import { useApp } from '../app/AppContext';
 import { href } from '../app/route';
@@ -12,6 +12,7 @@ import { FLAG_INFO, SLOT_LABELS, SLOT_ORDER } from '../labels';
 interface Column {
   build: Build;
   parts: ResolvedParts;
+  art?: Partial<Record<Slot, string>>;
   report: BuildReport;
 }
 
@@ -54,7 +55,12 @@ export function CompareScreen({ ids }: { ids: string[] }) {
     () =>
       (builds ?? [])
         .filter((b): b is Build => Boolean(b))
-        .map((build) => ({ build, parts: resolveParts(build, catalog).parts, report: evaluate(build, catalog) })),
+        .map((build) => ({
+          build,
+          parts: resolveParts(build, catalog).parts,
+          art: catalog.artFor(build.slots),
+          report: evaluate(build, catalog),
+        })),
     [builds, catalog],
   );
 
@@ -85,7 +91,7 @@ export function CompareScreen({ ids }: { ids: string[] }) {
       <div className="compare-grid" style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}>
         {columns.map((c) => (
           <article key={c.build.id} className="compare-col">
-            <WatchStage parts={c.parts} viewBox={viewBox} title={c.build.name} />
+            <WatchStage parts={c.parts} art={c.art} viewBox={viewBox} title={c.build.name} />
             <div className="compare-col-head">
               <h3><a href={href.build(c.build.id)} style={{ textDecoration: 'none' }}>{c.build.name}</a></h3>
               <StatusBadge status={c.report.status} />

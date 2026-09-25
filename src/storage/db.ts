@@ -57,11 +57,12 @@ export async function ensureUserPack(db: ModWatchDB, id = MY_PARTS_ID, name?: st
 
 /**
  * Add or replace a part in a user pack (creating the pack if needed) and bump its version.
- * Pass `replacesId` when an edit changed the part's id, so the old entry is not left behind.
+ * Pass `replacesId` when an edit changed the part's id, so the old entry is not left behind,
+ * and `art` (sanitized markup) when the part is drawn from an upload.
  */
-export async function savePart(db: ModWatchDB, packId: string, part: Part, replacesId?: string): Promise<Pack> {
+export async function savePart(db: ModWatchDB, packId: string, part: Part, replacesId?: string, art?: string): Promise<Pack> {
   const pack = await ensureUserPack(db, packId);
-  return saveUserPack(db, withPart(pack, part, replacesId));
+  return saveUserPack(db, withPart(pack, part, replacesId, art));
 }
 
 export async function deletePart(db: ModWatchDB, packId: string, partId: string): Promise<Pack> {

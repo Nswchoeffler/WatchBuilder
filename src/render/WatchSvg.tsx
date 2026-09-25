@@ -1,6 +1,7 @@
 import { useId, type ReactNode } from 'react';
 import type { ResolvedParts } from '../domain/rules';
-import type { Part, PartOf, PartType } from '../domain/schemas';
+import type { Part, PartOf, PartType, Slot } from '../domain/schemas';
+import { UploadedLayer } from './uploaded/UploadedLayer';
 import { computeLayout, viewBoxFor, type Framing } from './layout';
 import { bezelTemplates, chapterRingTemplates, crownTemplates, insertTemplates } from './templates/bezel';
 import { caseTemplates } from './templates/case';
@@ -13,6 +14,12 @@ import { DISPLAY_TIME, paramsOf, type DisplayTime } from './util';
 
 export interface WatchSvgProps {
   parts: ResolvedParts;
+  /**
+   * Sanitized art for parts whose visual is an upload, by slot. Parts are referenced pack-scoped,
+   * so the caller resolves `assetId` against the owning pack and passes the markup in; a slot with
+   * no entry falls back to the type's default template.
+   */
+  art?: Partial<Record<Slot, string>>;
   time?: DisplayTime;
   framing?: Framing;
   /** Override the framed viewBox, e.g. to draw several watches at the same scale. */
@@ -57,9 +64,16 @@ function templateFor<T extends Registered>(type: T, part: Part): { Tpl: Template
   return { Tpl: registry[DEFAULT_TEMPLATE[type]]!, fallback };
 }
 
-function Layer<T extends Registered>({ type, part, ctx, transform }: { type: T; part: PartOf<T> | undefined; ctx: RenderCtx; transform?: string }) {
+function Layer<T extends Registered>({ type, part, ctx, transform, art }: { type: T; part: PartOf<T> | undefined; ctx: RenderCtx; transform?: string; art?: string }) {
   if (!part) return null;
   const base = part as Part;
+  if (base.visual.kind === 'svg' && art) {
+    return (
+      <g data-layer={type} data-part={base.id} data-art="uploaded" transform={transform}>
+        <UploadedLayer type={type} art={art} colors={base.visual.colors} ctx={ctx} />
+      </g>
+    );
+  }
   const { Tpl, fallback } = templateFor(type, base);
   return (
     <g data-layer={type} data-part={base.id} data-fallback={fallback ?? undefined} transform={transform}>
@@ -68,9 +82,16 @@ function Layer<T extends Registered>({ type, part, ctx, transform }: { type: T; 
   );
 }
 
-function StrapLayer({ part, ctx, viewTop }: { part: PartOf<'strap'> | undefined; ctx: RenderCtx; viewTop: number }) {
+function StrapLayer({ part, ctx, viewTop, art }: { part: PartOf<'strap'> | undefined; ctx: RenderCtx; viewTop: number; art?: string }) {
   if (!part) return null;
   const visual = part.visual;
+  if (visual.kind === 'svg' && art) {
+    return (
+      <g data-layer="strap" data-part={part.id} data-art="uploaded">
+        <UploadedLayer type="strap" art={art} colors={visual.colors} ctx={ctx} />
+      </g>
+    );
+  }
   const known = visual.kind === 'template' && strapDrawers[visual.template];
   const draw = known ? strapDrawers[visual.template]! : strapDrawers[STRAP_KIND_DEFAULT[part.kind] ?? 'strap/nato']!;
   const props = { part, params: paramsOf(visual), ctx };
@@ -85,7 +106,7 @@ function StrapLayer({ part, ctx, viewTop }: { part: PartOf<'strap'> | undefined;
   );
 }
 
-export function WatchSvg({ parts, time = DISPLAY_TIME, framing = 'watch', viewBox, idPrefix, title, className }: WatchSvgProps) {
+export function WatchSvg({ parts, art, time = DISPLAY_TIME, framing = 'watch', viewBox, idPrefix, title, className }: WatchSvgProps) {
   const reactId = useId();
   const prefix = idPrefix ?? `w${reactId.replace(/[^a-zA-Z0-9]/g, '')}`;
   const layout = computeLayout(parts);
@@ -115,21 +136,26 @@ export function WatchSvg({ parts, time = DISPLAY_TIME, framing = 'watch', viewBo
           <circle r={layout.bezelInnerRadius} />
         </clipPath>
       </defs>
-      <StrapLayer part={parts.strap} ctx={ctx} viewTop={vy} />
-      <Layer type="crown" part={parts.crown} ctx={ctx} transform={`rotate(${layout.crownAngle - 90})`} />
-      <Layer type="case" part={parts.case} ctx={ctx} />
-      <Layer type="bezel" part={parts.bezel} ctx={ctx} />
-      <Layer type="bezelInsert" part={parts.bezelInsert} ctx={ctx} />
+      <StrapLayer part={parts.strap} ctx={ctx} viewTop={vy} art={art?.strap} />
+      <Layer type="crown" part={parts.crown} ctx={ctx} transform={`rotate(${layout.crownAngle - 90})`} art={art?.crown} />
+      <Layer type="case" part={parts.case} ctx={ctx} art={art?.case} />
+      <Layer type="bezel" part={parts.bezel} ctx={ctx} art={art?.bezel} />
+      <Layer type="bezelInsert" part={parts.bezelInsert} ctx={ctx} art={art?.bezelInsert} />
       <g clipPath={url(dialClip)}>
-        <Layer type="dial" part={parts.dial} ctx={ctx} />
-        <Layer type="chapterRing" part={parts.chapterRing} ctx={ctx} />
+        <Layer type="dial" part={parts.dial} ctx={ctx} art={art?.dial} />
+        <Layer type="chapterRing" part={parts.chapterRing} ctx={ctx} art={art?.chapterRing} />
       </g>
-      <Layer type="hands" part={parts.hands} ctx={ctx} />
-      {parts.crystal && (
-        <g data-layer="crystal" data-part={parts.crystal.id}>
-          <CrystalLayer part={parts.crystal} params={paramsOf(parts.crystal.visual)} ctx={ctx} magnified={magnified} />
-        </g>
-      )}
+      <Layer type="hands" part={parts.hands} ctx={ctx} art={art?.hands} />
+      {parts.crystal &&
+        (parts.crystal.visual.kind === 'svg' && art?.crystal ? (
+          <g data-layer="crystal" data-part={parts.crystal.id} data-art="uploaded">
+            <UploadedLayer type="crystal" art={art.crystal} colors={parts.crystal.visual.colors} ctx={ctx} />
+          </g>
+        ) : (
+          <g data-layer="crystal" data-part={parts.crystal.id}>
+            <CrystalLayer part={parts.crystal} params={paramsOf(parts.crystal.visual)} ctx={ctx} magnified={magnified} />
+          </g>
+        ))}
     </svg>
   );
 }

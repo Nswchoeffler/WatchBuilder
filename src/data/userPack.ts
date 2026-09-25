@@ -1,4 +1,4 @@
-import type { Pack, Part, PartType } from '../domain/schemas';
+import type { Asset, Pack, Part, PartType } from '../domain/schemas';
 import { PACK_FORMAT, PACK_SCHEMA_VERSION } from '../domain/schemas';
 
 /** The pack new parts go into unless the user picks another one. */
@@ -24,18 +24,35 @@ export function bumpPatch(version: string): string {
 /**
  * Insert or replace a part by id, keeping parts sorted by type then name.
  * `replacesId` is the id the part had before an edit renamed it, so the old entry goes too.
+ *
+ * `art` is sanitized markup for a part drawn from an upload. It is stored under the part's own id —
+ * part ids are unique within a pack, so no two parts can claim the same asset — and the part's
+ * `assetId` is pointed at it. Assets no part draws from any more are dropped.
  */
-export function withPart(pack: Pack, part: Part, replacesId?: string): Pack {
+export function withPart(pack: Pack, part: Part, replacesId?: string, art?: string): Pack {
+  let assets = pack.assets;
+  let stored = part;
+  if (part.visual.kind === 'svg' && art !== undefined) {
+    assets = { ...assets, [part.id]: { mime: 'image/svg+xml', data: art } };
+    stored = { ...part, visual: { ...part.visual, assetId: part.id } };
+  }
   const parts = pack.parts
     .filter((p) => p.id !== part.id && p.id !== replacesId)
-    .concat(part)
+    .concat(stored)
     .sort(byTypeThenName);
-  return { ...pack, parts, version: bumpPatch(pack.version) };
+  return { ...pack, parts, assets: usedAssets(parts, assets), version: bumpPatch(pack.version) };
 }
 
 export function withoutPart(pack: Pack, partId: string): Pack {
   if (!pack.parts.some((p) => p.id === partId)) return pack;
-  return { ...pack, parts: pack.parts.filter((p) => p.id !== partId), version: bumpPatch(pack.version) };
+  const parts = pack.parts.filter((p) => p.id !== partId);
+  return { ...pack, parts, assets: usedAssets(parts, pack.assets), version: bumpPatch(pack.version) };
+}
+
+/** Only the assets some part still draws from, so replaced or deleted art doesn't pile up in the pack. */
+function usedAssets(parts: readonly Part[], assets: Record<string, Asset>): Record<string, Asset> {
+  const used = new Set(parts.flatMap((p) => (p.visual.kind === 'svg' ? [p.visual.assetId] : [])));
+  return Object.fromEntries(Object.entries(assets).filter(([id]) => used.has(id)));
 }
 
 const byTypeThenName = (a: Part, b: Part) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
