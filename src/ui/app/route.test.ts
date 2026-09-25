@@ -11,6 +11,7 @@ describe('hash routes', () => {
   it('parses builder, catalog and compare routes', () => {
     expect(parseHash('#/build/abc-123')).toEqual({ name: 'build', id: 'abc-123' });
     expect(parseHash('#/catalog')).toEqual({ name: 'catalog' });
+    expect(parseHash(href.packs())).toEqual({ name: 'packs' });
     expect(parseHash('#/compare?ids=a,b,a,c')).toEqual({ name: 'compare', ids: ['a', 'b', 'c'] });
     expect(parseHash('#/compare')).toEqual({ name: 'compare', ids: [] });
   });

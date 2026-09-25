@@ -3,6 +3,7 @@ import { CatalogView } from '../catalog/CatalogView';
 import { CompareScreen } from '../compare/CompareScreen';
 import { PartEditorScreen } from '../editor/PartEditorScreen';
 import { LibraryScreen } from '../library/LibraryScreen';
+import { PacksScreen } from '../packs/PacksScreen';
 import { href, type Route } from './route';
 
 export function Router({ route }: { route: Route }) {
@@ -15,6 +16,8 @@ export function Router({ route }: { route: Route }) {
       return <CompareScreen ids={route.ids} />;
     case 'catalog':
       return <CatalogView />;
+    case 'packs':
+      return <PacksScreen />;
     case 'part-new':
     case 'part':
       return <PartEditorScreen route={route} />;

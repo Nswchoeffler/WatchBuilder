@@ -67,8 +67,8 @@ export function uniquePartId(base: string, taken: ReadonlySet<string>): string {
   return `${base}-${Date.now()}`;
 }
 
-/** Slug from a part name, e.g. "Diver Black 28.5" → "diver-black-28-5". Empty names fall back to the type. */
-export function slugify(name: string, type: PartType): string {
+/** Slug from a name, e.g. "Diver Black 28.5" → "diver-black-28-5". Names with nothing usable fall back to `fallback` (a part's type). */
+export function slugify(name: string, fallback: PartType | 'pack'): string {
   const slug = name
     .toLowerCase()
     .normalize('NFD')
@@ -77,5 +77,8 @@ export function slugify(name: string, type: PartType): string {
     .replace(/^-+|-+$/g, '')
     .slice(0, 64)
     .replace(/-+$/, '');
-  return slug || type.toLowerCase();
+  return slug || fallback.toLowerCase();
 }
+
+/** Id for a new pack named `name`: its slug, made unique among `taken` (which should include the core pack's id). */
+export const newPackId = (name: string, taken: ReadonlySet<string>): string => uniquePartId(slugify(name, 'pack'), taken);

@@ -3,7 +3,7 @@ import { Logo } from '../common';
 import { href, type Route } from './route';
 
 export function Layout({ route, children }: { route: Route; children: ReactNode }) {
-  const section = route.name === 'catalog' || route.name === 'part' || route.name === 'part-new' ? 'catalog' : 'builds';
+  const section = route.name === 'catalog' || route.name === 'packs' || route.name === 'part' || route.name === 'part-new' ? 'catalog' : 'builds';
   return (
     <div className="shell">
       <header className="topbar">

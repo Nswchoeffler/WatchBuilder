@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { PACK_FORMAT, PACK_SCHEMA_VERSION, Pack } from '../domain/schemas';
+import { migratePack } from './migrations';
 
 export class PackError extends Error {
   readonly issues: string[];
@@ -43,8 +44,9 @@ export function validatePack(input: unknown): Pack {
       `Pack schema version ${header.data.schemaVersion} is newer than this app supports (${PACK_SCHEMA_VERSION}).`,
     );
   }
-  const result = Pack.safeParse(input);
-  if (!result.success) throw new PackError('Pack is invalid:', formatIssues(result.error, input));
+  const migrated = migratePack(input);
+  const result = Pack.safeParse(migrated);
+  if (!result.success) throw new PackError('Pack is invalid:', formatIssues(result.error, migrated));
   return result.data;
 }
 

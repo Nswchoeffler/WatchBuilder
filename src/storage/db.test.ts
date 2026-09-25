@@ -1,8 +1,25 @@
 import 'fake-indexeddb/auto';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import Dexie from 'dexie';
 import type { Build } from '../domain/schemas';
-import { loadCorePack } from '../data/catalog';
-import { ModWatchDB, deleteBuild, listBuilds, loadPacks, saveBuild, saveUserPack, syncCorePack } from './db';
+import { resolveParts } from '../domain/rules';
+import { buildFromSample, buildsUsing } from '../data/builds';
+import { Catalog, loadCorePack } from '../data/catalog';
+import { parsePackJson, serializePack } from '../data/packs';
+import { SAMPLE_BUILDS } from '../data/sampleBuilds';
+import { MY_PARTS_ID } from '../data/userPack';
+import {
+  ModWatchDB,
+  createUserPack,
+  deleteBuild,
+  deleteUserPack,
+  listBuilds,
+  loadPacks,
+  saveBuild,
+  savePart,
+  saveUserPack,
+  syncCorePack,
+} from './db';
 
 let db: ModWatchDB;
 let n = 0;
@@ -47,6 +64,77 @@ describe('user packs', () => {
 
   it('refuses invalid packs', async () => {
     await expect(saveUserPack(db, { ...userPack, version: 'latest' })).rejects.toThrow(/semver/);
+  });
+});
+
+describe('pack management', () => {
+  it('creates packs with ids from their names, never reusing one', async () => {
+    await syncCorePack(db);
+    expect((await createUserPack(db, '  Octagon project  ')).id).toBe('octagon-project');
+    expect((await createUserPack(db, 'Octagon project')).id).toBe('octagon-project-2');
+    expect((await createUserPack(db, 'Core')).id).toBe('core-2');
+    const created = await createUserPack(db, '!!!');
+    expect(created).toMatchObject({ id: 'pack', name: '!!!', version: '1.0.0', parts: [] });
+    await expect(createUserPack(db, '   ')).rejects.toThrow(/needs a name/);
+  });
+
+  it('deletes user packs but not the core pack', async () => {
+    await syncCorePack(db);
+    await saveUserPack(db, userPack);
+    await deleteUserPack(db, 'my-parts');
+    expect((await loadPacks(db)).map((p) => p.id)).toEqual(['core']);
+    await expect(deleteUserPack(db, 'core')).rejects.toThrow(/built-in/);
+  });
+
+  it('finds the builds that use a pack or one of its parts', () => {
+    const builds = SAMPLE_BUILDS.slice(0, 2).map(buildFromSample);
+    builds[0]!.slots.dial = { packId: 'my-parts', partId: 'dl-mine' };
+    expect(buildsUsing(builds, 'my-parts')).toEqual([builds[0]]);
+    expect(buildsUsing(builds, 'my-parts', 'dl-other')).toEqual([]);
+    expect(buildsUsing(builds, 'core')).toHaveLength(2);
+  });
+
+  it('brings back a build after its pack is exported, deleted and re-imported', async () => {
+    await syncCorePack(db);
+    const dial = { ...core.parts.find((p) => p.id === 'dl-diver-black')!, id: 'dl-mine', name: 'My dial' };
+    await savePart(db, MY_PARTS_ID, dial);
+    const build = buildFromSample(SAMPLE_BUILDS[0]!);
+    build.slots.dial = { packId: MY_PARTS_ID, partId: 'dl-mine' };
+    const unresolved = async () => resolveParts(build, new Catalog(await loadPacks(db))).unresolved.map((u) => u.slot);
+
+    const file = serializePack((await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)!);
+    await deleteUserPack(db, MY_PARTS_ID);
+    expect(await unresolved()).toContain('dial');
+    await saveUserPack(db, parsePackJson(file));
+    expect(await unresolved()).toEqual([]);
+  });
+});
+
+describe('schema upgrades', () => {
+  it('migrates packs stored by an older app when the database opens', async () => {
+    const name = `upgrade-${n++}`;
+    const old = new Dexie(name);
+    old.version(1).stores({ packs: 'id, origin', builds: 'id, updatedAt, name' });
+    const part = { ...core.parts[0]!, notes: 'Spec: https://example.com/spec.pdf' };
+    const v1 = { ...JSON.parse(serializePack({ ...userPack, parts: [part] })), schemaVersion: 1 };
+    await old.table('packs').put({ id: 'my-parts', version: '1.0.0', origin: 'user', pack: v1, updatedAt: '2026-09-01T00:00:00.000Z' });
+    old.close();
+
+    const upgraded = new ModWatchDB(name);
+    try {
+      const pack = (await loadPacks(upgraded))[0]!;
+      expect(pack.schemaVersion).toBe(2);
+      expect(pack.parts[0]!.sources).toEqual(['https://example.com/spec.pdf']);
+    } finally {
+      await upgraded.delete();
+    }
+  });
+
+  it('rewrites a stored core pack from an older schema even at the same version', async () => {
+    await syncCorePack(db);
+    await db.packs.update('core', { pack: { ...core, schemaVersion: 1 } as never });
+    expect(await syncCorePack(db)).toBe(true);
+    expect((await db.packs.get('core'))?.pack.schemaVersion).toBe(core.schemaVersion);
   });
 });
 

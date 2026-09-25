@@ -5,8 +5,10 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { Catalog, loadCorePack } from '../../data/catalog';
 import { CORE_PACK_ID } from '../../data/seed';
+import { buildFromSample } from '../../data/builds';
+import { SAMPLE_BUILDS } from '../../data/sampleBuilds';
 import { MY_PARTS_ID } from '../../data/userPack';
-import { ModWatchDB, loadPacks } from '../../storage/db';
+import { ModWatchDB, createUserPack, loadPacks, saveBuild, savePart } from '../../storage/db';
 import { AppProvider } from '../app/AppContext';
 import { parseHash } from '../app/route';
 import { PartEditorScreen } from './PartEditorScreen';
@@ -199,6 +201,63 @@ describe('editing a saved part', () => {
     await user.click(screen.getByRole('button', { name: 'Delete part' }));
     await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Delete' }));
     await waitFor(async () => expect((await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)?.parts).toHaveLength(0));
+  });
+
+  it('says how many builds use a part before deleting it', async () => {
+    const user = userEvent.setup();
+    await savePart(db, MY_PARTS_ID, { ...catalog.get({ packId: CORE_PACK_ID, partId: 'dl-diver-black' })!, id: 'dl-used', name: 'Used' });
+    for (const sample of SAMPLE_BUILDS.slice(0, 3)) {
+      const build = buildFromSample(sample);
+      build.slots.dial = { packId: MY_PARTS_ID, partId: 'dl-used' };
+      await saveBuild(db, build);
+    }
+    catalog = new Catalog(await loadPacks(db));
+    open(`#/part/${MY_PARTS_ID}/dl-used`);
+    await user.click(screen.getByRole('button', { name: 'Delete part' }));
+    await waitFor(() => expect(screen.getByRole('dialog').textContent).toContain('3 builds use it and will show it as missing'));
+  });
+});
+
+describe('packs and sources', () => {
+  it('saves a new part into another pack when one is chosen', async () => {
+    const user = userEvent.setup();
+    await createUserPack(db, 'Octagon project');
+    catalog = new Catalog(await loadPacks(db));
+    open('#/part/new?type=dial');
+
+    const picker = screen.getByLabelText('Pack to save into') as HTMLSelectElement;
+    expect([...picker.options].map((o) => o.text)).toEqual(['My Parts', 'Octagon project']);
+    await user.selectOptions(picker, 'octagon-project');
+    await type(user, 'Id', 'dl-octo');
+    await user.click(screen.getByRole('button', { name: 'Save to Octagon project' }));
+
+    await waitFor(() => expect(parseHash(window.location.hash)).toEqual({ name: 'part', packId: 'octagon-project', partId: 'dl-octo' }));
+    const packs = await loadPacks(db);
+    expect(packs.find((p) => p.id === 'octagon-project')?.parts.map((p) => p.id)).toEqual(['dl-octo']);
+    expect(packs.some((p) => p.id === MY_PARTS_ID)).toBe(false);
+  });
+
+  it('offers no pack picker while My Parts is the only choice', () => {
+    open('#/part/new?type=dial');
+    expect(screen.queryByLabelText('Pack to save into')).toBeNull();
+  });
+
+  it('takes sources one per line and points at the line that is wrong', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    await user.type(field('Sources'), 'https://example.com/spec.pdf{enter}{enter}not a link');
+    await waitFor(() => expect(screen.getByText(/Line 2: expected a web address/)).toBeTruthy());
+
+    await user.clear(field('Sources'));
+    await user.type(field('Sources'), 'https://example.com/spec.pdf{enter}https://shop.example.com/dial');
+    await type(user, 'Id', 'dl-sourced');
+    await user.click(screen.getByRole('button', { name: 'Save to My Parts' }));
+    await waitFor(async () =>
+      expect((await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)?.parts[0]?.sources).toEqual([
+        'https://example.com/spec.pdf',
+        'https://shop.example.com/dial',
+      ]),
+    );
   });
 });
 

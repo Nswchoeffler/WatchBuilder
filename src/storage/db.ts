@@ -2,8 +2,9 @@ import Dexie, { type EntityTable } from 'dexie';
 import type { Build, Pack, Part } from '../domain/schemas';
 import { Build as BuildSchema } from '../domain/schemas';
 import { loadCorePack } from '../data/catalog';
+import { migratePack } from '../data/migrations';
 import { validatePack } from '../data/packs';
-import { emptyUserPack, MY_PARTS_ID, withPart, withoutPart } from '../data/userPack';
+import { emptyUserPack, MY_PARTS_ID, newPackId, withPart, withoutPart } from '../data/userPack';
 
 export interface PackRecord {
   id: string;
@@ -24,13 +25,27 @@ export class ModWatchDB extends Dexie {
       packs: 'id, origin',
       builds: 'id, updatedAt, name',
     });
+    // Stored packs follow the pack schema, so a schema bump migrates them in place.
+    // Add a Dexie version like this one whenever PACK_SCHEMA_VERSION goes up.
+    this.version(2)
+      .stores({})
+      .upgrade((tx) =>
+        tx
+          .table<PackRecord>('packs')
+          .toCollection()
+          .modify((record) => {
+            record.pack = migratePack(record.pack) as Pack;
+          }),
+      );
   }
 }
 
 /** Write the bundled core pack if missing or out of date. Returns true when it was (re)written. */
 export async function syncCorePack(db: ModWatchDB, core: Pack = loadCorePack()): Promise<boolean> {
   const existing = await db.packs.get(core.id);
-  if (existing?.origin === 'core' && existing.version === core.version) return false;
+  if (existing?.origin === 'core' && existing.version === core.version && existing.pack.schemaVersion === core.schemaVersion) {
+    return false;
+  }
   if (existing && existing.origin !== 'core') {
     throw new Error(`A user pack is using the reserved id "${core.id}".`);
   }
@@ -53,6 +68,21 @@ export async function ensureUserPack(db: ModWatchDB, id = MY_PARTS_ID, name?: st
   if (existing?.origin === 'core') throw new Error(`"${id}" is reserved for the built-in catalog.`);
   if (existing) return existing.pack;
   return saveUserPack(db, emptyUserPack(id, name));
+}
+
+/** A new, empty user pack named `name`, with an id derived from the name that no stored pack uses. */
+export async function createUserPack(db: ModWatchDB, name: string): Promise<Pack> {
+  const trimmed = name.trim().slice(0, 80);
+  if (!trimmed) throw new Error('A pack needs a name.');
+  const taken = new Set(await db.packs.toCollection().primaryKeys());
+  return saveUserPack(db, emptyUserPack(newPackId(trimmed, taken), trimmed));
+}
+
+/** Remove a user pack. Builds that use its parts keep their references and show them as missing until it's re-imported. */
+export async function deleteUserPack(db: ModWatchDB, id: string): Promise<void> {
+  const existing = await db.packs.get(id);
+  if (existing?.origin === 'core') throw new Error(`"${id}" is the built-in catalog and can't be deleted.`);
+  await db.packs.delete(id);
 }
 
 /**

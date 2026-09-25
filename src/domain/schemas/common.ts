@@ -59,5 +59,7 @@ export const partBaseShape = {
   confidence: Confidence,
   inspiredBy: z.string().max(120).optional(),
   notes: z.string().max(2000).optional(),
+  /** Where the measurements came from: spec sheets, listings, forum threads. */
+  sources: z.array(z.httpUrl('expected a web address starting with http:// or https://')).max(10).optional(),
   visual: Visual,
 };

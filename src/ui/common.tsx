@@ -18,6 +18,7 @@ export const icons = {
   plus: <Icon><path d="M12 5v14M5 12h14" /></Icon>,
   undo: <Icon><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></Icon>,
   redo: <Icon><path d="m15 14 5-5-5-5" /><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13" /></Icon>,
+  upload: <Icon><path d="M12 15V4M7 9l5-5 5 5M5 20h14" /></Icon>,
   copy: <Icon><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" /></Icon>,
   download: <Icon><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></Icon>,
   trash: <Icon><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" /></Icon>,
@@ -62,6 +63,22 @@ export function useEvaluation(build: Pick<Build, 'slots' | 'flags'>, catalog: Ca
     const { parts } = resolveParts(build, catalog);
     return { report, parts, art: catalog.artFor(build.slots) };
   }, [build, catalog]);
+}
+
+/** A part's measurement sources as links named by their site. The schema only admits http(s) addresses. */
+export function SourceLinks({ sources }: { sources?: readonly string[] }) {
+  if (!sources?.length) return null;
+  return (
+    <p className="sources">
+      Sources:{' '}
+      {sources.map((url, i) => (
+        <span key={url}>
+          {i > 0 && ', '}
+          <a href={url} target="_blank" rel="noopener noreferrer">{new URL(url).hostname.replace(/^www\./, '')}</a>
+        </span>
+      ))}
+    </p>
+  );
 }
 
 // ── Watch stage ─────────────────────────────────────────────────────────────

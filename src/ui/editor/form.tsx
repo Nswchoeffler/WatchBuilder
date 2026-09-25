@@ -151,6 +151,47 @@ export function TextAreaField({ path, label, hint, maxLength }: Common & { maxLe
   );
 }
 
+const toLines = (text: string) => text.split('\n').map((l) => l.trim()).filter(Boolean);
+
+/**
+ * A list of strings edited one per line; blank lines are ignored and an empty list clears
+ * the field. Errors on any entry (`sources.2`) are shown here, numbered by line.
+ */
+export function LineListField({ path, label, hint, placeholder }: Common & { placeholder?: string }) {
+  const f = useField(path);
+  const list = Array.isArray(f.value) ? (f.value as unknown[]).map(String) : [];
+  // The text is kept as typed, so a trailing newline survives until the next entry is typed.
+  const [text, setText] = useState(() => list.join('\n'));
+  if (toLines(text).join('\n') !== list.join('\n')) setText(list.join('\n'));
+
+  const errors = [...f.form.errors].flatMap(([key, messages]) => {
+    if (key === path) return messages;
+    if (!key.startsWith(`${path}.`)) return [];
+    const line = Number(key.slice(path.length + 1).split('.')[0]) + 1;
+    return messages.map((m) => `Line ${line}: ${m}`);
+  });
+  const describedBy = errors.length ? `${f.id}-error` : undefined;
+
+  return (
+    <Field id={f.id} label={label} hint={hint} errors={errors}>
+      <textarea
+        id={f.id}
+        className="input"
+        rows={2}
+        placeholder={placeholder}
+        value={text}
+        aria-invalid={errors.length > 0 || undefined}
+        aria-describedby={describedBy}
+        onChange={(e) => {
+          setText(e.target.value);
+          const lines = toLines(e.target.value);
+          f.set(lines.length ? lines : undefined);
+        }}
+      />
+    </Field>
+  );
+}
+
 // ── numbers ─────────────────────────────────────────────────────────────────
 
 /**

@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-24. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phase 6.2 variant pass done (112 parts)._
+_Last updated 2026-09-25. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phase 5.3 (packs, schema v2) built, not yet browser-checked; Phase 6.2 variant pass done (112 parts)._
 
 ## 1. Context
 
@@ -27,7 +27,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 ## 2. Current state (Phase 4 done, Phase 5.1 built, Phase 5.2 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (423 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (453 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
 - **Not yet walked through in a browser:** the Phase 5.1 part editor's create-and-save flow (its screens were checked for layout at 375 px, but no custom part was authored end to end).
@@ -46,6 +46,7 @@ src/
     sampleBuilds.ts
     userPack.ts  "My Parts" pack: add/replace/remove a part, patch version bumps, id slugs
     blankParts.ts starting measurements for a new part of each type
+    migrations.ts raw-JSON pack migrations by schemaVersion, run before validation
   storage/       db.ts (Dexie: packs, builds; ensureUserPack/savePart/deletePart), useCatalog.ts
   render/
     WatchSvg.tsx layer stack, template lookup + fallback, strap mirroring, dial clip
@@ -53,7 +54,7 @@ src/
     templates/   case, bezel (+inserts, rings, crowns), dial generator, hands, crystal, strap
     export.ts    sizedSvg, svgToPngBlob, downloads
     templateCatalog.ts  which templates each part type offers and the settings they read
-  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, editor/, common.tsx, labels.ts
+  ui/            app/ (routes, layout, context), builder/, library/, compare/, catalog/, editor/, packs/, common.tsx, labels.ts
 scripts/render-previews.tsx
 ```
 
@@ -167,16 +168,15 @@ Saving creates the **"My Parts"** pack on first use and bumps its patch version 
   `MultiSelectField`, `NullableGroup` (date window, magnifier, bezel insert).
 - **Coupled fields:** where the schema requires two fields to agree, one control drives both — a case is either integrated or
   has a lug width; a hands part's seconds hole and seconds length appear and disappear together.
-- **Confidence + notes** fields; user parts default to `unverified`. Sources go in `notes` (no separate URL field: that would
-  change the part schema and need a migration — worth doing in 5.3 alongside the other schema work).
+- **Confidence + notes** fields; user parts default to `unverified`. Sources went in `notes` until 5.3 added a
+  `sources` field (schema v2).
 - **Live preview:** the part in a **reference build**, other slots filled by `candidatesFor` in assembly order.
   The surrounding parts are **pinned** while you edit: without that the preview quietly swaps in a case that still fits after
   every keystroke, hiding the problem being introduced. "Re-pick parts" refreshes them on demand.
 - **Drawing tab:** template picker + settings, driven by `render/templateCatalog.ts` (labels and defaults for each template's
   params). A test keeps it in step with the renderer's registries and with every template the core catalog uses.
 
-**Known gaps:** no pack picker yet (everything saves to My Parts — 5.3); deleting a part doesn't warn about builds that use it;
-no functional browser check yet (the editor's layout was checked at 375 px on 2026-09-22, but no part has been authored and saved in a real browser).
+**Known gaps:** ~~no pack picker~~ and ~~no warning when deleting a used part~~ (both fixed in 5.3); no functional browser check yet (the editor's layout was checked at 375 px on 2026-09-22, but no part has been authored and saved in a real browser).
 
 ### 5.2 Uploaded SVG art ✅
 
@@ -222,11 +222,31 @@ rotated to 10:08:37 (304.3° / 51.7° / 222°).
 **Not covered:** strap, crown and crystal art were only tested in jsdom; the upload control was not checked at 375 px;
 acceptance (2) names a **bezel insert**, which was not uploaded in the browser (a dial was).
 
-### 5.3 Packs
-- A default editable **"My Parts"** user pack; users can create more.
-- **Pack manager:** list packs (core read-only), part counts, version; export pack to `.json`; import from file with the full validation report; delete pack (warns with the number of builds that reference it).
-- **Versioning:** editing a user pack bumps its patch version; importing a pack with an existing id asks to replace (shows old → new version).
-- **Schema migrations:** `data/migrations.ts` applies migrations by `schemaVersion` before validation, with a test per migration.
+### 5.3 Packs (built, not yet browser-checked)
+
+**Status (2026-09-25):** built. 30 tests added (453 total). The Chrome extension wasn't connected, so nothing
+here has been driven in a real browser yet.
+
+- **Pack manager** (`#/packs`, `ui/packs/PacksScreen.tsx`, linked from the Parts page): user packs first, then the
+  core pack marked read-only. Each row shows id, version, part count, uploaded drawings and how many saved builds use it.
+  **New pack** (id slugged from the name, never reusing a stored id — `createUserPack`), **Export** (`<id>-<version>.json`),
+  **Import** (the full `PackError` issue list with part ids and field paths; a file claiming the `core` id is refused),
+  **Delete** (says how many builds use the pack and suggests exporting first — `deleteUserPack`).
+- **Versioning:** editing still bumps the patch version. Importing a pack whose id you already have asks first and shows
+  `v1.0.3 (1 part) → v1.0.7 (2 parts)`, noting when the version you have is newer or the same.
+- **Choosing a pack in the editor:** a new part can be saved into any user pack. The picker only appears when there's
+  more than one choice; otherwise it's "Save to My Parts" as before. Deleting a part now says how many builds use it.
+- **Schema v2 + migrations:** parts gained `sources` (up to 10 http(s) links), which closes the 5.1 note about sources
+  living in `notes`. `data/migrations.ts` runs raw-JSON migrations by `schemaVersion` before validation, so old files
+  still import. v1 → v2 copies any web addresses found in `notes` into `sources` and leaves the notes as they were.
+  Stored packs are migrated by a Dexie `version(2).upgrade`; add a Dexie version alongside every future schema bump.
+  `syncCorePack` also rewrites the core pack when only its schema version changed. The editor edits sources one per
+  line (errors name the line), and the catalog and core part pages show them as links named by their site.
+- **Acceptance (3)** is covered by a storage test: export My Parts, delete it, re-import it, and a build using its dial
+  resolves again. Still needs a browser run.
+
+**Not done:** renaming a pack or editing its author/description; moving a part between packs (duplicate it instead);
+exporting the core pack.
 
 ### 5.4 Sharing builds
 - **Share link:** build (name, slots, flags) → JSON → `CompressionStream('deflate-raw')` → base64url in the URL hash (`#/share/…`). Opening it shows a read-only preview and "Save to my builds". If parts are missing, list the packs needed.
@@ -328,7 +348,7 @@ what they supply. Nothing is estimated into the catalog.
 | CI (GitHub Actions): lint, typecheck, test, build ✅; previews golden diff still to add | Phase 4 |
 | Browser verification: manual checklist per phase until a browser test tool is chosen | Every phase |
 | Accessibility: keyboard navigation, focus states, colour contrast, SVG titles | Phase 4 onward |
-| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (currently ~158 KB gzip JS) | Phase 4 onward |
+| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (~181 KB gzip main chunk as of 5.3, plus the lazily loaded sanitiser) | Phase 4 onward |
 | Docs kept in sync (spec rule ids already enforced by a test) | Always |
 
 ---

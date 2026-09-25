@@ -1,13 +1,15 @@
 import { useMemo, useState } from 'react';
 import { blankPart, duplicatePart, NEW_PART_NAMES } from '../../data/blankParts';
+import { buildsUsing, countBuilds } from '../../data/builds';
+import type { Catalog } from '../../data/catalog';
 import { CORE_PACK_ID } from '../../data/seed';
 import { MY_PARTS_ID, slugify, uniquePartId } from '../../data/userPack';
 import { PART_TYPES, type Part, type PartRef, type PartType, type Slot, type Visual } from '../../domain/schemas';
 import { artIds, artWarnings, measureArt } from '../../render/uploaded/scaleCheck';
-import { deletePart, savePart } from '../../storage/db';
+import { deletePart, listBuilds, savePart } from '../../storage/db';
 import { useApp } from '../app/AppContext';
 import { href, navigate, type Route } from '../app/route';
-import { ConfirmDialog, icons, StatusBadge, WatchStage } from '../common';
+import { ConfirmDialog, icons, SourceLinks, StatusBadge, WatchStage } from '../common';
 import { SLOT_LABELS, summarize, TYPE_LABELS } from '../labels';
 import { FormProvider } from './form';
 import { IdentityFields, PartForm } from './PartForm';
@@ -69,17 +71,29 @@ const refFrom = (value: string): PartRef | null => {
 
 const copyName = (name: string) => (name.length <= 73 ? `${name} (copy)` : `${name.slice(0, 73)} (copy)`);
 
+/** Packs a new part can be saved into: every user pack, plus My Parts, which the first save creates. */
+export function packTargets(catalog: Catalog): { id: string; name: string }[] {
+  const user = catalog.packs.filter((p) => p.id !== CORE_PACK_ID).map((p) => ({ id: p.id, name: p.name }));
+  return user.some((p) => p.id === MY_PARTS_ID) ? user : [{ id: MY_PARTS_ID, name: 'My Parts' }, ...user];
+}
+
 // ── the editor ──────────────────────────────────────────────────────────────
 
 type Tab = 'measurements' | 'drawing';
 
-function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: Part; art?: string; packId: string; existing: PartRef | null }) {
+function Editor({ draft: initial, art: initialArt, packId: initialPackId, existing }: { draft: Part; art?: string; packId: string; existing: PartRef | null }) {
   const { db, catalog, reloadCatalog } = useApp();
   const draft = usePartDraft(initial as unknown as Record<string, unknown>);
   const [tab, setTab] = useState<Tab>('measurements');
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  /** Builds using the part while the delete confirmation is open, otherwise null. */
+  const [confirmDelete, setConfirmDelete] = useState<number | null>(null);
+
+  // A new part can go into any user pack; an existing one stays where it is.
+  const targets = useMemo(() => packTargets(catalog), [catalog]);
+  const [packId, setPackId] = useState(initialPackId);
+  const packName = targets.find((t) => t.id === packId)?.name ?? packId;
 
   const type = initial.type;
 
@@ -149,8 +163,13 @@ function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: 
     }
   };
 
+  const askDelete = async () => {
+    if (!existing) return;
+    setConfirmDelete(buildsUsing(await listBuilds(db), existing.packId, savedAs ?? existing.partId).length);
+  };
+
   const remove = async () => {
-    setConfirmDelete(false);
+    setConfirmDelete(null);
     if (!existing) return;
     // `savedAs` rather than the route's id, so a rename that was saved is still the part we delete.
     await deletePart(db, existing.packId, savedAs ?? existing.partId);
@@ -168,7 +187,7 @@ function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: 
           <a className="btn ghost icon" href={href.catalog()} aria-label="Back to parts">{icons.back}</a>
           <div>
             <p className="eyebrow">
-              {existing ? 'Editing' : 'New'} {TYPE_LABELS[type].toLowerCase().replace(/s$/, '')} · {packId}
+              {existing ? 'Editing' : 'New'} {TYPE_LABELS[type].toLowerCase().replace(/s$/, '')} · {packName}
             </p>
             <h2 className="editor-title">{typeof draft.value.name === 'string' && draft.value.name ? draft.value.name : 'Untitled part'}</h2>
           </div>
@@ -180,11 +199,18 @@ function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: 
           {existing && (
             <a className="btn" href={href.newPart(type, `${existing.packId}/${existing.partId}`)}>{icons.copy} Duplicate</a>
           )}
+          {!existing && targets.length > 1 && (
+            <select className="input" aria-label="Pack to save into" value={packId} onChange={(e) => setPackId(e.target.value)}>
+              {targets.map((t) => (
+                <option key={t.id} value={t.id}>{t.name}</option>
+              ))}
+            </select>
+          )}
           <button type="button" className="btn primary" onClick={() => void save()} disabled={!draft.part || !!clash || saving || !dirty || missingArt}>
-            {existing ? 'Save' : 'Save to My Parts'}
+            {existing ? 'Save' : `Save to ${packName}`}
           </button>
           {existing && (
-            <button type="button" className="btn icon danger" onClick={() => setConfirmDelete(true)} aria-label="Delete part" title="Delete part">
+            <button type="button" className="btn icon danger" onClick={() => void askDelete()} aria-label="Delete part" title="Delete part">
               {icons.trash}
             </button>
           )}
@@ -286,12 +312,17 @@ function Editor({ draft: initial, art: initialArt, packId, existing }: { draft: 
       </div>
 
       <ConfirmDialog
-        open={confirmDelete}
+        open={confirmDelete !== null}
         title="Delete this part?"
-        message={`“${initial.name}” will be removed from ${packId}. Builds that use it will show it as missing.`}
+        message={
+          `“${initial.name}” will be removed from ${packName}.` +
+          (confirmDelete
+            ? ` ${countBuilds(confirmDelete)} ${confirmDelete === 1 ? 'uses' : 'use'} it and will show it as missing.`
+            : ' No saved build uses it.')
+        }
         confirmLabel="Delete"
         onConfirm={() => void remove()}
-        onCancel={() => setConfirmDelete(false)}
+        onCancel={() => setConfirmDelete(null)}
       />
     </div>
   );
@@ -335,6 +366,7 @@ function CorePartView({ part }: { part: Part }) {
           <h1>{part.name}</h1>
           <p className="specs">{summarize(part)}</p>
           {part.notes && <p className="muted">{part.notes}</p>}
+          <SourceLinks sources={part.sources} />
         </div>
       </header>
       <p className="muted">Built-in parts can't be changed, so a copy in My Parts is the place to make your version.</p>

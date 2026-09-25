@@ -546,6 +546,16 @@ select.input { width: auto; padding-right: 28px; }
 .part-item-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
 .part-item-actions .badge { margin-right: auto; }
 
+.sources { font-size: 0.8rem; color: var(--muted); margin: 4px 0 0; overflow-wrap: anywhere; }
+
+/* Packs */
+.pack-empty { margin-top: 16px; }
+.import-result { margin-bottom: 16px; padding: 10px 14px; border-left: 3px solid var(--ok); }
+.import-result.bad { border-left-color: var(--bad); }
+.import-result-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.import-result-head p { margin: 4px 0; }
+.import-issues { margin: 6px 0 4px; padding-left: 18px; max-height: 260px; overflow: auto; color: var(--bad); overflow-wrap: anywhere; }
+
 /* ── Part editor ────────────────────────────────────────────────────────── */
 
 .editor {

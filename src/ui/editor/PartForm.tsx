@@ -7,6 +7,7 @@ import {
   CrownStepsSetField,
   FieldRow,
   FormSection,
+  LineListField,
   MmField,
   MultiSelectField,
   NullableGroup,
@@ -52,7 +53,13 @@ export function IdentityFields() {
       <TextField path="id" label="Id" maxLength={64} hint="Lowercase letters, digits and dashes. Used to reference this part." />
       <SelectField path="confidence" label="Confidence" choices={CONFIDENCE_CHOICES} placeholder="Choose…" />
       <TextField path="inspiredBy" label="Inspired by" maxLength={120} optional hint="The real part this is modelled on, for your own reference." />
-      <TextAreaField path="notes" label="Notes & sources" maxLength={2000} hint="Where the measurements came from — a spec sheet, a listing, your calipers." />
+      <TextAreaField path="notes" label="Notes" maxLength={2000} hint="How the measurements were taken — calipers, a spec sheet, copied from another part." />
+      <LineListField
+        path="sources"
+        label="Sources"
+        placeholder="https://…"
+        hint="Links to spec sheets or listings the measurements came from, one per line (up to 10)."
+      />
     </FormSection>
   );
 }

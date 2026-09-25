@@ -22,6 +22,13 @@ export function duplicateBuild(build: Build): Build {
   return build.notes ? { ...copy, notes: build.notes } : copy;
 }
 
+/** Builds with at least one slot drawing from `packId` (and, when given, that one part). */
+export const buildsUsing = (builds: readonly Build[], packId: string, partId?: string): Build[] =>
+  builds.filter((b) => Object.values(b.slots).some((ref) => ref.packId === packId && (partId === undefined || ref.partId === partId)));
+
+/** "1 build" / "3 builds". */
+export const countBuilds = (n: number): string => `${n} ${n === 1 ? 'build' : 'builds'}`;
+
 function copyName(name: string): string {
   const next = `${name} (copy)`;
   return next.length <= 80 ? next : `${name.slice(0, 73)} (copy)`;
