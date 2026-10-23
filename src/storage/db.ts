@@ -45,7 +45,9 @@ export class ModWatchDB extends Dexie {
 /** Write the bundled core pack if missing or out of date. Returns true when it was (re)written. */
 export async function syncCorePack(db: ModWatchDB, core: Pack = loadCorePack()): Promise<boolean> {
   const existing = await db.packs.get(core.id);
-  if (existing?.origin === 'core' && existing.version === core.version && existing.pack.schemaVersion === core.schemaVersion) {
+  // Compare contents, not just the version: parts added to the seed data without a version bump
+  // must still reach browsers that stored an older copy.
+  if (existing?.origin === 'core' && JSON.stringify(existing.pack) === JSON.stringify(core)) {
     return false;
   }
   if (existing && existing.origin !== 'core') {

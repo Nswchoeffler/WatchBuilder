@@ -65,7 +65,9 @@ describe('part editor', () => {
   it('starts a new dial with workable measurements and a valid preview', () => {
     open('#/part/new?type=dial');
     expect(field('Diameter').value).toBe('28.5');
-    expect(screen.getByRole('status').textContent).toBe('Saved');
+    // Never saved, so it can be saved as it stands.
+    expect(screen.getByRole('status').textContent).toBe('Unsaved changes');
+    expect((screen.getByRole('button', { name: 'Save to My Parts' }) as HTMLButtonElement).disabled).toBe(false);
     expect(screen.getByText(/^Fits \d+ cases$/)).toBeTruthy();
   });
 

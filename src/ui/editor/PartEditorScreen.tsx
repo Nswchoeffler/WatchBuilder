@@ -178,7 +178,8 @@ function Editor({ draft: initial, art: initialArt, packId: initialPackId, existi
   };
 
   const errorCount = draft.errors.size + (clash ? 1 : 0) + (missingArt ? 1 : 0);
-  const dirty = draft.dirty || (uploaded && art !== savedArt);
+  // A part that was never saved is unsaved even before its first edit, so a straight duplicate can be saved.
+  const dirty = savedAs === null || draft.dirty || (uploaded && art !== savedArt);
 
   return (
     <div className="page page-wide">

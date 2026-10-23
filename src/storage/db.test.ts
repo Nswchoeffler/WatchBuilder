@@ -50,6 +50,12 @@ describe('core pack sync', () => {
     expect(await syncCorePack(db, { ...core, version: '9.9.9' })).toBe(true);
     expect((await db.packs.get('core'))?.version).toBe('9.9.9');
   });
+
+  it('rewrites the core pack when its parts change without a version bump', async () => {
+    await syncCorePack(db, { ...core, parts: core.parts.slice(0, 3) });
+    expect(await syncCorePack(db)).toBe(true);
+    expect((await loadPacks(db))[0]?.parts.length).toBe(core.parts.length);
+  });
 });
 
 describe('user packs', () => {

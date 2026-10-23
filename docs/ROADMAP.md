@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-09-25. Phases 0–4 done (Phase 4 verified in a browser 2026-09-22); Phase 5.1 (part editor) built; Phase 5.2 (uploaded SVG art) done and browser-checked 2026-09-24; Phases 5.3 (packs, schema v2) and 5.4 (share links, build files) built, not yet browser-checked; Phase 6.2 variant pass done (112 parts)._
+_Last updated 2026-10-23. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done (112 parts)._
 
 ## 1. Context
 
@@ -24,13 +24,16 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 
 ---
 
-## 2. Current state (Phase 4 done, Phase 5.1 built, Phase 5.2 done)
+## 2. Current state (Phases 0–5 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), packs (`#/packs`), shared build (`#/share/…`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (480 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (481 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
-- **Not yet walked through in a browser:** the Phase 5.1 part editor's create-and-save flow (its screens were checked for layout at 375 px, but no custom part was authored end to end).
+- **Browser-verified 2026-10-23:** all four Phase 5 acceptance criteria (see 5.5), driven in Chrome. That run found and fixed two bugs:
+  the stored core pack was only refreshed on a version bump, so browsers that had the app before the 6.2 variant pass
+  still had 58 parts (samples using new parts showed as an empty, "doesn't fit" case); `syncCorePack` now compares contents.
+  And a never-saved part showed "Saved" with Save disabled until its first edit.
 
 ### Architecture as built
 ```
@@ -223,7 +226,7 @@ rotated to 10:08:37 (304.3° / 51.7° / 222°).
 **Not covered:** strap, crown and crystal art were only tested in jsdom; the upload control was not checked at 375 px;
 acceptance (2) names a **bezel insert**, which was not uploaded in the browser (a dial was).
 
-### 5.3 Packs (built, not yet browser-checked)
+### 5.3 Packs ✅
 
 **Status (2026-09-25):** built. 30 tests added (453 total). The Chrome extension wasn't connected, so nothing
 here has been driven in a real browser yet.
@@ -244,12 +247,12 @@ here has been driven in a real browser yet.
   `syncCorePack` also rewrites the core pack when only its schema version changed. The editor edits sources one per
   line (errors name the line), and the catalog and core part pages show them as links named by their site.
 - **Acceptance (3)** is covered by a storage test: export My Parts, delete it, re-import it, and a build using its dial
-  resolves again. Still needs a browser run.
+  resolves again. Driven in Chrome 2026-10-23: export → delete (the build showed "Missing part") → import, and the build recovered.
 
 **Not done:** renaming a pack or editing its author/description; moving a part between packs (duplicate it instead);
 exporting the core pack.
 
-### 5.4 Sharing builds (built, not yet browser-checked)
+### 5.4 Sharing builds ✅
 
 **Status (2026-09-25):** built. 27 tests added (480 total). Not driven in a real browser yet (the Chrome extension
 wasn't available).
@@ -269,7 +272,8 @@ wasn't available).
   (one version bump per import); parts you do have are **never overwritten**, and ones that differ are listed.
   `importBundle` writes packs and the build in one Dexie transaction, so a refused pack leaves nothing half-imported.
 - **Acceptance (4):** a share link of an all-core build needs nothing but the app, so it should open in a private window.
-  Covered in jsdom (decode → preview → save); still needs the private-window run.
+  Covered in jsdom (decode → preview → save), and driven in Chrome 2026-10-23 on a second origin with empty storage (as good as
+  a private window): the build matched and "Save to my builds" worked. A link using a My Parts dial listed the missing pack as designed.
 
 **Not done:** the link can't carry your own parts (the build file does); there's no "import packs from this link".
 
@@ -279,7 +283,7 @@ wasn't available).
   Diver 42 in the preview~~ ✅ both covered in `ui/editor/editor.test.tsx`, plus draft paths, user-pack writes, blank parts,
   the reference build and the template catalog.
 - **Acceptance:** (1) create a custom dial by settings and use it in a saved build; (2) upload an SVG bezel insert, see it drawn at the right size; (3) export "My Parts", delete it, re-import it, and the build that uses it recovers; (4) open a share link in a private window and see the same build.
-  (1) is code-complete — the part editor saves into My Parts and the builder picks it up — but not yet walked through in a browser.
+  ✅ All four passed in Chrome: (1), (3) and (4) on 2026-10-23, (2) on 2026-09-24.
 
 ---
 
