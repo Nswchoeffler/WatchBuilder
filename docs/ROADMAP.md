@@ -349,7 +349,13 @@ what they supply. Nothing is estimated into the catalog.
 - **Mod flags:** dial-feet adapter (e.g. VH31 → NH), chapter-ring shim, more as the research finds them.
 
 ### 6.3 Rendering polish
-- Lume "night view" toggle; dark background option for exports.
+- ~~Lume "night view" toggle; dark background option for exports.~~ ✅ (2026-10-23, checked in Chrome). Day / Night switch in
+  the builder. Templates mark luminous shapes with `class="lume"` (`lumeClass` in `render/util.ts`), and only real lume:
+  a part with `lume: null` adds none. At night `WatchSvg` draws a dark backdrop, the watch through a dimming "moonlight"
+  filter, then a second lume pass whose embedded CSS hides everything but lume (recoloured to the glow) and hand silhouettes
+  (so hands still cover the markers). Glow is BGW9 blue when the dial's (else the hands') lume paint is blue-tinted, else C3
+  green. Exports carry the backdrop, so SVG and PNG come out dark too. `npm run previews` also writes `<sample>-night.png`.
+  Not done: uploaded SVG art can't mark lume yet (it would need a `lume` colour role); per-part glow colours.
 - Case-side detail (crown guards, bevels) per style; applied logo slot on dials.
 - Golden-image tests extended to every new template.
 

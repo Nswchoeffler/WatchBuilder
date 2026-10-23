@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { color, darken, f, handAngles, optionalColor } from '../util';
+import { color, darken, f, handAngles, lumeClass, optionalColor } from '../util';
 import { DropShadow, url, type Template, type TemplateProps } from './common';
 
 // Hand sets. Each hand is drawn pointing to 12 (−y) from the pivot, then rotated to the display time.
@@ -27,7 +27,7 @@ const sword: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <polygon points={inlay} fill={c.lume} />}
+      {c.lume && <polygon className="lume" points={inlay} fill={c.lume} />}
     </>
   );
 };
@@ -39,7 +39,7 @@ const mercedes: Shape = (L, c, kind) => {
     return (
       <>
         <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-        {c.lume && <polygon points={inlay} fill={c.lume} />}
+        {c.lume && <polygon className="lume" points={inlay} fill={c.lume} />}
       </>
     );
   }
@@ -48,11 +48,11 @@ const mercedes: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[0.35, 1.2], [0.7, -L * 0.1], [0.7, cy + cr], [0.25, cy], [0.55, cy - cr + 0.1], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      <circle cy={f(cy)} r={f(cr)} fill={c.lume ?? c.metal} stroke={c.metal} strokeWidth={0.32} />
+      <circle className={lumeClass(c.lume)} cy={f(cy)} r={f(cr)} fill={c.lume ?? c.metal} stroke={c.metal} strokeWidth={0.32} />
       {[0, 120, 240].map((a) => (
         <line key={a} x1={0} y1={f(cy)} x2={f(Math.sin((a * Math.PI) / 180) * cr)} y2={f(cy - Math.cos((a * Math.PI) / 180) * cr)} stroke={c.metal} strokeWidth={0.22} />
       ))}
-      {c.lume && <rect x={-0.35} y={f(-L * 0.1 - (L * 0.43 - cr))} width={0.7} height={f(L * 0.43 - cr)} fill={c.lume} />}
+      {c.lume && <rect className="lume" x={-0.35} y={f(-L * 0.1 - (L * 0.43 - cr))} width={0.7} height={f(L * 0.43 - cr)} fill={c.lume} />}
     </>
   );
 };
@@ -62,7 +62,7 @@ const baton: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[w, 1.0], [w, -L + 0.3], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <rect x={-w * 0.4} y={f(-L + 0.8)} width={f(w * 0.8)} height={f(L * 0.62)} fill={c.lume} />}
+      {c.lume && <rect className="lume" x={-w * 0.4} y={f(-L + 0.8)} width={f(w * 0.8)} height={f(L * 0.62)} fill={c.lume} />}
     </>
   );
 };
@@ -83,7 +83,7 @@ const pencil: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[w, 1.2], [w, -L + 1.8], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <polygon points={mirrored([[w - 0.25, -L * 0.12], [w - 0.25, -L + 2.0], [0, -L + 1.1]])} fill={c.lume} />}
+      {c.lume && <polygon className="lume" points={mirrored([[w - 0.25, -L * 0.12], [w - 0.25, -L + 2.0], [0, -L + 1.1]])} fill={c.lume} />}
     </>
   );
 };
@@ -96,7 +96,7 @@ const snowflake: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <polygon points={inlay} fill={c.lume} />}
+      {c.lume && <polygon className="lume" points={inlay} fill={c.lume} />}
     </>
   );
 };
@@ -119,8 +119,8 @@ const cathedral: Shape = (L, c, kind) => {
       <polygon points={outline} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
       {c.lume && (
         <>
-          <polygon points={lobe} fill={c.lume} />
-          <polygon points={tip} fill={c.lume} />
+          <polygon className="lume" points={lobe} fill={c.lume} />
+          <polygon className="lume" points={tip} fill={c.lume} />
         </>
       )}
     </>
@@ -135,7 +135,7 @@ const plongeur: Shape = (L, c, kind) => {
     return (
       <>
         <polygon points={mirrored([[neck, 1.2], [neck, -L * 0.58], [w, -L * 0.58], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-        {c.lume && <polygon points={mirrored([[w - 0.55, -L * 0.62], [0, -L + 1.0]])} fill={c.lume} />}
+        {c.lume && <polygon className="lume" points={mirrored([[w - 0.55, -L * 0.62], [0, -L + 1.0]])} fill={c.lume} />}
       </>
     );
   }
@@ -143,7 +143,7 @@ const plongeur: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[w, 1.1], [w, -L + 0.4], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <rect x={f(-w * 0.55)} y={f(-L + 1.0)} width={f(w * 1.1)} height={f(L * 0.72)} fill={c.lume} />}
+      {c.lume && <rect className="lume" x={f(-w * 0.55)} y={f(-L + 1.0)} width={f(w * 1.1)} height={f(L * 0.72)} fill={c.lume} />}
     </>
   );
 };
@@ -155,7 +155,7 @@ const syringe: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[stem, 1.2], [stem, -L * 0.56], [w, -L * 0.7], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <polygon points={mirrored([[w - 0.28, -L * 0.72], [0, -L + 0.7]])} fill={c.lume} />}
+      {c.lume && <polygon className="lume" points={mirrored([[w - 0.28, -L * 0.72], [0, -L + 0.7]])} fill={c.lume} />}
     </>
   );
 };
@@ -167,7 +167,7 @@ const arrow: Shape = (L, c, kind) => {
   return (
     <>
       <polygon points={mirrored([[neck, 1.2], [neck, -L * 0.6], [w, -L * 0.6], [0, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.08} />
-      {c.lume && <polygon points={mirrored([[w - 0.45, -L * 0.64], [0, -L + 0.85]])} fill={c.lume} />}
+      {c.lume && <polygon className="lume" points={mirrored([[w - 0.45, -L * 0.64], [0, -L + 0.85]])} fill={c.lume} />}
     </>
   );
 };
@@ -178,7 +178,7 @@ function Seconds({ L, c, lollipop }: { L: number; c: HandColors; lollipop: boole
   return (
     <>
       <polygon points={mirrored([[0.35, 3.2], [0.12, 0], [0.06, -L]])} fill={c.accent} />
-      {lollipop && <circle cy={f(-L * 0.76)} r={0.62} fill={c.lume ?? c.accent} stroke={c.accent} strokeWidth={0.22} />}
+      {lollipop && <circle className={lumeClass(c.lume)} cy={f(-L * 0.76)} r={0.62} fill={c.lume ?? c.accent} stroke={c.accent} strokeWidth={0.22} />}
     </>
   );
 }

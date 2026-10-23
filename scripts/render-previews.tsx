@@ -9,7 +9,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { Catalog, loadCorePack } from '../src/data/catalog';
 import { SAMPLE_BUILDS } from '../src/data/sampleBuilds';
 import { evaluate, resolveParts } from '../src/domain/rules';
-import { WatchSvg } from '../src/render/WatchSvg';
+import { NIGHT_BACKGROUND, WatchSvg } from '../src/render/WatchSvg';
 
 const outDir = resolve(process.argv[2] ?? 'previews');
 const pxPerMm = Number(process.argv[3] ?? 16);
@@ -24,16 +24,20 @@ for (const sample of SAMPLE_BUILDS) {
   };
   const report = evaluate(build, catalog);
   const { parts } = resolveParts(build, catalog);
-  const svg = renderToStaticMarkup(<WatchSvg parts={parts} idPrefix={sample.id} title={sample.name} />);
-  const widthMm = Number(/data-mm-width="([\d.]+)"/.exec(svg)?.[1] ?? 60);
-  const png = new Resvg(svg, {
-    fitTo: { mode: 'width', value: Math.round(widthMm * pxPerMm) },
-    background: '#f3f3f1',
-    font: { loadSystemFonts: true, defaultFontFamily: 'Arial' },
-  })
-    .render()
-    .asPng();
-  writeFileSync(join(outDir, `${sample.id}.svg`), svg);
-  writeFileSync(join(outDir, `${sample.id}.png`), png);
-  console.log(`${sample.id.padEnd(22)} ${report.status.padEnd(10)} ${(svg.length / 1024).toFixed(0)} KB svg`);
+  // Each sample by day, and at night on a dark background to check the lume.
+  for (const night of [false, true]) {
+    const name = night ? `${sample.id}-night` : sample.id;
+    const svg = renderToStaticMarkup(<WatchSvg parts={parts} idPrefix={name} title={sample.name} night={night} />);
+    const widthMm = Number(/data-mm-width="([\d.]+)"/.exec(svg)?.[1] ?? 60);
+    const png = new Resvg(svg, {
+      fitTo: { mode: 'width', value: Math.round(widthMm * pxPerMm) },
+      background: night ? NIGHT_BACKGROUND : '#f3f3f1',
+      font: { loadSystemFonts: true, defaultFontFamily: 'Arial' },
+    })
+      .render()
+      .asPng();
+    writeFileSync(join(outDir, `${name}.svg`), svg);
+    writeFileSync(join(outDir, `${name}.png`), png);
+  }
+  console.log(`${sample.id.padEnd(22)} ${report.status}`);
 }

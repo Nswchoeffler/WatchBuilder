@@ -5,7 +5,7 @@ import { resolveParts, type ResolvedParts } from '../domain/rules';
 import { build, catalogWith, core, coreCatalog, corePart, mixedBuild } from '../domain/rules/testkit';
 import { PART_TYPES, type Part } from '../domain/schemas';
 import { sizedSvg, viewBoxOf, widthForScale } from './export';
-import { LAYER_ORDER, WatchSvg } from './WatchSvg';
+import { GLOW, glowFor, LAYER_ORDER, NIGHT_BACKGROUND, WatchSvg } from './WatchSvg';
 
 const render = (parts: ResolvedParts, idPrefix = 't') => renderToStaticMarkup(<WatchSvg parts={parts} idPrefix={idPrefix} />);
 const partsOf = (slots: Parameters<typeof build>[0]) => resolveParts(build(slots), coreCatalog).parts;
@@ -142,5 +142,47 @@ describe('export helpers', () => {
 
   it('computes pixel width from a physical scale', () => {
     expect(widthForScale(svg, 20)).toBe(Math.round(viewBoxOf(svg)![2] * 20));
+  });
+});
+
+describe('night view', () => {
+  const night = (parts: ResolvedParts) => renderToStaticMarkup(<WatchSvg parts={parts} idPrefix="n" night />);
+  const lumeCount = (svg: string) => (svg.match(/class="lume"/g) ?? []).length;
+
+  it.each(SAMPLE_BUILDS.map((b) => [b.id]))('%s: draws a lume pass with unique ids and no broken references', (id) => {
+    const svg = night(sample(id));
+    const ids = [...svg.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(brokenRefs(svg)).toEqual([]);
+    expect(svg).toContain('class="n-lume"');
+    expect(svg).toContain(`fill="${NIGHT_BACKGROUND}"`);
+  });
+
+  it('marks only luminous shapes, so a dial without lume adds none', () => {
+    const dial = corePart('dl-diver-black', 'dial');
+    const visual = dial.visual.kind === 'template' ? dial.visual : null;
+    const unlit = { ...dial, id: 'dl-unlit', visual: { ...visual!, params: { ...visual!.params, lume: null } } };
+    const slots = { case: 'cs-diver42-38', movement: 'mv-nh35', dial: 'test:dl-unlit' };
+    const lit = render(resolveParts(mixedBuild({ ...slots, dial: 'dl-diver-black' }), catalogWith([unlit])).parts);
+    const dark = render(resolveParts(mixedBuild(slots), catalogWith([unlit])).parts);
+    expect(lumeCount(lit)).toBeGreaterThan(0);
+    expect(lumeCount(dark)).toBe(0);
+  });
+
+  it('day view has no night pass', () => {
+    const svg = render(sample('diver-classic'));
+    expect(svg).not.toContain('night-dim');
+    expect(svg).not.toContain('data-night');
+  });
+
+  it('glows blue for blue-tinted lume and green otherwise', () => {
+    const withLume = (lume: string) => {
+      const dial = corePart('dl-diver-black', 'dial');
+      const visual = dial.visual.kind === 'template' ? dial.visual : null;
+      return { dial: { ...dial, visual: { ...visual!, params: { ...visual!.params, lume } } } } as ResolvedParts;
+    };
+    expect(glowFor(withLume('#d8ecff'))).toBe(GLOW.bgw9);
+    expect(glowFor(withLume('#e8f0d8'))).toBe(GLOW.c3);
+    expect(glowFor({})).toBe(GLOW.c3);
   });
 });

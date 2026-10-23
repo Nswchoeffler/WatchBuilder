@@ -68,6 +68,17 @@ describe('PartPicker', () => {
 });
 
 describe('BuilderScreen', () => {
+  it('switches the preview between day and night', async () => {
+    await openBuilder(newBuild('After dark', { case: core('cs-diver42-38'), dial: core('dl-diver-black') }));
+    const watch = () => document.querySelector('svg[data-mm-width]')!;
+    expect(watch().hasAttribute('data-night')).toBe(false);
+    fireEvent.click(screen.getByRole('button', { name: 'Night' }));
+    expect(watch().hasAttribute('data-night')).toBe(true);
+    expect(screen.getByRole('button', { name: 'Night' }).getAttribute('aria-pressed')).toBe('true');
+    fireEvent.click(screen.getByRole('button', { name: 'Day' }));
+    expect(watch().hasAttribute('data-night')).toBe(false);
+  });
+
   it('assembles a build from empty and autosaves it', async () => {
     const build = newBuild('From scratch');
     await openBuilder(build);

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { Dial } from '../../domain/schemas';
-import { FONT, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, optionalColor, polar, range, textLines, type Params } from '../util';
+import { FONT, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, lumeClass, optionalColor, polar, range, textLines, type Params } from '../util';
 import { DropShadow, url, type Template, type TemplateProps } from './common';
 
 // Parametric dial generator. Everything is derived from the dial diameter and window positions,
@@ -115,7 +115,7 @@ interface MarkerStyle {
 
 function LumePlot({ children, lume, metal, width = 0.2 }: { children: (fill: string) => ReactNode; lume: string | null; metal: string; width?: number }) {
   return (
-    <g fill={lume ?? metal} stroke={metal} strokeWidth={width} strokeLinejoin="round">
+    <g className={lumeClass(lume)} fill={lume ?? metal} stroke={metal} strokeWidth={width} strokeLinejoin="round">
       {children(lume ?? metal)}
     </g>
   );
@@ -159,7 +159,7 @@ function Batons({ r, lume, metal, blocked }: MarkerStyle) {
         return offsets.map((dx) => (
           <g key={`${h}${dx}`} transform={`rotate(${angle}) translate(${f(dx)} 0)`}>
             <rect x={f(-w / 2)} y={f(-r * 0.9)} width={f(w)} height={f(r * 0.22)} rx={0.1} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.08} />
-            {lume && <rect x={f(-w * 0.2)} y={f(-r * 0.88)} width={f(w * 0.4)} height={f(r * 0.18)} fill={lume} />}
+            {lume && <rect className="lume" x={f(-w * 0.2)} y={f(-r * 0.88)} width={f(w * 0.4)} height={f(r * 0.18)} fill={lume} />}
           </g>
         ));
       })}
@@ -178,13 +178,14 @@ function Numerals({ r, ink, lume, blocked, style }: MarkerStyle & { style: 'roma
         if (style === 'arabic' && h % 3 !== 0) {
           const [x1, y1] = polar(r * 0.8, angle);
           const [x2, y2] = polar(r * 0.9, angle);
-          return <line key={h} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} stroke={lume ?? ink} strokeWidth={r * 0.05} strokeLinecap="round" />;
+          return <line key={h} className={lumeClass(lume)} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} stroke={lume ?? ink} strokeWidth={r * 0.05} strokeLinecap="round" />;
         }
         const label = style === 'roman' ? ROMAN[h]! : String(h === 0 ? 12 : h);
         const [x, y] = polar(r * (style === 'roman' ? 0.75 : 0.72), angle);
         return (
           <text
             key={h}
+            className={style === 'arabic' ? lumeClass(lume) : undefined}
             x={f(x)}
             y={f(y)}
             fontSize={f(r * (style === 'roman' ? 0.13 : 0.24))}
@@ -220,7 +221,7 @@ function Explorer({ r, lume, metal, ink, blocked }: MarkerStyle) {
           if (h % 3 === 0) {
             const [x, y] = polar(r * 0.75, angle);
             return (
-              <text key={h} x={f(x)} y={f(y)} fontSize={f(r * 0.22)} fontWeight={700} fill={lume ?? ink} stroke={darken(lume ?? ink, 0.55)} strokeWidth={0.08}>
+              <text key={h} className={lumeClass(lume)} x={f(x)} y={f(y)} fontSize={f(r * 0.22)} fontWeight={700} fill={lume ?? ink} stroke={darken(lume ?? ink, 0.55)} strokeWidth={0.08}>
                 {String(h)}
               </text>
             );
@@ -228,7 +229,7 @@ function Explorer({ r, lume, metal, ink, blocked }: MarkerStyle) {
           return (
             <g key={h} transform={`rotate(${f(angle)})`}>
               <rect x={f(-w / 2)} y={f(-r * 0.9)} width={f(w)} height={f(r * 0.17)} rx={0.08} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.07} />
-              {lume && <rect x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.13)} fill={lume} />}
+              {lume && <rect className="lume" x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.13)} fill={lume} />}
             </g>
           );
         })}
@@ -252,7 +253,7 @@ function California({ r, lume, metal, ink, blocked }: MarkerStyle) {
           return (
             <g key={h} transform={`rotate(${f(angle)})`}>
               <rect x={f(-w / 2)} y={f(-r * 0.9)} width={f(w)} height={f(r * 0.2)} rx={0.1} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.08} />
-              {lume && <rect x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.16)} fill={lume} />}
+              {lume && <rect className="lume" x={f(-w * 0.28)} y={f(-r * 0.88)} width={f(w * 0.56)} height={f(r * 0.16)} fill={lume} />}
             </g>
           );
         }
@@ -287,7 +288,7 @@ function Sector({ r, lume, ink, blocked }: MarkerStyle) {
         })}
       </g>
       {lume && (
-        <g fill={lume}>
+        <g className="lume" fill={lume}>
           {range(12).map((h) => {
             const angle = h * 30;
             if (h % 3 !== 0 || isBlocked(angle, blocked)) return null;
@@ -308,7 +309,7 @@ function Pilot({ r, lume, metal, ink, blocked }: MarkerStyle) {
       <LumePlot lume={lume} metal={metal} width={0.16}>
         {() => (isBlocked(0, blocked) ? null : <Triangle12 r={r} inner={0.62} outer={0.9} base={r * 0.2} />)}
       </LumePlot>
-      <g fontFamily={FONT} textAnchor="middle" dominantBaseline="central" fill={fill}>
+      <g className={lumeClass(lume)} fontFamily={FONT} textAnchor="middle" dominantBaseline="central" fill={fill}>
         {range(12).map((h) => {
           const angle = h * 30;
           if (h === 0 || isBlocked(angle, blocked)) return null;

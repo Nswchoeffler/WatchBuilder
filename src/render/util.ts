@@ -112,3 +112,6 @@ export function handAngles({ hours, minutes, seconds }: DisplayTime, gmtOffsetHo
 }
 
 export { angularDistance as angularDistanceDeg } from '../domain/rules/geometry';
+
+/** Class for shapes painted with lume, so the night view can make exactly those glow. Null lume = not luminous. */
+export const lumeClass = (lume: string | null): string | undefined => (lume ? 'lume' : undefined);

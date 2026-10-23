@@ -87,6 +87,7 @@ export function SourceLinks({ sources }: { sources?: readonly string[] }) {
 interface StageProps {
   parts: ReturnType<typeof resolveParts>['parts'];
   framing?: Framing;
+  night?: boolean;
   viewBox?: readonly [number, number, number, number];
   title: string;
   /** Uploaded art by slot, from `Catalog.artFor`. */
@@ -97,13 +98,13 @@ interface StageProps {
   children?: ReactNode;
 }
 
-export function WatchStage({ parts, art, framing = 'watch', viewBox, title, highlight, className = '', children }: StageProps) {
+export function WatchStage({ parts, art, framing = 'watch', night = false, viewBox, title, highlight, className = '', children }: StageProps) {
   const empty = Object.keys(parts).length === 0;
   const lit = highlight?.length ? highlight.map((s) => `[data-layer="${s}"]`).join(',') : null;
   return (
     <div className={`stage ${className}`} data-highlight={lit ? '' : undefined}>
       {lit && <style>{`.stage[data-highlight] [data-layer]{opacity:.18} .stage[data-highlight] :is(${lit}){opacity:1}`}</style>}
-      {empty ? <EmptyWatch /> : <WatchSvg parts={parts} art={art} framing={framing} viewBox={viewBox} title={title} />}
+      {empty ? <EmptyWatch /> : <WatchSvg parts={parts} art={art} framing={framing} night={night} viewBox={viewBox} title={title} />}
       {children}
     </div>
   );

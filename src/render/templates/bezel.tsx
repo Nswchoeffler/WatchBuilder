@@ -96,11 +96,12 @@ function InsertBase({ inner, outer, fill, sloped, ceramic, gid }: { inner: numbe
   );
 }
 
-function Pip({ r, lume, ink }: { r: number; lume: string; ink: string }) {
+function Pip({ r, lume, ink }: { r: number; lume: string | null; ink: string }) {
+  const paint = lume ?? ink;
   return (
     <g>
       <path d={`M 0 ${f(-r - 1.3)} L -1.25 ${f(-r + 0.9)} L 1.25 ${f(-r + 0.9)} Z`} fill={ink} />
-      <circle cy={f(-r - 0.1)} r={0.55} fill={lume} stroke={darken(lume, 0.4)} strokeWidth={0.08} />
+      <circle className={lume ? 'lume' : undefined} cy={f(-r - 0.1)} r={0.55} fill={paint} stroke={darken(paint, 0.4)} strokeWidth={0.08} />
     </g>
   );
 }
@@ -130,7 +131,7 @@ const diveInsert: Template<'bezelInsert'> = ({ part, params, ctx }) => {
   const outer = part.outerDiameter / 2;
   const primary = color(params, 'primary', '#141518');
   const ink = color(params, 'secondary', '#e6e7e9');
-  const lume = optionalColor(params, 'lume', '#e8f0d8') ?? ink;
+  const lume = optionalColor(params, 'lume', '#e8f0d8');
   const band = outer - inner;
   const mid = inner + band * 0.5;
   return (
@@ -200,7 +201,7 @@ const gmtInsert: Template<'bezelInsert'> = ({ part, params, ctx }) => {
         const [x2, y2] = polar(mid + band * 0.12, a);
         return <line key={`t${i}`} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} stroke={ink} strokeWidth={0.5} strokeLinecap="round" />;
       })}
-      <Pip r={mid} lume={ink} ink={ink} />
+      <Pip r={mid} lume={null} ink={ink} />
     </g>
   );
 };
@@ -267,7 +268,7 @@ const countdownInsert = scaleInsert(({ mid, outer, band, ink, lume }) => (
         {String(v)}
       </Numeral>
     ))}
-    <Pip r={mid} lume={lume ?? ink} ink={ink} />
+    <Pip r={mid} lume={lume} ink={ink} />
   </g>
 ));
 

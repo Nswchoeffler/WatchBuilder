@@ -56,6 +56,7 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
   const [preview, setPreview] = useState<PartRef | null>(null);
   const [highlight, setHighlight] = useState<readonly Slot[] | null>(null);
   const [framing, setFraming] = useState<Framing>('watch');
+  const [night, setNight] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [sharing, setSharing] = useState(false);
@@ -165,11 +166,15 @@ function Builder({ draft }: { draft: Extract<ReturnType<typeof useBuildDraft>, {
         />
 
         <div className="panel preview" ref={stageRef}>
-          <WatchStage parts={shownParts} art={shownArt} framing={framing} title={build.name} highlight={preview ? [active] : (highlight ?? undefined)}>
+          <WatchStage parts={shownParts} art={shownArt} framing={framing} night={night} title={build.name} highlight={preview ? [active] : (highlight ?? undefined)}>
             <div className="preview-tools">
               <div className="segmented" role="group" aria-label="Framing">
                 <button type="button" aria-pressed={framing === 'watch'} onClick={() => setFraming('watch')}>Watch</button>
                 <button type="button" aria-pressed={framing === 'head'} onClick={() => setFraming('head')}>Head</button>
+              </div>
+              <div className="segmented" role="group" aria-label="Lighting">
+                <button type="button" aria-pressed={!night} onClick={() => setNight(false)}>Day</button>
+                <button type="button" aria-pressed={night} onClick={() => setNight(true)}>Night</button>
               </div>
             </div>
             {previewName && <div className="preview-hint">Previewing {previewName}</div>}

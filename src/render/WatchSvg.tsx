@@ -10,7 +10,7 @@ import { CrystalLayer } from './templates/crystal';
 import { DateWindow, dialStyle, dialTemplates } from './templates/dial';
 import { handsTemplates } from './templates/hands';
 import { STRAP_KIND_DEFAULT, strapDrawers, strapGeometry } from './templates/strap';
-import { DISPLAY_TIME, paramsOf, type DisplayTime } from './util';
+import { DISPLAY_TIME, optionalColor, paramsOf, type DisplayTime } from './util';
 
 export interface WatchSvgProps {
   parts: ResolvedParts;
@@ -22,6 +22,8 @@ export interface WatchSvgProps {
   art?: Partial<Record<Slot, string>>;
   time?: DisplayTime;
   framing?: Framing;
+  /** Night view: the watch in the dark, with its lume glowing. */
+  night?: boolean;
   /** Override the framed viewBox, e.g. to draw several watches at the same scale. */
   viewBox?: readonly [number, number, number, number];
   /** Deterministic id prefix (tests/exports). Defaults to a React id. */
@@ -106,12 +108,9 @@ function StrapLayer({ part, ctx, viewTop, art }: { part: PartOf<'strap'> | undef
   );
 }
 
-export function WatchSvg({ parts, art, time = DISPLAY_TIME, framing = 'watch', viewBox, idPrefix, title, className }: WatchSvgProps) {
-  const reactId = useId();
-  const prefix = idPrefix ?? `w${reactId.replace(/[^a-zA-Z0-9]/g, '')}`;
-  const layout = computeLayout(parts);
-  const [vx, vy, vw, vh] = viewBox ?? viewBoxFor(layout, framing);
-  const ctx: RenderCtx = { layout, parts, id: (name) => `${prefix}-${name}`, time };
+/** Every layer of the watch, back to front. Drawn once by day, twice at night (see `WatchSvg`). */
+function WatchLayers({ parts, art, ctx, viewTop }: { parts: ResolvedParts; art?: Partial<Record<Slot, string>>; ctx: RenderCtx; viewTop: number }) {
+  const { layout } = ctx;
   const dialClip = ctx.id('dial-clip');
 
   let magnified: ReactNode = null;
@@ -121,22 +120,13 @@ export function WatchSvg({ parts, art, time = DISPLAY_TIME, framing = 'watch', v
   }
 
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={`${vx} ${vy} ${vw} ${vh}`}
-      className={className}
-      role="img"
-      aria-label={title ?? 'Watch mockup'}
-      data-mm-width={vw}
-      data-mm-height={vh}
-    >
-      <title>{title ?? 'Watch mockup'}</title>
+    <>
       <defs>
         <clipPath id={dialClip}>
           <circle r={layout.bezelInnerRadius} />
         </clipPath>
       </defs>
-      <StrapLayer part={parts.strap} ctx={ctx} viewTop={vy} art={art?.strap} />
+      <StrapLayer part={parts.strap} ctx={ctx} viewTop={viewTop} art={art?.strap} />
       <Layer type="crown" part={parts.crown} ctx={ctx} transform={`rotate(${layout.crownAngle - 90})`} art={art?.crown} />
       <Layer type="case" part={parts.case} ctx={ctx} art={art?.case} />
       <Layer type="bezel" part={parts.bezel} ctx={ctx} art={art?.bezel} />
@@ -156,6 +146,87 @@ export function WatchSvg({ parts, art, time = DISPLAY_TIME, framing = 'watch', v
             <CrystalLayer part={parts.crystal} params={paramsOf(parts.crystal.visual)} ctx={ctx} magnified={magnified} />
           </g>
         ))}
+    </>
+  );
+}
+
+export const NIGHT_BACKGROUND = '#0b0c10';
+
+/** Lume glow colours: BGW9 glows blue, C3 (and most other paints) green. */
+export const GLOW = { bgw9: '#74d4ff', c3: '#b6ff70' } as const;
+
+/** Glow colour for a build, from the lume paint of its dial, else its hands. Blue-tinted paint means BGW9. */
+export function glowFor(parts: ResolvedParts): string {
+  const paint = [parts.dial, parts.hands]
+    .map((p) => (p ? optionalColor(paramsOf(p.visual), 'lume', '#e8f0d8') : null))
+    .find((c): c is string => c !== null);
+  if (!paint) return GLOW.c3;
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(paint.slice(i, i + 2), 16)) as [number, number, number];
+  return b > g && b > r ? GLOW.bgw9 : GLOW.c3;
+}
+
+/**
+ * Night view stylesheet for the lume pass: everything is hidden except lume, which takes the glow colour,
+ * and the hands, which stay as dark silhouettes so they still cover the lume beneath them.
+ * CSS rules beat the shapes' fill attributes, so the templates only need to mark lume with `class="lume"`.
+ */
+const nightCss = (pass: string, glow: string) =>
+  `.${pass} *{visibility:hidden}` +
+  // A hidden clip shape clips everything away, so clip paths keep their shapes.
+  `.${pass} clipPath *{visibility:visible}` +
+  `.${pass} [data-layer="hands"] *{visibility:visible;fill:#060708;stroke:#060708}` +
+  `.${pass} .lume,.${pass} .lume *{visibility:visible;fill:${glow};stroke:none}`;
+
+export function WatchSvg({ parts, art, time = DISPLAY_TIME, framing = 'watch', night = false, viewBox, idPrefix, title, className }: WatchSvgProps) {
+  const reactId = useId();
+  const prefix = idPrefix ?? `w${reactId.replace(/[^a-zA-Z0-9]/g, '')}`;
+  const layout = computeLayout(parts);
+  const [vx, vy, vw, vh] = viewBox ?? viewBoxFor(layout, framing);
+  const ctxFor = (p: string): RenderCtx => ({ layout, parts, id: (name) => `${p}-${name}`, time });
+  const label = title ?? 'Watch mockup';
+
+  let body: ReactNode = <WatchLayers parts={parts} art={art} ctx={ctxFor(prefix)} viewTop={vy} />;
+  if (night) {
+    const pass = `${prefix}-lume`;
+    body = (
+      <>
+        <defs>
+          {/* Moonlight: very dark, slightly blue. */}
+          <filter id={`${prefix}-night-dim`} colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="0.08 0 0 0 0  0 0.1 0 0 0  0 0 0.15 0 0  0 0 0 1 0" />
+          </filter>
+          <filter id={`${prefix}-night-glow`} x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.35" result="halo" />
+            <feMerge>
+              <feMergeNode in="halo" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <style>{nightCss(pass, glowFor(parts))}</style>
+        {/* Its own dark backdrop, so the stage and both exports show the night view the same way. */}
+        <rect x={vx} y={vy} width={vw} height={vh} fill={NIGHT_BACKGROUND} />
+        <g filter={url(`${prefix}-night-dim`)}>{body}</g>
+        <g className={pass} filter={url(`${prefix}-night-glow`)} aria-hidden="true">
+          <WatchLayers parts={parts} art={art} ctx={ctxFor(pass)} viewTop={vy} />
+        </g>
+      </>
+    );
+  }
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`${vx} ${vy} ${vw} ${vh}`}
+      className={className}
+      role="img"
+      aria-label={label}
+      data-mm-width={vw}
+      data-mm-height={vh}
+      data-night={night ? '' : undefined}
+    >
+      <title>{label}</title>
+      {body}
     </svg>
   );
 }
