@@ -296,7 +296,30 @@ wasn't available).
 - VH31 hand post order; whether SW200 dials fit ETA 2824.
 - Reference products for Sub-style 40 (crystal, lug-to-lug, stack height), Octagon 41 crystal, Fluted 39, and crown diameters/tubes.
 - **Calibrate tolerances** against known-good real builds; record each calibration in the spec.
-- Add `npm run catalog:report`: lists unverified parts/fields and parts that can't form any valid build.
+- ~~Add `npm run catalog:report`~~ ✅ (2026-10-23). `src/data/catalogReport.ts` searches depth-first for complete valid builds
+  (fixed part first, then the case; a rule runs once every slot it reads is decided, and an error prunes the branch), once
+  without mods and once with every mod flag. It lists unverified parts with the reason from their notes, parts with no valid
+  build or only a mod-dependent one, and valid builds per case. Runs in about 0.1 s; `-- --out docs/catalog-report.md` writes the
+  committed copy. Tests guard two 6.4 criteria: every core case has two or more valid builds, and every unverified part gives a reason.
+  Confidence stays per part, not per field: notes say which fields are the uncertain ones.
+
+**What the first report found** ([`catalog-report.md`](catalog-report.md)):
+- **No case takes a Miyota movement.** Every case's `movementMounts` is `seiko-nh` (plus `eta-25.6` on the Fluted 36), so the 8215,
+  9015 and the Miyota baton hands can never be used. Fix: a case with a `miyota-26` mount, measured from a real product.
+- **No dial has ETA 2824 or VH31 feet.** The ETA 2824, SW200, Dauphine hands, VH31 and its pencil hands only form a build with
+  dial dots (plus a spacer for the VH31). Fix: an ETA-feet dial and a VH-feet dial, once the feet angles are confirmed (spec §7, items 1 and 3).
+- 12 unverified parts gave no reason; each now names the open spec §7 item it waits on.
+
+**Web research pass (2026-10-23):**
+- Resolved: VH31 hand order (spec §7, item 2). SW200-1 size and hand fittings confirmed from Sellita's own technical
+  documentation; its `diameter` corrected from 25.6 to the overall 26.0 (25.60 is the case fitting diameter).
+- Still open, with dead ends noted: ETA 2824 dial-feet angles (ETA's document server timed out; its PDFs carry them only as a
+  drawing). SW200 vs ETA dial feet (forum anecdotes only). Sub-style 40, Octagon 41 crystal, Fluted 39, crowns and any
+  Miyota-mount case: marketplace listings give diameter, lug-to-lug and thickness at best, never dial seat, crystal seat or
+  movement stack. Those need a vendor that publishes a full table, or calipers.
+- New conflict: Caliber Corner gives the Miyota 9015 hour post as 1.52; the seed has 1.50. Not changed.
+- `Movement.casingDiameter` means two different things: the NH35 stores the size with the casing ring (larger than the
+  movement), the VH31 stores the fitting diameter (smaller). No rule reads it yet; settle the meaning before one does.
 
 ### 6.2 More parts & styles
 

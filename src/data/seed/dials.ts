@@ -78,6 +78,7 @@ export const dials: SeedPart<'dial'>[] = [
     id: 'dl-sterile-miyota',
     name: 'Sterile No-Date (Miyota 8215)',
     confidence: 'unverified',
+    notes: 'Miyota 82xx dial-feet angles not yet checked against a Miyota drawing (compatibility spec §7, item 1).',
     diameter: 28.5,
     feetSystem: 'miyota-82',
     crownSteps: [0],

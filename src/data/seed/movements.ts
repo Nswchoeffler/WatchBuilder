@@ -125,10 +125,13 @@ export const movements: SeedPart<'movement'>[] = [
     caliber: 'SW200-1',
     kind: 'mechanical',
     confidence: 'community',
-    notes: 'Own feet system until SW200 vs ETA 2824 dial-feet compatibility is confirmed.',
+    notes:
+      'Overall diameter 26.00, case fitting diameter 25.60, height 4.60 and hand fittings 1.50 / 0.90 / 0.25 verified (Sellita technical documentation SW200-1, rev. 07, 2024). ' +
+      'heightWithHands unverified. Own feet system until SW200 vs ETA 2824 dial-feet compatibility is confirmed: the Sellita dial drawing gives the feet only graphically.',
+    sources: ['https://www.sellita.ch/scripts/calibres/images/DocTec_SW200-1_7.pdf'],
     mountSystem: 'eta-25.6',
     feetSystem: 'sellita-sw200',
-    diameter: 25.6,
+    diameter: 26.0,
     height: 4.6,
     heightWithHands: 6.6,
     handPosts: { hour: 1.5, minute: 0.9, seconds: 0.25 },
@@ -145,8 +148,11 @@ export const movements: SeedPart<'movement'>[] = [
     maker: 'Seiko (TMI)',
     caliber: 'VH31A',
     kind: 'quartz',
-    confidence: 'unverified',
-    notes: 'Diameter 23.70 / casing 23.30 / height 3.45 verified (TMI datasheet). Hand posts unverified.',
+    confidence: 'community',
+    notes:
+      'Diameter 23.70 / casing 23.30 / height 3.45 verified (TMI datasheet). Hand posts 1.20 / 0.70 / 0.17 from Caliber Corner (community); ' +
+      'the TMI technical guide gives no hole sizes. The order is hour / minute / seconds because each hand pipe fits over the next. heightWithHands unverified.',
+    sources: ['https://calibercorner.com/seiko-caliber-vh31/', 'https://boley.de/downloads/9f9f399fb4bc4651a262ecfcdb9d5e94/SHIOJIRI-VH31.pdf'],
     mountSystem: 'seiko-vh',
     feetSystem: 'seiko-vh',
     diameter: 23.7,
