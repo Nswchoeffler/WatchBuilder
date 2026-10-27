@@ -10,6 +10,10 @@ const nhDial = {
   openHeartAperture: null,
 } as const;
 
+/** Lucius Atelier listings give the face, the 28.5 diameter, the window and both crown positions; not the centre hole. */
+const luciusDial = (listing: string, face: string) =>
+  `Lucius Atelier "${listing}": Ø28.5, ${face}; four legs for a 3:00 or 3.8 crown. Centre hole not published (NH standard 2.1 assumed, as for the other NH dials).`;
+
 export const dials: SeedPart<'dial'>[] = [
   {
     ...nhDial,
@@ -260,5 +264,49 @@ export const dials: SeedPart<'dial'>[] = [
     centerHole: 2.9,
     gmtScale: true,
     visual: tpl('dial/gmt', { color: '#16305e', finish: 'sunburst', markers: 'mercedes-classic', lume: '#e8f0d8' }),
+  },
+
+  // ── Lucius Atelier dials: 28.5, four legs for a 3:00 or 3.8 crown, per the listing ─────────────
+  {
+    ...nhDial,
+    id: 'dl-enamel-black-date',
+    name: 'Pitch Black Enamel (date)',
+    confidence: 'community',
+    notes: luciusDial('Pitch Black Enamel Dial (Date)', 'sterile high-gloss black enamel, no markers or text, no lume, date window for an NH35 / NH36'),
+    sources: ['https://luciusatelier.com/products/pitch-black-enamel-dial-date'],
+    crownSteps: [0, 2],
+    visual: tpl('dial/classic', { color: '#0b0b0c', finish: 'gloss', markers: 'plain', lume: null }),
+  },
+  {
+    ...nhDial,
+    id: 'dl-velvet-black',
+    name: 'Velvet Black (no date)',
+    confidence: 'community',
+    notes: luciusDial('Velvet Black Dial (No Date)', 'sterile matte black, 0.4 thick, no markers or text, no lume, no date window (NH38; NH35 / NH36 discs hidden)'),
+    sources: ['https://luciusatelier.com/products/velvet-black-dial-no-date'],
+    crownSteps: [0, 2],
+    dateWindow: null,
+    visual: tpl('dial/classic', { color: '#131314', finish: 'matte', markers: 'plain', lume: null }),
+  },
+  {
+    ...nhDial,
+    id: 'dl-explorer-1016',
+    name: 'Explorer 3-6-9 Black (no date)',
+    confidence: 'community',
+    notes: luciusDial('Explorer 1016 Dial (No Date)', 'matte black, printed 3-6-9 numerals and batons filled with BGW9, no date window'),
+    sources: ['https://luciusatelier.com/products/explorer-1016-dial-no-date'],
+    crownSteps: [0, 2],
+    dateWindow: null,
+    visual: tpl('dial/explorer', { color: '#121314', finish: 'matte', markers: 'explorer', lume: '#e3edf6' }),
+  },
+  {
+    ...nhDial,
+    id: 'dl-sector-silver-date',
+    name: 'Sector Silver (date)',
+    confidence: 'community',
+    notes: luciusDial('Sector Dial – PP5296 (Date)', 'silvery fine-grained centre, black sector minute track and printed indices, no lume, date window'),
+    sources: ['https://luciusatelier.com/products/sector-dial-pp5296-date'],
+    crownSteps: [0, 2],
+    visual: tpl('dial/sector', { color: '#d9dad6', finish: 'matte', markers: 'sector', lume: null, ink: '#151618' }),
   },
 ];

@@ -1,27 +1,27 @@
 # Catalog report: `core`
 
-114 parts: 32 verified, 62 community, 20 unverified.
+135 parts: 35 verified, 80 community, 20 unverified.
 
 ## Problems
 
 - Unverified parts with no reason in their notes: **0**
 - Parts that can't form any valid build: **1**
-- Parts that only form a valid build with a mod: **7**
+- Parts that only form a valid build with a mod: **10**
 - Cases with fewer than two valid builds: **0**
 
 ## Confidence by type
 
 | Type | Verified | Community | Unverified |
 |---|---:|---:|---:|
-| movement | 3 | 6 | 0 |
-| case | 1 | 4 | 2 |
-| dial | 0 | 24 | 1 |
+| movement | 6 | 6 | 0 |
+| case | 1 | 12 | 2 |
+| dial | 0 | 28 | 1 |
 | hands | 4 | 9 | 0 |
 | chapterRing | 4 | 2 | 0 |
 | bezel | 2 | 2 | 3 |
 | bezelInsert | 10 | 0 | 3 |
-| crystal | 4 | 1 | 4 |
-| crown | 0 | 0 | 7 |
+| crystal | 4 | 4 | 4 |
+| crown | 0 | 3 | 7 |
 | strap | 4 | 14 | 0 |
 
 ## Unverified parts
@@ -53,6 +53,9 @@
 
 - `mv-m8215` Miyota 8215 (movement): no valid build, even with mods.
 - `mv-m9015` Miyota 9015 (movement): only with a mod, e.g. mv-m9015, cs-diver42-miyota, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
+- `mv-m9019` Miyota 9019 (movement): only with a mod, e.g. mv-m9019, cs-diver42-miyota, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
+- `mv-m9039` Miyota 9039 (no date) (movement): only with a mod, e.g. mv-m9039, cs-diver42-miyota, dl-sterile-miyota, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
+- `mv-m90s5` Miyota 90S5 Open Heart (movement): only with a mod, e.g. mv-m90s5, cs-diver42-miyota, dl-sterile-miyota, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `mv-sw200` Sellita SW200-1 (movement): only with a mod, e.g. mv-sw200, cs-fluted36, dl-diver-black, cr-mid-silver, hd-eta-dauphine, bz-fluted36, cy-fluted36-flat, cw-fluted36, st-oyster-20.
 - `mv-vh31` Seiko VH31 (quartz sweep) (movement): only with a mod, e.g. mv-vh31, cs-diver42-38, dl-sterile-miyota, cr-diver42-silver, hd-vh31-pencil, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `cs-diver42-miyota` Diver 42.5 Slim (Miyota 9) (case): only with a mod, e.g. cs-diver42-miyota, mv-m9015, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
@@ -71,3 +74,11 @@
 | `cs-fluted36` Fluted Classic 36 | 1000+ |
 | `cs-fluted39` Fluted Classic 39 | 1000+ |
 | `cs-octagon41` Octagon Integrated 41 | 32 |
+| `cs-diver42-ncg-30` Diver 42 No-Guard (crown 3.0) | 1000+ |
+| `cs-angular43-30` Angular Diver 43 (crown 3.0) | 1000+ |
+| `cs-mono42-30` Monobloc Diver 42.5 (crown 3.0) | 1000+ |
+| `cs-cushion45-38` Cushion Diver 45 (crown 3.8) | 1000+ |
+| `cs-explorer36-slim` Explorer-style 36 Slim | 1000+ |
+| `cs-pilot34-slim` Pilot-style 34 Slim | 1000+ |
+| `cs-fluted36-slim` Fluted Dress 36 Slim | 1000+ |
+| `cs-faceted39` Faceted Dress 39 | 1000+ |

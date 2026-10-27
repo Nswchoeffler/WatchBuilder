@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { choice, color, darken, f, lighten, polar, range } from '../util';
+import { FlutedRing, SmoothRing } from './bezel';
 import { MetalGradient, url, type MetalFinish, type Template, type TemplateProps } from './common';
 
 // Case templates. Drawn 12:00-up at true size; the crown is a separate layer.
@@ -80,6 +81,7 @@ function crownGuards(fill: string, r: number, angle: number, size: number, crown
 const diver: Template<'case'> = (props) => {
   const { layout } = props.ctx;
   const R = layout.caseRadius;
+  const guards = choice(props.params, 'guards', ['yes', 'no'], 'yes') === 'yes';
   return (
     <CaseBody
       {...props}
@@ -87,11 +89,32 @@ const diver: Template<'case'> = (props) => {
         shapes: [
           <circle key="body" r={R} fill={fill} />,
           ...lugs(fill, R, layout.lugWidth, layout.lugToLug, 3.2, 2.2, 'lug'),
-          ...crownGuards(fill, R, layout.crownAngle, 2.3, props.ctx.parts.crown?.diameter ?? 6.5),
+          ...(guards ? crownGuards(fill, R, layout.crownAngle, 2.3, props.ctx.parts.crown?.diameter ?? 6.5) : []),
         ],
       })}
     />
   );
+};
+
+/**
+ * Cushion case (Turtle-style): no separate lugs. The flanks bulge out to the full case width at 3/9
+ * and curve back in to a flat end just wider than the strap.
+ */
+const cushion: Template<'case'> = (props) => {
+  const { layout } = props.ctx;
+  const R = layout.caseRadius;
+  const half = layout.lugToLug / 2;
+  const endX = layout.lugWidth / 2 + 2.4;
+  const body = [
+    `M ${f(R)} 0`,
+    `C ${f(R)} ${f(-half * 0.62)} ${f(endX + (R - endX) * 0.55)} ${f(-half)} ${f(endX)} ${f(-half)}`,
+    `L ${f(-endX)} ${f(-half)}`,
+    `C ${f(-endX - (R - endX) * 0.55)} ${f(-half)} ${f(-R)} ${f(-half * 0.62)} ${f(-R)} 0`,
+    `C ${f(-R)} ${f(half * 0.62)} ${f(-endX - (R - endX) * 0.55)} ${f(half)} ${f(-endX)} ${f(half)}`,
+    `L ${f(endX)} ${f(half)}`,
+    `C ${f(endX + (R - endX) * 0.55)} ${f(half)} ${f(R)} ${f(half * 0.62)} ${f(R)} 0 Z`,
+  ].join(' ');
+  return <CaseBody {...props} silhouette={(fill) => ({ shapes: [<path key="body" d={body} fill={fill} />] })} />;
 };
 
 const sub: Template<'case'> = (props) => {
@@ -123,9 +146,14 @@ const sub: Template<'case'> = (props) => {
   );
 };
 
+/** Dress case with slim lugs. `bezel` draws a bezel that is part of the case (bezel seat `integral`). */
 const fluted: Template<'case'> = (props) => {
-  const { layout } = props.ctx;
+  const { layout, id } = props.ctx;
   const R = layout.caseRadius;
+  const bezel = choice(props.params, 'bezel', ['none', 'smooth', 'fluted'], 'none');
+  const metal = color(props.params, 'metal', '#d4d7db');
+  const inner = layout.bezelInnerRadius;
+  const outer = layout.bezelOuterRadius;
   return (
     <CaseBody
       {...props}
@@ -134,6 +162,12 @@ const fluted: Template<'case'> = (props) => {
           <circle key="body" r={R} fill={fill} />,
           ...lugs(fill, R, layout.lugWidth, layout.lugToLug, 2.3, 1.6, 'lug'),
         ],
+        detail:
+          bezel === 'fluted' ? (
+            <FlutedRing inner={inner} outer={outer} metal={lighten(metal, 0.15)} />
+          ) : bezel === 'smooth' ? (
+            <SmoothRing inner={inner} outer={outer} metal={metal} gid={id(`case-bezel-${props.part.id}`)} />
+          ) : undefined,
       })}
     />
   );
@@ -204,4 +238,5 @@ export const caseTemplates: Record<string, Template<'case'>> = {
   'case/sub': sub,
   'case/fluted': fluted,
   'case/octagon': octagon,
+  'case/cushion': cushion,
 };

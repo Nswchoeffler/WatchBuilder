@@ -56,6 +56,11 @@ const DIAL_PARAMS: ParamSpec[] = [
   { key: 'text', label: 'Dial text', kind: 'lines', hint: 'One line per row, up to four.' },
 ];
 
+const CASE_EXTRA_PARAMS: Record<string, ParamSpec[]> = {
+  'case/diver': [{ key: 'guards', label: 'Crown guards', kind: 'choice', choices: ['yes', 'no'], fallback: 'yes' }],
+  'case/fluted': [{ key: 'bezel', label: 'Built-in bezel', kind: 'choice', choices: ['none', 'smooth', 'fluted'], fallback: 'none' }],
+};
+
 const HAND_PARAMS: ParamSpec[] = [
   color('metal', 'Metal', '#e6e7e9'),
   color('lume', 'Lume', '#e8f0d8', { nullable: true }),
@@ -74,7 +79,7 @@ const info = (id: string, params: readonly ParamSpec[]): TemplateInfo => ({ id, 
 export const TEMPLATE_CATALOG: Record<PartType, readonly TemplateInfo[]> = {
   // Movements sit under the dial and are never drawn; the name is kept so a part can say what it is.
   movement: ['movement/nh', 'movement/miyota', 'movement/eta', 'movement/vh'].map((id) => info(id, [])),
-  case: Object.keys(caseTemplates).map((id) => info(id, [...metal('#c9ccd1'), METAL_FINISH])),
+  case: Object.keys(caseTemplates).map((id) => info(id, [...metal('#c9ccd1'), METAL_FINISH, ...(CASE_EXTRA_PARAMS[id] ?? [])])),
   dial: Object.keys(dialTemplates).map((id) => info(id, DIAL_PARAMS)),
   hands: Object.keys(handsTemplates).map((id) => info(id, HAND_PARAMS)),
   chapterRing: [

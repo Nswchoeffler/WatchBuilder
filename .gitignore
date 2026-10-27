@@ -5,3 +5,4 @@ coverage
 .vite
 previews
 *.tsbuildinfo
+.vs

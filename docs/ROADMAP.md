@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-10-27. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts)._
+_Last updated 2026-10-27. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts); sourced parts pass the same day (135 parts)._
 
 ## 1. Context
 
@@ -27,7 +27,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 ## 2. Current state (Phases 0–5 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), packs (`#/packs`), shared build (`#/share/…`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (525 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (607 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
 - **Browser-verified 2026-10-23:** all four Phase 5 acceptance criteria (see 5.5), driven in Chrome. That run found and fixed two bugs:
@@ -362,6 +362,21 @@ what they supply. Nothing is estimated into the catalog.
 - **Hands:** snowflake, plongeur, cathedral, syringe, arrow.
 - **Straps:** waffle rubber, more leather/canvas, fitted end links for more cases, mesh variants.
 - **Mod flags:** ~~dial-feet adapter (e.g. VH31 → NH)~~ ✅ (2026-10-27), chapter-ring shim, more as the research finds them.
+
+**Sourced parts pass (2026-10-27):** catalog 114 → 135 parts, every one from a manufacturer drawing or a vendor listing that
+publishes the numbers.
+- **Movements:** Miyota 9019, 9039 and 90S5 (open heart at ≈166°), all from Miyota's frame and dial drawings, so verified. They
+  only build in the NMK948 with dial dots, like the 9015. Skipped: Seiko NH39 (24-hour subdial) and NH70 / NH72 (open-worked), which
+  the part model can't describe yet; Miyota 82xx variants, which would have no case either.
+- **Cases:** four namokiMODS cases sold as taking SKX007 parts (no-guard 42 at 3:00, angular 43 at 3:00, monobloc 42.5 at 3:00,
+  cushion 45 at 3.8), modelled with the Diver 42's inside fittings; four Lucius Atelier dress cases with full tables (Explorer 36,
+  Pilot 34, fluted 36, faceted 39; the last also takes ETA 2824 / SW200). Skipped: namokiMODS cases whose photos don't show the crown
+  position (Tuna, Seamaster-, Sub- and 6105-style) and Lucius cases without a crystal size.
+- **Crowns and crystals:** three SKX013-spec crowns (tube `skx013`) and the three Lucius crystals the new cases ship with.
+- **Dials:** four Lucius 28.5 dials with feet for both crown positions (black enamel, velvet black, 3-6-9, sector). No dial for the
+  octagon's 30.8–31.8 seat was found in either store.
+- **Drawing:** `case/cushion` template; `case/diver` gains a crown-guard switch; `case/fluted` can draw a smooth or fluted bezel that
+  is part of the case. Four sample builds exercise them.
 
 ### 6.3 Rendering polish
 - ~~Lume "night view" toggle; dark background option for exports.~~ ✅ (2026-10-23, checked in Chrome). Day / Night switch in

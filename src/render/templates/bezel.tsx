@@ -27,11 +27,12 @@ const coinEdge: Template<'bezel'> = ({ part, params, ctx }) => {
   );
 };
 
-const flutedBezel: Template<'bezel'> = ({ params, ctx }) => {
-  const { layout } = ctx;
-  const metal = color(params, 'metal', '#e1e3e6');
-  const inner = layout.bezelInnerRadius;
-  const outer = layout.bezelOuterRadius;
+const flutedBezel: Template<'bezel'> = ({ params, ctx }) => (
+  <FlutedRing inner={ctx.layout.bezelInnerRadius} outer={ctx.layout.bezelOuterRadius} metal={color(params, 'metal', '#e1e3e6')} />
+);
+
+/** Sixty flutes lit from the top left. Also drawn by case templates whose bezel is part of the case. */
+export function FlutedRing({ inner, outer, metal }: { inner: number; outer: number; metal: string }) {
   const n = 60;
   return (
     <g>
@@ -50,15 +51,17 @@ const flutedBezel: Template<'bezel'> = ({ params, ctx }) => {
       <path d={annulus(inner, outer)} fill="none" stroke={darken(metal, 0.5)} strokeWidth={0.2} />
     </g>
   );
-};
+}
 
 /** Plain polished bezel with no grip and no insert seat markings. */
 const smoothBezel: Template<'bezel'> = ({ part, params, ctx }) => {
   const { layout, id } = ctx;
-  const metal = color(params, 'metal', '#d4d7db');
-  const gid = id(`bezel-${part.id}`);
   const inner = part.insert ? part.insert.outerDiameter / 2 - 0.25 : layout.bezelInnerRadius;
-  const outer = layout.bezelOuterRadius;
+  return <SmoothRing inner={inner} outer={layout.bezelOuterRadius} metal={color(params, 'metal', '#d4d7db')} gid={id(`bezel-${part.id}`)} />;
+};
+
+/** Polished domed ring. Also drawn by case templates whose bezel is part of the case. */
+export function SmoothRing({ inner, outer, metal, gid }: { inner: number; outer: number; metal: string; gid: string }) {
   return (
     <g>
       <defs>
@@ -69,7 +72,7 @@ const smoothBezel: Template<'bezel'> = ({ part, params, ctx }) => {
       <circle r={f(inner + (outer - inner) * 0.55)} fill="none" stroke={lighten(metal, 0.5)} strokeWidth={0.18} opacity={0.5} />
     </g>
   );
-};
+}
 
 export const bezelTemplates: Record<string, Template<'bezel'>> = {
   'bezel/coin-edge': coinEdge,

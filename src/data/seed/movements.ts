@@ -19,6 +19,25 @@ const nhBase = {
   visual: tpl('movement/nh'),
 } as const;
 
+/** Miyota 9 series: one frame (Ø26.00, height 3.90), the same hand posts, feet and dial hole. Miyota drawings, see mv-m9015. */
+const miyota9Base = {
+  type: 'movement',
+  maker: 'Miyota (Citizen)',
+  kind: 'mechanical',
+  confidence: 'verified',
+  mountSystem: 'miyota-26',
+  feetSystem: 'miyota-90',
+  diameter: 26.0,
+  height: 3.9,
+  heightWithHands: 6.0,
+  handPosts: { hour: 1.52, minute: 1.0, seconds: 0.17 },
+  minDialCenterHole: 2.0,
+  date: AT_3,
+  day: null,
+  openHeart: null,
+  visual: tpl('movement/miyota'),
+} as const;
+
 export const movements: SeedPart<'movement'>[] = [
   { ...nhBase, type: 'movement', id: 'mv-nh35', name: 'Seiko NH35A', caliber: 'NH35A', confidence: 'verified' },
   {
@@ -79,29 +98,50 @@ export const movements: SeedPart<'movement'>[] = [
     visual: tpl('movement/miyota'),
   },
   {
-    type: 'movement',
+    ...miyota9Base,
     id: 'mv-m9015',
     name: 'Miyota 9015',
-    maker: 'Miyota (Citizen)',
     caliber: '9015',
-    kind: 'mechanical',
-    confidence: 'verified',
     notes:
       'From the Miyota frame and dial drawings (901500C0, 9015-20A / -20Y): diameter 26.00 (case fitting 25.60), height 3.90, ' +
       'hand posts 1.52 / 1.00 / 0.17 (the hour post is 1.52, not 1.50), hand stack 2.10 above the movement, dial centre hole 2.00 ± 0.04, ' +
       'dial feet DH11 ≈ 77° and DH12 ≈ 252° (Ø0.70), date at 3:00 (-20A) or 6:00 (-20Y). Caliber Corner gives the same 2.1 hand stack.',
     sources: ['https://miyotamovement.com/product/9015/', 'https://calibercorner.com/miyota-caliber-9039-vs-9015/'],
-    mountSystem: 'miyota-26',
-    feetSystem: 'miyota-90',
-    diameter: 26.0,
-    height: 3.9,
-    heightWithHands: 6.0,
-    handPosts: { hour: 1.52, minute: 1.0, seconds: 0.17 },
-    minDialCenterHole: 2.0,
-    date: AT_3,
-    day: null,
-    openHeart: null,
-    visual: tpl('movement/miyota'),
+  },
+  {
+    ...miyota9Base,
+    id: 'mv-m9019',
+    name: 'Miyota 9019',
+    caliber: '9019',
+    notes:
+      'The 9015 with a lower hand stack: 1.75 above the movement (frame drawing 901900C0), so height with hands 5.65. ' +
+      'Same frame, posts, feet and date at 3:00 (dial drawing 9019-20A).',
+    sources: ['https://miyotamovement.com/product/9019/'],
+    heightWithHands: 5.65,
+  },
+  {
+    ...miyota9Base,
+    id: 'mv-m9039',
+    name: 'Miyota 9039 (no date)',
+    caliber: '9039',
+    notes:
+      'The 9015 without a date wheel and with a 1.75 hand stack (spec sheet: 0.90 + 0.40 + 0.45; frame drawing 903900C0), ' +
+      'so height with hands 5.65. Same frame, posts and feet (dial drawing 9039-20A).',
+    sources: ['https://miyotamovement.com/product/9039/'],
+    heightWithHands: 5.65,
+    date: null,
+  },
+  {
+    ...miyota9Base,
+    id: 'mv-m90s5',
+    name: 'Miyota 90S5 Open Heart',
+    caliber: '90S5',
+    notes:
+      'No date; the balance shows through a Ø9.20 dial opening centred 1.575 right of and 6.399 below the dial centre, ≈ 166° ' +
+      '(dial drawing 90S5-20A). Same frame, posts, feet and 2.10 hand stack as the 9015 (frame drawing 90S500C0).',
+    sources: ['https://miyotamovement.com/product/90S5/'],
+    date: null,
+    openHeart: { angle: 166 },
   },
   {
     type: 'movement',

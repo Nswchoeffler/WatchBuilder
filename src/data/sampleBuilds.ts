@@ -115,6 +115,39 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
     flags: ['dial-dots'],
   },
   {
+    id: 'cushion-diver',
+    name: 'Cushion Diver 45',
+    slots: {
+      case: 'cs-cushion45-38', movement: 'mv-nh35', dial: 'dl-diver-black', hands: 'hd-nh-mercedes', bezel: 'bz-diver42-sloped',
+      bezelInsert: 'in-diver42-dive-blue', chapterRing: 'cr-diver42-black', crystal: 'cy-diver42-dd', crown: 'cw-diver42',
+      strap: 'st-rubber-22-black',
+    },
+  },
+  {
+    id: 'fluted-slim-dress',
+    name: 'Fluted Dress 36, Black Enamel',
+    slots: {
+      case: 'cs-fluted36-slim', movement: 'mv-nh35', dial: 'dl-enamel-black-date', hands: 'hd-nh-sword', chapterRing: 'cr-mid-thin-silver',
+      crystal: 'cy-dress28-dd', crown: 'cw-skx013-coin-6', strap: 'st-jubilee-20',
+    },
+  },
+  {
+    id: 'explorer-slim',
+    name: 'Explorer 36 Slim, 3-6-9',
+    slots: {
+      case: 'cs-explorer36-slim', movement: 'mv-nh38', dial: 'dl-explorer-1016', hands: 'hd-nh-mercedes', chapterRing: 'cr-mid-silver',
+      crystal: 'cy-fluted36-flat', crown: 'cw-skx013-knurled-6', strap: 'st-oyster-20',
+    },
+  },
+  {
+    id: 'mono-no-guard',
+    name: 'Monobloc 42.5, Sector',
+    slots: {
+      case: 'cs-mono42-30', movement: 'mv-nh35', dial: 'dl-sector-silver-date', hands: 'hd-nh-syringe', bezel: 'bz-diver42-flat',
+      bezelInsert: 'in-diver42-gmt-pepsi', crystal: 'cy-diver42-flat', crown: 'cw-diver42', strap: 'st-waffle-20-blue',
+    },
+  },
+  {
     id: 'eta-plain-dress',
     name: 'ETA 2824 Plain Dress',
     slots: {
