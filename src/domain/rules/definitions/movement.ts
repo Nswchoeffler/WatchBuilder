@@ -40,6 +40,9 @@ export const movementDialRules = [
     check: ({ movement, dial }) => {
       if (dial.feetSystem === 'none') return [info('Feetless dial: mount with dial dots.')];
       if (dial.feetSystem === movement.feetSystem) return [];
+      if (movement.feetSystem === 'seiko-vh' && dial.feetSystem === 'seiko-nh') {
+        return [error(`Dial feet are for seiko-nh; ${movement.caliber} needs a VH → NH dial-feet adapter.`, 'dial-feet-adapter')];
+      }
       return [
         error(`Dial feet are for ${dial.feetSystem}; ${movement.caliber} uses ${movement.feetSystem}.`, 'dial-dots'),
       ];

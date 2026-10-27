@@ -181,4 +181,55 @@ describe('reference builds', () => {
     expect(ids(r, 'error')).toEqual(['R-CC-1', 'R-CS-2', 'R-CW-1']);
     expect(ids(r, 'warning')).toEqual(['R-CS-3']);
   });
+
+  // NMK948 as the vendor describes it: Miyota 9015, stock SKX007 bezel, insert, crystal and crown, NH no-date dial on dial dots.
+  const MIYOTA_SKX = {
+    case: 'cs-diver42-miyota',
+    movement: 'mv-m9015',
+    dial: 'dl-diver-nodate',
+    hands: 'hd-m8215-baton',
+    bezel: 'bz-diver42-sloped',
+    bezelInsert: 'in-diver42-dive-black',
+    crystal: 'cy-diver42-dd',
+    crown: 'cw-diver42',
+    strap: 'st-nato-22-black',
+  } as const;
+
+  it('T24: Miyota 9015 in the NMK948 with an NH no-date dial → feet error, cleared to warning by dial dots', () => {
+    const r = run(MIYOTA_SKX);
+    expect(ids(r, 'error')).toEqual(['R-MD-1']);
+    const dotted = run(MIYOTA_SKX, ['dial-dots']);
+    expect(dotted.status).toBe('warnings');
+    expect(ids(dotted, 'warning')).toEqual(['R-MD-1']);
+    // The hour post is 1.52 on the Miyota drawing, so the Miyota baton set fits the 9015 as well as the 8215.
+    expect(ids(dotted, 'error')).toEqual([]);
+  });
+
+  it('T25: Miyota 8215 in the NMK948 → too tall for a case sold for the 9 series', () => {
+    const r = run({ case: 'cs-diver42-miyota', movement: 'mv-m8215' });
+    expect(ids(r, 'error')).toEqual(['R-MC-2']);
+  });
+
+  it('T26: NH35 in the NMK948 → wrong mount, and too tall', () => {
+    expect(ids(run({ case: 'cs-diver42-miyota', movement: 'mv-nh35' }), 'error')).toEqual(['R-MC-1', 'R-MC-2']);
+  });
+
+  it('T27: ETA 2824-2 with the Otto Frei ETA dial in Fluted Classic 36 is valid', () => {
+    const r = run({
+      case: 'cs-fluted36', movement: 'mv-eta2824', dial: 'dl-eta-plain-white', hands: 'hd-eta-dauphine',
+      chapterRing: 'cr-mid-silver', bezel: 'bz-fluted36', crystal: 'cy-fluted36-flat', crown: 'cw-fluted36', strap: 'st-oyster-20',
+    });
+    expect(r.results).toEqual([]);
+    expect(r.status).toBe('valid');
+  });
+
+  it('T28: NH dial on a VH31 → fixed by a dial-feet adapter, not by dial dots', () => {
+    const slots = { ...T1, movement: 'mv-vh31', hands: 'hd-vh31-pencil', dial: 'dl-diver-nodate' } as const;
+    const r = run(slots);
+    expect(ids(r, 'error')).toEqual(['R-MC-1', 'R-MD-1']);
+    expect(r.results.find((x) => x.ruleId === 'R-MD-1')).toMatchObject({ fix: 'dial-feet-adapter' });
+    const adapted = run(slots, ['movement-spacer', 'dial-feet-adapter']);
+    expect(adapted.status).toBe('warnings');
+    expect(ids(adapted, 'warning')).toEqual(['R-MC-1', 'R-MD-1']);
+  });
 });

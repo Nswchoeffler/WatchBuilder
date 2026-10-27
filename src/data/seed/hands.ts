@@ -35,8 +35,9 @@ export const hands: SeedPart<'hands'>[] = [
   {
     type: 'hands',
     id: 'hd-m8215-baton',
-    name: 'Baton (Miyota 8215)',
+    name: 'Baton (Miyota 82 / 90)',
     confidence: 'verified',
+    notes: 'Holes match the 1.52 / 1.00 / 0.17 hand posts on both the Miyota 8215 and 9015 drawings.',
     holes: { hour: 1.52, minute: 1.0, seconds: 0.17 },
     lengths: LEN_28,
     visual: tpl('hands/baton', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),

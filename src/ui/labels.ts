@@ -52,6 +52,7 @@ export const FLAG_INFO: Record<ModFlag, { label: string; description: string }> 
   'dial-dots': { label: 'Dial dots', description: 'Clip the dial feet and fix the dial with adhesive dots.' },
   'movement-spacer': { label: 'Movement spacer', description: 'Seat the movement in a spacer ring made for this case.' },
   'day-wheel-swap': { label: 'Day wheel swap', description: "Fit a day wheel indexed for this case's crown position." },
+  'dial-feet-adapter': { label: 'Dial-feet adapter', description: 'Fit an adapter (often built into the spacer ring) that gives the movement NH dial-feet holes.' },
 };
 
 /** One-line key measurements for a part. */

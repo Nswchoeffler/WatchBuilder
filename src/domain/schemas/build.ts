@@ -12,7 +12,7 @@ export const PartRef = z.object({ packId: Slug, partId: Slug });
 export type PartRef = z.infer<typeof PartRef>;
 
 /** Real-world modifications that downgrade specific rule errors to warnings. */
-export const ModFlag = z.enum(['dial-dots', 'movement-spacer', 'day-wheel-swap']);
+export const ModFlag = z.enum(['dial-dots', 'movement-spacer', 'day-wheel-swap', 'dial-feet-adapter']);
 export type ModFlag = z.infer<typeof ModFlag>;
 
 export const Build = z.object({

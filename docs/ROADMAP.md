@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-10-23. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done (112 parts)._
+_Last updated 2026-10-27. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts)._
 
 ## 1. Context
 
@@ -27,7 +27,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 ## 2. Current state (Phases 0–5 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), packs (`#/packs`), shared build (`#/share/…`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (481 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (525 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
 - **Browser-verified 2026-10-23:** all four Phase 5 acceptance criteria (see 5.5), driven in Chrome. That run found and fixed two bugs:
@@ -318,6 +318,21 @@ wasn't available).
   Miyota-mount case: marketplace listings give diameter, lug-to-lug and thickness at best, never dial seat, crystal seat or
   movement stack. Those need a vendor that publishes a full table, or calipers.
 - New conflict: Caliber Corner gives the Miyota 9015 hour post as 1.52; the seed has 1.50. Not changed.
+
+**Second research pass (2026-10-27): the report's two catalog gaps.**
+- **Miyota:** Miyota publishes frame and dial drawings for each caliber on miyotamovement.com. From them, the 9015's hour post
+  is **1.52** (the seed's 1.50 was wrong, so the conflict above is settled), its hand stack is 2.10 (height with hands 6.00),
+  both calibers have a 2.00 dial centre hole, and both feet patterns are now measured (compatibility spec §4). Added
+  `cs-diver42-miyota`, from namokiMODS' NMK948: the only Miyota case found with published specs. It takes the 9 series and stock
+  SKX007 bezels, inserts, crystals and crowns, with the crown at 3.8 (from the product photo). No dial with Miyota 9 feet for a 3.8
+  crown is sold, and the vendor says to fit Seiko no-date dials with dial dots, so the catalog report counts this case's builds
+  with `dial-dots` (`MOD_BUILD_CASES`, decided with the user). The Miyota baton hands fit both the 8215 and the 9015.
+  **Still open:** no case takes the 8215. Its listings (DIY Watch Club Mosel, Tandorio, field cases) give no crystal or dial seat.
+- **ETA:** added `dl-eta-plain-white` from Otto Frei's published dial specs. The ETA 2824-2 and the ETA Dauphine hands now have
+  builds with no mods. Otto Frei sells the same dials for the SW200-1, but `sellita-sw200` stays its own feet system (spec §7, item 3).
+- **VH31:** no dial with VH31 feet is sold. Builds use a spacer or holder that carries NH feet, so this pass added the
+  `dial-feet-adapter` flag: an NH dial on a VH movement is an R-MD-1 error that the flag reduces to a warning. The VH31 still
+  needs mods in every case, as it always will in NH cases.
 - `Movement.casingDiameter` means two different things: the NH35 stores the size with the casing ring (larger than the
   movement), the VH31 stores the fitting diameter (smaller). No rule reads it yet; settle the meaning before one does.
 
@@ -346,7 +361,7 @@ what they supply. Nothing is estimated into the catalog.
 - **Bezels & inserts:** smooth polished bezel, 12-hour, countdown, compass, tachymeter; bezel rotation setting in the preview.
 - **Hands:** snowflake, plongeur, cathedral, syringe, arrow.
 - **Straps:** waffle rubber, more leather/canvas, fitted end links for more cases, mesh variants.
-- **Mod flags:** dial-feet adapter (e.g. VH31 → NH), chapter-ring shim, more as the research finds them.
+- **Mod flags:** ~~dial-feet adapter (e.g. VH31 → NH)~~ ✅ (2026-10-27), chapter-ring shim, more as the research finds them.
 
 ### 6.3 Rendering polish
 - ~~Lume "night view" toggle; dark background option for exports.~~ ✅ (2026-10-23, checked in Chrome). Day / Night switch in

@@ -105,4 +105,21 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
       strap: 'st-tropic-22-black',
     },
   },
+  {
+    id: 'miyota-slim-diver',
+    name: 'Slim Diver, Miyota 9015',
+    slots: {
+      case: 'cs-diver42-miyota', movement: 'mv-m9015', dial: 'dl-diver-nodate', hands: 'hd-m8215-baton', bezel: 'bz-diver42-sloped',
+      bezelInsert: 'in-diver42-dive-black', crystal: 'cy-diver42-dd', crown: 'cw-diver42', strap: 'st-nato-22-black',
+    },
+    flags: ['dial-dots'],
+  },
+  {
+    id: 'eta-plain-dress',
+    name: 'ETA 2824 Plain Dress',
+    slots: {
+      case: 'cs-fluted36', movement: 'mv-eta2824', dial: 'dl-eta-plain-white', hands: 'hd-eta-dauphine', bezel: 'bz-fluted36',
+      chapterRing: 'cr-mid-silver', crystal: 'cy-fluted36-flat', crown: 'cw-fluted36', strap: 'st-oyster-20',
+    },
+  },
 ];

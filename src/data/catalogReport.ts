@@ -12,9 +12,19 @@ export type Slots = Partial<Record<Slot, PartRef>>;
 const SEARCH_ORDER: readonly Slot[] = ['case', 'movement', 'dial', 'chapterRing', 'hands', 'bezel', 'bezelInsert', 'crystal', 'crown', 'strap'];
 const ALL_FLAGS = ModFlag.options;
 
+/**
+ * Core cases their vendor sells for one modification, so their valid builds are counted with it.
+ * The NMK948 Miyota case: namokiMODS sells no Miyota dials and says to fit its Seiko dials with dial dots.
+ */
+export const MOD_BUILD_CASES: Readonly<Record<string, readonly ModFlag[]>> = {
+  'cs-diver42-miyota': ['dial-dots'],
+};
+
 export interface SearchOptions {
-  /** Accept errors that a modification flag downgrades (the build is then evaluated with every flag set). */
+  /** Accept errors that any modification flag downgrades (the build is then evaluated with every flag set). */
   allowMods?: boolean;
+  /** Accept errors that one of these flags downgrades (the build is then evaluated with them set). Overrides `allowMods`. */
+  mods?: readonly ModFlag[];
   /** Stop after this many builds. */
   limit?: number;
 }
@@ -24,7 +34,8 @@ export interface SearchOptions {
  * Depth-first over the slots; a rule runs as soon as every slot it reads has been decided
  * (filled, or left empty because the parts chosen so far don't require it), and an error prunes the branch.
  */
-export function findBuilds(source: PartSource, fixed: Slots, { allowMods = false, limit = 1 }: SearchOptions = {}): Slots[] {
+export function findBuilds(source: PartSource, fixed: Slots, { allowMods = false, mods, limit = 1 }: SearchOptions = {}): Slots[] {
+  const flags = mods ?? (allowMods ? ALL_FLAGS : []);
   // Fixed parts first, so a part that fits nothing fails at once instead of after a full search.
   const order = [...SEARCH_ORDER].sort((a, b) => Number(!fixed[a]) - Number(!fixed[b]));
   const options = new Map<Slot, { ref: PartRef; part: Part }[]>();
@@ -41,13 +52,13 @@ export function findBuilds(source: PartSource, fixed: Slots, { allowMods = false
 
   const blocked = (rule: Rule): boolean => {
     if (!rule.requires.every((s) => parts[s])) return false;
-    return rule.check(parts as ResolvedParts).some((f) => f.severity === 'error' && !(allowMods && f.fix));
+    return rule.check(parts as ResolvedParts).some((f) => f.severity === 'error' && !(f.fix && flags.includes(f.fix)));
   };
 
   const visit = (depth: number): void => {
     if (found.length >= limit) return;
     if (depth === order.length) {
-      const report = evaluate({ slots, flags: allowMods ? ALL_FLAGS : [] }, source);
+      const report = evaluate({ slots, flags: [...flags] }, source);
       if (report.status === 'valid' || report.status === 'warnings') found.push({ ...slots });
       return;
     }
@@ -86,8 +97,8 @@ export interface CatalogReport {
   packId: string;
   byType: Record<PartType, Record<Confidence, number>>;
   parts: PartHealth[];
-  /** Valid builds (no mods) per case, counted up to `caseBuildLimit`. */
-  caseBuilds: { ref: PartRef; part: Part; count: number }[];
+  /** Valid builds per case, counted up to `caseBuildLimit`: no mods, except the case's own `MOD_BUILD_CASES` entry. */
+  caseBuilds: { ref: PartRef; part: Part; count: number; mods: readonly ModFlag[] }[];
   caseBuildLimit: number;
 }
 
@@ -109,7 +120,10 @@ export function catalogReport(source: PartSource, packId: string, caseBuildLimit
   const caseBuilds = source
     .list('case')
     .filter(({ ref }) => ref.packId === packId)
-    .map(({ ref, part }) => ({ ref, part, count: findBuilds(source, { case: ref }, { limit: caseBuildLimit }).length }));
+    .map(({ ref, part }) => {
+      const mods = (packId === 'core' && MOD_BUILD_CASES[ref.partId]) || [];
+      return { ref, part, mods, count: findBuilds(source, { case: ref }, { mods, limit: caseBuildLimit }).length };
+    });
   return { packId, byType, parts, caseBuilds, caseBuildLimit };
 }
 
@@ -158,10 +172,11 @@ export function formatReport(report: CatalogReport): string {
   }
   out.push('');
 
-  out.push('## Valid builds per case (no mods)', '', '| Case | Valid builds |', '|---|---:|');
+  out.push('## Valid builds per case (no mods unless noted)', '', '| Case | Valid builds |', '|---|---:|');
   for (const c of report.caseBuilds) {
     const n = c.count >= report.caseBuildLimit ? `${report.caseBuildLimit}+` : String(c.count);
-    out.push(`| \`${c.ref.partId}\` ${cell(c.part.name)} | ${c.count < 2 ? `**${n}**` : n} |`);
+    const withMods = c.mods.length ? ` (with ${c.mods.join(', ')})` : '';
+    out.push(`| \`${c.ref.partId}\` ${cell(c.part.name)}${withMods} | ${c.count < 2 ? `**${n}**` : n} |`);
   }
   out.push('');
   return out.join('\n');

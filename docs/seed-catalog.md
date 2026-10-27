@@ -23,7 +23,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | mv-nh34 | Seiko NH34A GMT | C |
 | mv-nh38 | Seiko NH38A Open Heart | C |
 | mv-m8215 | Miyota 8215 | V |
-| mv-m9015 | Miyota 9015 | C |
+| mv-m9015 | Miyota 9015 | V |
 | mv-eta2824 | ETA 2824-2 | C |
 | mv-sw200 | Sellita SW200-1 | C |
 | mv-vh31 | Seiko VH31 (quartz sweep) | ? |
@@ -33,6 +33,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 |---|---|---|---|
 | cs-diver42-38 | Diver 42 (crown 3.8) | Ø42, lug-to-lug 46, lugs 22, dial 28.5, ring 30.5 optional, crystal 31.5, bezel seat `diver42`, NH mount (VH via spacer) | V |
 | cs-diver42-30 | Diver 42 (crown 3.0) | same, crown 3.0 | C |
+| cs-diver42-miyota | Diver 42.5 Slim (Miyota 9) | Ø42.5, lug-to-lug 46.4, lugs 22, crown 3.8, dial 28.5 (dial dots), no ring, crystal 31.5, bezel seat and crown tube `diver42`, Miyota mount, stack ≤ 6.0 | C |
 | cs-sub40 | Sub-style 40 | Ø40, lugs 20, crown 3.0, dial 28.3–29.0, insert 38×30.6, mid-size ring optional, bezel seat `sub40` | ? |
 | cs-fluted36 | Fluted Classic 36 | Ø36, lug-to-lug 43, lugs 20, crown 3.0, dial 28.5, crystal 29.5, mid-size ring **required**, NH + ETA mounts, not NH34 (stack ≤ 7.7) | C |
 | cs-fluted39 | Fluted Classic 39 | Ø39, lug-to-lug 48, lugs 20, crown 3.0, bezel seat `fluted39` | ? |
@@ -62,6 +63,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | dl-openheart-silver | Open Heart Silver | 28.5 | seiko-nh / [0] | aperture 9 | C |
 | dl-tapisserie-blue | Tapisserie Blue | 30.8 | seiko-nh / [0] | date 3 | C |
 | dl-sterile-miyota | Sterile No-Date (Miyota) | 28.5 | miyota-82 / [0] | none | ? |
+| dl-eta-plain-white | Plain White (ETA 2824-2) | 28.5 | eta-2824 / [0] | date 3 | C |
 
 ## Hands (6)
 | id | Name | Posts H/M/S (GMT) | Conf. |
@@ -69,7 +71,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | hd-nh-mercedes | Mercedes (NH) | 1.50/0.90/0.20 | V |
 | hd-nh-sword | Sword (NH) | 1.50/0.90/0.20 | V |
 | hd-nh34-gmt | GMT Mercedes (NH34) | 1.50/0.90/0.20 (2.20) | C |
-| hd-m8215-baton | Baton (Miyota 8215) | 1.52/1.00/0.17 | V |
+| hd-m8215-baton | Baton (Miyota 82 / 90) | 1.52/1.00/0.17 | V |
 | hd-eta-dauphine | Dauphine (ETA/SW) | 1.50/0.90/0.25 | C |
 | hd-vh31-pencil | Pencil (VH31) | 1.20/0.70/0.17 | ? |
 
@@ -103,7 +105,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 
 ## Reference test builds
 
-Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T23 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches).
+Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T28 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches, the Miyota 9 case, the ETA dial, the VH31 dial-feet adapter).
 | # | Build | Expected |
 |---|---|---|
 | T1 | cs-diver42-38 + mv-nh35 + dl-diver-black + hd-nh-mercedes + bz-diver42-sloped + in-diver42-dive-black + cr-diver42-silver + cy-diver42-dd + cw-diver42 + st-oyster-22-diver42 | **Valid** |

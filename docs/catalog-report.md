@@ -1,21 +1,21 @@
 # Catalog report: `core`
 
-112 parts: 31 verified, 61 community, 20 unverified.
+114 parts: 32 verified, 62 community, 20 unverified.
 
 ## Problems
 
 - Unverified parts with no reason in their notes: **0**
-- Parts that can't form any valid build: **3**
-- Parts that only form a valid build with a mod: **6**
+- Parts that can't form any valid build: **1**
+- Parts that only form a valid build with a mod: **7**
 - Cases with fewer than two valid builds: **0**
 
 ## Confidence by type
 
 | Type | Verified | Community | Unverified |
 |---|---:|---:|---:|
-| movement | 2 | 7 | 0 |
-| case | 1 | 3 | 2 |
-| dial | 0 | 23 | 1 |
+| movement | 3 | 6 | 0 |
+| case | 1 | 4 | 2 |
+| dial | 0 | 24 | 1 |
 | hands | 4 | 9 | 0 |
 | chapterRing | 4 | 2 | 0 |
 | bezel | 2 | 2 | 3 |
@@ -52,21 +52,21 @@
 ## Parts that can't form a valid build
 
 - `mv-m8215` Miyota 8215 (movement): no valid build, even with mods.
-- `mv-m9015` Miyota 9015 (movement): no valid build, even with mods.
-- `hd-m8215-baton` Baton (Miyota 8215) (hands): no valid build, even with mods.
-- `mv-eta2824` ETA 2824-2 (movement): only with a mod, e.g. mv-eta2824, cs-fluted36, dl-diver-black, cr-mid-silver, hd-eta-dauphine, bz-fluted36, cy-fluted36-flat, cw-fluted36, st-oyster-20.
+- `mv-m9015` Miyota 9015 (movement): only with a mod, e.g. mv-m9015, cs-diver42-miyota, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `mv-sw200` Sellita SW200-1 (movement): only with a mod, e.g. mv-sw200, cs-fluted36, dl-diver-black, cr-mid-silver, hd-eta-dauphine, bz-fluted36, cy-fluted36-flat, cw-fluted36, st-oyster-20.
 - `mv-vh31` Seiko VH31 (quartz sweep) (movement): only with a mod, e.g. mv-vh31, cs-diver42-38, dl-sterile-miyota, cr-diver42-silver, hd-vh31-pencil, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
+- `cs-diver42-miyota` Diver 42.5 Slim (Miyota 9) (case): only with a mod, e.g. cs-diver42-miyota, mv-m9015, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `dl-sterile-miyota` Sterile No-Date (Miyota 8215) (dial): only with a mod, e.g. dl-sterile-miyota, cs-diver42-38, mv-nh35, cr-diver42-silver, hd-nh-mercedes, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
-- `hd-eta-dauphine` Dauphine (ETA / Sellita) (hands): only with a mod, e.g. hd-eta-dauphine, cs-fluted36, mv-eta2824, dl-diver-black, cr-mid-silver, bz-fluted36, cy-fluted36-flat, cw-fluted36, st-oyster-20.
+- `hd-m8215-baton` Baton (Miyota 82 / 90) (hands): only with a mod, e.g. hd-m8215-baton, cs-diver42-miyota, mv-m9015, dl-diver-black, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `hd-vh31-pencil` Pencil (VH31) (hands): only with a mod, e.g. hd-vh31-pencil, cs-diver42-38, mv-vh31, dl-sterile-miyota, cr-diver42-silver, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 
-## Valid builds per case (no mods)
+## Valid builds per case (no mods unless noted)
 
 | Case | Valid builds |
 |---|---:|
 | `cs-diver42-38` Diver 42 (crown 3.8) | 1000+ |
 | `cs-diver42-30` Diver 42 (crown 3.0) | 1000+ |
+| `cs-diver42-miyota` Diver 42.5 Slim (Miyota 9) (with dial-dots) | 1000+ |
 | `cs-sub40` Sub-style 40 | 1000+ |
 | `cs-fluted36` Fluted Classic 36 | 1000+ |
 | `cs-fluted39` Fluted Classic 39 | 1000+ |

@@ -46,7 +46,7 @@ const DIAL_PARAMS: ParamSpec[] = [
     key: 'markers',
     label: 'Markers',
     kind: 'choice',
-    choices: ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot'],
+    choices: ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot', 'plain'],
     fallback: 'dots-bars',
   },
   color('lume', 'Lume', '#e8f0d8', { nullable: true }),

@@ -7,10 +7,11 @@ import { DropShadow, url, type Template, type TemplateProps } from './common';
 // so a 28.5mm diver dial and a 30.8mm tapisserie dial share the same code.
 
 type Finish = 'matte' | 'gloss' | 'sunburst' | 'tapisserie' | 'fume';
-type Markers = 'dots-bars' | 'mercedes-classic' | 'batons' | 'roman' | 'arabic' | 'explorer' | 'california' | 'sector' | 'pilot';
+/** `plain` = no printing at all: no markers and no minute track. */
+type Markers = 'dots-bars' | 'mercedes-classic' | 'batons' | 'roman' | 'arabic' | 'explorer' | 'california' | 'sector' | 'pilot' | 'plain';
 
 const FINISHES = ['matte', 'gloss', 'sunburst', 'tapisserie', 'fume'] as const;
-const MARKERS = ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot'] as const;
+const MARKERS = ['dots-bars', 'mercedes-classic', 'batons', 'roman', 'arabic', 'explorer', 'california', 'sector', 'pilot', 'plain'] as const;
 
 /** Radius (as a fraction of dial radius) where date/day windows sit. */
 export const DATE_RADIUS = 0.76;
@@ -478,7 +479,7 @@ const generatedDial: Template<'dial'> = ({ part, params, ctx }: TemplateProps<'d
         <DropShadow id={shadow} dx={0.12} dy={0.18} blur={0.12} opacity={0.5} />
       </defs>
       <Finish r={r} base={s.base} finish={s.finish} id={(n) => ctx.id(`${n}-${part.id}`)} />
-      {part.gmtScale ? <GmtScale r={r} ink={s.ink} blocked={blocked} /> : <MinuteTrack r={r} ink={s.ink} />}
+      {part.gmtScale ? <GmtScale r={r} ink={s.ink} blocked={blocked} /> : s.markers !== 'plain' && <MinuteTrack r={r} ink={s.ink} />}
       <DialText r={r} ink={s.ink} lines={s.text} />
       <g filter={url(shadow)}>
         {(s.markers === 'dots-bars' || s.markers === 'mercedes-classic') && <DotsBars {...marker} mercedes={s.markers === 'mercedes-classic'} />}

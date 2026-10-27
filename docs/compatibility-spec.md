@@ -59,14 +59,14 @@ The standard crown positions are **whole steps of the date disc**:
 | Seiko NH36A | seiko-nh | 27.40 | 29.36 | 5.32 | ~7.6 | 1.50 / 0.90 / 0.20 | 3:00 | 3:00 (day wheel is crown-specific) | | V dims, C day wheel |
 | Seiko NH34A (GMT) | seiko-nh | 27.40 | 29.36 | 5.32 | ~8.0 (+0.4 GMT stack) | 1.50 / 0.90 / 0.20 (GMT 2.20) | 3:00 | – | Needs dial centre hole ≈2.9 (standard ≈2.1) | C |
 | Seiko NH38A (open heart) | seiko-nh | 27.40 | 29.36 | 5.32 | ~7.6 | 1.50 / 0.90 / 0.20 | – | – | Balance aperture at 9:00 (crown 3.0 frame) | C |
-| Miyota 8215 | miyota-82 | 26.00 | ? | 5.67 | ~7.4 | 1.52 / 1.00 / 0.17 | 3:00 | – | Hands from Citizen drawing | V hands, V dims |
-| Miyota 9015 | miyota-90 | 26.00 | ? | 3.90 | ? | 1.50 / 1.00 / 0.17 | 3:00 | – | Feet reportedly same as 9039; same as 8215? Caliber Corner lists posts 1.52 / 1.00 / 0.17 (hour 1.52, not 1.50); unresolved | V dims, C hands |
+| Miyota 8215 | miyota-82 | 26.00 (case fitting 25.60) | – | 5.67 | ~7.4 | 1.52 / 1.00 / 0.17 | 3:00 | – | Miyota frame drawing 821500C1 and dial drawing 8215-33E: dial centre hole 2.00 ± 0.04, stem 2.52 above the dial side | V dims, V hands, V feet; ? stack |
+| Miyota 9015 | miyota-90 | 26.00 (case fitting 25.60) | – | 3.90 | 6.00 (hand stack 2.10) | 1.52 / 1.00 / 0.17 | 3:00 (-20A) or 6:00 (-20Y) | – | Miyota frame drawing 901500C0 and dial drawings 9015-20A / -20Y: dial centre hole 2.00 ± 0.04, stem 1.53 above the dial side. The hour post is 1.52 (the seed had 1.50; Caliber Corner was right). Feet shared with the 9039 (Caliber Corner) | V |
 | ETA 2824-2 | eta-2824 | 25.60 | ? | 4.60 | ? | 1.50 / 0.90 / 0.25 | 3:00 | – | | C |
 | Sellita SW200-1 | eta-2824* | 26.00 (case fitting 25.60) | ? | 4.60 | ? | 1.50 / 0.90 / 0.25 | 3:00 | – | *Some reports of ETA dial feet not lining up; model as its own system `sellita-sw200` until checked. Dims and hand fittings from the Sellita technical documentation (rev. 07, 2024); its dial drawing gives the feet only graphically | V dims, V hands, C feet |
 | Seiko VH31A (quartz sweep) | vh | 23.70 | 23.30 | 3.45 | ? | 1.20 / 0.70 / 0.17 (order fixed by the nested hand pipes) | – | – | Needs a spacer ring in an NH case; needs VH-specific hands | V dims (TMI datasheet), C hands (Caliber Corner) |
 
 **Takeaways already built into the rules:**
-- **Hands don't cross families.** NH (1.50/0.90/0.20), Miyota 8215 (1.52/1.00/0.17), Miyota 9015 (1.50/1.00/0.17), ETA/SW (1.50/0.90/0.25) and VH31 all differ in at least one post.
+- **Hands don't cross families.** NH (1.50/0.90/0.20), Miyota 82 and 90 (both 1.52/1.00/0.17), ETA/SW (1.50/0.90/0.25) and VH31 all differ in at least one post. The Miyota 82 and 90 series share hands but not feet, stem height or stack.
 - **Dial feet don't cross families.** An NH dial on a Miyota needs its feet removed and dial dots (C).
 
 ---
@@ -74,9 +74,12 @@ The standard crown positions are **whole steps of the date disc**:
 ## 4. Dial feet
 
 - **seiko-nh:** 2 feet, 180° apart. For crown 3.0 they sit at the **8- and 38-minute** marks (48° / 228°). For crown 3.8 they sit at the **12- and 42-minute** marks (72° / 252°). Mod dials often carry both pairs (C, Crystaltimes).
-- **miyota-82:** feet at 5:30 and 10:30 per Caliber Corner (C), matching the earlier unsourced report. No Citizen drawing seen.
-- **eta-2824:** multi-feet dials use the 12/42-minute pair for ETA (?, conflicts with the NH figure above; needs a drawing).
-- **vh:** separate pattern; adapters exist (3D-printed VH31→NH feet adapters) (C).
+- **miyota-82:** Miyota dial drawing 8215-33E (V): DH1 at (2.165, −11.855) ≈ 170°, DH2 at (−7.065, 9.800) ≈ 324°, both Ø0.725, for a 3:00 crown. Matches Caliber Corner's "5:30 and 10:30".
+- **miyota-90:** Miyota dial drawing 9015-20A (V): DH11 at (11.850, 2.830) ≈ 77°, DH12 at (−11.600, −3.760) ≈ 252°, both Ø0.70, for a 3:00 crown. Close to, but not the same as, the NH 3.8 pair (72° / 252°), so NH dials don't fit without dial dots.
+- **eta-2824:** multi-feet dials use the 12/42-minute pair for ETA (?, conflicts with the NH figure above; needs a drawing). Otto Frei sells the same 28.50 dials for ETA 2804-2 / 2824-2 and Sellita SW200-1, and says they fit "all ETA and Sellita movements which have the same dial feet location" (C, for SW200 = ETA 2824 feet).
+- **vh:** separate pattern. No dial with VH31 feet was found for sale (2026-10-27); VH31 builds use a spacer ring or 3D-printed holder that carries NH feet (8/38 minutes, some with the 3.8 pair too) and a normal NH dial (C). Modelled as the `dial-feet-adapter` flag.
+
+Coordinates are (x, y) in mm from the dial centre, x towards 3:00, y towards 12:00, angles clockwise from 12:00.
 
 v1 models feet as `feetSystem` + `crownSteps[]`. Storing exact angles is a later refinement once the ? rows are measured.
 
@@ -101,6 +104,8 @@ v1 models feet as `feetSystem` + `crownSteps[]`. Storing exact angles is a later
 | SKX013-spec chapter ring | outer 28.5 / inner 24.5 / height 1.5 (skinny: inner 26.5) | C |
 | Octagon integrated case (ref: Nomods 41mm) | Ø41, lug-to-lug 51, thickness 12.6, crown 3.0, dial 30.8–31.8, NH35/38/70/72 (no NH34 listed), 22mm integrated bracelet; vendor recommends longer hands | C (vendor); crystal ? |
 | Sub-style case 40 | Ø40, thickness 13.4 incl. crystal, lugs 20, dial 28.5–29, insert 38 × 30.6, SKX013-spec ring | C (listings); crystal / lug-to-lug ? |
+| Miyota SKX-style case (ref: namokiMODS NMK948) | Ø42.5, lug-to-lug 46.4, thickness 9.7 case / 11.3 with slim bezel and crystal, lugs 22, integrated rehaut (no chapter ring), Miyota 9015 / 90S5 / 9019 / 9029 / 9039 only, takes all SKX007 bezels, inserts, crystals and crowns. Crown at 3.8 (product photo). Sells no Miyota dials: its 28.5 Seiko no-date dials fit with feet clipped and dial dots | C (vendor); crown position from photo; stack and end links ? |
+| ETA dial (ref: Otto Frei DIAL-PLAIN-2804) | Ø28.50, 0.40 thick, no printing, date at 3, for ETA 2804-2 / 2824-2 and Sellita SW200-1 / SW220-1 | C (vendor); centre hole ? |
 
 **Case measurements differ by vendor.** A "style" only supplies visual defaults. Every case part must carry its own measurements; nothing is inherited from the style name.
 
@@ -124,7 +129,7 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 - **R-MC-2 Height:** `movement.heightWithHands ≤ case.maxMovementStack`. Over by more than 0.2 → **Error**; over by up to 0.2 → **Warning** (tight).
 
 ### Movement ↔ Dial
-- **R-MD-1 Feet:** `dial.feetSystem == movement.feetSystem` → **Error**. Fix `dial-dots` (cut the feet, use adhesive dots) → Warning. Dials with `feetSystem: none` always pass, with Info "needs dial dots".
+- **R-MD-1 Feet:** `dial.feetSystem == movement.feetSystem` → **Error**. Fix `dial-dots` (cut the feet, use adhesive dots) → Warning; for an NH dial on a VH movement the fix is `dial-feet-adapter` instead. Dials with `feetSystem: none` always pass, with Info "needs dial dots".
 - **R-MD-2 Date:** the dial has a date window but the movement has no date → **Error**. The movement has a date but the dial has no window → **Info** (a "ghost" date position when pulling the crown). Both present and a case chosen: the window must sit on a date-disc step relative to where the movement's date lands (`movementToDial`), within 1.0° → otherwise **Warning** (numerals off-centre).
 - **R-MD-3 Day:** the dial has a day window but the movement has no day wheel → **Error**. The day wheel is indexed for a crown position; the offset `(case.crownSteps − day.crownSteps) × 11.613°` must land on a day step (25.714°) within 1.0° → otherwise **Warning** ("day off-centre ≈2.5°" for 3:00 wheel in a 3.8 case). Fix `day-wheel-swap` → Info. Day wheel with no day window → Info.
 - **R-MD-4 Open heart:** the dial has an aperture but the movement isn't open-heart → **Error**. The movement is open-heart but the dial has no aperture → Info. Both present and a case chosen: aperture must be within 3° of the balance after crown rotation → otherwise **Error**.
@@ -167,15 +172,15 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 - **R-HD-2 GMT dial:** a dial with a 24h scale and no GMT hand → **Info**.
 
 ### Modification flags (v1)
-`dial-dots`, `movement-spacer`, `day-wheel-swap`. Each flag is stored on the build, shown in its parts list, and only downgrades the rules named above.
+`dial-dots`, `movement-spacer`, `day-wheel-swap`, `dial-feet-adapter`. Each flag is stored on the build, shown in its parts list, and only downgrades the rules named above.
 
 ---
 
 ## 7. Checks still to do before core-catalog parts ship
 
-1. Miyota 8215 / 9015 / ETA 2824 / SW200 / VH31: casing diameters, heights with hands, dial-feet angles. Sources: manufacturer PDFs (Citizen/Miyota drawings, ETA tech docs, TMI datasheets).
+1. ETA 2824 / SW200 / VH31: heights with hands, dial-feet angles; Miyota 8215 height with hands. **Miyota 8215 and 9015 resolved 2026-10-27** from Miyota's own frame and dial drawings (miyotamovement.com): feet, centre holes, hand posts and the 9015 stack are in §3 and §4.
 2. ~~VH31 hand post order~~ resolved 2026-10-23: 1.20 / 0.70 / 0.17 is hour / minute / seconds, since each hand pipe fits over the next. Sizes are still community (Caliber Corner); the TMI technical guide gives none.
-3. Whether SW200-1 dial feet actually match ETA 2824-2.
+3. Whether SW200-1 dial feet actually match ETA 2824-2. Now one vendor for (Otto Frei sells one dial for both) and one forum report against; still modelled as separate systems.
 4. Reference cases: fluted 36 and octagon 41 now have vendor-published measurements. Still open: a Sub-style 40 reference product (crystal, lug-to-lug, stack height), the octagon 41 crystal, and all fluted 39 values.
 5. NH34 "standard dial centre hole ≈2.1" and GMT dial hole 2.9. Confirm with a vendor drawing.
 6. Tolerance values (0.015 posts, 0.05 crystal, 0.1/0.2 insert). These are engineering guesses; tune them against real known-good builds.
@@ -190,7 +195,11 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 - [CalderoneWatchCo — NH38 explained](https://calderonewatchco.com/blogs/the-watch-journal/the-seiko-nh38-explained-the-no-date-open-heart-workhorse)
 - [WatchUSeek — Miyota 8215/9015 hand hole sizes](https://www.watchuseek.com/threads/hand-hole-sizes-for-miyota-8215-or-9015-movement.1734218/)
 - [Miyota — 8215](https://miyotamovement.com/product/8215/)
-- [Miyota — 9015](https://miyotamovement.com/product/9015/)
+- [Miyota — 9015](https://miyotamovement.com/product/9015/) (spec sheet, frame drawing 901500C0, dial drawings 9015-20A / -20Y)
+- [Caliber Corner — Miyota 9039 vs 9015](https://calibercorner.com/miyota-caliber-9039-vs-9015/)
+- [namokiMODS — NMK948 Miyota SKX case](https://www.namokimods.com/products/nmk948-miyota-skx-case-steel-finish)
+- [Otto Frei — dials for ETA / Sellita](https://www.ofrei.com/page813.html)
+- [eBay — VH31 spacer ring with NH35 dial feet](https://www.ebay.de/itm/177428492614)
 - [Caliber Corner — SW200](https://calibercorner.com/sellita-caliber-sw200/)
 - [Watch Repair Talk — ETA 2824 feet vs SW200](https://www.watchrepairtalk.com/topic/13126-eta-2824-dial-feet-do-not-match-my-sellita-sw200/)
 - [Caliber Corner — VH31](https://calibercorner.com/seiko-caliber-vh31/)

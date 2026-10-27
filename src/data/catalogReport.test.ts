@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { evaluate } from '../domain/rules';
 import { catalogWith, core, coreCatalog, corePart } from '../domain/rules/testkit';
-import { catalogReport, findBuilds, formatReport } from './catalogReport';
+import { catalogReport, findBuilds, formatReport, MOD_BUILD_CASES } from './catalogReport';
 
 const ref = (partId: string, packId = 'core') => ({ packId, partId });
 
@@ -25,7 +25,7 @@ describe('findBuilds', () => {
   });
 
   it('accepts a build that needs a mod only when mods are allowed', () => {
-    // No core case takes a Miyota movement, so this Miyota-feet dial only fits an NH with dial dots.
+    // No core case takes the Miyota 8215, so this 82-feet dial only fits an NH with dial dots.
     const fixed = { dial: ref('dl-sterile-miyota') };
     expect(findBuilds(coreCatalog, fixed)).toEqual([]);
     const [slots] = findBuilds(coreCatalog, fixed, { allowMods: true });
@@ -43,6 +43,15 @@ describe('core catalog report', () => {
   // Roadmap 6.4 acceptance.
   it('gives every core case at least two valid builds', () => {
     expect(report.caseBuilds.filter((c) => c.count < 2).map((c) => c.ref.partId)).toEqual([]);
+  });
+
+  it('counts mods only for the cases listed as sold for them', () => {
+    const cases = core.parts.filter((p) => p.type === 'case').map((p) => p.id);
+    expect(cases).toEqual(expect.arrayContaining(Object.keys(MOD_BUILD_CASES)));
+    const modded = report.caseBuilds.filter((c) => c.mods.length).map((c) => c.ref.partId);
+    expect(modded).toEqual(Object.keys(MOD_BUILD_CASES));
+    // Without its mod the NMK948 has no valid build: no dial with Miyota 9 feet for a 3.8 crown exists.
+    expect(findBuilds(coreCatalog, { case: ref('cs-diver42-miyota') })).toEqual([]);
   });
 
   it('gives a reason for every unverified core part', () => {

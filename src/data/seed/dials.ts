@@ -75,6 +75,24 @@ export const dials: SeedPart<'dial'>[] = [
   },
   {
     type: 'dial',
+    id: 'dl-eta-plain-white',
+    name: 'Plain White (ETA 2824-2)',
+    confidence: 'community',
+    notes:
+      'Otto Frei DIAL-PLAIN-2804: Ø28.50, 0.40 thick, no printing, date window at 3, for ETA 2804-2 / 2824-2 (also sold for Sellita SW200-1 ' +
+      'and SW220-1). Centre hole not published: 2.1 matches the ETA 2824-2 entry, which is itself unverified.',
+    sources: ['https://www.ofrei.com/page813.html'],
+    diameter: 28.5,
+    feetSystem: 'eta-2824',
+    crownSteps: [0],
+    centerHole: 2.1,
+    dateWindow: AT_3,
+    dayWindow: null,
+    openHeartAperture: null,
+    visual: tpl('dial/classic', { color: '#f4f4f2', finish: 'matte', markers: 'plain', lume: null }),
+  },
+  {
+    type: 'dial',
     id: 'dl-sterile-miyota',
     name: 'Sterile No-Date (Miyota 8215)',
     confidence: 'unverified',

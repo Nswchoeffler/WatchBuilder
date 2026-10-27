@@ -1,7 +1,7 @@
 import { tpl, type SeedPart } from './helpers';
 
 // Reference products: Diver 42 ≈ namokiMODS NMK901; Fluted Classic 36 ≈ Lucius Atelier Datejust 36;
-// Octagon 41 ≈ Nomods 41mm. See docs/compatibility-spec.md §5.
+// Octagon 41 ≈ Nomods 41mm; Diver 42.5 Slim ≈ namokiMODS NMK948. See docs/compatibility-spec.md §5.
 
 const diver42 = {
   type: 'case',
@@ -38,6 +38,34 @@ export const cases: SeedPart<'case'>[] = [
     inspiredBy: 'SKX007-style with 3:00 crown',
     confidence: 'community',
     crownSteps: 0,
+    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
+  },
+  {
+    type: 'case',
+    id: 'cs-diver42-miyota',
+    name: 'Diver 42.5 Slim (Miyota 9)',
+    style: 'diver42',
+    inspiredBy: 'SKX007-style case for Miyota 9 series',
+    confidence: 'community',
+    notes:
+      'namokiMODS NMK948: Ø42.5, lug-to-lug 46.4, 11.3 thick with slim bezel and crystal, lugs 22, integrated rehaut (no chapter ring), ' +
+      'fits Miyota 9015 / 90S5 / 9019 / 9029 / 9039 and "all SKX007 bezels, bezel inserts, crystals and crowns" (vendor listing). ' +
+      'Crown at 3.8 read from the straight-on product photo. Dial seat follows the vendor note that its 28.5mm Seiko no-date dials fit, ' +
+      'feet clipped, with dial dots; it sells no Miyota dials, so every build needs dial dots. Stack height not published: set to the ' +
+      'Miyota 9015 stack the case is sold for. SKX end links not mentioned.',
+    sources: ['https://www.namokimods.com/products/nmk948-miyota-skx-case-steel-finish'],
+    diameter: 42.5,
+    lugToLug: 46.4,
+    thickness: 11.3,
+    lugWidth: 22,
+    crownSteps: 2,
+    crownTube: 'diver42',
+    movementMounts: ['miyota-26'],
+    maxMovementStack: 6.0,
+    dialSeat: { min: 28.3, max: 28.7 },
+    chapterRing: { requirement: 'none' },
+    bezelSeat: 'diver42',
+    crystalSeat: 31.5,
     visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
   },
   {
