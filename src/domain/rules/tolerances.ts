@@ -22,4 +22,8 @@ export const TOL = {
   dayAlignDeg: 1.0,
   apertureAlignDeg: 3.0,
   magnifierAlignDeg: 3.0,
+  /** A sub-dial hand post may sit this much further off-centre in its dial hole than the hole's own clearance. */
+  subdialSlack: 0.05,
+  /** A sub-dial hand may reach this far past its printed sub-dial's edge before warning. */
+  subdialHandReach: 0.3,
 } as const;

@@ -117,6 +117,28 @@ export const handRules = [
   }),
 
   defineRule({
+    id: 'R-MH-3',
+    title: 'Sub-dial hands',
+    requires: ['movement', 'hands'],
+    check: ({ movement, hands }) => {
+      const findings: Finding[] = [];
+      for (const post of movement.subdials) {
+        const hand = hands.subdialHands.find((h) => h.indicates === post.indicates);
+        if (!hand) findings.push(warning(`${movement.caliber} has a ${post.indicates} hand post; this hand set has no such hand.`));
+        else if (Math.abs(hand.hole - post.post) > TOL.handPost) {
+          findings.push(error(`${post.indicates} hand hole is ${mm(hand.hole)}; ${movement.caliber} post is ${mm(post.post)}.`));
+        }
+      }
+      for (const hand of hands.subdialHands) {
+        if (!movement.subdials.some((s) => s.indicates === hand.indicates)) {
+          findings.push(error(`Hand set has a ${hand.indicates} hand; ${movement.caliber} has no such post.`));
+        }
+      }
+      return findings;
+    },
+  }),
+
+  defineRule({
     id: 'R-HD-1',
     title: 'Hand length',
     requires: ['hands', 'dial'],
@@ -128,6 +150,19 @@ export const handRules = [
         ? [warning(`Minute hand (${mm(hands.lengths.minute)}) reaches past the ${edge} (${mm(limit)} radius) and may foul it.`)]
         : [];
     },
+  }),
+
+  defineRule({
+    id: 'R-HD-3',
+    title: 'Sub-dial hand length',
+    requires: ['hands', 'dial'],
+    check: ({ hands, dial }) =>
+      hands.subdialHands.flatMap((hand) => {
+        const sub = dial.subdials.find((s) => s.indicates === hand.indicates);
+        return sub && hand.length > sub.radius + TOL.subdialHandReach
+          ? [warning(`The ${hand.indicates} hand (${mm(hand.length)}) is longer than its sub-dial's ${mm(sub.radius)} radius and may cross the printing.`)]
+          : [];
+      }),
   }),
 
   defineRule({

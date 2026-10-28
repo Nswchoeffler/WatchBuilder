@@ -57,6 +57,41 @@ describe('pack migrations', () => {
     });
   });
 
+  describe('v2 → v3', () => {
+    type Migrated = { schemaVersion: number; parts: Record<string, unknown>[] };
+    const v2Pack = (parts: unknown[]) => ({ ...JSON.parse(serializePack({ ...core, id: 'old-pack', parts: [] })), schemaVersion: 2, parts });
+    /** A core part as a v2 file held it: none of the v3 fields. */
+    const asV2 = (id: string) => {
+      const part = { ...core.parts.find((p) => p.id === id)! } as Record<string, unknown>;
+      for (const key of ['subdials', 'openWork', 'centerOpening', 'subdialHands']) delete part[key];
+      return part;
+    };
+
+    it('writes out the new defaults on movements, dials and hands only', () => {
+      const out = MIGRATIONS[2]!(v2Pack([asV2('mv-nh35'), asV2('dl-diver-black'), asV2('hd-nh-sword'), asV2('st-jubilee-20')])) as unknown as Migrated;
+      expect(out.schemaVersion).toBe(3);
+      expect(out.parts[0]).toMatchObject({ subdials: [], openWork: null });
+      expect(out.parts[1]).toMatchObject({ subdials: [], centerOpening: null });
+      expect(out.parts[2]).toMatchObject({ subdialHands: [] });
+      expect(out.parts[3]).not.toHaveProperty('subdials');
+    });
+
+    it('keeps fields a part already has, and leaves odd parts for validation to report', () => {
+      const withSub = { ...asV2('mv-nh35'), subdials: [{ indicates: '24-hour', angle: 320, distance: 5.8, post: 0.21 }] };
+      const out = MIGRATIONS[2]!(v2Pack([withSub, 'not a part', { type: 'movement' }])) as unknown as Migrated;
+      expect(out.parts[0]!.subdials).toEqual(withSub.subdials);
+      expect(out.parts[1]).toBe('not a part');
+      expect(out.parts[2]).toMatchObject({ type: 'movement', subdials: [], openWork: null });
+    });
+
+    it('brings a v2 pack up to date and validates it, and chains from v1', () => {
+      const pack = validatePack(v2Pack([asV2('mv-nh35'), asV2('dl-diver-black'), asV2('hd-nh-sword')]));
+      expect(pack.schemaVersion).toBe(PACK_SCHEMA_VERSION);
+      expect(pack.parts.map((p) => p.type)).toEqual(['movement', 'dial', 'hands']);
+      expect(validatePack({ ...v2Pack([asV2('mv-nh35')]), schemaVersion: 1 }).schemaVersion).toBe(PACK_SCHEMA_VERSION);
+    });
+  });
+
   it('finds at most ten distinct addresses and trims trailing punctuation', () => {
     const text = Array.from({ length: 12 }, (_, i) => `https://s${i}.example.com/x.`).join(' ');
     expect(sourcesIn(text)).toHaveLength(10);

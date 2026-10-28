@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { PartType } from '../../domain/schemas';
 import {
   AngleField,
@@ -27,8 +28,9 @@ import type { Suggestions } from './suggestions';
 const MOUNT_LABELS = { 'seiko-nh': 'Seiko NH', 'miyota-26': 'Miyota 26mm', 'eta-25.6': 'ETA 25.6mm', 'seiko-vh': 'Seiko VH' };
 const MOUNTS = options(['seiko-nh', 'miyota-26', 'eta-25.6', 'seiko-vh'], MOUNT_LABELS);
 
-const FEET = options(['seiko-nh', 'miyota-82', 'miyota-90', 'eta-2824', 'sellita-sw200', 'seiko-vh', 'none'], {
+const FEET = options(['seiko-nh', 'seiko-nh-skeleton', 'miyota-82', 'miyota-90', 'eta-2824', 'sellita-sw200', 'seiko-vh', 'none'], {
   'seiko-nh': 'Seiko NH',
+  'seiko-nh-skeleton': 'Seiko NH70 / NH72 (open-worked)',
   'miyota-82': 'Miyota 82xx',
   'miyota-90': 'Miyota 90xx',
   'eta-2824': 'ETA 2824',
@@ -38,6 +40,40 @@ const FEET = options(['seiko-nh', 'miyota-82', 'miyota-90', 'eta-2824', 'sellita
 });
 
 const AT_3 = { angle: 90 };
+
+const SUBDIAL_KINDS = options(['24-hour', 'small-seconds', 'chrono-minutes', 'chrono-hours'], {
+  '24-hour': '24-hour hand',
+  'small-seconds': 'Small seconds',
+  'chrono-minutes': 'Chronograph minutes',
+  'chrono-hours': 'Chronograph hours',
+});
+
+/**
+ * The form edits one sub-dial entry (the first). A part with several can still be written in a pack file;
+ * the form leaves the others as they are.
+ */
+function SubdialToggle({ label, hint, initial, children }: { label: string; hint?: string; initial: Record<string, unknown>; children: ReactNode }) {
+  const form = useForm();
+  const key = form.value.type === 'hands' ? 'subdialHands' : 'subdials';
+  const list = form.value[key];
+  const on = Array.isArray(list) && list.length > 0;
+  const toggle = (next: boolean) => {
+    const rest = Array.isArray(list) ? list.slice(1) : [];
+    form.set(key, next ? [structuredClone(initial), ...rest] : rest);
+  };
+  return (
+    <div className={`nullable${on ? ' on' : ''}`}>
+      <div className="nullable-head">
+        <label className="switch">
+          <input type="checkbox" checked={on} onChange={(e) => toggle(e.target.checked)} />
+          {label}
+        </label>
+      </div>
+      {hint && <p className="field-hint">{hint}</p>}
+      {on && <div className="form-grid">{children}</div>}
+    </div>
+  );
+}
 
 export const CONFIDENCE_CHOICES = options(['verified', 'community', 'unverified'], {
   verified: 'Verified — measured or from a spec sheet',
@@ -130,6 +166,15 @@ function MovementForm() {
         <NullableGroup path="openHeart" label="Open heart" whenOn={{ angle: 270 }}>
           <AngleField path="openHeart.angle" label="Balance aperture angle" />
         </NullableGroup>
+        <NullableGroup path="openWork" label="Open-worked (skeleton)" whenOn={{ maxDialOpening: 23.9 }} hint="The dial has to leave the centre open; this is the widest opening it can have.">
+          <MmField path="openWork.maxDialOpening" label="Max dial opening" />
+        </NullableGroup>
+        <SubdialToggle label="Sub-dial hand post" hint="An extra hand post away from the centre, with the crown at 3:00." initial={{ indicates: '24-hour', angle: 320, distance: 5.8, post: 0.21 }}>
+          <SelectField path="subdials.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
+          <AngleField path="subdials.0.angle" label="Angle" />
+          <MmField path="subdials.0.distance" label="Distance from centre" />
+          <MmField path="subdials.0.post" label="Post diameter" />
+        </SubdialToggle>
       </FormSection>
     </>
   );
@@ -244,6 +289,16 @@ function DialForm() {
         <NullableGroup path="openHeartAperture" label="Open heart aperture" whenOn={{ angle: 270 }}>
           <AngleField path="openHeartAperture.angle" label="Aperture angle" />
         </NullableGroup>
+        <NullableGroup path="centerOpening" label="Open centre (ring dial)" whenOn={23.9} hint="For an open-worked movement: the dial is a ring around the visible movement.">
+          <MmField path="centerOpening" label="Opening diameter" />
+        </NullableGroup>
+        <SubdialToggle label="Sub-dial hole" hint="A hole for a sub-dial hand post, with the crown at 3:00." initial={{ indicates: '24-hour', angle: 320, distance: 5.8, hole: 0.8, radius: 2.4 }}>
+          <SelectField path="subdials.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
+          <AngleField path="subdials.0.angle" label="Angle" />
+          <MmField path="subdials.0.distance" label="Distance from centre" />
+          <MmField path="subdials.0.hole" label="Hole diameter" />
+          <MmField path="subdials.0.radius" label="Printed sub-dial radius" />
+        </SubdialToggle>
       </FormSection>
     </>
   );
@@ -303,6 +358,14 @@ function HandsForm() {
           {hasSeconds && <MmField path="lengths.seconds" label="Seconds" />}
           {hasGmt && <MmField path="lengths.gmt" label="GMT" />}
         </FieldRow>
+      </FormSection>
+
+      <FormSection title="Sub-dial hand">
+        <SubdialToggle label="Sub-dial hand" initial={{ indicates: '24-hour', hole: 0.2, length: 2.2 }}>
+          <SelectField path="subdialHands.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
+          <MmField path="subdialHands.0.hole" label="Hole" />
+          <MmField path="subdialHands.0.length" label="Length" />
+        </SubdialToggle>
       </FormSection>
     </>
   );

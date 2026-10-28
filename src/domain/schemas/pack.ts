@@ -3,8 +3,8 @@ import { Slug } from './common';
 import { Part } from './parts';
 
 export const PACK_FORMAT = 'modwatch-pack';
-/** Bump together with a migration in data/migrations.ts. v2: parts gained `sources`. */
-export const PACK_SCHEMA_VERSION = 2;
+/** Bump together with a migration in data/migrations.ts. v2: parts gained `sources`. v3: sub-dials, open-worked movements and hands for them. */
+export const PACK_SCHEMA_VERSION = 3;
 
 export const Asset = z.object({
   mime: z.literal('image/svg+xml'),

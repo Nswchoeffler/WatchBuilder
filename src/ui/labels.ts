@@ -59,13 +59,13 @@ export const FLAG_INFO: Record<ModFlag, { label: string; description: string }> 
 export function summarize(part: Part): string {
   switch (part.type) {
     case 'movement':
-      return `${part.kind} · Ø${part.diameter} × ${part.height} · posts ${part.handPosts.hour}/${part.handPosts.minute}/${part.handPosts.seconds ?? '–'}${part.handPosts.gmt ? ` GMT ${part.handPosts.gmt}` : ''}`;
+      return `${part.kind} · Ø${part.diameter} × ${part.height} · posts ${part.handPosts.hour}/${part.handPosts.minute}/${part.handPosts.seconds ?? '–'}${part.handPosts.gmt ? ` GMT ${part.handPosts.gmt}` : ''}${part.subdials.map((s) => ` · ${s.indicates} post`).join('')}${part.openWork ? ' · open-worked' : ''}`;
     case 'case':
       return `Ø${part.diameter} · L2L ${part.lugToLug} · ${part.lugWidth ? `lugs ${part.lugWidth}` : 'integrated'} · dial ${part.dialSeat.min}–${part.dialSeat.max}`;
     case 'dial':
-      return `Ø${part.diameter} · ${part.feetSystem} feet · ${part.dateWindow ? 'date' : 'no date'}${part.dayWindow ? ' + day' : ''}${part.openHeartAperture ? ' · open heart' : ''}`;
+      return `Ø${part.diameter} · ${part.feetSystem} feet · ${part.dateWindow ? 'date' : 'no date'}${part.dayWindow ? ' + day' : ''}${part.openHeartAperture ? ' · open heart' : ''}${part.centerOpening ? ' · open centre' : ''}${part.subdials.map((s) => ` · ${s.indicates} sub-dial`).join('')}`;
     case 'hands':
-      return `holes ${part.holes.hour}/${part.holes.minute}/${part.holes.seconds ?? '–'}${part.holes.gmt ? ` GMT ${part.holes.gmt}` : ''}`;
+      return `holes ${part.holes.hour}/${part.holes.minute}/${part.holes.seconds ?? '–'}${part.holes.gmt ? ` GMT ${part.holes.gmt}` : ''}${part.subdialHands.map((s) => ` · ${s.indicates} hand`).join('')}`;
     case 'chapterRing':
       return `${part.outerDiameter} × ${part.innerDiameter} · h ${part.height}`;
     case 'bezel':

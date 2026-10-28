@@ -1,7 +1,7 @@
 import { DATE_STEP_DEG, DAY_STEP_DEG } from '../../schemas';
-import { angularDistance, crownName, deg, mm, movementToDial, offGrid } from '../geometry';
+import { angularDistance, crownName, deg, mm, movementToDial, offGrid, polarDistance } from '../geometry';
 import { TOL } from '../tolerances';
-import { defineRule, error, info, warning } from '../types';
+import { defineRule, error, info, warning, type Finding } from '../types';
 
 // Movement ↔ Case, Movement ↔ Dial. IDs match docs/compatibility-spec.md §6.
 
@@ -124,5 +124,58 @@ export const movementDialRules = [
       dial.centerHole < movement.minDialCenterHole
         ? [error(`Dial centre hole is ${mm(dial.centerHole)}; ${movement.caliber} needs at least ${mm(movement.minDialCenterHole)}.`)]
         : [],
+  }),
+
+  defineRule({
+    id: 'R-MD-6',
+    title: 'Sub-dial hand posts',
+    requires: ['movement', 'dial'],
+    reads: ['case'],
+    check: ({ movement, dial, case: c }) => {
+      const findings: Finding[] = [];
+      for (const hole of dial.subdials) {
+        const post = movement.subdials.find((s) => s.indicates === hole.indicates);
+        if (!post) {
+          findings.push(error(`Dial has a ${hole.indicates} sub-dial hole but ${movement.caliber} has no such hand post.`));
+          continue;
+        }
+        if (hole.hole < post.post) {
+          findings.push(error(`The ${hole.indicates} sub-dial hole is ${mm(hole.hole)}; the ${movement.caliber} post is ${mm(post.post)}.`));
+          continue;
+        }
+        if (!c) continue;
+        const shown = { angle: movementToDial(post.angle, c.crownSteps), distance: post.distance };
+        const off = polarDistance(shown, hole);
+        const room = (hole.hole - post.post) / 2 + TOL.subdialSlack;
+        if (off > room) {
+          findings.push(error(`The ${hole.indicates} post lands ${mm(off)} from the dial's sub-dial hole with a ${crownName(c.crownSteps)} crown (the hole allows ${mm(room)}).`));
+        }
+      }
+      for (const post of movement.subdials) {
+        if (!dial.subdials.some((s) => s.indicates === post.indicates)) {
+          findings.push(info(`${movement.caliber} has a ${post.indicates} hand post that this dial covers.`));
+        }
+      }
+      return findings;
+    },
+  }),
+
+  defineRule({
+    id: 'R-MD-7',
+    title: 'Open-worked movement and dial opening',
+    requires: ['movement', 'dial'],
+    check: ({ movement, dial }) => {
+      const open = dial.centerOpening;
+      if (movement.openWork && open === null) {
+        return [info(`${movement.caliber} is open-worked; a solid dial hides it.`)];
+      }
+      if (movement.openWork && open !== null && open > movement.openWork.maxDialOpening) {
+        return [error(`Dial opening is ${mm(open)}; ${movement.caliber} leaves room for at most ${mm(movement.openWork.maxDialOpening)} before the dial loses its support.`)];
+      }
+      if (!movement.openWork && open !== null) {
+        return [warning(`Dial has a ${mm(open)} open centre, which shows the plain ${movement.caliber} plate rather than open-work.`)];
+      }
+      return [];
+    },
   }),
 ];

@@ -21,6 +21,8 @@ const BLANKS: { [K in PartType]: Omit<PartOf<K>, 'id' | 'name'> } = {
     date: { angle: 90 },
     day: null,
     openHeart: null,
+    subdials: [],
+    openWork: null,
     visual: { kind: 'template', template: 'movement/nh', params: {} },
   },
   case: {
@@ -53,6 +55,8 @@ const BLANKS: { [K in PartType]: Omit<PartOf<K>, 'id' | 'name'> } = {
     dayWindow: null,
     openHeartAperture: null,
     gmtScale: false,
+    subdials: [],
+    centerOpening: null,
     visual: { kind: 'template', template: 'dial/generated', params: { color: '#141518', finish: 'matte', markers: 'dots-bars', lume: '#e8f0d8' } },
   },
   hands: {
@@ -60,6 +64,7 @@ const BLANKS: { [K in PartType]: Omit<PartOf<K>, 'id' | 'name'> } = {
     confidence: 'unverified',
     holes: { hour: 1.5, minute: 0.9, seconds: 0.2 },
     lengths: { hour: 8.5, minute: 12.5, seconds: 13.0 },
+    subdialHands: [],
     visual: { kind: 'template', template: 'hands/sword', params: { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' } },
   },
   chapterRing: {
