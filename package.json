@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "previews": "tsx scripts/render-previews.tsx",
+    "bench": "tsx scripts/bench.ts",
     "catalog:report": "tsx scripts/catalog-report.ts"
   },
   "dependencies": {
