@@ -1,0 +1,1674 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-27.5 -45.75 55 91.5" role="img" aria-label="Cushion Diver 45" data-mm-width="55" data-mm-height="91.5" data-night="">
+<title>Cushion Diver 45</title>
+<defs>
+<filter id="cushion-diver-night-night-dim" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix" values="0.08 0 0 0 0  0 0.1 0 0 0  0 0 0.15 0 0  0 0 0 1 0">
+</feColorMatrix>
+</filter>
+<filter id="cushion-diver-night-night-glow" x="-20%" y="-20%" width="140%" height="140%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="0.35" result="halo">
+</feGaussianBlur>
+<feMerge>
+<feMergeNode in="halo">
+</feMergeNode>
+<feMergeNode in="SourceGraphic">
+</feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>.cushion-diver-night-lume *{visibility:hidden}.cushion-diver-night-lume clipPath *{visibility:visible}.cushion-diver-night-lume [data-layer="hands"] *{visibility:visible;fill:#060708;stroke:#060708}.cushion-diver-night-lume .lume,.cushion-diver-night-lume .lume *{visibility:visible;fill:#b6ff70;stroke:none}</style>
+<rect x="-27.5" y="-45.75" width="55" height="91.5" fill="#0b0c10">
+</rect>
+<g filter="url(#cushion-diver-night-night-dim)">
+<defs>
+<clipPath id="cushion-diver-night-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-rubber-22-black">
+<g id="cushion-diver-night-strap-top">
+<g>
+<defs>
+</defs>
+<path d="M -11 -13.5 L 11 -13.5 L 9.9 -45.75 L -9.9 -45.75 Z" fill="#18191b" stroke="#0d0e0f" stroke-width="0.15">
+</path>
+<line x1="-9.8" y1="-16.5" x2="9.8" y2="-16.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.8" y1="-18.7" x2="9.8" y2="-18.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.8" y1="-20.9" x2="9.8" y2="-20.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.738" y1="-23.1" x2="9.738" y2="-23.1" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.637" y1="-25.3" x2="9.637" y2="-25.3" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.536" y1="-27.5" x2="9.536" y2="-27.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.436" y1="-29.7" x2="9.436" y2="-29.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.335" y1="-31.9" x2="9.335" y2="-31.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.234" y1="-34.1" x2="9.234" y2="-34.1" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.133" y1="-36.3" x2="9.133" y2="-36.3" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.032" y1="-38.5" x2="9.032" y2="-38.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.931" y1="-40.7" x2="8.931" y2="-40.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.831" y1="-42.9" x2="8.831" y2="-42.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.73" y1="-45.1" x2="8.73" y2="-45.1" stroke="#101012" stroke-width="0.35">
+</line>
+</g>
+</g>
+<use href="#cushion-diver-night-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(23.225806451612897)">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="22.1" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="23" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#cushion-diver-night-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="23.15" y1="-2.6" x2="25.55" y2="-2.6">
+</line>
+<line x1="23.15" y1="-1.95" x2="25.55" y2="-1.95">
+</line>
+<line x1="23.15" y1="-1.3" x2="25.55" y2="-1.3">
+</line>
+<line x1="23.15" y1="-0.65" x2="25.55" y2="-0.65">
+</line>
+<line x1="23.15" y1="0" x2="25.55" y2="0">
+</line>
+<line x1="23.15" y1="0.65" x2="25.55" y2="0.65">
+</line>
+<line x1="23.15" y1="1.3" x2="25.55" y2="1.3">
+</line>
+<line x1="23.15" y1="1.95" x2="25.55" y2="1.95">
+</line>
+<line x1="23.15" y1="2.6" x2="25.55" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-cushion45-38">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-case-metal-cs-cushion45-38" gradientUnits="userSpaceOnUse" x1="-23.75" y1="-23.75" x2="23.75" y2="23.75">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+<radialGradient id="cushion-diver-night-case-flange-cs-cushion45-38" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#404142">
+</stop>
+<stop offset="1" stop-color="#8a8c8e">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
+<path d="M 22.5 0 C 22.5 -14.725 18.405 -23.75 13.4 -23.75 L -13.4 -23.75 C -18.405 -23.75 -22.5 -14.725 -22.5 0 C -22.5 14.725 -18.405 23.75 -13.4 23.75 L 13.4 23.75 C 18.405 23.75 22.5 14.725 22.5 0 Z" fill="#5f6163">
+</path>
+</g>
+<g>
+<path d="M 22.5 0 C 22.5 -14.725 18.405 -23.75 13.4 -23.75 L -13.4 -23.75 C -18.405 -23.75 -22.5 -14.725 -22.5 0 C -22.5 14.725 -18.405 23.75 -13.4 23.75 L 13.4 23.75 C 18.405 23.75 22.5 14.725 22.5 0 Z" fill="url(#cushion-diver-night-case-metal-cs-cushion45-38)">
+</path>
+</g>
+<circle r="15.350000000000001" fill="url(#cushion-diver-night-case-flange-cs-cushion45-38)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-22.15" y1="-22.15" x2="22.15" y2="22.15">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -22.15 0 A 22.15 22.15 0 1 0 22.15 0 A 22.15 22.15 0 1 0 -22.15 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#cushion-diver-night-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-21.6" x2="0" y2="-22.15">
+</line>
+<line x1="1.13" y1="-21.57" x2="1.159" y2="-22.12">
+</line>
+<line x1="2.258" y1="-21.482" x2="2.315" y2="-22.029">
+</line>
+<line x1="3.379" y1="-21.334" x2="3.465" y2="-21.877">
+</line>
+<line x1="4.491" y1="-21.128" x2="4.605" y2="-21.666">
+</line>
+<line x1="5.59" y1="-20.864" x2="5.733" y2="-21.395">
+</line>
+<line x1="6.675" y1="-20.543" x2="6.845" y2="-21.066">
+</line>
+<line x1="7.741" y1="-20.165" x2="7.938" y2="-20.679">
+</line>
+<line x1="8.786" y1="-19.733" x2="9.009" y2="-20.235">
+</line>
+<line x1="9.806" y1="-19.246" x2="10.056" y2="-19.736">
+</line>
+<line x1="10.8" y1="-18.706" x2="11.075" y2="-19.182">
+</line>
+<line x1="11.764" y1="-18.115" x2="12.064" y2="-18.577">
+</line>
+<line x1="12.696" y1="-17.475" x2="13.019" y2="-17.92">
+</line>
+<line x1="13.593" y1="-16.786" x2="13.939" y2="-17.214">
+</line>
+<line x1="14.453" y1="-16.052" x2="14.821" y2="-16.461">
+</line>
+<line x1="15.274" y1="-15.274" x2="15.662" y2="-15.662">
+</line>
+<line x1="16.052" y1="-14.453" x2="16.461" y2="-14.821">
+</line>
+<line x1="16.786" y1="-13.593" x2="17.214" y2="-13.939">
+</line>
+<line x1="17.475" y1="-12.696" x2="17.92" y2="-13.019">
+</line>
+<line x1="18.115" y1="-11.764" x2="18.577" y2="-12.064">
+</line>
+<line x1="18.706" y1="-10.8" x2="19.182" y2="-11.075">
+</line>
+<line x1="19.246" y1="-9.806" x2="19.736" y2="-10.056">
+</line>
+<line x1="19.733" y1="-8.786" x2="20.235" y2="-9.009">
+</line>
+<line x1="20.165" y1="-7.741" x2="20.679" y2="-7.938">
+</line>
+<line x1="20.543" y1="-6.675" x2="21.066" y2="-6.845">
+</line>
+<line x1="20.864" y1="-5.59" x2="21.395" y2="-5.733">
+</line>
+<line x1="21.128" y1="-4.491" x2="21.666" y2="-4.605">
+</line>
+<line x1="21.334" y1="-3.379" x2="21.877" y2="-3.465">
+</line>
+<line x1="21.482" y1="-2.258" x2="22.029" y2="-2.315">
+</line>
+<line x1="21.57" y1="-1.13" x2="22.12" y2="-1.159">
+</line>
+<line x1="21.6" y1="0" x2="22.15" y2="0">
+</line>
+<line x1="21.57" y1="1.13" x2="22.12" y2="1.159">
+</line>
+<line x1="21.482" y1="2.258" x2="22.029" y2="2.315">
+</line>
+<line x1="21.334" y1="3.379" x2="21.877" y2="3.465">
+</line>
+<line x1="21.128" y1="4.491" x2="21.666" y2="4.605">
+</line>
+<line x1="20.864" y1="5.59" x2="21.395" y2="5.733">
+</line>
+<line x1="20.543" y1="6.675" x2="21.066" y2="6.845">
+</line>
+<line x1="20.165" y1="7.741" x2="20.679" y2="7.938">
+</line>
+<line x1="19.733" y1="8.786" x2="20.235" y2="9.009">
+</line>
+<line x1="19.246" y1="9.806" x2="19.736" y2="10.056">
+</line>
+<line x1="18.706" y1="10.8" x2="19.182" y2="11.075">
+</line>
+<line x1="18.115" y1="11.764" x2="18.577" y2="12.064">
+</line>
+<line x1="17.475" y1="12.696" x2="17.92" y2="13.019">
+</line>
+<line x1="16.786" y1="13.593" x2="17.214" y2="13.939">
+</line>
+<line x1="16.052" y1="14.453" x2="16.461" y2="14.821">
+</line>
+<line x1="15.274" y1="15.274" x2="15.662" y2="15.662">
+</line>
+<line x1="14.453" y1="16.052" x2="14.821" y2="16.461">
+</line>
+<line x1="13.593" y1="16.786" x2="13.939" y2="17.214">
+</line>
+<line x1="12.696" y1="17.475" x2="13.019" y2="17.92">
+</line>
+<line x1="11.764" y1="18.115" x2="12.064" y2="18.577">
+</line>
+<line x1="10.8" y1="18.706" x2="11.075" y2="19.182">
+</line>
+<line x1="9.806" y1="19.246" x2="10.056" y2="19.736">
+</line>
+<line x1="8.786" y1="19.733" x2="9.009" y2="20.235">
+</line>
+<line x1="7.741" y1="20.165" x2="7.938" y2="20.679">
+</line>
+<line x1="6.675" y1="20.543" x2="6.845" y2="21.066">
+</line>
+<line x1="5.59" y1="20.864" x2="5.733" y2="21.395">
+</line>
+<line x1="4.491" y1="21.128" x2="4.605" y2="21.666">
+</line>
+<line x1="3.379" y1="21.334" x2="3.465" y2="21.877">
+</line>
+<line x1="2.258" y1="21.482" x2="2.315" y2="22.029">
+</line>
+<line x1="1.13" y1="21.57" x2="1.159" y2="22.12">
+</line>
+<line x1="0" y1="21.6" x2="0" y2="22.15">
+</line>
+<line x1="-1.13" y1="21.57" x2="-1.159" y2="22.12">
+</line>
+<line x1="-2.258" y1="21.482" x2="-2.315" y2="22.029">
+</line>
+<line x1="-3.379" y1="21.334" x2="-3.465" y2="21.877">
+</line>
+<line x1="-4.491" y1="21.128" x2="-4.605" y2="21.666">
+</line>
+<line x1="-5.59" y1="20.864" x2="-5.733" y2="21.395">
+</line>
+<line x1="-6.675" y1="20.543" x2="-6.845" y2="21.066">
+</line>
+<line x1="-7.741" y1="20.165" x2="-7.938" y2="20.679">
+</line>
+<line x1="-8.786" y1="19.733" x2="-9.009" y2="20.235">
+</line>
+<line x1="-9.806" y1="19.246" x2="-10.056" y2="19.736">
+</line>
+<line x1="-10.8" y1="18.706" x2="-11.075" y2="19.182">
+</line>
+<line x1="-11.764" y1="18.115" x2="-12.064" y2="18.577">
+</line>
+<line x1="-12.696" y1="17.475" x2="-13.019" y2="17.92">
+</line>
+<line x1="-13.593" y1="16.786" x2="-13.939" y2="17.214">
+</line>
+<line x1="-14.453" y1="16.052" x2="-14.821" y2="16.461">
+</line>
+<line x1="-15.274" y1="15.274" x2="-15.662" y2="15.662">
+</line>
+<line x1="-16.052" y1="14.453" x2="-16.461" y2="14.821">
+</line>
+<line x1="-16.786" y1="13.593" x2="-17.214" y2="13.939">
+</line>
+<line x1="-17.475" y1="12.696" x2="-17.92" y2="13.019">
+</line>
+<line x1="-18.115" y1="11.764" x2="-18.577" y2="12.064">
+</line>
+<line x1="-18.706" y1="10.8" x2="-19.182" y2="11.075">
+</line>
+<line x1="-19.246" y1="9.806" x2="-19.736" y2="10.056">
+</line>
+<line x1="-19.733" y1="8.786" x2="-20.235" y2="9.009">
+</line>
+<line x1="-20.165" y1="7.741" x2="-20.679" y2="7.938">
+</line>
+<line x1="-20.543" y1="6.675" x2="-21.066" y2="6.845">
+</line>
+<line x1="-20.864" y1="5.59" x2="-21.395" y2="5.733">
+</line>
+<line x1="-21.128" y1="4.491" x2="-21.666" y2="4.605">
+</line>
+<line x1="-21.334" y1="3.379" x2="-21.877" y2="3.465">
+</line>
+<line x1="-21.482" y1="2.258" x2="-22.029" y2="2.315">
+</line>
+<line x1="-21.57" y1="1.13" x2="-22.12" y2="1.159">
+</line>
+<line x1="-21.6" y1="0" x2="-22.15" y2="0">
+</line>
+<line x1="-21.57" y1="-1.13" x2="-22.12" y2="-1.159">
+</line>
+<line x1="-21.482" y1="-2.258" x2="-22.029" y2="-2.315">
+</line>
+<line x1="-21.334" y1="-3.379" x2="-21.877" y2="-3.465">
+</line>
+<line x1="-21.128" y1="-4.491" x2="-21.666" y2="-4.605">
+</line>
+<line x1="-20.864" y1="-5.59" x2="-21.395" y2="-5.733">
+</line>
+<line x1="-20.543" y1="-6.675" x2="-21.066" y2="-6.845">
+</line>
+<line x1="-20.165" y1="-7.741" x2="-20.679" y2="-7.938">
+</line>
+<line x1="-19.733" y1="-8.786" x2="-20.235" y2="-9.009">
+</line>
+<line x1="-19.246" y1="-9.806" x2="-19.736" y2="-10.056">
+</line>
+<line x1="-18.706" y1="-10.8" x2="-19.182" y2="-11.075">
+</line>
+<line x1="-18.115" y1="-11.764" x2="-18.577" y2="-12.064">
+</line>
+<line x1="-17.475" y1="-12.696" x2="-17.92" y2="-13.019">
+</line>
+<line x1="-16.786" y1="-13.593" x2="-17.214" y2="-13.939">
+</line>
+<line x1="-16.052" y1="-14.453" x2="-16.461" y2="-14.821">
+</line>
+<line x1="-15.274" y1="-15.274" x2="-15.662" y2="-15.662">
+</line>
+<line x1="-14.453" y1="-16.052" x2="-14.821" y2="-16.461">
+</line>
+<line x1="-13.593" y1="-16.786" x2="-13.939" y2="-17.214">
+</line>
+<line x1="-12.696" y1="-17.475" x2="-13.019" y2="-17.92">
+</line>
+<line x1="-11.764" y1="-18.115" x2="-12.064" y2="-18.577">
+</line>
+<line x1="-10.8" y1="-18.706" x2="-11.075" y2="-19.182">
+</line>
+<line x1="-9.806" y1="-19.246" x2="-10.056" y2="-19.736">
+</line>
+<line x1="-8.786" y1="-19.733" x2="-9.009" y2="-20.235">
+</line>
+<line x1="-7.741" y1="-20.165" x2="-7.938" y2="-20.679">
+</line>
+<line x1="-6.675" y1="-20.543" x2="-6.845" y2="-21.066">
+</line>
+<line x1="-5.59" y1="-20.864" x2="-5.733" y2="-21.395">
+</line>
+<line x1="-4.491" y1="-21.128" x2="-4.605" y2="-21.666">
+</line>
+<line x1="-3.379" y1="-21.334" x2="-3.465" y2="-21.877">
+</line>
+<line x1="-2.258" y1="-21.482" x2="-2.315" y2="-22.029">
+</line>
+<line x1="-1.13" y1="-21.57" x2="-1.159" y2="-22.12">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-dive-blue">
+<g>
+<g>
+<defs>
+<radialGradient id="cushion-diver-night-insert-shade-in-diver42-dive-blue" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#1d3a78" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#cushion-diver-night-insert-shade-in-diver42-dive-blue)" fill-rule="evenodd">
+</path>
+</g>
+<g stroke="#e6e7e9" stroke-linecap="butt">
+<line x1="1.831" y1="-17.424" x2="1.94" y2="-18.454" stroke-width="0.18">
+</line>
+<line x1="3.643" y1="-17.137" x2="3.858" y2="-18.151" stroke-width="0.18">
+</line>
+<line x1="5.414" y1="-16.663" x2="5.734" y2="-17.648" stroke-width="0.18">
+</line>
+<line x1="7.126" y1="-16.005" x2="7.547" y2="-16.952" stroke-width="0.18">
+</line>
+<line x1="8.353" y1="-14.468" x2="9.278" y2="-16.07" stroke-width="0.55">
+</line>
+<line x1="10.298" y1="-14.174" x2="10.907" y2="-15.012" stroke-width="0.18">
+</line>
+<line x1="11.723" y1="-13.02" x2="12.416" y2="-13.79" stroke-width="0.18">
+</line>
+<line x1="13.02" y1="-11.723" x2="13.79" y2="-12.416" stroke-width="0.18">
+</line>
+<line x1="14.174" y1="-10.298" x2="15.012" y2="-10.907" stroke-width="0.18">
+</line>
+<line x1="16.005" y1="-7.126" x2="16.952" y2="-7.547" stroke-width="0.18">
+</line>
+<line x1="16.663" y1="-5.414" x2="17.648" y2="-5.734" stroke-width="0.18">
+</line>
+<line x1="17.137" y1="-3.643" x2="18.151" y2="-3.858" stroke-width="0.18">
+</line>
+<line x1="17.424" y1="-1.831" x2="18.454" y2="-1.94" stroke-width="0.18">
+</line>
+<line x1="16.706" y1="0" x2="18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="8.353" y1="14.468" x2="9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="14.468" x2="-9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-16.706" y1="0" x2="-18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="-14.468" x2="-9.278" y2="-16.07" stroke-width="0.55">
+</line>
+</g>
+<text x="14.852" y="-8.575" transform="rotate(60 14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">10</text>
+<text x="14.852" y="8.575" transform="rotate(120 14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">20</text>
+<text x="0" y="17.15" transform="rotate(180 0 17.15)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">30</text>
+<text x="-14.852" y="8.575" transform="rotate(240 -14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">40</text>
+<text x="-14.852" y="-8.575" transform="rotate(300 -14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">50</text>
+<g>
+<path d="M 0 -18.45 L -1.25 -16.25 L 1.25 -16.25 Z" fill="#e6e7e9">
+</path>
+<circle class="lume" cy="-17.25" r="0.55" fill="#e8f0d8" stroke="#8b9082" stroke-width="0.08">
+</circle>
+</g>
+</g>
+</g>
+<g clip-path="url(#cushion-diver-night-dial-clip)">
+<g data-layer="dial" data-part="dl-diver-black">
+<g>
+<defs>
+<filter id="cushion-diver-night-dial-shadow-dl-diver-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="cushion-diver-night-dial-vignette-dl-diver-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#cushion-diver-night-dial-vignette-dl-diver-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#cushion-diver-night-dial-shadow-dl-diver-black)">
+<g class="lume" fill="#e8f0d8" stroke="#dcdde0" stroke-width="0.18" stroke-linejoin="round">
+<path d="M -1.853 -12.825 L 1.853 -12.825 L 0 -9.12 Z">
+</path>
+<circle cx="5.629" cy="-9.749" r="1.211">
+</circle>
+<circle cx="9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="9.749" cy="5.629" r="1.211">
+</circle>
+<circle cx="5.629" cy="9.749" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(180)">
+</rect>
+<circle cx="-5.629" cy="9.749" r="1.211">
+</circle>
+<circle cx="-9.749" cy="5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(270)">
+</rect>
+<circle cx="-9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="-5.629" cy="-9.749" r="1.211">
+</circle>
+</g>
+<g transform="translate(10.83 0) rotate(0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">
+<rect x="-1.646" y="-1.361" width="3.292" height="2.723" rx="0.2" fill="#dcdde0" stroke="#6e6f70" stroke-width="0.1">
+</rect>
+<rect x="-1.496" y="-1.211" width="2.992" height="2.423" fill="#f4f3ef">
+</rect>
+<text x="0" y="0.05" font-size="1.744" fill="#16171a">17</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-diver42-black">
+<g>
+<path d="M -15.25 0 A 15.25 15.25 0 1 0 15.25 0 A 15.25 15.25 0 1 0 -15.25 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#141518" fill-rule="evenodd">
+</path>
+<path d="M -14.275 0 A 14.275 14.275 0 1 0 14.275 0 A 14.275 14.275 0 1 0 -14.275 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#000" opacity="0.12" fill-rule="evenodd">
+</path>
+<g stroke="#e6e7e9">
+<line x1="0" y1="-13.85" x2="0" y2="-14.875" stroke-width="0.28">
+</line>
+<line x1="1.448" y1="-13.774" x2="1.508" y2="-14.346" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="-13.547" x2="2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="-13.172" x2="4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="5.633" y1="-12.653" x2="5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="-11.994" x2="7.437" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="8.141" y1="-11.205" x2="8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="-10.293" x2="9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="-9.267" x2="10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="11.205" y1="-8.141" x2="11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="-6.925" x2="12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="12.653" y1="-5.633" x2="13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="-4.28" x2="13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="-2.88" x2="14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="13.774" y1="-1.448" x2="14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="13.85" y1="0" x2="14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="13.774" y1="1.448" x2="14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="2.88" x2="14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="4.28" x2="13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="12.653" y1="5.633" x2="13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="6.925" x2="12.882" y2="7.437" stroke-width="0.28">
+</line>
+<line x1="11.205" y1="8.141" x2="11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="9.267" x2="10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="10.293" x2="9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="8.141" y1="11.205" x2="8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="11.994" x2="7.437" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="5.633" y1="12.653" x2="5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="13.172" x2="4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="13.547" x2="2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="1.448" y1="13.774" x2="1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="0" y1="13.85" x2="0" y2="14.875" stroke-width="0.28">
+</line>
+<line x1="-1.448" y1="13.774" x2="-1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="13.547" x2="-2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="13.172" x2="-4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="-5.633" y1="12.653" x2="-5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="11.994" x2="-7.438" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="-8.141" y1="11.205" x2="-8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="10.293" x2="-9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="9.267" x2="-10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="-11.205" y1="8.141" x2="-11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="6.925" x2="-12.882" y2="7.438" stroke-width="0.28">
+</line>
+<line x1="-12.653" y1="5.633" x2="-13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="4.28" x2="-13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="2.88" x2="-14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="-13.774" y1="1.448" x2="-14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="-13.85" y1="0" x2="-14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="-13.774" y1="-1.448" x2="-14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="-2.88" x2="-14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="-4.28" x2="-13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="-12.653" y1="-5.633" x2="-13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="-6.925" x2="-12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="-11.205" y1="-8.141" x2="-11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="-9.267" x2="-10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="-10.293" x2="-9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="-8.141" y1="-11.205" x2="-8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="-11.994" x2="-7.438" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="-5.633" y1="-12.653" x2="-5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="-13.172" x2="-4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="-13.547" x2="-2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="-1.448" y1="-13.774" x2="-1.508" y2="-14.346" stroke-width="0.12">
+</line>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-mercedes">
+<g>
+<defs>
+<filter id="cushion-diver-night-hands-shadow-hd-nh-mercedes" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#cushion-diver-night-hands-shadow-hd-nh-mercedes)">
+<g transform="rotate(304.308)">
+<polygon points="0.35,1.2 0.7,-0.85 0.7,-4.505 0.25,-5.78 0.55,-6.955 0,-8.5 0,-8.5 -0.55,-6.955 -0.25,-5.78 -0.7,-4.505 -0.7,-0.85 -0.35,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<circle class="lume" cy="-5.78" r="1.275" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.32">
+</circle>
+<line x1="0" y1="-5.78" x2="0" y2="-7.055" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<line x1="0" y1="-5.78" x2="1.104" y2="-5.143" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<line x1="0" y1="-5.78" x2="-1.104" y2="-5.143" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<rect class="lume" x="-0.35" y="-3.23" width="0.7" height="2.38" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.35,1.3 0.62,-1.25 0.62,-10.9 0,-12.5 0,-12.5 -0.62,-10.9 -0.62,-1.25 -0.35,1.3" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.3,-1.75 0.3,-10.7 0,-11.5 0,-11.5 -0.3,-10.7 -0.3,-1.75" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+<circle class="lume" cy="-9.88" r="0.62" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.22">
+</circle>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="cushion-diver-night-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#cushion-diver-night-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+<g class="cushion-diver-night-lume" filter="url(#cushion-diver-night-night-glow)" aria-hidden="true">
+<defs>
+<clipPath id="cushion-diver-night-lume-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-rubber-22-black">
+<g id="cushion-diver-night-lume-strap-top">
+<g>
+<defs>
+</defs>
+<path d="M -11 -13.5 L 11 -13.5 L 9.9 -45.75 L -9.9 -45.75 Z" fill="#18191b" stroke="#0d0e0f" stroke-width="0.15">
+</path>
+<line x1="-9.8" y1="-16.5" x2="9.8" y2="-16.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.8" y1="-18.7" x2="9.8" y2="-18.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.8" y1="-20.9" x2="9.8" y2="-20.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.738" y1="-23.1" x2="9.738" y2="-23.1" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.637" y1="-25.3" x2="9.637" y2="-25.3" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.536" y1="-27.5" x2="9.536" y2="-27.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.436" y1="-29.7" x2="9.436" y2="-29.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.335" y1="-31.9" x2="9.335" y2="-31.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.234" y1="-34.1" x2="9.234" y2="-34.1" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.133" y1="-36.3" x2="9.133" y2="-36.3" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-9.032" y1="-38.5" x2="9.032" y2="-38.5" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.931" y1="-40.7" x2="8.931" y2="-40.7" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.831" y1="-42.9" x2="8.831" y2="-42.9" stroke="#101012" stroke-width="0.35">
+</line>
+<line x1="-8.73" y1="-45.1" x2="8.73" y2="-45.1" stroke="#101012" stroke-width="0.35">
+</line>
+</g>
+</g>
+<use href="#cushion-diver-night-lume-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(23.225806451612897)">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-lume-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="22.1" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="23" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#cushion-diver-night-lume-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="23.15" y1="-2.6" x2="25.55" y2="-2.6">
+</line>
+<line x1="23.15" y1="-1.95" x2="25.55" y2="-1.95">
+</line>
+<line x1="23.15" y1="-1.3" x2="25.55" y2="-1.3">
+</line>
+<line x1="23.15" y1="-0.65" x2="25.55" y2="-0.65">
+</line>
+<line x1="23.15" y1="0" x2="25.55" y2="0">
+</line>
+<line x1="23.15" y1="0.65" x2="25.55" y2="0.65">
+</line>
+<line x1="23.15" y1="1.3" x2="25.55" y2="1.3">
+</line>
+<line x1="23.15" y1="1.95" x2="25.55" y2="1.95">
+</line>
+<line x1="23.15" y1="2.6" x2="25.55" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-cushion45-38">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-lume-case-metal-cs-cushion45-38" gradientUnits="userSpaceOnUse" x1="-23.75" y1="-23.75" x2="23.75" y2="23.75">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+<radialGradient id="cushion-diver-night-lume-case-flange-cs-cushion45-38" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#404142">
+</stop>
+<stop offset="1" stop-color="#8a8c8e">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
+<path d="M 22.5 0 C 22.5 -14.725 18.405 -23.75 13.4 -23.75 L -13.4 -23.75 C -18.405 -23.75 -22.5 -14.725 -22.5 0 C -22.5 14.725 -18.405 23.75 -13.4 23.75 L 13.4 23.75 C 18.405 23.75 22.5 14.725 22.5 0 Z" fill="#5f6163">
+</path>
+</g>
+<g>
+<path d="M 22.5 0 C 22.5 -14.725 18.405 -23.75 13.4 -23.75 L -13.4 -23.75 C -18.405 -23.75 -22.5 -14.725 -22.5 0 C -22.5 14.725 -18.405 23.75 -13.4 23.75 L 13.4 23.75 C 18.405 23.75 22.5 14.725 22.5 0 Z" fill="url(#cushion-diver-night-lume-case-metal-cs-cushion45-38)">
+</path>
+</g>
+<circle r="15.350000000000001" fill="url(#cushion-diver-night-lume-case-flange-cs-cushion45-38)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="cushion-diver-night-lume-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-22.15" y1="-22.15" x2="22.15" y2="22.15">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -22.15 0 A 22.15 22.15 0 1 0 22.15 0 A 22.15 22.15 0 1 0 -22.15 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#cushion-diver-night-lume-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-21.6" x2="0" y2="-22.15">
+</line>
+<line x1="1.13" y1="-21.57" x2="1.159" y2="-22.12">
+</line>
+<line x1="2.258" y1="-21.482" x2="2.315" y2="-22.029">
+</line>
+<line x1="3.379" y1="-21.334" x2="3.465" y2="-21.877">
+</line>
+<line x1="4.491" y1="-21.128" x2="4.605" y2="-21.666">
+</line>
+<line x1="5.59" y1="-20.864" x2="5.733" y2="-21.395">
+</line>
+<line x1="6.675" y1="-20.543" x2="6.845" y2="-21.066">
+</line>
+<line x1="7.741" y1="-20.165" x2="7.938" y2="-20.679">
+</line>
+<line x1="8.786" y1="-19.733" x2="9.009" y2="-20.235">
+</line>
+<line x1="9.806" y1="-19.246" x2="10.056" y2="-19.736">
+</line>
+<line x1="10.8" y1="-18.706" x2="11.075" y2="-19.182">
+</line>
+<line x1="11.764" y1="-18.115" x2="12.064" y2="-18.577">
+</line>
+<line x1="12.696" y1="-17.475" x2="13.019" y2="-17.92">
+</line>
+<line x1="13.593" y1="-16.786" x2="13.939" y2="-17.214">
+</line>
+<line x1="14.453" y1="-16.052" x2="14.821" y2="-16.461">
+</line>
+<line x1="15.274" y1="-15.274" x2="15.662" y2="-15.662">
+</line>
+<line x1="16.052" y1="-14.453" x2="16.461" y2="-14.821">
+</line>
+<line x1="16.786" y1="-13.593" x2="17.214" y2="-13.939">
+</line>
+<line x1="17.475" y1="-12.696" x2="17.92" y2="-13.019">
+</line>
+<line x1="18.115" y1="-11.764" x2="18.577" y2="-12.064">
+</line>
+<line x1="18.706" y1="-10.8" x2="19.182" y2="-11.075">
+</line>
+<line x1="19.246" y1="-9.806" x2="19.736" y2="-10.056">
+</line>
+<line x1="19.733" y1="-8.786" x2="20.235" y2="-9.009">
+</line>
+<line x1="20.165" y1="-7.741" x2="20.679" y2="-7.938">
+</line>
+<line x1="20.543" y1="-6.675" x2="21.066" y2="-6.845">
+</line>
+<line x1="20.864" y1="-5.59" x2="21.395" y2="-5.733">
+</line>
+<line x1="21.128" y1="-4.491" x2="21.666" y2="-4.605">
+</line>
+<line x1="21.334" y1="-3.379" x2="21.877" y2="-3.465">
+</line>
+<line x1="21.482" y1="-2.258" x2="22.029" y2="-2.315">
+</line>
+<line x1="21.57" y1="-1.13" x2="22.12" y2="-1.159">
+</line>
+<line x1="21.6" y1="0" x2="22.15" y2="0">
+</line>
+<line x1="21.57" y1="1.13" x2="22.12" y2="1.159">
+</line>
+<line x1="21.482" y1="2.258" x2="22.029" y2="2.315">
+</line>
+<line x1="21.334" y1="3.379" x2="21.877" y2="3.465">
+</line>
+<line x1="21.128" y1="4.491" x2="21.666" y2="4.605">
+</line>
+<line x1="20.864" y1="5.59" x2="21.395" y2="5.733">
+</line>
+<line x1="20.543" y1="6.675" x2="21.066" y2="6.845">
+</line>
+<line x1="20.165" y1="7.741" x2="20.679" y2="7.938">
+</line>
+<line x1="19.733" y1="8.786" x2="20.235" y2="9.009">
+</line>
+<line x1="19.246" y1="9.806" x2="19.736" y2="10.056">
+</line>
+<line x1="18.706" y1="10.8" x2="19.182" y2="11.075">
+</line>
+<line x1="18.115" y1="11.764" x2="18.577" y2="12.064">
+</line>
+<line x1="17.475" y1="12.696" x2="17.92" y2="13.019">
+</line>
+<line x1="16.786" y1="13.593" x2="17.214" y2="13.939">
+</line>
+<line x1="16.052" y1="14.453" x2="16.461" y2="14.821">
+</line>
+<line x1="15.274" y1="15.274" x2="15.662" y2="15.662">
+</line>
+<line x1="14.453" y1="16.052" x2="14.821" y2="16.461">
+</line>
+<line x1="13.593" y1="16.786" x2="13.939" y2="17.214">
+</line>
+<line x1="12.696" y1="17.475" x2="13.019" y2="17.92">
+</line>
+<line x1="11.764" y1="18.115" x2="12.064" y2="18.577">
+</line>
+<line x1="10.8" y1="18.706" x2="11.075" y2="19.182">
+</line>
+<line x1="9.806" y1="19.246" x2="10.056" y2="19.736">
+</line>
+<line x1="8.786" y1="19.733" x2="9.009" y2="20.235">
+</line>
+<line x1="7.741" y1="20.165" x2="7.938" y2="20.679">
+</line>
+<line x1="6.675" y1="20.543" x2="6.845" y2="21.066">
+</line>
+<line x1="5.59" y1="20.864" x2="5.733" y2="21.395">
+</line>
+<line x1="4.491" y1="21.128" x2="4.605" y2="21.666">
+</line>
+<line x1="3.379" y1="21.334" x2="3.465" y2="21.877">
+</line>
+<line x1="2.258" y1="21.482" x2="2.315" y2="22.029">
+</line>
+<line x1="1.13" y1="21.57" x2="1.159" y2="22.12">
+</line>
+<line x1="0" y1="21.6" x2="0" y2="22.15">
+</line>
+<line x1="-1.13" y1="21.57" x2="-1.159" y2="22.12">
+</line>
+<line x1="-2.258" y1="21.482" x2="-2.315" y2="22.029">
+</line>
+<line x1="-3.379" y1="21.334" x2="-3.465" y2="21.877">
+</line>
+<line x1="-4.491" y1="21.128" x2="-4.605" y2="21.666">
+</line>
+<line x1="-5.59" y1="20.864" x2="-5.733" y2="21.395">
+</line>
+<line x1="-6.675" y1="20.543" x2="-6.845" y2="21.066">
+</line>
+<line x1="-7.741" y1="20.165" x2="-7.938" y2="20.679">
+</line>
+<line x1="-8.786" y1="19.733" x2="-9.009" y2="20.235">
+</line>
+<line x1="-9.806" y1="19.246" x2="-10.056" y2="19.736">
+</line>
+<line x1="-10.8" y1="18.706" x2="-11.075" y2="19.182">
+</line>
+<line x1="-11.764" y1="18.115" x2="-12.064" y2="18.577">
+</line>
+<line x1="-12.696" y1="17.475" x2="-13.019" y2="17.92">
+</line>
+<line x1="-13.593" y1="16.786" x2="-13.939" y2="17.214">
+</line>
+<line x1="-14.453" y1="16.052" x2="-14.821" y2="16.461">
+</line>
+<line x1="-15.274" y1="15.274" x2="-15.662" y2="15.662">
+</line>
+<line x1="-16.052" y1="14.453" x2="-16.461" y2="14.821">
+</line>
+<line x1="-16.786" y1="13.593" x2="-17.214" y2="13.939">
+</line>
+<line x1="-17.475" y1="12.696" x2="-17.92" y2="13.019">
+</line>
+<line x1="-18.115" y1="11.764" x2="-18.577" y2="12.064">
+</line>
+<line x1="-18.706" y1="10.8" x2="-19.182" y2="11.075">
+</line>
+<line x1="-19.246" y1="9.806" x2="-19.736" y2="10.056">
+</line>
+<line x1="-19.733" y1="8.786" x2="-20.235" y2="9.009">
+</line>
+<line x1="-20.165" y1="7.741" x2="-20.679" y2="7.938">
+</line>
+<line x1="-20.543" y1="6.675" x2="-21.066" y2="6.845">
+</line>
+<line x1="-20.864" y1="5.59" x2="-21.395" y2="5.733">
+</line>
+<line x1="-21.128" y1="4.491" x2="-21.666" y2="4.605">
+</line>
+<line x1="-21.334" y1="3.379" x2="-21.877" y2="3.465">
+</line>
+<line x1="-21.482" y1="2.258" x2="-22.029" y2="2.315">
+</line>
+<line x1="-21.57" y1="1.13" x2="-22.12" y2="1.159">
+</line>
+<line x1="-21.6" y1="0" x2="-22.15" y2="0">
+</line>
+<line x1="-21.57" y1="-1.13" x2="-22.12" y2="-1.159">
+</line>
+<line x1="-21.482" y1="-2.258" x2="-22.029" y2="-2.315">
+</line>
+<line x1="-21.334" y1="-3.379" x2="-21.877" y2="-3.465">
+</line>
+<line x1="-21.128" y1="-4.491" x2="-21.666" y2="-4.605">
+</line>
+<line x1="-20.864" y1="-5.59" x2="-21.395" y2="-5.733">
+</line>
+<line x1="-20.543" y1="-6.675" x2="-21.066" y2="-6.845">
+</line>
+<line x1="-20.165" y1="-7.741" x2="-20.679" y2="-7.938">
+</line>
+<line x1="-19.733" y1="-8.786" x2="-20.235" y2="-9.009">
+</line>
+<line x1="-19.246" y1="-9.806" x2="-19.736" y2="-10.056">
+</line>
+<line x1="-18.706" y1="-10.8" x2="-19.182" y2="-11.075">
+</line>
+<line x1="-18.115" y1="-11.764" x2="-18.577" y2="-12.064">
+</line>
+<line x1="-17.475" y1="-12.696" x2="-17.92" y2="-13.019">
+</line>
+<line x1="-16.786" y1="-13.593" x2="-17.214" y2="-13.939">
+</line>
+<line x1="-16.052" y1="-14.453" x2="-16.461" y2="-14.821">
+</line>
+<line x1="-15.274" y1="-15.274" x2="-15.662" y2="-15.662">
+</line>
+<line x1="-14.453" y1="-16.052" x2="-14.821" y2="-16.461">
+</line>
+<line x1="-13.593" y1="-16.786" x2="-13.939" y2="-17.214">
+</line>
+<line x1="-12.696" y1="-17.475" x2="-13.019" y2="-17.92">
+</line>
+<line x1="-11.764" y1="-18.115" x2="-12.064" y2="-18.577">
+</line>
+<line x1="-10.8" y1="-18.706" x2="-11.075" y2="-19.182">
+</line>
+<line x1="-9.806" y1="-19.246" x2="-10.056" y2="-19.736">
+</line>
+<line x1="-8.786" y1="-19.733" x2="-9.009" y2="-20.235">
+</line>
+<line x1="-7.741" y1="-20.165" x2="-7.938" y2="-20.679">
+</line>
+<line x1="-6.675" y1="-20.543" x2="-6.845" y2="-21.066">
+</line>
+<line x1="-5.59" y1="-20.864" x2="-5.733" y2="-21.395">
+</line>
+<line x1="-4.491" y1="-21.128" x2="-4.605" y2="-21.666">
+</line>
+<line x1="-3.379" y1="-21.334" x2="-3.465" y2="-21.877">
+</line>
+<line x1="-2.258" y1="-21.482" x2="-2.315" y2="-22.029">
+</line>
+<line x1="-1.13" y1="-21.57" x2="-1.159" y2="-22.12">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-dive-blue">
+<g>
+<g>
+<defs>
+<radialGradient id="cushion-diver-night-lume-insert-shade-in-diver42-dive-blue" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#1d3a78" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#cushion-diver-night-lume-insert-shade-in-diver42-dive-blue)" fill-rule="evenodd">
+</path>
+</g>
+<g stroke="#e6e7e9" stroke-linecap="butt">
+<line x1="1.831" y1="-17.424" x2="1.94" y2="-18.454" stroke-width="0.18">
+</line>
+<line x1="3.643" y1="-17.137" x2="3.858" y2="-18.151" stroke-width="0.18">
+</line>
+<line x1="5.414" y1="-16.663" x2="5.734" y2="-17.648" stroke-width="0.18">
+</line>
+<line x1="7.126" y1="-16.005" x2="7.547" y2="-16.952" stroke-width="0.18">
+</line>
+<line x1="8.353" y1="-14.468" x2="9.278" y2="-16.07" stroke-width="0.55">
+</line>
+<line x1="10.298" y1="-14.174" x2="10.907" y2="-15.012" stroke-width="0.18">
+</line>
+<line x1="11.723" y1="-13.02" x2="12.416" y2="-13.79" stroke-width="0.18">
+</line>
+<line x1="13.02" y1="-11.723" x2="13.79" y2="-12.416" stroke-width="0.18">
+</line>
+<line x1="14.174" y1="-10.298" x2="15.012" y2="-10.907" stroke-width="0.18">
+</line>
+<line x1="16.005" y1="-7.126" x2="16.952" y2="-7.547" stroke-width="0.18">
+</line>
+<line x1="16.663" y1="-5.414" x2="17.648" y2="-5.734" stroke-width="0.18">
+</line>
+<line x1="17.137" y1="-3.643" x2="18.151" y2="-3.858" stroke-width="0.18">
+</line>
+<line x1="17.424" y1="-1.831" x2="18.454" y2="-1.94" stroke-width="0.18">
+</line>
+<line x1="16.706" y1="0" x2="18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="8.353" y1="14.468" x2="9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="14.468" x2="-9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-16.706" y1="0" x2="-18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="-14.468" x2="-9.278" y2="-16.07" stroke-width="0.55">
+</line>
+</g>
+<text x="14.852" y="-8.575" transform="rotate(60 14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">10</text>
+<text x="14.852" y="8.575" transform="rotate(120 14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">20</text>
+<text x="0" y="17.15" transform="rotate(180 0 17.15)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">30</text>
+<text x="-14.852" y="8.575" transform="rotate(240 -14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">40</text>
+<text x="-14.852" y="-8.575" transform="rotate(300 -14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">50</text>
+<g>
+<path d="M 0 -18.45 L -1.25 -16.25 L 1.25 -16.25 Z" fill="#e6e7e9">
+</path>
+<circle class="lume" cy="-17.25" r="0.55" fill="#e8f0d8" stroke="#8b9082" stroke-width="0.08">
+</circle>
+</g>
+</g>
+</g>
+<g clip-path="url(#cushion-diver-night-lume-dial-clip)">
+<g data-layer="dial" data-part="dl-diver-black">
+<g>
+<defs>
+<filter id="cushion-diver-night-lume-dial-shadow-dl-diver-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="cushion-diver-night-lume-dial-vignette-dl-diver-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#cushion-diver-night-lume-dial-vignette-dl-diver-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#cushion-diver-night-lume-dial-shadow-dl-diver-black)">
+<g class="lume" fill="#e8f0d8" stroke="#dcdde0" stroke-width="0.18" stroke-linejoin="round">
+<path d="M -1.853 -12.825 L 1.853 -12.825 L 0 -9.12 Z">
+</path>
+<circle cx="5.629" cy="-9.749" r="1.211">
+</circle>
+<circle cx="9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="9.749" cy="5.629" r="1.211">
+</circle>
+<circle cx="5.629" cy="9.749" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(180)">
+</rect>
+<circle cx="-5.629" cy="9.749" r="1.211">
+</circle>
+<circle cx="-9.749" cy="5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(270)">
+</rect>
+<circle cx="-9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="-5.629" cy="-9.749" r="1.211">
+</circle>
+</g>
+<g transform="translate(10.83 0) rotate(0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">
+<rect x="-1.646" y="-1.361" width="3.292" height="2.723" rx="0.2" fill="#dcdde0" stroke="#6e6f70" stroke-width="0.1">
+</rect>
+<rect x="-1.496" y="-1.211" width="2.992" height="2.423" fill="#f4f3ef">
+</rect>
+<text x="0" y="0.05" font-size="1.744" fill="#16171a">17</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-diver42-black">
+<g>
+<path d="M -15.25 0 A 15.25 15.25 0 1 0 15.25 0 A 15.25 15.25 0 1 0 -15.25 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#141518" fill-rule="evenodd">
+</path>
+<path d="M -14.275 0 A 14.275 14.275 0 1 0 14.275 0 A 14.275 14.275 0 1 0 -14.275 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#000" opacity="0.12" fill-rule="evenodd">
+</path>
+<g stroke="#e6e7e9">
+<line x1="0" y1="-13.85" x2="0" y2="-14.875" stroke-width="0.28">
+</line>
+<line x1="1.448" y1="-13.774" x2="1.508" y2="-14.346" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="-13.547" x2="2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="-13.172" x2="4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="5.633" y1="-12.653" x2="5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="-11.994" x2="7.437" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="8.141" y1="-11.205" x2="8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="-10.293" x2="9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="-9.267" x2="10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="11.205" y1="-8.141" x2="11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="-6.925" x2="12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="12.653" y1="-5.633" x2="13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="-4.28" x2="13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="-2.88" x2="14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="13.774" y1="-1.448" x2="14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="13.85" y1="0" x2="14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="13.774" y1="1.448" x2="14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="2.88" x2="14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="4.28" x2="13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="12.653" y1="5.633" x2="13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="6.925" x2="12.882" y2="7.437" stroke-width="0.28">
+</line>
+<line x1="11.205" y1="8.141" x2="11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="9.267" x2="10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="10.293" x2="9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="8.141" y1="11.205" x2="8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="11.994" x2="7.437" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="5.633" y1="12.653" x2="5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="13.172" x2="4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="13.547" x2="2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="1.448" y1="13.774" x2="1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="0" y1="13.85" x2="0" y2="14.875" stroke-width="0.28">
+</line>
+<line x1="-1.448" y1="13.774" x2="-1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="13.547" x2="-2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="13.172" x2="-4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="-5.633" y1="12.653" x2="-5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="11.994" x2="-7.438" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="-8.141" y1="11.205" x2="-8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="10.293" x2="-9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="9.267" x2="-10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="-11.205" y1="8.141" x2="-11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="6.925" x2="-12.882" y2="7.438" stroke-width="0.28">
+</line>
+<line x1="-12.653" y1="5.633" x2="-13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="4.28" x2="-13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="2.88" x2="-14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="-13.774" y1="1.448" x2="-14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="-13.85" y1="0" x2="-14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="-13.774" y1="-1.448" x2="-14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="-2.88" x2="-14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="-4.28" x2="-13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="-12.653" y1="-5.633" x2="-13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="-6.925" x2="-12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="-11.205" y1="-8.141" x2="-11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="-9.267" x2="-10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="-10.293" x2="-9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="-8.141" y1="-11.205" x2="-8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="-11.994" x2="-7.438" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="-5.633" y1="-12.653" x2="-5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="-13.172" x2="-4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="-13.547" x2="-2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="-1.448" y1="-13.774" x2="-1.508" y2="-14.346" stroke-width="0.12">
+</line>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-mercedes">
+<g>
+<defs>
+<filter id="cushion-diver-night-lume-hands-shadow-hd-nh-mercedes" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#cushion-diver-night-lume-hands-shadow-hd-nh-mercedes)">
+<g transform="rotate(304.308)">
+<polygon points="0.35,1.2 0.7,-0.85 0.7,-4.505 0.25,-5.78 0.55,-6.955 0,-8.5 0,-8.5 -0.55,-6.955 -0.25,-5.78 -0.7,-4.505 -0.7,-0.85 -0.35,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<circle class="lume" cy="-5.78" r="1.275" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.32">
+</circle>
+<line x1="0" y1="-5.78" x2="0" y2="-7.055" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<line x1="0" y1="-5.78" x2="1.104" y2="-5.143" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<line x1="0" y1="-5.78" x2="-1.104" y2="-5.143" stroke="#e6e7e9" stroke-width="0.22">
+</line>
+<rect class="lume" x="-0.35" y="-3.23" width="0.7" height="2.38" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.35,1.3 0.62,-1.25 0.62,-10.9 0,-12.5 0,-12.5 -0.62,-10.9 -0.62,-1.25 -0.35,1.3" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.3,-1.75 0.3,-10.7 0,-11.5 0,-11.5 -0.3,-10.7 -0.3,-1.75" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+<circle class="lume" cy="-9.88" r="0.62" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.22">
+</circle>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="cushion-diver-night-lume-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#cushion-diver-night-lume-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+</svg>

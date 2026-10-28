@@ -1,0 +1,438 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-26 -45 52 90" role="img" aria-label="Explorer 3-6-9 on Waffle" data-mm-width="52" data-mm-height="90">
+<title>Explorer 3-6-9 on Waffle</title>
+<defs>
+<clipPath id="explorer-snowflake-dial-clip">
+<circle r="16.15">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-waffle-22-black">
+<g id="explorer-snowflake-strap-top">
+<g>
+<defs>
+<pattern id="explorer-snowflake-strap-texture-st-waffle-22-black" width="2.4" height="2.4" patternUnits="userSpaceOnUse">
+<rect x="0.3" y="0.3" width="1.8" height="1.8" rx="0.3" fill="#fff" opacity="0.07">
+</rect>
+<rect x="0.3" y="0.3" width="1.8" height="1.8" rx="0.3" fill="none" stroke="#000" stroke-width="0.18" opacity="0.5">
+</rect>
+</pattern>
+</defs>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="#18191b" stroke="#0d0e0f" stroke-width="0.15">
+</path>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="url(#explorer-snowflake-strap-texture-st-waffle-22-black)">
+</path>
+</g>
+</g>
+<use href="#explorer-snowflake-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42-signed" transform="rotate(23.225806451612897)">
+<g>
+<defs>
+<linearGradient id="explorer-snowflake-crown-cw-diver42-signed" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.6" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="21.5" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#explorer-snowflake-crown-cw-diver42-signed)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.65" y1="-2.6" x2="24.05" y2="-2.6">
+</line>
+<line x1="21.65" y1="-1.95" x2="24.05" y2="-1.95">
+</line>
+<line x1="21.65" y1="-1.3" x2="24.05" y2="-1.3">
+</line>
+<line x1="21.65" y1="-0.65" x2="24.05" y2="-0.65">
+</line>
+<line x1="21.65" y1="0" x2="24.05" y2="0">
+</line>
+<line x1="21.65" y1="0.65" x2="24.05" y2="0.65">
+</line>
+<line x1="21.65" y1="1.3" x2="24.05" y2="1.3">
+</line>
+<line x1="21.65" y1="1.95" x2="24.05" y2="1.95">
+</line>
+<line x1="21.65" y1="2.6" x2="24.05" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-diver42-38">
+<g>
+<defs>
+<linearGradient id="explorer-snowflake-case-metal-cs-diver42-38" gradientUnits="userSpaceOnUse" x1="-23" y1="-23" x2="23" y2="23">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="explorer-snowflake-case-flange-cs-diver42-38" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="16.2">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<circle r="21" fill="#5a5c5e">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 -1)">
+</path>
+<circle cx="19.837" cy="3.788" r="2.3" fill="#5a5c5e">
+</circle>
+<circle cx="16.412" cy="11.768" r="2.3" fill="#5a5c5e">
+</circle>
+</g>
+<g>
+<circle r="21" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)" transform="scale(-1 -1)">
+</path>
+<circle cx="19.837" cy="3.788" r="2.3" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)">
+</circle>
+<circle cx="16.412" cy="11.768" r="2.3" fill="url(#explorer-snowflake-case-metal-cs-diver42-38)">
+</circle>
+</g>
+<circle r="16.2" fill="url(#explorer-snowflake-case-flange-cs-diver42-38)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-smooth">
+<g>
+<defs>
+<linearGradient id="explorer-snowflake-bezel-bz-diver42-smooth" gradientUnits="userSpaceOnUse" x1="-20.65" y1="-20.65" x2="20.65" y2="20.65">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -20.65 0 A 20.65 20.65 0 1 0 20.65 0 A 20.65 20.65 0 1 0 -20.65 0 Z M -16.15 0 A 16.15 16.15 0 1 0 16.15 0 A 16.15 16.15 0 1 0 -16.15 0 Z" fill="url(#explorer-snowflake-bezel-bz-diver42-smooth)" fill-rule="evenodd" stroke="#6a6c6e" stroke-width="0.18">
+</path>
+<circle r="18.625" fill="none" stroke="#eaebed" stroke-width="0.18" opacity="0.5">
+</circle>
+</g>
+</g>
+<g clip-path="url(#explorer-snowflake-dial-clip)">
+<g data-layer="dial" data-part="dl-explorer-black">
+<g>
+<defs>
+<filter id="explorer-snowflake-dial-shadow-dl-explorer-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="explorer-snowflake-dial-vignette-dl-explorer-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#explorer-snowflake-dial-vignette-dl-explorer-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#explorer-snowflake-dial-shadow-dl-explorer-black)">
+<g>
+<g class="lume" fill="#e8f0d8" stroke="#dcdde0" stroke-width="0.18" stroke-linejoin="round">
+<path d="M -1.568 -13.11 L 1.568 -13.11 L 0 -9.405 Z">
+</path>
+</g>
+<g font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle" dominant-baseline="central">
+<g transform="rotate(30)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(60)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(120)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(150)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<text class="lume" x="0" y="10.688" font-size="3.135" font-weight="700" fill="#e8f0d8" stroke="#686c61" stroke-width="0.08">6</text>
+<g transform="rotate(210)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(240)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<text class="lume" x="-10.688" y="0" font-size="3.135" font-weight="700" fill="#e8f0d8" stroke="#686c61" stroke-width="0.08">9</text>
+<g transform="rotate(300)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(330)">
+<rect x="-0.499" y="-12.825" width="0.998" height="2.423" rx="0.08" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.279" y="-12.54" width="0.559" height="1.853" fill="#e8f0d8">
+</rect>
+</g>
+</g>
+</g>
+<g transform="translate(10.83 0) rotate(0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">
+<rect x="-1.646" y="-1.361" width="3.292" height="2.723" rx="0.2" fill="#dcdde0" stroke="#6e6f70" stroke-width="0.1">
+</rect>
+<rect x="-1.496" y="-1.211" width="2.992" height="2.423" fill="#f4f3ef">
+</rect>
+<text x="0" y="0.05" font-size="1.744" fill="#16171a">17</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-diver42-plain-black">
+<g>
+<defs>
+<linearGradient id="explorer-snowflake-ring-cr-diver42-plain-black" gradientUnits="userSpaceOnUse" x1="-15.25" y1="-15.25" x2="15.25" y2="15.25">
+<stop offset="0" stop-color="#adadae">
+</stop>
+<stop offset="0.28" stop-color="#0e0f11">
+</stop>
+<stop offset="0.5" stop-color="#959697">
+</stop>
+<stop offset="0.72" stop-color="#0c0c0e">
+</stop>
+<stop offset="1" stop-color="#666769">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -15.25 0 A 15.25 15.25 0 1 0 15.25 0 A 15.25 15.25 0 1 0 -15.25 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="url(#explorer-snowflake-ring-cr-diver42-plain-black)" fill-rule="evenodd">
+</path>
+<circle r="13.75" fill="none" stroke="#0a0b0c" stroke-width="0.1">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-snowflake">
+<g>
+<defs>
+<filter id="explorer-snowflake-hands-shadow-hd-nh-snowflake" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#explorer-snowflake-hands-shadow-hd-nh-snowflake)">
+<g transform="rotate(304.308)">
+<polygon points="0.42,1.2 0.42,-2.55 1.15,-3.91 1.15,-5.95 0,-8.5 0,-8.5 -1.15,-5.95 -1.15,-3.91 -0.42,-2.55 -0.42,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.16,-2.89 0.85,-4.08 0.85,-5.78 0,-7.5 0,-7.5 -0.85,-5.78 -0.85,-4.08 -0.16,-2.89" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.42,1.2 0.42,-3.75 0.72,-5.75 0.72,-8.75 0,-12.5 0,-12.5 -0.72,-8.75 -0.72,-5.75 -0.42,-3.75 -0.42,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.16,-4.25 0.42,-6 0.42,-8.5 0,-11.5 0,-11.5 -0.42,-8.5 -0.42,-6 -0.16,-4.25" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#c8302c">
+</polygon>
+</g>
+<circle r="0.5" fill="#c8302c">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-single-dome">
+<g pointer-events="none">
+<defs>
+<linearGradient id="explorer-snowflake-glare-cy-diver42-single-dome" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#explorer-snowflake-glare-cy-diver42-single-dome)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</svg>

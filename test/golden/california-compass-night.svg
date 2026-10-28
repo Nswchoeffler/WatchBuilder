@@ -1,0 +1,1718 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-26 -45 52 90" role="img" aria-label="California Dial, Compass Bezel" data-mm-width="52" data-mm-height="90" data-night="">
+<title>California Dial, Compass Bezel</title>
+<defs>
+<filter id="california-compass-night-night-dim" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix" values="0.08 0 0 0 0  0 0.1 0 0 0  0 0 0.15 0 0  0 0 0 1 0">
+</feColorMatrix>
+</filter>
+<filter id="california-compass-night-night-glow" x="-20%" y="-20%" width="140%" height="140%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="0.35" result="halo">
+</feGaussianBlur>
+<feMerge>
+<feMergeNode in="halo">
+</feMergeNode>
+<feMergeNode in="SourceGraphic">
+</feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>.california-compass-night-lume *{visibility:hidden}.california-compass-night-lume clipPath *{visibility:visible}.california-compass-night-lume [data-layer="hands"] *{visibility:visible;fill:#060708;stroke:#060708}.california-compass-night-lume .lume,.california-compass-night-lume .lume *{visibility:visible;fill:#b6ff70;stroke:none}</style>
+<rect x="-26" y="-45" width="52" height="90" fill="#0b0c10">
+</rect>
+<g filter="url(#california-compass-night-night-dim)">
+<defs>
+<clipPath id="california-compass-night-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-tropic-22-black">
+<g id="california-compass-night-strap-top">
+<g>
+<defs>
+<pattern id="california-compass-night-strap-texture-st-tropic-22-black" width="2" height="2" patternUnits="userSpaceOnUse">
+<circle cx="1" cy="1" r="0.32" fill="#000" opacity="0.55">
+</circle>
+</pattern>
+</defs>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="#18191b" stroke="#0d0e0f" stroke-width="0.15">
+</path>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="url(#california-compass-night-strap-texture-st-tropic-22-black)">
+</path>
+</g>
+</g>
+<use href="#california-compass-night-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(0)">
+<g>
+<defs>
+<linearGradient id="california-compass-night-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.6" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="21.5" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#california-compass-night-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.65" y1="-2.6" x2="24.05" y2="-2.6">
+</line>
+<line x1="21.65" y1="-1.95" x2="24.05" y2="-1.95">
+</line>
+<line x1="21.65" y1="-1.3" x2="24.05" y2="-1.3">
+</line>
+<line x1="21.65" y1="-0.65" x2="24.05" y2="-0.65">
+</line>
+<line x1="21.65" y1="0" x2="24.05" y2="0">
+</line>
+<line x1="21.65" y1="0.65" x2="24.05" y2="0.65">
+</line>
+<line x1="21.65" y1="1.3" x2="24.05" y2="1.3">
+</line>
+<line x1="21.65" y1="1.95" x2="24.05" y2="1.95">
+</line>
+<line x1="21.65" y1="2.6" x2="24.05" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-diver42-30">
+<g>
+<defs>
+<linearGradient id="california-compass-night-case-metal-cs-diver42-30" gradientUnits="userSpaceOnUse" x1="-23" y1="-23" x2="23" y2="23">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="california-compass-night-case-flange-cs-diver42-30" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<circle r="21" fill="#5a5c5e">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 -1)">
+</path>
+<circle cx="19.723" cy="-4.342" r="2.3" fill="#5a5c5e">
+</circle>
+<circle cx="19.723" cy="4.342" r="2.3" fill="#5a5c5e">
+</circle>
+</g>
+<g>
+<circle r="21" fill="url(#california-compass-night-case-metal-cs-diver42-30)">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-case-metal-cs-diver42-30)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-case-metal-cs-diver42-30)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-case-metal-cs-diver42-30)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-case-metal-cs-diver42-30)" transform="scale(-1 -1)">
+</path>
+<circle cx="19.723" cy="-4.342" r="2.3" fill="url(#california-compass-night-case-metal-cs-diver42-30)">
+</circle>
+<circle cx="19.723" cy="4.342" r="2.3" fill="url(#california-compass-night-case-metal-cs-diver42-30)">
+</circle>
+</g>
+<circle r="15.350000000000001" fill="url(#california-compass-night-case-flange-cs-diver42-30)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="california-compass-night-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-20.65" y1="-20.65" x2="20.65" y2="20.65">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -20.65 0 A 20.65 20.65 0 1 0 20.65 0 A 20.65 20.65 0 1 0 -20.65 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#california-compass-night-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-20.1" x2="0" y2="-20.65">
+</line>
+<line x1="1.052" y1="-20.072" x2="1.081" y2="-20.622">
+</line>
+<line x1="2.101" y1="-19.99" x2="2.159" y2="-20.537">
+</line>
+<line x1="3.144" y1="-19.853" x2="3.23" y2="-20.396">
+</line>
+<line x1="4.179" y1="-19.661" x2="4.293" y2="-20.199">
+</line>
+<line x1="5.202" y1="-19.415" x2="5.345" y2="-19.946">
+</line>
+<line x1="6.211" y1="-19.116" x2="6.381" y2="-19.639">
+</line>
+<line x1="7.203" y1="-18.765" x2="7.4" y2="-19.278">
+</line>
+<line x1="8.175" y1="-18.362" x2="8.399" y2="-18.865">
+</line>
+<line x1="9.125" y1="-17.909" x2="9.375" y2="-18.399">
+</line>
+<line x1="10.05" y1="-17.407" x2="10.325" y2="-17.883">
+</line>
+<line x1="10.947" y1="-16.857" x2="11.247" y2="-17.319">
+</line>
+<line x1="11.814" y1="-16.261" x2="12.138" y2="-16.706">
+</line>
+<line x1="12.649" y1="-15.621" x2="12.995" y2="-16.048">
+</line>
+<line x1="13.45" y1="-14.937" x2="13.818" y2="-15.346">
+</line>
+<line x1="14.213" y1="-14.213" x2="14.602" y2="-14.602">
+</line>
+<line x1="14.937" y1="-13.45" x2="15.346" y2="-13.818">
+</line>
+<line x1="15.621" y1="-12.649" x2="16.048" y2="-12.995">
+</line>
+<line x1="16.261" y1="-11.814" x2="16.706" y2="-12.138">
+</line>
+<line x1="16.857" y1="-10.947" x2="17.319" y2="-11.247">
+</line>
+<line x1="17.407" y1="-10.05" x2="17.883" y2="-10.325">
+</line>
+<line x1="17.909" y1="-9.125" x2="18.399" y2="-9.375">
+</line>
+<line x1="18.362" y1="-8.175" x2="18.865" y2="-8.399">
+</line>
+<line x1="18.765" y1="-7.203" x2="19.278" y2="-7.4">
+</line>
+<line x1="19.116" y1="-6.211" x2="19.639" y2="-6.381">
+</line>
+<line x1="19.415" y1="-5.202" x2="19.946" y2="-5.345">
+</line>
+<line x1="19.661" y1="-4.179" x2="20.199" y2="-4.293">
+</line>
+<line x1="19.853" y1="-3.144" x2="20.396" y2="-3.23">
+</line>
+<line x1="19.99" y1="-2.101" x2="20.537" y2="-2.159">
+</line>
+<line x1="20.072" y1="-1.052" x2="20.622" y2="-1.081">
+</line>
+<line x1="20.1" y1="0" x2="20.65" y2="0">
+</line>
+<line x1="20.072" y1="1.052" x2="20.622" y2="1.081">
+</line>
+<line x1="19.99" y1="2.101" x2="20.537" y2="2.159">
+</line>
+<line x1="19.853" y1="3.144" x2="20.396" y2="3.23">
+</line>
+<line x1="19.661" y1="4.179" x2="20.199" y2="4.293">
+</line>
+<line x1="19.415" y1="5.202" x2="19.946" y2="5.345">
+</line>
+<line x1="19.116" y1="6.211" x2="19.639" y2="6.381">
+</line>
+<line x1="18.765" y1="7.203" x2="19.278" y2="7.4">
+</line>
+<line x1="18.362" y1="8.175" x2="18.865" y2="8.399">
+</line>
+<line x1="17.909" y1="9.125" x2="18.399" y2="9.375">
+</line>
+<line x1="17.407" y1="10.05" x2="17.883" y2="10.325">
+</line>
+<line x1="16.857" y1="10.947" x2="17.319" y2="11.247">
+</line>
+<line x1="16.261" y1="11.814" x2="16.706" y2="12.138">
+</line>
+<line x1="15.621" y1="12.649" x2="16.048" y2="12.995">
+</line>
+<line x1="14.937" y1="13.45" x2="15.346" y2="13.818">
+</line>
+<line x1="14.213" y1="14.213" x2="14.602" y2="14.602">
+</line>
+<line x1="13.45" y1="14.937" x2="13.818" y2="15.346">
+</line>
+<line x1="12.649" y1="15.621" x2="12.995" y2="16.048">
+</line>
+<line x1="11.814" y1="16.261" x2="12.138" y2="16.706">
+</line>
+<line x1="10.947" y1="16.857" x2="11.247" y2="17.319">
+</line>
+<line x1="10.05" y1="17.407" x2="10.325" y2="17.883">
+</line>
+<line x1="9.125" y1="17.909" x2="9.375" y2="18.399">
+</line>
+<line x1="8.175" y1="18.362" x2="8.399" y2="18.865">
+</line>
+<line x1="7.203" y1="18.765" x2="7.4" y2="19.278">
+</line>
+<line x1="6.211" y1="19.116" x2="6.381" y2="19.639">
+</line>
+<line x1="5.202" y1="19.415" x2="5.345" y2="19.946">
+</line>
+<line x1="4.179" y1="19.661" x2="4.293" y2="20.199">
+</line>
+<line x1="3.144" y1="19.853" x2="3.23" y2="20.396">
+</line>
+<line x1="2.101" y1="19.99" x2="2.159" y2="20.537">
+</line>
+<line x1="1.052" y1="20.072" x2="1.081" y2="20.622">
+</line>
+<line x1="0" y1="20.1" x2="0" y2="20.65">
+</line>
+<line x1="-1.052" y1="20.072" x2="-1.081" y2="20.622">
+</line>
+<line x1="-2.101" y1="19.99" x2="-2.159" y2="20.537">
+</line>
+<line x1="-3.144" y1="19.853" x2="-3.23" y2="20.396">
+</line>
+<line x1="-4.179" y1="19.661" x2="-4.293" y2="20.199">
+</line>
+<line x1="-5.202" y1="19.415" x2="-5.345" y2="19.946">
+</line>
+<line x1="-6.211" y1="19.116" x2="-6.381" y2="19.639">
+</line>
+<line x1="-7.203" y1="18.765" x2="-7.4" y2="19.278">
+</line>
+<line x1="-8.175" y1="18.362" x2="-8.399" y2="18.865">
+</line>
+<line x1="-9.125" y1="17.909" x2="-9.375" y2="18.399">
+</line>
+<line x1="-10.05" y1="17.407" x2="-10.325" y2="17.883">
+</line>
+<line x1="-10.947" y1="16.857" x2="-11.247" y2="17.319">
+</line>
+<line x1="-11.814" y1="16.261" x2="-12.138" y2="16.706">
+</line>
+<line x1="-12.649" y1="15.621" x2="-12.995" y2="16.048">
+</line>
+<line x1="-13.45" y1="14.937" x2="-13.818" y2="15.346">
+</line>
+<line x1="-14.213" y1="14.213" x2="-14.602" y2="14.602">
+</line>
+<line x1="-14.937" y1="13.45" x2="-15.346" y2="13.818">
+</line>
+<line x1="-15.621" y1="12.649" x2="-16.048" y2="12.995">
+</line>
+<line x1="-16.261" y1="11.814" x2="-16.706" y2="12.138">
+</line>
+<line x1="-16.857" y1="10.947" x2="-17.319" y2="11.247">
+</line>
+<line x1="-17.407" y1="10.05" x2="-17.883" y2="10.325">
+</line>
+<line x1="-17.909" y1="9.125" x2="-18.399" y2="9.375">
+</line>
+<line x1="-18.362" y1="8.175" x2="-18.865" y2="8.399">
+</line>
+<line x1="-18.765" y1="7.203" x2="-19.278" y2="7.4">
+</line>
+<line x1="-19.116" y1="6.211" x2="-19.639" y2="6.381">
+</line>
+<line x1="-19.415" y1="5.202" x2="-19.946" y2="5.345">
+</line>
+<line x1="-19.661" y1="4.179" x2="-20.199" y2="4.293">
+</line>
+<line x1="-19.853" y1="3.144" x2="-20.396" y2="3.23">
+</line>
+<line x1="-19.99" y1="2.101" x2="-20.537" y2="2.159">
+</line>
+<line x1="-20.072" y1="1.052" x2="-20.622" y2="1.081">
+</line>
+<line x1="-20.1" y1="0" x2="-20.65" y2="0">
+</line>
+<line x1="-20.072" y1="-1.052" x2="-20.622" y2="-1.081">
+</line>
+<line x1="-19.99" y1="-2.101" x2="-20.537" y2="-2.159">
+</line>
+<line x1="-19.853" y1="-3.144" x2="-20.396" y2="-3.23">
+</line>
+<line x1="-19.661" y1="-4.179" x2="-20.199" y2="-4.293">
+</line>
+<line x1="-19.415" y1="-5.202" x2="-19.946" y2="-5.345">
+</line>
+<line x1="-19.116" y1="-6.211" x2="-19.639" y2="-6.381">
+</line>
+<line x1="-18.765" y1="-7.203" x2="-19.278" y2="-7.4">
+</line>
+<line x1="-18.362" y1="-8.175" x2="-18.865" y2="-8.399">
+</line>
+<line x1="-17.909" y1="-9.125" x2="-18.399" y2="-9.375">
+</line>
+<line x1="-17.407" y1="-10.05" x2="-17.883" y2="-10.325">
+</line>
+<line x1="-16.857" y1="-10.947" x2="-17.319" y2="-11.247">
+</line>
+<line x1="-16.261" y1="-11.814" x2="-16.706" y2="-12.138">
+</line>
+<line x1="-15.621" y1="-12.649" x2="-16.048" y2="-12.995">
+</line>
+<line x1="-14.937" y1="-13.45" x2="-15.346" y2="-13.818">
+</line>
+<line x1="-14.213" y1="-14.213" x2="-14.602" y2="-14.602">
+</line>
+<line x1="-13.45" y1="-14.937" x2="-13.818" y2="-15.346">
+</line>
+<line x1="-12.649" y1="-15.621" x2="-12.995" y2="-16.048">
+</line>
+<line x1="-11.814" y1="-16.261" x2="-12.138" y2="-16.706">
+</line>
+<line x1="-10.947" y1="-16.857" x2="-11.247" y2="-17.319">
+</line>
+<line x1="-10.05" y1="-17.407" x2="-10.325" y2="-17.883">
+</line>
+<line x1="-9.125" y1="-17.909" x2="-9.375" y2="-18.399">
+</line>
+<line x1="-8.175" y1="-18.362" x2="-8.399" y2="-18.865">
+</line>
+<line x1="-7.203" y1="-18.765" x2="-7.4" y2="-19.278">
+</line>
+<line x1="-6.211" y1="-19.116" x2="-6.381" y2="-19.639">
+</line>
+<line x1="-5.202" y1="-19.415" x2="-5.345" y2="-19.946">
+</line>
+<line x1="-4.179" y1="-19.661" x2="-4.293" y2="-20.199">
+</line>
+<line x1="-3.144" y1="-19.853" x2="-3.23" y2="-20.396">
+</line>
+<line x1="-2.101" y1="-19.99" x2="-2.159" y2="-20.537">
+</line>
+<line x1="-1.052" y1="-20.072" x2="-1.081" y2="-20.622">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-compass-black">
+<g>
+<g>
+<defs>
+<radialGradient id="california-compass-night-insert-shade-in-diver42-compass-black" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#16171a" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#california-compass-night-insert-shade-in-diver42-compass-black)" fill-rule="evenodd">
+</path>
+</g>
+<g>
+<g stroke="#e0c67a" stroke-linecap="butt">
+<line x1="0" y1="-17.15" x2="0" y2="-18.556" stroke-width="0.3">
+</line>
+<line x1="3.094" y1="-17.545" x2="3.222" y2="-18.274" stroke-width="0.14">
+</line>
+<line x1="6.093" y1="-16.742" x2="6.347" y2="-17.437" stroke-width="0.14">
+</line>
+<line x1="8.575" y1="-14.852" x2="9.278" y2="-16.07" stroke-width="0.3">
+</line>
+<line x1="11.452" y1="-13.648" x2="11.928" y2="-14.215" stroke-width="0.14">
+</line>
+<line x1="13.648" y1="-11.452" x2="14.215" y2="-11.928" stroke-width="0.14">
+</line>
+<line x1="14.852" y1="-8.575" x2="16.07" y2="-9.278" stroke-width="0.3">
+</line>
+<line x1="16.742" y1="-6.093" x2="17.437" y2="-6.347" stroke-width="0.14">
+</line>
+<line x1="17.545" y1="-3.094" x2="18.274" y2="-3.222" stroke-width="0.14">
+</line>
+<line x1="17.15" y1="0" x2="18.556" y2="0" stroke-width="0.3">
+</line>
+<line x1="17.545" y1="3.094" x2="18.274" y2="3.222" stroke-width="0.14">
+</line>
+<line x1="16.742" y1="6.093" x2="17.437" y2="6.347" stroke-width="0.14">
+</line>
+<line x1="14.852" y1="8.575" x2="16.07" y2="9.278" stroke-width="0.3">
+</line>
+<line x1="13.648" y1="11.452" x2="14.215" y2="11.928" stroke-width="0.14">
+</line>
+<line x1="11.452" y1="13.648" x2="11.928" y2="14.215" stroke-width="0.14">
+</line>
+<line x1="8.575" y1="14.852" x2="9.278" y2="16.07" stroke-width="0.3">
+</line>
+<line x1="6.093" y1="16.742" x2="6.347" y2="17.437" stroke-width="0.14">
+</line>
+<line x1="3.094" y1="17.545" x2="3.222" y2="18.274" stroke-width="0.14">
+</line>
+<line x1="0" y1="17.15" x2="0" y2="18.556" stroke-width="0.3">
+</line>
+<line x1="-3.094" y1="17.545" x2="-3.222" y2="18.274" stroke-width="0.14">
+</line>
+<line x1="-6.093" y1="16.742" x2="-6.347" y2="17.437" stroke-width="0.14">
+</line>
+<line x1="-8.575" y1="14.852" x2="-9.278" y2="16.07" stroke-width="0.3">
+</line>
+<line x1="-11.452" y1="13.648" x2="-11.928" y2="14.215" stroke-width="0.14">
+</line>
+<line x1="-13.648" y1="11.452" x2="-14.215" y2="11.928" stroke-width="0.14">
+</line>
+<line x1="-14.852" y1="8.575" x2="-16.07" y2="9.278" stroke-width="0.3">
+</line>
+<line x1="-16.742" y1="6.093" x2="-17.437" y2="6.347" stroke-width="0.14">
+</line>
+<line x1="-17.545" y1="3.094" x2="-18.274" y2="3.222" stroke-width="0.14">
+</line>
+<line x1="-17.15" y1="0" x2="-18.556" y2="0" stroke-width="0.3">
+</line>
+<line x1="-17.545" y1="-3.094" x2="-18.274" y2="-3.222" stroke-width="0.14">
+</line>
+<line x1="-16.742" y1="-6.093" x2="-17.437" y2="-6.347" stroke-width="0.14">
+</line>
+<line x1="-14.852" y1="-8.575" x2="-16.07" y2="-9.278" stroke-width="0.3">
+</line>
+<line x1="-13.648" y1="-11.452" x2="-14.215" y2="-11.928" stroke-width="0.14">
+</line>
+<line x1="-11.452" y1="-13.648" x2="-11.928" y2="-14.215" stroke-width="0.14">
+</line>
+<line x1="-8.575" y1="-14.852" x2="-9.278" y2="-16.07" stroke-width="0.3">
+</line>
+<line x1="-6.093" y1="-16.742" x2="-6.347" y2="-17.437" stroke-width="0.14">
+</line>
+<line x1="-3.094" y1="-17.545" x2="-3.222" y2="-18.274" stroke-width="0.14">
+</line>
+</g>
+<text x="0" y="-16.854" transform="rotate(0 0 -16.854)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">N</text>
+<text x="11.918" y="-11.918" transform="rotate(45 11.918 -11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">NE</text>
+<text x="16.854" y="0" transform="rotate(90 16.854 0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">E</text>
+<text x="11.918" y="11.918" transform="rotate(135 11.918 11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">SE</text>
+<text x="0" y="16.854" transform="rotate(180 0 16.854)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">S</text>
+<text x="-11.918" y="11.918" transform="rotate(225 -11.918 11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">SW</text>
+<text x="-16.854" y="0" transform="rotate(270 -16.854 0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">W</text>
+<text x="-11.918" y="-11.918" transform="rotate(315 -11.918 -11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">NW</text>
+</g>
+</g>
+</g>
+<g clip-path="url(#california-compass-night-dial-clip)">
+<g data-layer="dial" data-part="dl-california-black">
+<g>
+<defs>
+<filter id="california-compass-night-dial-shadow-dl-california-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="california-compass-night-dial-vignette-dl-california-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#california-compass-night-dial-vignette-dl-california-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#california-compass-night-dial-shadow-dl-california-black)">
+<g font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle" dominant-baseline="central">
+<text x="0" y="-10.83" font-size="1.995" font-weight="400" fill="#f2f2ef">XII</text>
+<text x="5.415" y="-9.379" font-size="1.995" font-weight="400" fill="#f2f2ef">I</text>
+<text x="9.379" y="-5.415" font-size="1.995" font-weight="400" fill="#f2f2ef">II</text>
+<g transform="rotate(90)">
+<rect x="-0.534" y="-12.825" width="1.069" height="2.85" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.08">
+</rect>
+<rect class="lume" x="-0.299" y="-12.54" width="0.599" height="2.28" fill="#e8f0d8">
+</rect>
+</g>
+<text x="9.132" y="5.272" font-size="2.85" font-weight="700" fill="#f2f2ef">4</text>
+<text x="5.272" y="9.132" font-size="2.85" font-weight="700" fill="#f2f2ef">5</text>
+<text x="0" y="10.545" font-size="2.85" font-weight="700" fill="#f2f2ef">6</text>
+<text x="-5.273" y="9.132" font-size="2.85" font-weight="700" fill="#f2f2ef">7</text>
+<text x="-9.132" y="5.273" font-size="2.85" font-weight="700" fill="#f2f2ef">8</text>
+<g transform="rotate(270)">
+<rect x="-0.534" y="-12.825" width="1.069" height="2.85" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.08">
+</rect>
+<rect class="lume" x="-0.299" y="-12.54" width="0.599" height="2.28" fill="#e8f0d8">
+</rect>
+</g>
+<text x="-9.379" y="-5.415" font-size="1.995" font-weight="400" fill="#f2f2ef">X</text>
+<text x="-5.415" y="-9.379" font-size="1.995" font-weight="400" fill="#f2f2ef">XI</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-diver42-silver">
+<g>
+<path d="M -15.25 0 A 15.25 15.25 0 1 0 15.25 0 A 15.25 15.25 0 1 0 -15.25 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#c9ccd1" fill-rule="evenodd">
+</path>
+<path d="M -14.275 0 A 14.275 14.275 0 1 0 14.275 0 A 14.275 14.275 0 1 0 -14.275 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#000" opacity="0.12" fill-rule="evenodd">
+</path>
+<g stroke="#141518">
+<line x1="0" y1="-13.85" x2="0" y2="-14.875" stroke-width="0.28">
+</line>
+<line x1="1.448" y1="-13.774" x2="1.508" y2="-14.346" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="-13.547" x2="2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="-13.172" x2="4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="5.633" y1="-12.653" x2="5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="-11.994" x2="7.437" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="8.141" y1="-11.205" x2="8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="-10.293" x2="9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="-9.267" x2="10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="11.205" y1="-8.141" x2="11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="-6.925" x2="12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="12.653" y1="-5.633" x2="13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="-4.28" x2="13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="-2.88" x2="14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="13.774" y1="-1.448" x2="14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="13.85" y1="0" x2="14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="13.774" y1="1.448" x2="14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="2.88" x2="14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="4.28" x2="13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="12.653" y1="5.633" x2="13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="6.925" x2="12.882" y2="7.437" stroke-width="0.28">
+</line>
+<line x1="11.205" y1="8.141" x2="11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="9.267" x2="10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="10.293" x2="9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="8.141" y1="11.205" x2="8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="11.994" x2="7.437" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="5.633" y1="12.653" x2="5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="13.172" x2="4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="13.547" x2="2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="1.448" y1="13.774" x2="1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="0" y1="13.85" x2="0" y2="14.875" stroke-width="0.28">
+</line>
+<line x1="-1.448" y1="13.774" x2="-1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="13.547" x2="-2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="13.172" x2="-4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="-5.633" y1="12.653" x2="-5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="11.994" x2="-7.438" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="-8.141" y1="11.205" x2="-8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="10.293" x2="-9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="9.267" x2="-10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="-11.205" y1="8.141" x2="-11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="6.925" x2="-12.882" y2="7.438" stroke-width="0.28">
+</line>
+<line x1="-12.653" y1="5.633" x2="-13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="4.28" x2="-13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="2.88" x2="-14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="-13.774" y1="1.448" x2="-14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="-13.85" y1="0" x2="-14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="-13.774" y1="-1.448" x2="-14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="-2.88" x2="-14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="-4.28" x2="-13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="-12.653" y1="-5.633" x2="-13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="-6.925" x2="-12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="-11.205" y1="-8.141" x2="-11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="-9.267" x2="-10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="-10.293" x2="-9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="-8.141" y1="-11.205" x2="-8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="-11.994" x2="-7.438" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="-5.633" y1="-12.653" x2="-5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="-13.172" x2="-4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="-13.547" x2="-2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="-1.448" y1="-13.774" x2="-1.508" y2="-14.346" stroke-width="0.12">
+</line>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-plongeur">
+<g>
+<defs>
+<filter id="california-compass-night-hands-shadow-hd-nh-plongeur" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#california-compass-night-hands-shadow-hd-nh-plongeur)">
+<g transform="rotate(304.308)">
+<polygon points="0.38,1.2 0.38,-4.93 1.25,-4.93 0,-8.5 0,-8.5 -1.25,-4.93 -0.38,-4.93 -0.38,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.7,-5.27 0,-7.5 0,-7.5 -0.7,-5.27" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.5,1.1 0.5,-12.1 0,-12.5 0,-12.5 -0.5,-12.1 -0.5,1.1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.275" y="-11.5" width="0.55" height="9" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+<circle class="lume" cy="-9.88" r="0.62" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.22">
+</circle>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="california-compass-night-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#california-compass-night-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+<g class="california-compass-night-lume" filter="url(#california-compass-night-night-glow)" aria-hidden="true">
+<defs>
+<clipPath id="california-compass-night-lume-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-tropic-22-black">
+<g id="california-compass-night-lume-strap-top">
+<g>
+<defs>
+<pattern id="california-compass-night-lume-strap-texture-st-tropic-22-black" width="2" height="2" patternUnits="userSpaceOnUse">
+<circle cx="1" cy="1" r="0.32" fill="#000" opacity="0.55">
+</circle>
+</pattern>
+</defs>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="#18191b" stroke="#0d0e0f" stroke-width="0.15">
+</path>
+<path d="M -11 -12.6 L 11 -12.6 L 9.9 -45 L -9.9 -45 Z" fill="url(#california-compass-night-lume-strap-texture-st-tropic-22-black)">
+</path>
+</g>
+</g>
+<use href="#california-compass-night-lume-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(0)">
+<g>
+<defs>
+<linearGradient id="california-compass-night-lume-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.6" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="21.5" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#california-compass-night-lume-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.65" y1="-2.6" x2="24.05" y2="-2.6">
+</line>
+<line x1="21.65" y1="-1.95" x2="24.05" y2="-1.95">
+</line>
+<line x1="21.65" y1="-1.3" x2="24.05" y2="-1.3">
+</line>
+<line x1="21.65" y1="-0.65" x2="24.05" y2="-0.65">
+</line>
+<line x1="21.65" y1="0" x2="24.05" y2="0">
+</line>
+<line x1="21.65" y1="0.65" x2="24.05" y2="0.65">
+</line>
+<line x1="21.65" y1="1.3" x2="24.05" y2="1.3">
+</line>
+<line x1="21.65" y1="1.95" x2="24.05" y2="1.95">
+</line>
+<line x1="21.65" y1="2.6" x2="24.05" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-diver42-30">
+<g>
+<defs>
+<linearGradient id="california-compass-night-lume-case-metal-cs-diver42-30" gradientUnits="userSpaceOnUse" x1="-23" y1="-23" x2="23" y2="23">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="california-compass-night-lume-case-flange-cs-diver42-30" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<circle r="21" fill="#5a5c5e">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="#5a5c5e" transform="scale(-1 -1)">
+</path>
+<circle cx="19.723" cy="-4.342" r="2.3" fill="#5a5c5e">
+</circle>
+<circle cx="19.723" cy="4.342" r="2.3" fill="#5a5c5e">
+</circle>
+</g>
+<g>
+<circle r="21" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)">
+</circle>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.55 L 11 -21.9 Q 11 -23 12.1 -23 L 13.1 -23 Q 14.2 -23 14.2 -21.9 C 14.2 -19.95 18.04 -17.85 18.04 -11.55 Z" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)" transform="scale(-1 -1)">
+</path>
+<circle cx="19.723" cy="-4.342" r="2.3" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)">
+</circle>
+<circle cx="19.723" cy="4.342" r="2.3" fill="url(#california-compass-night-lume-case-metal-cs-diver42-30)">
+</circle>
+</g>
+<circle r="15.350000000000001" fill="url(#california-compass-night-lume-case-flange-cs-diver42-30)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="california-compass-night-lume-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-20.65" y1="-20.65" x2="20.65" y2="20.65">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -20.65 0 A 20.65 20.65 0 1 0 20.65 0 A 20.65 20.65 0 1 0 -20.65 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#california-compass-night-lume-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-20.1" x2="0" y2="-20.65">
+</line>
+<line x1="1.052" y1="-20.072" x2="1.081" y2="-20.622">
+</line>
+<line x1="2.101" y1="-19.99" x2="2.159" y2="-20.537">
+</line>
+<line x1="3.144" y1="-19.853" x2="3.23" y2="-20.396">
+</line>
+<line x1="4.179" y1="-19.661" x2="4.293" y2="-20.199">
+</line>
+<line x1="5.202" y1="-19.415" x2="5.345" y2="-19.946">
+</line>
+<line x1="6.211" y1="-19.116" x2="6.381" y2="-19.639">
+</line>
+<line x1="7.203" y1="-18.765" x2="7.4" y2="-19.278">
+</line>
+<line x1="8.175" y1="-18.362" x2="8.399" y2="-18.865">
+</line>
+<line x1="9.125" y1="-17.909" x2="9.375" y2="-18.399">
+</line>
+<line x1="10.05" y1="-17.407" x2="10.325" y2="-17.883">
+</line>
+<line x1="10.947" y1="-16.857" x2="11.247" y2="-17.319">
+</line>
+<line x1="11.814" y1="-16.261" x2="12.138" y2="-16.706">
+</line>
+<line x1="12.649" y1="-15.621" x2="12.995" y2="-16.048">
+</line>
+<line x1="13.45" y1="-14.937" x2="13.818" y2="-15.346">
+</line>
+<line x1="14.213" y1="-14.213" x2="14.602" y2="-14.602">
+</line>
+<line x1="14.937" y1="-13.45" x2="15.346" y2="-13.818">
+</line>
+<line x1="15.621" y1="-12.649" x2="16.048" y2="-12.995">
+</line>
+<line x1="16.261" y1="-11.814" x2="16.706" y2="-12.138">
+</line>
+<line x1="16.857" y1="-10.947" x2="17.319" y2="-11.247">
+</line>
+<line x1="17.407" y1="-10.05" x2="17.883" y2="-10.325">
+</line>
+<line x1="17.909" y1="-9.125" x2="18.399" y2="-9.375">
+</line>
+<line x1="18.362" y1="-8.175" x2="18.865" y2="-8.399">
+</line>
+<line x1="18.765" y1="-7.203" x2="19.278" y2="-7.4">
+</line>
+<line x1="19.116" y1="-6.211" x2="19.639" y2="-6.381">
+</line>
+<line x1="19.415" y1="-5.202" x2="19.946" y2="-5.345">
+</line>
+<line x1="19.661" y1="-4.179" x2="20.199" y2="-4.293">
+</line>
+<line x1="19.853" y1="-3.144" x2="20.396" y2="-3.23">
+</line>
+<line x1="19.99" y1="-2.101" x2="20.537" y2="-2.159">
+</line>
+<line x1="20.072" y1="-1.052" x2="20.622" y2="-1.081">
+</line>
+<line x1="20.1" y1="0" x2="20.65" y2="0">
+</line>
+<line x1="20.072" y1="1.052" x2="20.622" y2="1.081">
+</line>
+<line x1="19.99" y1="2.101" x2="20.537" y2="2.159">
+</line>
+<line x1="19.853" y1="3.144" x2="20.396" y2="3.23">
+</line>
+<line x1="19.661" y1="4.179" x2="20.199" y2="4.293">
+</line>
+<line x1="19.415" y1="5.202" x2="19.946" y2="5.345">
+</line>
+<line x1="19.116" y1="6.211" x2="19.639" y2="6.381">
+</line>
+<line x1="18.765" y1="7.203" x2="19.278" y2="7.4">
+</line>
+<line x1="18.362" y1="8.175" x2="18.865" y2="8.399">
+</line>
+<line x1="17.909" y1="9.125" x2="18.399" y2="9.375">
+</line>
+<line x1="17.407" y1="10.05" x2="17.883" y2="10.325">
+</line>
+<line x1="16.857" y1="10.947" x2="17.319" y2="11.247">
+</line>
+<line x1="16.261" y1="11.814" x2="16.706" y2="12.138">
+</line>
+<line x1="15.621" y1="12.649" x2="16.048" y2="12.995">
+</line>
+<line x1="14.937" y1="13.45" x2="15.346" y2="13.818">
+</line>
+<line x1="14.213" y1="14.213" x2="14.602" y2="14.602">
+</line>
+<line x1="13.45" y1="14.937" x2="13.818" y2="15.346">
+</line>
+<line x1="12.649" y1="15.621" x2="12.995" y2="16.048">
+</line>
+<line x1="11.814" y1="16.261" x2="12.138" y2="16.706">
+</line>
+<line x1="10.947" y1="16.857" x2="11.247" y2="17.319">
+</line>
+<line x1="10.05" y1="17.407" x2="10.325" y2="17.883">
+</line>
+<line x1="9.125" y1="17.909" x2="9.375" y2="18.399">
+</line>
+<line x1="8.175" y1="18.362" x2="8.399" y2="18.865">
+</line>
+<line x1="7.203" y1="18.765" x2="7.4" y2="19.278">
+</line>
+<line x1="6.211" y1="19.116" x2="6.381" y2="19.639">
+</line>
+<line x1="5.202" y1="19.415" x2="5.345" y2="19.946">
+</line>
+<line x1="4.179" y1="19.661" x2="4.293" y2="20.199">
+</line>
+<line x1="3.144" y1="19.853" x2="3.23" y2="20.396">
+</line>
+<line x1="2.101" y1="19.99" x2="2.159" y2="20.537">
+</line>
+<line x1="1.052" y1="20.072" x2="1.081" y2="20.622">
+</line>
+<line x1="0" y1="20.1" x2="0" y2="20.65">
+</line>
+<line x1="-1.052" y1="20.072" x2="-1.081" y2="20.622">
+</line>
+<line x1="-2.101" y1="19.99" x2="-2.159" y2="20.537">
+</line>
+<line x1="-3.144" y1="19.853" x2="-3.23" y2="20.396">
+</line>
+<line x1="-4.179" y1="19.661" x2="-4.293" y2="20.199">
+</line>
+<line x1="-5.202" y1="19.415" x2="-5.345" y2="19.946">
+</line>
+<line x1="-6.211" y1="19.116" x2="-6.381" y2="19.639">
+</line>
+<line x1="-7.203" y1="18.765" x2="-7.4" y2="19.278">
+</line>
+<line x1="-8.175" y1="18.362" x2="-8.399" y2="18.865">
+</line>
+<line x1="-9.125" y1="17.909" x2="-9.375" y2="18.399">
+</line>
+<line x1="-10.05" y1="17.407" x2="-10.325" y2="17.883">
+</line>
+<line x1="-10.947" y1="16.857" x2="-11.247" y2="17.319">
+</line>
+<line x1="-11.814" y1="16.261" x2="-12.138" y2="16.706">
+</line>
+<line x1="-12.649" y1="15.621" x2="-12.995" y2="16.048">
+</line>
+<line x1="-13.45" y1="14.937" x2="-13.818" y2="15.346">
+</line>
+<line x1="-14.213" y1="14.213" x2="-14.602" y2="14.602">
+</line>
+<line x1="-14.937" y1="13.45" x2="-15.346" y2="13.818">
+</line>
+<line x1="-15.621" y1="12.649" x2="-16.048" y2="12.995">
+</line>
+<line x1="-16.261" y1="11.814" x2="-16.706" y2="12.138">
+</line>
+<line x1="-16.857" y1="10.947" x2="-17.319" y2="11.247">
+</line>
+<line x1="-17.407" y1="10.05" x2="-17.883" y2="10.325">
+</line>
+<line x1="-17.909" y1="9.125" x2="-18.399" y2="9.375">
+</line>
+<line x1="-18.362" y1="8.175" x2="-18.865" y2="8.399">
+</line>
+<line x1="-18.765" y1="7.203" x2="-19.278" y2="7.4">
+</line>
+<line x1="-19.116" y1="6.211" x2="-19.639" y2="6.381">
+</line>
+<line x1="-19.415" y1="5.202" x2="-19.946" y2="5.345">
+</line>
+<line x1="-19.661" y1="4.179" x2="-20.199" y2="4.293">
+</line>
+<line x1="-19.853" y1="3.144" x2="-20.396" y2="3.23">
+</line>
+<line x1="-19.99" y1="2.101" x2="-20.537" y2="2.159">
+</line>
+<line x1="-20.072" y1="1.052" x2="-20.622" y2="1.081">
+</line>
+<line x1="-20.1" y1="0" x2="-20.65" y2="0">
+</line>
+<line x1="-20.072" y1="-1.052" x2="-20.622" y2="-1.081">
+</line>
+<line x1="-19.99" y1="-2.101" x2="-20.537" y2="-2.159">
+</line>
+<line x1="-19.853" y1="-3.144" x2="-20.396" y2="-3.23">
+</line>
+<line x1="-19.661" y1="-4.179" x2="-20.199" y2="-4.293">
+</line>
+<line x1="-19.415" y1="-5.202" x2="-19.946" y2="-5.345">
+</line>
+<line x1="-19.116" y1="-6.211" x2="-19.639" y2="-6.381">
+</line>
+<line x1="-18.765" y1="-7.203" x2="-19.278" y2="-7.4">
+</line>
+<line x1="-18.362" y1="-8.175" x2="-18.865" y2="-8.399">
+</line>
+<line x1="-17.909" y1="-9.125" x2="-18.399" y2="-9.375">
+</line>
+<line x1="-17.407" y1="-10.05" x2="-17.883" y2="-10.325">
+</line>
+<line x1="-16.857" y1="-10.947" x2="-17.319" y2="-11.247">
+</line>
+<line x1="-16.261" y1="-11.814" x2="-16.706" y2="-12.138">
+</line>
+<line x1="-15.621" y1="-12.649" x2="-16.048" y2="-12.995">
+</line>
+<line x1="-14.937" y1="-13.45" x2="-15.346" y2="-13.818">
+</line>
+<line x1="-14.213" y1="-14.213" x2="-14.602" y2="-14.602">
+</line>
+<line x1="-13.45" y1="-14.937" x2="-13.818" y2="-15.346">
+</line>
+<line x1="-12.649" y1="-15.621" x2="-12.995" y2="-16.048">
+</line>
+<line x1="-11.814" y1="-16.261" x2="-12.138" y2="-16.706">
+</line>
+<line x1="-10.947" y1="-16.857" x2="-11.247" y2="-17.319">
+</line>
+<line x1="-10.05" y1="-17.407" x2="-10.325" y2="-17.883">
+</line>
+<line x1="-9.125" y1="-17.909" x2="-9.375" y2="-18.399">
+</line>
+<line x1="-8.175" y1="-18.362" x2="-8.399" y2="-18.865">
+</line>
+<line x1="-7.203" y1="-18.765" x2="-7.4" y2="-19.278">
+</line>
+<line x1="-6.211" y1="-19.116" x2="-6.381" y2="-19.639">
+</line>
+<line x1="-5.202" y1="-19.415" x2="-5.345" y2="-19.946">
+</line>
+<line x1="-4.179" y1="-19.661" x2="-4.293" y2="-20.199">
+</line>
+<line x1="-3.144" y1="-19.853" x2="-3.23" y2="-20.396">
+</line>
+<line x1="-2.101" y1="-19.99" x2="-2.159" y2="-20.537">
+</line>
+<line x1="-1.052" y1="-20.072" x2="-1.081" y2="-20.622">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-compass-black">
+<g>
+<g>
+<defs>
+<radialGradient id="california-compass-night-lume-insert-shade-in-diver42-compass-black" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#16171a" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#california-compass-night-lume-insert-shade-in-diver42-compass-black)" fill-rule="evenodd">
+</path>
+</g>
+<g>
+<g stroke="#e0c67a" stroke-linecap="butt">
+<line x1="0" y1="-17.15" x2="0" y2="-18.556" stroke-width="0.3">
+</line>
+<line x1="3.094" y1="-17.545" x2="3.222" y2="-18.274" stroke-width="0.14">
+</line>
+<line x1="6.093" y1="-16.742" x2="6.347" y2="-17.437" stroke-width="0.14">
+</line>
+<line x1="8.575" y1="-14.852" x2="9.278" y2="-16.07" stroke-width="0.3">
+</line>
+<line x1="11.452" y1="-13.648" x2="11.928" y2="-14.215" stroke-width="0.14">
+</line>
+<line x1="13.648" y1="-11.452" x2="14.215" y2="-11.928" stroke-width="0.14">
+</line>
+<line x1="14.852" y1="-8.575" x2="16.07" y2="-9.278" stroke-width="0.3">
+</line>
+<line x1="16.742" y1="-6.093" x2="17.437" y2="-6.347" stroke-width="0.14">
+</line>
+<line x1="17.545" y1="-3.094" x2="18.274" y2="-3.222" stroke-width="0.14">
+</line>
+<line x1="17.15" y1="0" x2="18.556" y2="0" stroke-width="0.3">
+</line>
+<line x1="17.545" y1="3.094" x2="18.274" y2="3.222" stroke-width="0.14">
+</line>
+<line x1="16.742" y1="6.093" x2="17.437" y2="6.347" stroke-width="0.14">
+</line>
+<line x1="14.852" y1="8.575" x2="16.07" y2="9.278" stroke-width="0.3">
+</line>
+<line x1="13.648" y1="11.452" x2="14.215" y2="11.928" stroke-width="0.14">
+</line>
+<line x1="11.452" y1="13.648" x2="11.928" y2="14.215" stroke-width="0.14">
+</line>
+<line x1="8.575" y1="14.852" x2="9.278" y2="16.07" stroke-width="0.3">
+</line>
+<line x1="6.093" y1="16.742" x2="6.347" y2="17.437" stroke-width="0.14">
+</line>
+<line x1="3.094" y1="17.545" x2="3.222" y2="18.274" stroke-width="0.14">
+</line>
+<line x1="0" y1="17.15" x2="0" y2="18.556" stroke-width="0.3">
+</line>
+<line x1="-3.094" y1="17.545" x2="-3.222" y2="18.274" stroke-width="0.14">
+</line>
+<line x1="-6.093" y1="16.742" x2="-6.347" y2="17.437" stroke-width="0.14">
+</line>
+<line x1="-8.575" y1="14.852" x2="-9.278" y2="16.07" stroke-width="0.3">
+</line>
+<line x1="-11.452" y1="13.648" x2="-11.928" y2="14.215" stroke-width="0.14">
+</line>
+<line x1="-13.648" y1="11.452" x2="-14.215" y2="11.928" stroke-width="0.14">
+</line>
+<line x1="-14.852" y1="8.575" x2="-16.07" y2="9.278" stroke-width="0.3">
+</line>
+<line x1="-16.742" y1="6.093" x2="-17.437" y2="6.347" stroke-width="0.14">
+</line>
+<line x1="-17.545" y1="3.094" x2="-18.274" y2="3.222" stroke-width="0.14">
+</line>
+<line x1="-17.15" y1="0" x2="-18.556" y2="0" stroke-width="0.3">
+</line>
+<line x1="-17.545" y1="-3.094" x2="-18.274" y2="-3.222" stroke-width="0.14">
+</line>
+<line x1="-16.742" y1="-6.093" x2="-17.437" y2="-6.347" stroke-width="0.14">
+</line>
+<line x1="-14.852" y1="-8.575" x2="-16.07" y2="-9.278" stroke-width="0.3">
+</line>
+<line x1="-13.648" y1="-11.452" x2="-14.215" y2="-11.928" stroke-width="0.14">
+</line>
+<line x1="-11.452" y1="-13.648" x2="-11.928" y2="-14.215" stroke-width="0.14">
+</line>
+<line x1="-8.575" y1="-14.852" x2="-9.278" y2="-16.07" stroke-width="0.3">
+</line>
+<line x1="-6.093" y1="-16.742" x2="-6.347" y2="-17.437" stroke-width="0.14">
+</line>
+<line x1="-3.094" y1="-17.545" x2="-3.222" y2="-18.274" stroke-width="0.14">
+</line>
+</g>
+<text x="0" y="-16.854" transform="rotate(0 0 -16.854)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">N</text>
+<text x="11.918" y="-11.918" transform="rotate(45 11.918 -11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">NE</text>
+<text x="16.854" y="0" transform="rotate(90 16.854 0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">E</text>
+<text x="11.918" y="11.918" transform="rotate(135 11.918 11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">SE</text>
+<text x="0" y="16.854" transform="rotate(180 0 16.854)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">S</text>
+<text x="-11.918" y="11.918" transform="rotate(225 -11.918 11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">SW</text>
+<text x="-16.854" y="0" transform="rotate(270 -16.854 0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.7019999999999997" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">W</text>
+<text x="-11.918" y="-11.918" transform="rotate(315 -11.918 -11.918)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.2579999999999998" fill="#e0c67a" text-anchor="middle" dominant-baseline="central">NW</text>
+</g>
+</g>
+</g>
+<g clip-path="url(#california-compass-night-lume-dial-clip)">
+<g data-layer="dial" data-part="dl-california-black">
+<g>
+<defs>
+<filter id="california-compass-night-lume-dial-shadow-dl-california-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="california-compass-night-lume-dial-vignette-dl-california-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#california-compass-night-lume-dial-vignette-dl-california-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#california-compass-night-lume-dial-shadow-dl-california-black)">
+<g font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" text-anchor="middle" dominant-baseline="central">
+<text x="0" y="-10.83" font-size="1.995" font-weight="400" fill="#f2f2ef">XII</text>
+<text x="5.415" y="-9.379" font-size="1.995" font-weight="400" fill="#f2f2ef">I</text>
+<text x="9.379" y="-5.415" font-size="1.995" font-weight="400" fill="#f2f2ef">II</text>
+<g transform="rotate(90)">
+<rect x="-0.534" y="-12.825" width="1.069" height="2.85" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.08">
+</rect>
+<rect class="lume" x="-0.299" y="-12.54" width="0.599" height="2.28" fill="#e8f0d8">
+</rect>
+</g>
+<text x="9.132" y="5.272" font-size="2.85" font-weight="700" fill="#f2f2ef">4</text>
+<text x="5.272" y="9.132" font-size="2.85" font-weight="700" fill="#f2f2ef">5</text>
+<text x="0" y="10.545" font-size="2.85" font-weight="700" fill="#f2f2ef">6</text>
+<text x="-5.273" y="9.132" font-size="2.85" font-weight="700" fill="#f2f2ef">7</text>
+<text x="-9.132" y="5.273" font-size="2.85" font-weight="700" fill="#f2f2ef">8</text>
+<g transform="rotate(270)">
+<rect x="-0.534" y="-12.825" width="1.069" height="2.85" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.08">
+</rect>
+<rect class="lume" x="-0.299" y="-12.54" width="0.599" height="2.28" fill="#e8f0d8">
+</rect>
+</g>
+<text x="-9.379" y="-5.415" font-size="1.995" font-weight="400" fill="#f2f2ef">X</text>
+<text x="-5.415" y="-9.379" font-size="1.995" font-weight="400" fill="#f2f2ef">XI</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-diver42-silver">
+<g>
+<path d="M -15.25 0 A 15.25 15.25 0 1 0 15.25 0 A 15.25 15.25 0 1 0 -15.25 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#c9ccd1" fill-rule="evenodd">
+</path>
+<path d="M -14.275 0 A 14.275 14.275 0 1 0 14.275 0 A 14.275 14.275 0 1 0 -14.275 0 Z M -13.75 0 A 13.75 13.75 0 1 0 13.75 0 A 13.75 13.75 0 1 0 -13.75 0 Z" fill="#000" opacity="0.12" fill-rule="evenodd">
+</path>
+<g stroke="#141518">
+<line x1="0" y1="-13.85" x2="0" y2="-14.875" stroke-width="0.28">
+</line>
+<line x1="1.448" y1="-13.774" x2="1.508" y2="-14.346" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="-13.547" x2="2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="-13.172" x2="4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="5.633" y1="-12.653" x2="5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="-11.994" x2="7.437" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="8.141" y1="-11.205" x2="8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="-10.293" x2="9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="-9.267" x2="10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="11.205" y1="-8.141" x2="11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="-6.925" x2="12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="12.653" y1="-5.633" x2="13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="-4.28" x2="13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="-2.88" x2="14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="13.774" y1="-1.448" x2="14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="13.85" y1="0" x2="14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="13.774" y1="1.448" x2="14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="13.547" y1="2.88" x2="14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="13.172" y1="4.28" x2="13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="12.653" y1="5.633" x2="13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="11.994" y1="6.925" x2="12.882" y2="7.437" stroke-width="0.28">
+</line>
+<line x1="11.205" y1="8.141" x2="11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="10.293" y1="9.267" x2="10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="9.267" y1="10.293" x2="9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="8.141" y1="11.205" x2="8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="6.925" y1="11.994" x2="7.437" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="5.633" y1="12.653" x2="5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="4.28" y1="13.172" x2="4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="2.88" y1="13.547" x2="2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="1.448" y1="13.774" x2="1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="0" y1="13.85" x2="0" y2="14.875" stroke-width="0.28">
+</line>
+<line x1="-1.448" y1="13.774" x2="-1.508" y2="14.346" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="13.547" x2="-2.999" y2="14.11" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="13.172" x2="-4.458" y2="13.719" stroke-width="0.12">
+</line>
+<line x1="-5.633" y1="12.653" x2="-5.867" y2="13.178" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="11.994" x2="-7.438" y2="12.882" stroke-width="0.28">
+</line>
+<line x1="-8.141" y1="11.205" x2="-8.479" y2="11.67" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="10.293" x2="-9.652" y2="10.72" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="9.267" x2="-10.72" y2="9.652" stroke-width="0.12">
+</line>
+<line x1="-11.205" y1="8.141" x2="-11.67" y2="8.479" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="6.925" x2="-12.882" y2="7.438" stroke-width="0.28">
+</line>
+<line x1="-12.653" y1="5.633" x2="-13.178" y2="5.867" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="4.28" x2="-13.719" y2="4.458" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="2.88" x2="-14.11" y2="2.999" stroke-width="0.12">
+</line>
+<line x1="-13.774" y1="1.448" x2="-14.346" y2="1.508" stroke-width="0.12">
+</line>
+<line x1="-13.85" y1="0" x2="-14.875" y2="0" stroke-width="0.28">
+</line>
+<line x1="-13.774" y1="-1.448" x2="-14.346" y2="-1.508" stroke-width="0.12">
+</line>
+<line x1="-13.547" y1="-2.88" x2="-14.11" y2="-2.999" stroke-width="0.12">
+</line>
+<line x1="-13.172" y1="-4.28" x2="-13.719" y2="-4.458" stroke-width="0.12">
+</line>
+<line x1="-12.653" y1="-5.633" x2="-13.178" y2="-5.867" stroke-width="0.12">
+</line>
+<line x1="-11.994" y1="-6.925" x2="-12.882" y2="-7.438" stroke-width="0.28">
+</line>
+<line x1="-11.205" y1="-8.141" x2="-11.67" y2="-8.479" stroke-width="0.12">
+</line>
+<line x1="-10.293" y1="-9.267" x2="-10.72" y2="-9.652" stroke-width="0.12">
+</line>
+<line x1="-9.267" y1="-10.293" x2="-9.652" y2="-10.72" stroke-width="0.12">
+</line>
+<line x1="-8.141" y1="-11.205" x2="-8.479" y2="-11.67" stroke-width="0.12">
+</line>
+<line x1="-6.925" y1="-11.994" x2="-7.438" y2="-12.882" stroke-width="0.28">
+</line>
+<line x1="-5.633" y1="-12.653" x2="-5.867" y2="-13.178" stroke-width="0.12">
+</line>
+<line x1="-4.28" y1="-13.172" x2="-4.458" y2="-13.719" stroke-width="0.12">
+</line>
+<line x1="-2.88" y1="-13.547" x2="-2.999" y2="-14.11" stroke-width="0.12">
+</line>
+<line x1="-1.448" y1="-13.774" x2="-1.508" y2="-14.346" stroke-width="0.12">
+</line>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-plongeur">
+<g>
+<defs>
+<filter id="california-compass-night-lume-hands-shadow-hd-nh-plongeur" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#california-compass-night-lume-hands-shadow-hd-nh-plongeur)">
+<g transform="rotate(304.308)">
+<polygon points="0.38,1.2 0.38,-4.93 1.25,-4.93 0,-8.5 0,-8.5 -1.25,-4.93 -0.38,-4.93 -0.38,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.7,-5.27 0,-7.5 0,-7.5 -0.7,-5.27" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.5,1.1 0.5,-12.1 0,-12.5 0,-12.5 -0.5,-12.1 -0.5,1.1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.275" y="-11.5" width="0.55" height="9" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+<circle class="lume" cy="-9.88" r="0.62" fill="#e8f0d8" stroke="#e6e7e9" stroke-width="0.22">
+</circle>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="california-compass-night-lume-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#california-compass-night-lume-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+</svg>
