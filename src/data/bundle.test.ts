@@ -96,7 +96,7 @@ describe('parseBundleJson', () => {
   it('migrates packs from older schema versions', () => {
     const old = file();
     old.packs[0].schemaVersion = 1;
-    expect(parseBundleJson(JSON.stringify(old)).packs[0]!.schemaVersion).toBe(2);
+    expect(parseBundleJson(JSON.stringify(old)).packs[0]!.schemaVersion).toBe(3);
   });
 });
 

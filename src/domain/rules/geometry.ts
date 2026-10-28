@@ -21,6 +21,14 @@ export function offGrid(x: number, step: number): number {
 export const movementToDial = (angle: number, steps: CrownSteps): number =>
   normalizeDeg(angle + steps * DATE_STEP_DEG);
 
+/** Distance between two points given in polar form (angle clockwise from 12:00, distance from the centre). */
+export function polarDistance(a: { angle: number; distance: number }, b: { angle: number; distance: number }): number {
+  const rad = Math.PI / 180;
+  const dx = a.distance * Math.sin(a.angle * rad) - b.distance * Math.sin(b.angle * rad);
+  const dy = a.distance * Math.cos(a.angle * rad) - b.distance * Math.cos(b.angle * rad);
+  return Math.hypot(dx, dy);
+}
+
 export const mm = (n: number): string => `${Number(n.toFixed(2))}mm`;
 export const deg = (n: number): string => `${Number(n.toFixed(1))}°`;
 

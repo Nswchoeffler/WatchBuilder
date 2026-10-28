@@ -148,6 +148,30 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
     },
   },
   {
+    id: 'sub-24h-nh39',
+    name: 'Sub-style 40, NH39 24-Hour',
+    slots: {
+      case: 'cs-sub40', movement: 'mv-nh39', dial: 'dl-nh39-24h-black', hands: 'hd-nh39-24h-sword', bezel: 'bz-sub40',
+      bezelInsert: 'in-sub40-ceramic-black', crystal: 'cy-sub40-dd', crown: 'cw-sub40', strap: 'st-oyster-20',
+    },
+  },
+  {
+    id: 'octagon-nh70',
+    name: 'Octagon 41, NH70 Open-worked',
+    slots: {
+      case: 'cs-octagon41', movement: 'mv-nh70', dial: 'dl-nh70-ring-black', hands: 'hd-nh-sword', crystal: 'cy-octagon41-flat',
+      crown: 'cw-octagon41', strap: 'st-octagon41-bracelet',
+    },
+  },
+  {
+    id: 'octagon-nh72',
+    name: 'Octagon 41, NH72 Open-worked',
+    slots: {
+      case: 'cs-octagon41', movement: 'mv-nh72', dial: 'dl-nh70-ring-black', hands: 'hd-nh-snowflake', crystal: 'cy-octagon41-flat',
+      crown: 'cw-octagon41', strap: 'st-octagon41-bracelet',
+    },
+  },
+  {
     id: 'eta-plain-dress',
     name: 'ETA 2824 Plain Dress',
     slots: {

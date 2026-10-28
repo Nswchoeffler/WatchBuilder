@@ -19,6 +19,25 @@ const nhBase = {
   visual: tpl('movement/nh'),
 } as const;
 
+/** The NH70A / NH72A: one frame, differing only in plating (TMI spec sheets NH70_SS, NH72_SS, rev. 16 Nov 2022). */
+const nhOpenWorked = {
+  ...nhBase,
+  type: 'movement',
+  confidence: 'verified',
+  feetSystem: 'seiko-nh-skeleton',
+  // Casing Ø27.00 (+0 / −0.32) on the open-worked pair, against 29.36 with the NH35's dial-holding spacer.
+  casingDiameter: 27.0,
+  date: null,
+  // The dial drawing allows an opening of Ø23.90 at most.
+  openWork: { maxDialOpening: 23.9 },
+} as const;
+
+const nhOpenWorkedNotes =
+  'Ø27.40, height 5.32, hand posts as the NH35, total height 7.59 with the type M centre post (7.99 with the tall post), casing Ø27.00 +0 / −0.32 ' +
+  '(clamped with casing clamps, no dial-holding spacer). Own dial feet: F1 at (−10.600, +7.428), F2 at (+8.322, −9.932), i.e. 305.0° and 140.0° at radius ≈12.9, ' +
+  'Ø0.74, for a 3:00 crown (the NH35 pair sits at 48° / 228°), so NH dials do not fit. The dial is a ring: Ø31.50 ± 0.05, 0.40 thick, with an opening of Ø23.90 at most. ' +
+  'Modelled with the NH mount because vendors list the pair for NH cases (e.g. the octagon case), but the sheet gives no mount drawing for an NH35 case ring; confirm before ordering.';
+
 /** Miyota 9 series: one frame (Ø26.00, height 3.90), the same hand posts, feet and dial hole. Miyota drawings, see mv-m9015. */
 const miyota9Base = {
   type: 'movement',
@@ -72,6 +91,47 @@ export const movements: SeedPart<'movement'>[] = [
     date: null,
     openHeart: AT_9,
     visual: tpl('movement/nh', { openHeart: true }),
+  },
+  {
+    ...nhBase,
+    type: 'movement',
+    id: 'mv-nh39',
+    name: 'Seiko NH39A (24-hour sub-dial)',
+    caliber: 'NH39A',
+    confidence: 'verified',
+    notes:
+      'From the TMI spec sheet (Watch Movement Specification and Drawing, rev. 16 Nov 2022): Ø27.40 (casing Ø29.36), height 5.32, no date. ' +
+      'Small 24-hour hand on its own post, Ø0.21 ± 0.006, at (−3.656, +4.478) from the dial centre: 5.78 from centre at 320.8°. Hand posts as the NH35 (the sheet gives ' +
+      '1.506 / 0.891 / 0.215; stored as 1.50 / 0.90 / 0.20 like the rest of the family, inside the 0.015 rule). Total height 7.99 with the centre post (only the tall post is listed; ' +
+      'the NH35 is 7.59). Dial feet are the NH35 pair. The dial drawing marks a MAX Ø10.00 open area centred at (−6.827, −0.558), 265.3°; read as the balance aperture ' +
+      '(the cover drawing shows the mechanism there), but the sheet does not name it. The sheet says: screw-type case back required, not for diver\'s watches.',
+    sources: ['https://www.timemodule.com/upload/category/28/spec_sheet/NH39_SS.pdf', 'https://www.timemodule.com/upload/category/24/spec_sheet/NH35_SS.pdf'],
+    heightWithHands: 7.99,
+    handPosts: { hour: 1.5, minute: 0.9, seconds: 0.2 },
+    date: null,
+    openHeart: { angle: 265.3 },
+    subdials: [{ indicates: '24-hour', angle: 320.8, distance: 5.78, post: 0.21 }],
+    visual: tpl('movement/nh', { openHeart: true }),
+  },
+  {
+    ...nhOpenWorked,
+    id: 'mv-nh70',
+    name: 'Seiko NH70A (open-worked, nickel)',
+    caliber: 'NH70A',
+    notes:
+      nhOpenWorkedNotes +
+      ' Nickel plated; "three hands (skeleton)", no date.',
+    sources: ['https://www.timemodule.com/upload/category/29/spec_sheet/NH70_SS.pdf', 'https://www.timemodule.com/upload/category/24/spec_sheet/NH35_SS.pdf'],
+  },
+  {
+    ...nhOpenWorked,
+    id: 'mv-nh72',
+    name: 'Seiko NH72A (open-worked, ruthenium)',
+    caliber: 'NH72A',
+    notes:
+      nhOpenWorkedNotes +
+      ' Ruthenium grey plated; "three hands (skeleton)", no date. The NH70A sheet and this one are identical apart from the plating.',
+    sources: ['https://www.timemodule.com/upload/category/31/spec_sheet/NH72_SS.pdf', 'https://www.timemodule.com/upload/category/29/spec_sheet/NH70_SS.pdf'],
   },
   {
     type: 'movement',

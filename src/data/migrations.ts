@@ -17,6 +17,12 @@ export const MIGRATIONS: Record<number, Migration> = {
     schemaVersion: 2,
     parts: Array.isArray(pack.parts) ? pack.parts.map(withSourcesFromNotes) : pack.parts,
   }),
+  /** v2 → v3: movements, dials and hands gained sub-dial and open-work fields. Their defaults are written out so an old pack reads the same as a new one. */
+  2: (pack) => ({
+    ...pack,
+    schemaVersion: 3,
+    parts: Array.isArray(pack.parts) ? pack.parts.map(withSubdialFields) : pack.parts,
+  }),
 };
 
 /**
@@ -55,4 +61,19 @@ function withSourcesFromNotes(part: unknown): unknown {
 export function sourcesIn(text: string): string[] {
   const urls = (text.match(URL_IN_TEXT) ?? []).map((u) => u.replace(/[.,;:!?)\]]+$/, ''));
   return [...new Set(urls)].filter((u) => webAddress.safeParse(u).success).slice(0, 10);
+}
+
+// ── v2 → v3 ─────────────────────────────────────────────────────────────────
+
+/** Fields v3 added, with the values a part without them has always meant: no sub-dials, solid plate, solid dial. */
+const V3_DEFAULTS: Record<string, Record<string, unknown>> = {
+  movement: { subdials: [], openWork: null },
+  dial: { subdials: [], centerOpening: null },
+  hands: { subdialHands: [] },
+};
+
+function withSubdialFields(part: unknown): unknown {
+  if (typeof part !== 'object' || part === null) return part;
+  const defaults = V3_DEFAULTS[String((part as { type?: unknown }).type)];
+  return defaults ? { ...defaults, ...part } : part;
 }

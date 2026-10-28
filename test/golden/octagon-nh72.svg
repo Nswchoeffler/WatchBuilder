@@ -1,0 +1,551 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25.5 -47.5 51 95" role="img" aria-label="Octagon 41, NH72 Open-worked" data-mm-width="51" data-mm-height="95">
+<title>Octagon 41, NH72 Open-worked</title>
+<defs>
+<clipPath id="octagon-nh72-dial-clip">
+<circle r="16.4">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-octagon41-bracelet">
+<g id="octagon-nh72-strap-top">
+<g>
+<defs>
+<linearGradient id="octagon-nh72-bracelet-brushed-st-octagon41-bracelet" gradientUnits="userSpaceOnUse" x1="-30" y1="-30" x2="30" y2="30">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<linearGradient id="octagon-nh72-bracelet-polished-st-octagon41-bracelet" gradientUnits="userSpaceOnUse" x1="-12" y1="-12" x2="12" y2="12">
+<stop offset="0" stop-color="#ecedef">
+</stop>
+<stop offset="0.28" stop-color="#8d8f92">
+</stop>
+<stop offset="0.5" stop-color="#e7e8ea">
+</stop>
+<stop offset="0.72" stop-color="#757679">
+</stop>
+<stop offset="1" stop-color="#dcdee1">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -13.53 -12.3 L 13.53 -12.3 L 11.095 -47.5 L -11.095 -47.5 Z" fill="#5a5c5e">
+</path>
+<path d="M -13.422 -12.3 L -4.438 -12.3 L -4.438 -18.12 L -13.422 -18.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -13.422 -18.3 L -4.438 -18.3 L -4.417 -24.12 L -13.359 -24.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -13.341 -24.3 L -4.411 -24.3 L -4.218 -30.12 L -12.755 -30.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -12.737 -30.3 L -4.212 -30.3 L -4.018 -36.12 L -12.151 -36.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -12.133 -36.3 L -4.012 -36.3 L -3.818 -42.12 L -11.547 -42.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -11.529 -42.3 L -3.812 -42.3 L -3.639 -47.5 L -11.006 -47.5 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -10.925 -48.3 L -3.612 -48.3 L -3.639 -47.5 L -11.006 -47.5 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -4.221 -15.3 L 4.221 -15.3 L 4.221 -21.12 L -4.221 -21.12 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -4.221 -21.3 L 4.221 -21.3 L 4.107 -27.12 L -4.107 -27.12 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -4.101 -27.3 L 4.101 -27.3 L 3.917 -33.12 L -3.917 -33.12 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -3.911 -33.3 L 3.911 -33.3 L 3.727 -39.12 L -3.727 -39.12 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -3.721 -39.3 L 3.721 -39.3 L 3.537 -45.12 L -3.537 -45.12 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -3.531 -45.3 L 3.531 -45.3 L 3.462 -47.5 L -3.462 -47.5 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M -3.341 -51.3 L 3.341 -51.3 L 3.462 -47.5 L -3.462 -47.5 Z" fill="url(#octagon-nh72-bracelet-polished-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 4.438 -12.3 L 13.422 -12.3 L 13.422 -18.12 L 4.438 -18.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 4.438 -18.3 L 13.422 -18.3 L 13.359 -24.12 L 4.417 -24.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 4.411 -24.3 L 13.341 -24.3 L 12.755 -30.12 L 4.218 -30.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 4.212 -30.3 L 12.737 -30.3 L 12.151 -36.12 L 4.018 -36.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 4.012 -36.3 L 12.133 -36.3 L 11.547 -42.12 L 3.818 -42.12 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 3.812 -42.3 L 11.529 -42.3 L 11.006 -47.5 L 3.639 -47.5 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+<path d="M 3.612 -48.3 L 10.925 -48.3 L 11.006 -47.5 L 3.639 -47.5 Z" fill="url(#octagon-nh72-bracelet-brushed-st-octagon41-bracelet)" stroke="#656669" stroke-width="0.08">
+</path>
+</g>
+</g>
+<use href="#octagon-nh72-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-octagon41" transform="rotate(0)">
+<g>
+<defs>
+<linearGradient id="octagon-nh72-crown-cw-octagon41" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.1" y="-1.32" width="1.2" height="2.64" fill="#97999d">
+</rect>
+<rect x="21" y="-3" width="2.8" height="6" rx="0.4" fill="url(#octagon-nh72-crown-cw-octagon41)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.15" y1="-2.4" x2="23.55" y2="-2.4">
+</line>
+<line x1="21.15" y1="-1.8" x2="23.55" y2="-1.8">
+</line>
+<line x1="21.15" y1="-1.2" x2="23.55" y2="-1.2">
+</line>
+<line x1="21.15" y1="-0.6" x2="23.55" y2="-0.6">
+</line>
+<line x1="21.15" y1="0" x2="23.55" y2="0">
+</line>
+<line x1="21.15" y1="0.6" x2="23.55" y2="0.6">
+</line>
+<line x1="21.15" y1="1.2" x2="23.55" y2="1.2">
+</line>
+<line x1="21.15" y1="1.8" x2="23.55" y2="1.8">
+</line>
+<line x1="21.15" y1="2.4" x2="23.55" y2="2.4">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-octagon41">
+<g>
+<defs>
+<linearGradient id="octagon-nh72-oct-polish-cs-octagon41" gradientUnits="userSpaceOnUse" x1="-20.5" y1="-20.5" x2="20.5" y2="20.5">
+<stop offset="0" stop-color="#ecedef">
+</stop>
+<stop offset="0.28" stop-color="#8d8f92">
+</stop>
+<stop offset="0.5" stop-color="#e7e8ea">
+</stop>
+<stop offset="0.72" stop-color="#757679">
+</stop>
+<stop offset="1" stop-color="#dcdee1">
+</stop>
+</linearGradient>
+</defs>
+<g>
+<defs>
+<linearGradient id="octagon-nh72-case-metal-cs-octagon41" gradientUnits="userSpaceOnUse" x1="-25.5" y1="-25.5" x2="25.5" y2="25.5">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="octagon-nh72-case-flange-cs-octagon41" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="16.45">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<path fill="#5a5c5e" d="M 20.5 0 C 20.5 -11.118 15.97 -18.597 13.53 -20.214 L -13.53 -20.214 C -15.97 -18.597 -20.5 -11.118 -20.5 0 C -20.5 11.118 -15.97 18.597 -13.53 20.214 L 13.53 20.214 C 15.97 18.597 20.5 11.118 20.5 0 Z">
+</path>
+</g>
+<g>
+<path fill="url(#octagon-nh72-case-metal-cs-octagon41)" d="M 20.5 0 C 20.5 -11.118 15.97 -18.597 13.53 -20.214 L -13.53 -20.214 C -15.97 -18.597 -20.5 -11.118 -20.5 0 C -20.5 11.118 -15.97 18.597 -13.53 20.214 L 13.53 20.214 C 15.97 18.597 20.5 11.118 20.5 0 Z">
+</path>
+</g>
+<g>
+<polygon points="7.296,-17.614 17.614,-7.296 17.614,7.296 7.296,17.614 -7.296,17.614 -17.614,7.296 -17.614,-7.296 -7.296,-17.614" fill="url(#octagon-nh72-oct-polish-cs-octagon41)" stroke="#656669" stroke-width="0.25">
+</polygon>
+<circle r="16.55" fill="#dcdee1">
+</circle>
+<symbol id="octagon-nh72-oct-screw-cs-octagon41" viewBox="-1 -1 2 2">
+<polygon points="1,0 0.5,0.866 -0.5,0.866 -1,0 -0.5,-0.866 0.5,-0.866" fill="#e4e6e8" stroke="#656669" stroke-width="0.15">
+</polygon>
+<line x1="-0.55" y1="0" x2="0.55" y2="0" stroke="#5a5c5e" stroke-width="0.2">
+</line>
+</symbol>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="6.065" y="-17.202" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="15.702" y="-7.565" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="15.702" y="6.065" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="6.065" y="15.702" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="-7.565" y="15.702" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="-17.202" y="6.065" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="-17.202" y="-7.565" width="1.5" height="1.5">
+</use>
+<use href="#octagon-nh72-oct-screw-cs-octagon41" x="-7.565" y="-17.202" width="1.5" height="1.5">
+</use>
+</g>
+<circle r="16.45" fill="url(#octagon-nh72-case-flange-cs-octagon41)">
+</circle>
+</g>
+</g>
+</g>
+<g clip-path="url(#octagon-nh72-dial-clip)">
+<g data-layer="dial" data-part="dl-nh70-ring-black">
+<g>
+<defs>
+<filter id="octagon-nh72-dial-shadow-dl-nh70-ring-black" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="15.75" fill="#16181c">
+</circle>
+<g>
+<defs>
+<radialGradient id="octagon-nh72-dial-vignette-dl-nh70-ring-black" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.75">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="15.75" fill="url(#octagon-nh72-dial-vignette-dl-nh70-ring-black)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-14.726" x2="0" y2="-15.592" stroke-width="0.18">
+</line>
+<line x1="1.572" y1="-14.959" x2="1.63" y2="-15.507" stroke-width="0.08">
+</line>
+<line x1="3.127" y1="-14.713" x2="3.242" y2="-15.252" stroke-width="0.08">
+</line>
+<line x1="4.648" y1="-14.305" x2="4.818" y2="-14.829" stroke-width="0.08">
+</line>
+<line x1="6.118" y1="-13.741" x2="6.342" y2="-14.244" stroke-width="0.08">
+</line>
+<line x1="7.363" y1="-12.753" x2="7.796" y2="-13.504" stroke-width="0.18">
+</line>
+<line x1="8.841" y1="-12.169" x2="9.165" y2="-12.615" stroke-width="0.08">
+</line>
+<line x1="10.065" y1="-11.178" x2="10.433" y2="-11.587" stroke-width="0.08">
+</line>
+<line x1="11.178" y1="-10.065" x2="11.587" y2="-10.433" stroke-width="0.08">
+</line>
+<line x1="12.169" y1="-8.841" x2="12.615" y2="-9.165" stroke-width="0.08">
+</line>
+<line x1="12.753" y1="-7.363" x2="13.504" y2="-7.796" stroke-width="0.18">
+</line>
+<line x1="13.741" y1="-6.118" x2="14.244" y2="-6.342" stroke-width="0.08">
+</line>
+<line x1="14.305" y1="-4.648" x2="14.829" y2="-4.818" stroke-width="0.08">
+</line>
+<line x1="14.713" y1="-3.127" x2="15.252" y2="-3.242" stroke-width="0.08">
+</line>
+<line x1="14.959" y1="-1.572" x2="15.507" y2="-1.63" stroke-width="0.08">
+</line>
+<line x1="14.726" y1="0" x2="15.592" y2="0" stroke-width="0.18">
+</line>
+<line x1="14.959" y1="1.572" x2="15.507" y2="1.63" stroke-width="0.08">
+</line>
+<line x1="14.713" y1="3.127" x2="15.252" y2="3.242" stroke-width="0.08">
+</line>
+<line x1="14.305" y1="4.648" x2="14.829" y2="4.818" stroke-width="0.08">
+</line>
+<line x1="13.741" y1="6.118" x2="14.244" y2="6.342" stroke-width="0.08">
+</line>
+<line x1="12.753" y1="7.363" x2="13.504" y2="7.796" stroke-width="0.18">
+</line>
+<line x1="12.169" y1="8.841" x2="12.615" y2="9.165" stroke-width="0.08">
+</line>
+<line x1="11.178" y1="10.065" x2="11.587" y2="10.433" stroke-width="0.08">
+</line>
+<line x1="10.065" y1="11.178" x2="10.433" y2="11.587" stroke-width="0.08">
+</line>
+<line x1="8.841" y1="12.169" x2="9.165" y2="12.615" stroke-width="0.08">
+</line>
+<line x1="7.363" y1="12.753" x2="7.796" y2="13.504" stroke-width="0.18">
+</line>
+<line x1="6.118" y1="13.741" x2="6.342" y2="14.244" stroke-width="0.08">
+</line>
+<line x1="4.648" y1="14.305" x2="4.818" y2="14.829" stroke-width="0.08">
+</line>
+<line x1="3.127" y1="14.713" x2="3.242" y2="15.252" stroke-width="0.08">
+</line>
+<line x1="1.572" y1="14.959" x2="1.63" y2="15.507" stroke-width="0.08">
+</line>
+<line x1="0" y1="14.726" x2="0" y2="15.592" stroke-width="0.18">
+</line>
+<line x1="-1.572" y1="14.959" x2="-1.63" y2="15.507" stroke-width="0.08">
+</line>
+<line x1="-3.127" y1="14.713" x2="-3.242" y2="15.252" stroke-width="0.08">
+</line>
+<line x1="-4.648" y1="14.305" x2="-4.818" y2="14.829" stroke-width="0.08">
+</line>
+<line x1="-6.118" y1="13.741" x2="-6.342" y2="14.244" stroke-width="0.08">
+</line>
+<line x1="-7.363" y1="12.753" x2="-7.796" y2="13.504" stroke-width="0.18">
+</line>
+<line x1="-8.841" y1="12.169" x2="-9.165" y2="12.615" stroke-width="0.08">
+</line>
+<line x1="-10.065" y1="11.178" x2="-10.433" y2="11.587" stroke-width="0.08">
+</line>
+<line x1="-11.178" y1="10.065" x2="-11.587" y2="10.433" stroke-width="0.08">
+</line>
+<line x1="-12.169" y1="8.841" x2="-12.615" y2="9.165" stroke-width="0.08">
+</line>
+<line x1="-12.753" y1="7.363" x2="-13.504" y2="7.796" stroke-width="0.18">
+</line>
+<line x1="-13.741" y1="6.118" x2="-14.244" y2="6.342" stroke-width="0.08">
+</line>
+<line x1="-14.305" y1="4.648" x2="-14.829" y2="4.818" stroke-width="0.08">
+</line>
+<line x1="-14.713" y1="3.127" x2="-15.252" y2="3.242" stroke-width="0.08">
+</line>
+<line x1="-14.959" y1="1.572" x2="-15.507" y2="1.63" stroke-width="0.08">
+</line>
+<line x1="-14.726" y1="0" x2="-15.592" y2="0" stroke-width="0.18">
+</line>
+<line x1="-14.959" y1="-1.572" x2="-15.507" y2="-1.63" stroke-width="0.08">
+</line>
+<line x1="-14.713" y1="-3.127" x2="-15.252" y2="-3.242" stroke-width="0.08">
+</line>
+<line x1="-14.305" y1="-4.648" x2="-14.829" y2="-4.818" stroke-width="0.08">
+</line>
+<line x1="-13.741" y1="-6.118" x2="-14.244" y2="-6.342" stroke-width="0.08">
+</line>
+<line x1="-12.753" y1="-7.363" x2="-13.504" y2="-7.796" stroke-width="0.18">
+</line>
+<line x1="-12.169" y1="-8.841" x2="-12.615" y2="-9.165" stroke-width="0.08">
+</line>
+<line x1="-11.178" y1="-10.065" x2="-11.587" y2="-10.433" stroke-width="0.08">
+</line>
+<line x1="-10.065" y1="-11.178" x2="-10.433" y2="-11.587" stroke-width="0.08">
+</line>
+<line x1="-8.841" y1="-12.169" x2="-9.165" y2="-12.615" stroke-width="0.08">
+</line>
+<line x1="-7.363" y1="-12.753" x2="-7.796" y2="-13.504" stroke-width="0.18">
+</line>
+<line x1="-6.118" y1="-13.741" x2="-6.342" y2="-14.244" stroke-width="0.08">
+</line>
+<line x1="-4.648" y1="-14.305" x2="-4.818" y2="-14.829" stroke-width="0.08">
+</line>
+<line x1="-3.127" y1="-14.713" x2="-3.242" y2="-15.252" stroke-width="0.08">
+</line>
+<line x1="-1.572" y1="-14.959" x2="-1.63" y2="-15.507" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#octagon-nh72-dial-shadow-dl-nh70-ring-black)">
+<g>
+<g transform="rotate(0)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(30)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(60)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(90)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(120)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(150)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(180)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(210)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(240)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(270)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(300)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+<g transform="rotate(330)">
+<rect x="-0.32" y="-14.175" width="0.64" height="2.125" rx="0.1" fill="#dcdde0" stroke="#797a7b" stroke-width="0.07">
+</rect>
+<rect class="lume" x="-0.14" y="-13.975" width="0.28" height="1.725" fill="#e8f0d8">
+</rect>
+</g>
+</g>
+</g>
+<g>
+<defs>
+<clipPath id="octagon-nh72-open-centre-dl-nh70-ring-black">
+<circle r="11.5">
+</circle>
+</clipPath>
+</defs>
+<circle r="11.5" fill="#0e0f11">
+</circle>
+<g clip-path="url(#octagon-nh72-open-centre-dl-nh70-ring-black)">
+<circle r="11.27" fill="#2a2d33" opacity="0.55">
+</circle>
+<path d="M -11.5 -2.3 Q -2.3 -8.05 5.75 -8.97" fill="none" stroke="#9aa0a8" stroke-width="0.9" opacity="0.65">
+</path>
+<path d="M 10.35 1.15 Q 3.45 5.75 -2.3 10.35" fill="none" stroke="#9aa0a8" stroke-width="1.1" opacity="0.65">
+</path>
+<g>
+<circle cx="-5.175" cy="4.83" r="3.45" fill="none" stroke="#9aa0a8" stroke-width="0.552" stroke-dasharray="0.271 0.271">
+</circle>
+<circle cx="-5.175" cy="4.83" r="2.829" fill="none" stroke="#9aa0a8" stroke-width="0.2">
+</circle>
+<line x1="-5.175" y1="4.83" x2="-2.581" y2="5.774" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="-5.175" y1="4.83" x2="-6.119" y2="7.424" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="-5.175" y1="4.83" x2="-7.769" y2="3.886" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="-5.175" y1="4.83" x2="-4.231" y2="2.236" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<circle cx="-5.175" cy="4.83" r="0.28" fill="#b3262b">
+</circle>
+</g>
+<g>
+<circle cx="5.29" cy="-3.45" r="2.76" fill="none" stroke="#9aa0a8" stroke-width="0.442" stroke-dasharray="0.271 0.271">
+</circle>
+<circle cx="5.29" cy="-3.45" r="2.263" fill="none" stroke="#9aa0a8" stroke-width="0.2">
+</circle>
+<line x1="5.29" y1="-3.45" x2="7.365" y2="-2.695" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="5.29" y1="-3.45" x2="4.535" y2="-1.375" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="5.29" y1="-3.45" x2="3.215" y2="-4.205" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="5.29" y1="-3.45" x2="6.045" y2="-5.525" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<circle cx="5.29" cy="-3.45" r="0.28" fill="#b3262b">
+</circle>
+</g>
+<g>
+<circle cx="4.025" cy="5.75" r="1.955" fill="none" stroke="#9aa0a8" stroke-width="0.313" stroke-dasharray="0.256 0.256">
+</circle>
+<circle cx="4.025" cy="5.75" r="1.603" fill="none" stroke="#9aa0a8" stroke-width="0.2">
+</circle>
+<line x1="4.025" y1="5.75" x2="5.495" y2="6.285" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="4.025" y1="5.75" x2="3.49" y2="7.22" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="4.025" y1="5.75" x2="2.555" y2="5.215" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<line x1="4.025" y1="5.75" x2="4.56" y2="4.28" stroke="#9aa0a8" stroke-width="0.25">
+</line>
+<circle cx="4.025" cy="5.75" r="0.28" fill="#b3262b">
+</circle>
+</g>
+<circle cx="-4.025" cy="-5.175" r="2.3" fill="none" stroke="#c9a45c" stroke-width="0.5">
+</circle>
+<circle r="1.1" fill="#9aa0a8">
+</circle>
+</g>
+<circle r="11.5" fill="none" stroke="#191b1f" stroke-width="0.4">
+</circle>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-snowflake">
+<g>
+<defs>
+<filter id="octagon-nh72-hands-shadow-hd-nh-snowflake" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#octagon-nh72-hands-shadow-hd-nh-snowflake)">
+<g transform="rotate(304.308)">
+<polygon points="0.42,1.2 0.42,-2.55 1.15,-3.91 1.15,-5.95 0,-8.5 0,-8.5 -1.15,-5.95 -1.15,-3.91 -0.42,-2.55 -0.42,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.16,-2.89 0.85,-4.08 0.85,-5.78 0,-7.5 0,-7.5 -0.85,-5.78 -0.85,-4.08 -0.16,-2.89" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.42,1.2 0.42,-3.75 0.72,-5.75 0.72,-8.75 0,-12.5 0,-12.5 -0.72,-8.75 -0.72,-5.75 -0.42,-3.75 -0.42,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.16,-4.25 0.42,-6 0.42,-8.5 0,-11.5 0,-11.5 -0.42,-8.5 -0.42,-6 -0.16,-4.25" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#c8302c">
+</polygon>
+</g>
+<circle r="0.5" fill="#c8302c">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-octagon41-flat">
+<g pointer-events="none">
+<defs>
+<linearGradient id="octagon-nh72-glare-cy-octagon41-flat" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.2">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="16" fill="#ffffff" opacity="0.015">
+</circle>
+<path d="M -14.682 -3.934 A 15.2 15.2 0 0 1 -3.934 -14.682 L -3.479 -12.982 A 13.44 13.44 0 0 0 -12.982 -3.479 Z" fill="url(#octagon-nh72-glare-cy-octagon41-flat)">
+</path>
+</g>
+</g>
+</svg>

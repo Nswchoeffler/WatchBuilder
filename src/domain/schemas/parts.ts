@@ -8,6 +8,8 @@ export type MountSystem = z.infer<typeof MountSystem>;
 /** Dial-feet pattern. `none` = feetless dial mounted with dial dots. */
 export const FeetSystem = z.enum([
   'seiko-nh',
+  /** The NH70 / NH72 open-worked pair: its own dial feet, 165° apart. */
+  'seiko-nh-skeleton',
   'miyota-82',
   'miyota-90',
   'eta-2824',
@@ -16,6 +18,10 @@ export const FeetSystem = z.enum([
   'none',
 ]);
 export type FeetSystem = z.infer<typeof FeetSystem>;
+
+/** What a sub-dial hand shows. A chronograph's counters fit the same shape. */
+export const SubdialKind = z.enum(['24-hour', 'small-seconds', 'chrono-minutes', 'chrono-hours']);
+export type SubdialKind = z.infer<typeof SubdialKind>;
 
 const HandSet = <T extends z.ZodType>(value: T) =>
   z.object({
@@ -53,6 +59,13 @@ export const Movement = z.object({
   day: z.object({ angle: Angle, crownSteps: CrownSteps }).nullable(),
   /** Balance aperture angle in the movement frame. Null = not open-heart. */
   openHeart: Feature.nullable(),
+  /**
+   * Extra hand posts away from the centre, in the movement frame (crown at 3:00). `distance` is
+   * from the centre post to this post, `post` its diameter.
+   */
+  subdials: z.array(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, post: Mm })).default([]),
+  /** Open-worked movement (skeleton): the dial must leave the centre open, at most `maxDialOpening` wide. Null = plain plate. */
+  openWork: z.object({ maxDialOpening: Mm }).nullable().default(null),
 });
 export type Movement = z.infer<typeof Movement>;
 
@@ -110,6 +123,10 @@ export const Dial = z.object({
   dayWindow: Feature.nullable(),
   openHeartAperture: Feature.nullable(),
   gmtScale: z.boolean().default(false),
+  /** A hole for a sub-dial hand post, in dial coordinates (12:00 up). `radius` is the printed or recessed sub-dial. */
+  subdials: z.array(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, hole: Mm, radius: Mm })).default([]),
+  /** Diameter of an open centre (a ring dial for an open-worked movement). Null = solid dial. */
+  centerOpening: Mm.nullable().default(null),
 });
 export type Dial = z.infer<typeof Dial>;
 
@@ -121,6 +138,8 @@ export const Hands = z
     type: z.literal('hands'),
     holes: HandSet(Mm),
     lengths: HandSet(Mm),
+    /** Hands for a movement's sub-dial posts (24-hour hand, small seconds, counters). */
+    subdialHands: z.array(z.object({ indicates: SubdialKind, hole: Mm, length: Mm })).default([]),
   })
   .superRefine((h, ctx) => {
     if ((h.holes.gmt === undefined) !== (h.lengths.gmt === undefined)) {

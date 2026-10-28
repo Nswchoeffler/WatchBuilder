@@ -111,6 +111,22 @@ export function handAngles({ hours, minutes, seconds }: DisplayTime, gmtOffsetHo
   return { hour: h * 30, minute: m * 6, seconds: seconds * 6, gmt: gmt * 15 };
 }
 
+/** Ticks round a sub-dial, by what it shows, and the angle its hand points to at the display time (0 = top). */
+export const SUBDIAL_TICKS = { '24-hour': 24, 'small-seconds': 60, 'chrono-minutes': 30, 'chrono-hours': 12 } as const;
+
+export function subdialHandAngle(kind: keyof typeof SUBDIAL_TICKS, { hours, minutes, seconds }: DisplayTime): number {
+  switch (kind) {
+    case '24-hour':
+      return ((((hours % 24) + minutes / 60) / 24) * 360) % 360;
+    case 'small-seconds':
+      return seconds * 6;
+    case 'chrono-minutes':
+      return (minutes % 30) * 12;
+    case 'chrono-hours':
+      return (hours % 12) * 30;
+  }
+}
+
 export { angularDistance as angularDistanceDeg } from '../domain/rules/geometry';
 
 /** Class for shapes painted with lume, so the night view can make exactly those glow. Null lume = not luminous. */

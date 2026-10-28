@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { color, darken, f, handAngles, lumeClass, optionalColor } from '../util';
+import { movementToDial } from '../../domain/rules/geometry';
+import { color, darken, f, handAngles, lumeClass, optionalColor, polar, subdialHandAngle } from '../util';
 import { DropShadow, url, type Template, type TemplateProps } from './common';
 
 // Hand sets. Each hand is drawn pointing to 12 (−y) from the pivot, then rotated to the display time.
@@ -192,6 +193,16 @@ function Gmt({ L, c }: { L: number; c: HandColors }) {
   );
 }
 
+/** A slim sub-dial hand: tail, shaft and a small lumed tip. */
+function SubdialHand({ L, c }: { L: number; c: HandColors }) {
+  return (
+    <>
+      <polygon points={mirrored([[0.14, 0.7], [0.09, -L * 0.2], [0.04, -L]])} fill={c.metal} stroke={c.edge} strokeWidth={0.04} />
+      {c.lume && <polygon className="lume" points={mirrored([[0.1, -L * 0.55], [0.05, -L + 0.1]])} fill={c.lume} />}
+    </>
+  );
+}
+
 const handSet = (shapeName: string): Template<'hands'> =>
   function HandSet({ part, params, ctx }: TemplateProps<'hands'>) {
     const shape = SHAPES[shapeName] ?? sword;
@@ -221,6 +232,20 @@ const handSet = (shapeName: string): Template<'hands'> =>
             </g>
           )}
           <circle r={0.5} fill={c.accent} />
+          {part.subdialHands.map((hand) => {
+            // The hand sits on the movement's post, which the case's crown position rotates relative to the dial.
+            const post = ctx.parts.movement?.subdials.find((s) => s.indicates === hand.indicates);
+            if (!post) return null;
+            const [x, y] = polar(post.distance, movementToDial(post.angle, ctx.parts.case?.crownSteps ?? 0));
+            return (
+              <g key={hand.indicates} transform={`translate(${f(x)} ${f(y)})`}>
+                <g transform={`rotate(${f(subdialHandAngle(hand.indicates, ctx.time))})`}>
+                  <SubdialHand L={hand.length} c={c} />
+                </g>
+                <circle r={0.28} fill={metal} stroke={c.edge} strokeWidth={0.05} />
+              </g>
+            );
+          })}
         </g>
       </g>
     );

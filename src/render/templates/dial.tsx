@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { Dial } from '../../domain/schemas';
-import { FONT, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, lumeClass, optionalColor, polar, range, type Params } from '../util';
+import { FONT, SUBDIAL_TICKS, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, lumeClass, optionalColor, polar, range, type Params } from '../util';
 import { DropShadow, url, type Template, type TemplateProps } from './common';
 import { DialPrint, dialPrintStyle, type Box } from './dialPrint';
 
@@ -434,6 +434,101 @@ function OpenHeart({ dial, r, metal, id }: { dial: Dial; r: number; metal: strin
   );
 }
 
+/** Printed sub-dial: a ring with ticks and a hole for the hand post, centred `distance` from the dial centre. */
+function Subdials({ dial, ink, base }: { dial: Dial; ink: string; base: string }) {
+  return (
+    <>
+      {dial.subdials.map((s) => {
+        const [cx, cy] = polar(s.distance, s.angle);
+        const ticks = SUBDIAL_TICKS[s.indicates];
+        const quarter = ticks / 4;
+        return (
+          <g key={s.indicates} transform={`translate(${f(cx)} ${f(cy)})`}>
+            <circle r={s.radius} fill={darken(base, 0.18)} stroke={ink} strokeWidth={0.1} opacity={0.95} />
+            <g stroke={ink} opacity={0.85}>
+              {range(ticks).map((i) => {
+                const major = i % quarter === 0;
+                const [x1, y1] = polar(s.radius * (major ? 0.7 : 0.8), (i * 360) / ticks);
+                const [x2, y2] = polar(s.radius * 0.92, (i * 360) / ticks);
+                return <line key={i} x1={f(x1)} y1={f(y1)} x2={f(x2)} y2={f(y2)} strokeWidth={major ? 0.12 : 0.06} />;
+              })}
+            </g>
+            <circle r={f(s.hole / 2)} fill="#0b0b0c" />
+          </g>
+        );
+      })}
+    </>
+  );
+}
+
+/** What shows through a ring dial's open centre: bare plate, a barrel, wheels and bridges, in an open-worked style. */
+function OpenCentre({ dial, id }: { dial: Dial; id: (n: string) => string }) {
+  if (dial.centerOpening === null) return null;
+  const ro = dial.centerOpening / 2;
+  const clip = id('open-centre');
+  const plate = '#2a2d33';
+  const steel = '#9aa0a8';
+  const gold = '#c9a45c';
+  const wheel = (cx: number, cy: number, rad: number, teeth: number) => {
+    const spokes = range(4).map((i) => {
+      const a = (i * 90 + 20) * (Math.PI / 180);
+      return <line key={i} x1={f(cx)} y1={f(cy)} x2={f(cx + Math.cos(a) * rad * 0.8)} y2={f(cy + Math.sin(a) * rad * 0.8)} stroke={steel} strokeWidth={0.25} />;
+    });
+    return (
+      <g key={`${cx}${cy}`}>
+        <circle cx={f(cx)} cy={f(cy)} r={f(rad)} fill="none" stroke={steel} strokeWidth={f(rad * 0.16)} strokeDasharray={`${f((2 * Math.PI * rad) / teeth / 2)} ${f((2 * Math.PI * rad) / teeth / 2)}`} />
+        <circle cx={f(cx)} cy={f(cy)} r={f(rad * 0.82)} fill="none" stroke={steel} strokeWidth={0.2} />
+        {spokes}
+        <circle cx={f(cx)} cy={f(cy)} r={0.28} fill="#b3262b" />
+      </g>
+    );
+  };
+  return (
+    <g>
+      <defs>
+        <clipPath id={clip}>
+          <circle r={ro} />
+        </clipPath>
+      </defs>
+      <circle r={ro} fill="#0e0f11" />
+      <g clipPath={url(clip)}>
+        <circle r={ro * 0.98} fill={plate} opacity={0.55} />
+        {/* Open-worked bridges */}
+        <path d={`M ${f(-ro)} ${f(-ro * 0.2)} Q ${f(-ro * 0.2)} ${f(-ro * 0.7)} ${f(ro * 0.5)} ${f(-ro * 0.78)}`} fill="none" stroke={steel} strokeWidth={0.9} opacity={0.65} />
+        <path d={`M ${f(ro * 0.9)} ${f(ro * 0.1)} Q ${f(ro * 0.3)} ${f(ro * 0.5)} ${f(-ro * 0.2)} ${f(ro * 0.9)}`} fill="none" stroke={steel} strokeWidth={1.1} opacity={0.65} />
+        {wheel(-ro * 0.45, ro * 0.42, ro * 0.3, 40)}
+        {wheel(ro * 0.46, -ro * 0.3, ro * 0.24, 32)}
+        {wheel(ro * 0.35, ro * 0.5, ro * 0.17, 24)}
+        <circle cx={f(-ro * 0.35)} cy={f(-ro * 0.45)} r={f(ro * 0.2)} fill="none" stroke={gold} strokeWidth={0.5} />
+        <circle r={1.1} fill={steel} />
+      </g>
+      <circle r={ro} fill="none" stroke={darken(plate, 0.4)} strokeWidth={0.4} />
+    </g>
+  );
+}
+
+/** Hour batons set on the ring of a ring dial, clear of the open centre. */
+function RingMarkers({ dial, r, lume, metal, blocked }: { dial: Dial; r: number; lume: string | null; metal: string; blocked: Blocked[] }) {
+  if (dial.centerOpening === null) return null;
+  const ro = dial.centerOpening / 2;
+  const inner = ro + 0.55;
+  const len = Math.max(0.8, Math.min(2.4, (r - ro) * 0.5));
+  return (
+    <g>
+      {range(12).map((h) => {
+        const angle = h * 30;
+        if (isBlocked(angle, blocked)) return null;
+        return (
+          <g key={h} transform={`rotate(${angle})`}>
+            <rect x={-0.32} y={f(-(inner + len))} width={0.64} height={f(len)} rx={0.1} fill={metal} stroke={darken(metal, 0.45)} strokeWidth={0.07} />
+            {lume && <rect className="lume" x={-0.14} y={f(-(inner + len) + 0.2)} width={0.28} height={f(len - 0.4)} fill={lume} />}
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
 /**
  * Everything on the face that printed text and the applied mark must keep clear of, as boxes in dial
  * coordinates. Add to this when the face gains something new (sub-dials, say).
@@ -457,6 +552,15 @@ function dialObstacles(dial: Dial, r: number): Box[] {
     const [cx, cy] = polar(r * 0.52, dial.openHeartAperture.angle);
     const ar = r * 0.24 + 0.2;
     out.push({ x0: cx - ar, x1: cx + ar, y0: cy - ar, y1: cy + ar });
+  }
+  for (const s of dial.subdials) {
+    const [cx, cy] = polar(s.distance, s.angle);
+    const sr = s.radius + 0.3;
+    out.push({ x0: cx - sr, x1: cx + sr, y0: cy - sr, y1: cy + sr });
+  }
+  if (dial.centerOpening !== null) {
+    const ro = dial.centerOpening / 2 + 0.3;
+    out.push({ x0: -ro, x1: ro, y0: -ro, y1: ro });
   }
   return out;
 }
@@ -493,16 +597,24 @@ const generatedDial: Template<'dial'> = ({ part, params, ctx }: TemplateProps<'d
       {part.gmtScale ? <GmtScale r={r} ink={s.ink} blocked={blocked} /> : s.markers !== 'plain' && <MinuteTrack r={r} ink={s.ink} />}
       <DialPrint r={r} style={print} obstacles={dialObstacles(part, r)} shadow={shadow} />
       <g filter={url(shadow)}>
-        {(s.markers === 'dots-bars' || s.markers === 'mercedes-classic') && <DotsBars {...marker} mercedes={s.markers === 'mercedes-classic'} />}
-        {s.markers === 'batons' && <Batons {...marker} />}
-        {(s.markers === 'roman' || s.markers === 'arabic') && <Numerals {...marker} style={s.markers} />}
-        {s.markers === 'explorer' && <Explorer {...marker} />}
-        {s.markers === 'california' && <California {...marker} />}
-        {s.markers === 'sector' && <Sector {...marker} />}
-        {s.markers === 'pilot' && <Pilot {...marker} />}
+        {part.centerOpening !== null ? (
+          s.markers !== 'plain' && <RingMarkers dial={part} r={r} lume={s.lume} metal={s.metal} blocked={blocked} />
+        ) : (
+          <>
+            {(s.markers === 'dots-bars' || s.markers === 'mercedes-classic') && <DotsBars {...marker} mercedes={s.markers === 'mercedes-classic'} />}
+            {s.markers === 'batons' && <Batons {...marker} />}
+            {(s.markers === 'roman' || s.markers === 'arabic') && <Numerals {...marker} style={s.markers} />}
+            {s.markers === 'explorer' && <Explorer {...marker} />}
+            {s.markers === 'california' && <California {...marker} />}
+            {s.markers === 'sector' && <Sector {...marker} />}
+            {s.markers === 'pilot' && <Pilot {...marker} />}
+          </>
+        )}
         <DateWindow dial={part} r={r} opts={{ date: 17, day: 'SUN', wheel: s.wheel, metal: s.metal }} />
       </g>
       <OpenHeart dial={part} r={r} metal={s.metal} id={(n) => ctx.id(`${n}-${part.id}`)} />
+      <OpenCentre dial={part} id={(n) => ctx.id(`${n}-${part.id}`)} />
+      <Subdials dial={part} ink={s.ink} base={s.base} />
     </g>
   );
 };

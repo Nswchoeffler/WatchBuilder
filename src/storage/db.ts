@@ -39,6 +39,17 @@ export class ModWatchDB extends Dexie {
             record.pack = migratePack(record.pack) as Pack;
           }),
       );
+    // v3: sub-dials and open-worked parts. The migration writes out the new fields' defaults.
+    this.version(3)
+      .stores({})
+      .upgrade((tx) =>
+        tx
+          .table<PackRecord>('packs')
+          .toCollection()
+          .modify((record) => {
+            record.pack = migratePack(record.pack) as Pack;
+          }),
+      );
   }
 }
 

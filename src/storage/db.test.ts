@@ -170,8 +170,30 @@ describe('schema upgrades', () => {
     const upgraded = new ModWatchDB(name);
     try {
       const pack = (await loadPacks(upgraded))[0]!;
-      expect(pack.schemaVersion).toBe(2);
+      expect(pack.schemaVersion).toBe(3);
       expect(pack.parts[0]!.sources).toEqual(['https://example.com/spec.pdf']);
+    } finally {
+      await upgraded.delete();
+    }
+  });
+
+  it('migrates a v2 pack stored before sub-dials existed, filling in the new defaults', async () => {
+    const name = `upgrade-${n++}`;
+    const old = new Dexie(name);
+    old.version(1).stores({ packs: 'id, origin', builds: 'id, updatedAt, name' });
+    old.version(2).stores({});
+    const movement = { ...core.parts.find((p) => p.type === 'movement')! } as Record<string, unknown>;
+    delete movement.subdials;
+    delete movement.openWork;
+    const v2 = { ...JSON.parse(serializePack({ ...userPack, parts: [] })), schemaVersion: 2, parts: [movement] };
+    await old.table('packs').put({ id: 'my-parts', version: '1.0.0', origin: 'user', pack: v2, updatedAt: '2026-09-01T00:00:00.000Z' });
+    old.close();
+
+    const upgraded = new ModWatchDB(name);
+    try {
+      const stored = (await upgraded.packs.get('my-parts'))!.pack as unknown as { schemaVersion: number; parts: Record<string, unknown>[] };
+      expect(stored.schemaVersion).toBe(3);
+      expect(stored.parts[0]).toMatchObject({ subdials: [], openWork: null });
     } finally {
       await upgraded.delete();
     }

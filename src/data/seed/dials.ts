@@ -309,4 +309,40 @@ export const dials: SeedPart<'dial'>[] = [
     crownSteps: [0, 2],
     visual: tpl('dial/sector', { color: '#d9dad6', finish: 'matte', markers: 'sector', lume: null, ink: '#151618' }),
   },
+
+  // ── Dials for the NH39 and NH70 / NH72, drawn from the TMI dial drawings (NH39_SS, NH70_SS) ────────
+  {
+    ...nhDial,
+    id: 'dl-nh39-24h-black',
+    name: '24-Hour Sub-dial Black (NH39)',
+    confidence: 'community',
+    notes:
+      'Geometry from the TMI NH39A dial drawing: Ø28.5, centre hole Ø2.05 ± 0.05 (stored as 2.1, the NH figure), the NH feet for a 3:00 crown, a Ø0.80 ± 0.05 hole for the 24-hour post at 5.78 from ' +
+      'centre, 320.8°, and an open area (max Ø10.00) at 265.3° for the balance. The printed sub-dial radius (2.4) and the look are styling choices. No retail dial matching this was checked.',
+    sources: ['https://www.timemodule.com/upload/category/28/spec_sheet/NH39_SS.pdf'],
+    crownSteps: [0],
+    dateWindow: null,
+    openHeartAperture: { angle: 265.3 },
+    subdials: [{ indicates: '24-hour', angle: 320.8, distance: 5.78, hole: 0.8, radius: 2.4 }],
+    visual: tpl('dial/classic', { color: '#1c2430', finish: 'sunburst', markers: 'batons', lume: '#e8f0d8' }),
+  },
+  {
+    type: 'dial',
+    id: 'dl-nh70-ring-black',
+    name: 'Open-worked Ring Black (NH70 / NH72)',
+    confidence: 'community',
+    notes:
+      'Geometry from the TMI NH70A / NH72A dial drawing: Ø31.50 ± 0.05, 0.40 thick, own feet (305.0° and 140.0°, Ø0.74) for a 3:00 crown, opening Ø23.90 at most. The opening here is Ø23.0 ' +
+      '(a styling choice inside that limit); with no centre, the centre-hole figure is the opening. Fits the octagon case seat (30.8–31.8). No retail dial matching this was checked.',
+    sources: ['https://www.timemodule.com/upload/category/29/spec_sheet/NH70_SS.pdf', 'https://www.timemodule.com/upload/category/31/spec_sheet/NH72_SS.pdf'],
+    diameter: 31.5,
+    feetSystem: 'seiko-nh-skeleton',
+    crownSteps: [0],
+    centerHole: 23.0,
+    centerOpening: 23.0,
+    dateWindow: null,
+    dayWindow: null,
+    openHeartAperture: null,
+    visual: tpl('dial/classic', { color: '#16181c', finish: 'matte', markers: 'batons', lume: '#e8f0d8' }),
+  },
 ];
