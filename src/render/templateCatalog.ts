@@ -2,6 +2,7 @@ import type { PartType } from '../domain/schemas';
 import { bezelTemplates, crownTemplates } from './templates/bezel';
 import { caseTemplates } from './templates/case';
 import { dialTemplates } from './templates/dial';
+import { DIAL_MARKS, DIAL_TEXT_MAX } from './templates/dialPrint';
 import { handsTemplates } from './templates/hands';
 import { strapDrawers } from './templates/strap';
 
@@ -13,7 +14,8 @@ import { strapDrawers } from './templates/strap';
 export type ParamSpec =
   | { key: string; label: string; kind: 'color'; fallback: string; nullable?: boolean; hint?: string }
   | { key: string; label: string; kind: 'choice'; choices: readonly string[]; fallback: string }
-  | { key: string; label: string; kind: 'lines'; hint?: string };
+  | { key: string; label: string; kind: 'lines'; hint?: string }
+  | { key: string; label: string; kind: 'text'; maxLength: number; hint?: string };
 
 export interface TemplateInfo {
   id: string;
@@ -53,7 +55,16 @@ const DIAL_PARAMS: ParamSpec[] = [
   color('metal', 'Marker metal', '#dcdde0'),
   color('ink', 'Text & marker ink', '#f2f2ef', { hint: 'Leave blank to pick automatically from the dial colour.' }),
   color('dateWheel', 'Date wheel', '#f4f3ef'),
-  { key: 'text', label: 'Dial text', kind: 'lines', hint: 'One line per row, up to four.' },
+  {
+    key: 'textTop',
+    label: 'Text under 12',
+    kind: 'text',
+    maxLength: DIAL_TEXT_MAX,
+    hint: 'Generic wording only, such as AUTOMATIC. No brand names or trademarks. Moved or left out if a window is in the way.',
+  },
+  { key: 'textBottom', label: 'Text above 6', kind: 'text', maxLength: DIAL_TEXT_MAX, hint: 'For example 200M. Left out if the open-heart aperture is in the way.' },
+  { key: 'mark', label: 'Applied mark at 12', kind: 'choice', choices: DIAL_MARKS, fallback: 'none' },
+  color('textColor', 'Text colour', '#f2f2ef', { hint: 'Leave blank to use the marker ink.' }),
 ];
 
 const CASE_EXTRA_PARAMS: Record<string, ParamSpec[]> = {

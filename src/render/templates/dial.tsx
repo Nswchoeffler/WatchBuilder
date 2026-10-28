@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 import type { Dial } from '../../domain/schemas';
-import { FONT, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, lumeClass, optionalColor, polar, range, textLines, type Params } from '../util';
+import { FONT, angularDistanceDeg, choice, color, darken, f, inkOn, lighten, lumeClass, optionalColor, polar, range, type Params } from '../util';
 import { DropShadow, url, type Template, type TemplateProps } from './common';
+import { DialPrint, dialPrintStyle, type Box } from './dialPrint';
 
 // Parametric dial generator. Everything is derived from the dial diameter and window positions,
 // so a 28.5mm diver dial and a 30.8mm tapisserie dial share the same code.
@@ -433,21 +434,31 @@ function OpenHeart({ dial, r, metal, id }: { dial: Dial; r: number; metal: strin
   );
 }
 
-function DialText({ r, ink, lines }: { r: number; ink: string; lines: string[] }) {
-  if (lines.length === 0) return null;
-  const size = r * 0.068;
-  return (
-    <g fontFamily={FONT} fontSize={f(size)} fill={ink} textAnchor="middle" dominantBaseline="central" letterSpacing={f(size * 0.08)}>
-      <text x={0} y={f(-r * 0.42)} fontWeight={700}>
-        {lines[0]}
-      </text>
-      {lines.slice(1).map((line, i) => (
-        <text key={i} x={0} y={f(r * 0.38 + i * size * 1.5)}>
-          {line}
-        </text>
-      ))}
-    </g>
-  );
+/**
+ * Everything on the face that printed text and the applied mark must keep clear of, as boxes in dial
+ * coordinates. Add to this when the face gains something new (sub-dials, say).
+ */
+function dialObstacles(dial: Dial, r: number): Box[] {
+  const out: Box[] = [];
+  if (dial.dateWindow) {
+    // The frame of DateWindow, rotated to its angle.
+    const withDay = dial.dayWindow !== null && angularDistanceDeg(dial.dayWindow.angle, dial.dateWindow.angle) < 5;
+    const h = r * 0.17 + 0.3;
+    const dateW = r * 0.21;
+    const dayW = r * 0.3;
+    const x0 = -dateW / 2 - (withDay ? dayW : 0) - 0.15;
+    const x1 = dateW / 2 + 0.15;
+    const [cx, cy] = polar(r * DATE_RADIUS, dial.dateWindow.angle);
+    const th = (dial.dateWindow.angle - 90) * (Math.PI / 180);
+    const corners = [x0, x1].flatMap((x) => [-h / 2, h / 2].map((y): [number, number] => [cx + x * Math.cos(th) - y * Math.sin(th), cy + x * Math.sin(th) + y * Math.cos(th)]));
+    out.push({ x0: Math.min(...corners.map((c) => c[0])), x1: Math.max(...corners.map((c) => c[0])), y0: Math.min(...corners.map((c) => c[1])), y1: Math.max(...corners.map((c) => c[1])) });
+  }
+  if (dial.openHeartAperture) {
+    const [cx, cy] = polar(r * 0.52, dial.openHeartAperture.angle);
+    const ar = r * 0.24 + 0.2;
+    out.push({ x0: cx - ar, x1: cx + ar, y0: cy - ar, y1: cy + ar });
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------- template
@@ -462,7 +473,6 @@ export function dialStyle(params: Params) {
     metal: color(params, 'metal', '#dcdde0'),
     ink: color(params, 'ink', inkOn(base)),
     wheel: color(params, 'dateWheel', '#f4f3ef'),
-    text: textLines(params, 'text'),
   };
 }
 
@@ -471,6 +481,7 @@ const generatedDial: Template<'dial'> = ({ part, params, ctx }: TemplateProps<'d
   const s = dialStyle(params);
   const blocked = blockedAngles(part);
   const shadow = ctx.id(`dial-shadow-${part.id}`);
+  const print = dialPrintStyle(params, s.ink, s.metal);
   const marker: MarkerStyle = { r, lume: s.lume, metal: s.metal, ink: s.ink, blocked };
 
   return (
@@ -480,7 +491,7 @@ const generatedDial: Template<'dial'> = ({ part, params, ctx }: TemplateProps<'d
       </defs>
       <Finish r={r} base={s.base} finish={s.finish} id={(n) => ctx.id(`${n}-${part.id}`)} />
       {part.gmtScale ? <GmtScale r={r} ink={s.ink} blocked={blocked} /> : s.markers !== 'plain' && <MinuteTrack r={r} ink={s.ink} />}
-      <DialText r={r} ink={s.ink} lines={s.text} />
+      <DialPrint r={r} style={print} obstacles={dialObstacles(part, r)} shadow={shadow} />
       <g filter={url(shadow)}>
         {(s.markers === 'dots-bars' || s.markers === 'mercedes-classic') && <DotsBars {...marker} mercedes={s.markers === 'mercedes-classic'} />}
         {s.markers === 'batons' && <Batons {...marker} />}

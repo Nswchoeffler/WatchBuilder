@@ -2,7 +2,7 @@ import { useId, useRef, useState } from 'react';
 import { Role, type PartType, type Visual } from '../../domain/schemas';
 import { templatesFor, type ParamSpec } from '../../render/templateCatalog';
 import { artRoles } from '../../render/uploaded/scaleCheck';
-import { ColorField, FormSection, SelectField, useForm, getAt, options } from './form';
+import { ColorField, FormSection, SelectField, TextField, useForm, getAt, options } from './form';
 
 // The drawing half of the editor: either a template and the settings it reads, or uploaded SVG art
 // (spec: docs/svg-canvas-spec.md). The art itself lives beside the draft rather than in it, because
@@ -122,6 +122,8 @@ function ParamField({ spec }: { spec: ParamSpec }) {
       return <SelectField path={path} label={spec.label} choices={options(spec.choices)} placeholder={`Default (${spec.fallback})`} />;
     case 'lines':
       return <LinesField path={path} label={spec.label} hint={spec.hint} />;
+    case 'text':
+      return <TextField path={path} label={spec.label} hint={spec.hint} maxLength={spec.maxLength} optional />;
   }
 }
 
