@@ -1,6 +1,6 @@
 # Catalog report: `core`
 
-135 parts: 35 verified, 80 community, 20 unverified.
+141 parts: 38 verified, 83 community, 20 unverified.
 
 ## Problems
 
@@ -13,10 +13,10 @@
 
 | Type | Verified | Community | Unverified |
 |---|---:|---:|---:|
-| movement | 6 | 6 | 0 |
+| movement | 9 | 6 | 0 |
 | case | 1 | 12 | 2 |
-| dial | 0 | 28 | 1 |
-| hands | 4 | 9 | 0 |
+| dial | 0 | 30 | 1 |
+| hands | 4 | 10 | 0 |
 | chapterRing | 4 | 2 | 0 |
 | bezel | 2 | 2 | 3 |
 | bezelInsert | 10 | 0 | 3 |
@@ -73,7 +73,7 @@
 | `cs-sub40` Sub-style 40 | 1000+ |
 | `cs-fluted36` Fluted Classic 36 | 1000+ |
 | `cs-fluted39` Fluted Classic 39 | 1000+ |
-| `cs-octagon41` Octagon Integrated 41 | 32 |
+| `cs-octagon41` Octagon Integrated 41 | 64 |
 | `cs-diver42-ncg-30` Diver 42 No-Guard (crown 3.0) | 1000+ |
 | `cs-angular43-30` Angular Diver 43 (crown 3.0) | 1000+ |
 | `cs-mono42-30` Monobloc Diver 42.5 (crown 3.0) | 1000+ |

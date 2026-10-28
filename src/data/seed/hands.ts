@@ -135,4 +135,19 @@ export const hands: SeedPart<'hands'>[] = [
     lengths: { ...LEN_28, gmt: 12.5 },
     visual: tpl('hands/arrow', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#3d7dd6' }),
   },
+
+  {
+    type: 'hands',
+    id: 'hd-nh39-24h-sword',
+    name: 'Sword with 24-hour hand (NH39)',
+    confidence: 'community',
+    notes:
+      'Hole sizes from the TMI NH39A hands drawing: hour Ø1.50, minute Ø0.88, seconds and 24-hour Ø0.198 (stored as the NH set\'s 1.5 / 0.9 / 0.2). Shapes and lengths are styling choices; ' +
+      'the 24-hour hand is kept short to stay inside a Ø4.8 sub-dial.',
+    sources: ['https://www.timemodule.com/upload/category/28/spec_sheet/NH39_SS.pdf'],
+    holes: NH_HOLES,
+    lengths: LEN_28,
+    subdialHands: [{ indicates: '24-hour', hole: 0.2, length: 2.2 }],
+    visual: tpl('hands/sword', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#c8302c' }),
+  },
 ];

@@ -15,13 +15,16 @@ Parts use **generic style names**, never watch brand names or trademarks. Exampl
 
 Seiko caliber names (NH35 etc.) are fine: they're sold as components under those names. A part's `inspiredBy` field may hold a descriptive note for search, but it's never shown as the name.
 
-## Movements (12)
+## Movements (15)
 | id | Name | Conf. |
 |---|---|---|
 | mv-nh35 | Seiko NH35A | V |
 | mv-nh36 | Seiko NH36A (day-date) | V |
 | mv-nh34 | Seiko NH34A GMT | C |
 | mv-nh38 | Seiko NH38A Open Heart | C |
+| mv-nh39 | Seiko NH39A (24-hour sub-dial) | V (TMI spec sheet) |
+| mv-nh70 | Seiko NH70A (open-worked, nickel) | V (TMI spec sheet) |
+| mv-nh72 | Seiko NH72A (open-worked, ruthenium) | V (TMI spec sheet) |
 | mv-m8215 | Miyota 8215 | V |
 | mv-m9015 | Miyota 9015 | V |
 | mv-m9019 | Miyota 9019 | V |
@@ -69,14 +72,17 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | dl-tapisserie-blue | Tapisserie Blue | 30.8 | seiko-nh / [0] | date 3 | C |
 | dl-sterile-miyota | Sterile No-Date (Miyota) | 28.5 | miyota-82 / [0] | none | ? |
 | dl-enamel-black-date / dl-velvet-black / dl-explorer-1016 / dl-sector-silver-date | Lucius Atelier dials | 28.5 | seiko-nh / [0, 2] | per listing | C |
+| dl-nh39-24h-black | 24-Hour Sub-dial Black (NH39) | 28.5 | seiko-nh / [0] | no date, 24-hour sub-dial hole at 5.78 / 320.8°, balance aperture at 265.3° | C |
+| dl-nh70-ring-black | Open-worked Ring Black (NH70 / NH72) | 31.5 | seiko-nh-skeleton / [0] | no date, open centre Ø23.0 (max 23.9) | C |
 | dl-eta-plain-white | Plain White (ETA 2824-2) | 28.5 | eta-2824 / [0] | date 3 | C |
 
-## Hands (6)
+## Hands (7)
 | id | Name | Posts H/M/S (GMT) | Conf. |
 |---|---|---|---|
 | hd-nh-mercedes | Mercedes (NH) | 1.50/0.90/0.20 | V |
 | hd-nh-sword | Sword (NH) | 1.50/0.90/0.20 | V |
 | hd-nh34-gmt | GMT Mercedes (NH34) | 1.50/0.90/0.20 (2.20) | C |
+| hd-nh39-24h-sword | Sword with 24-hour hand (NH39) | 1.50/0.90/0.20 + 24-hour 0.20 | C |
 | hd-m8215-baton | Baton (Miyota 82 / 90) | 1.52/1.00/0.17 | V |
 | hd-eta-dauphine | Dauphine (ETA/SW) | 1.50/0.90/0.25 | C |
 | hd-vh31-pencil | Pencil (VH31) | 1.20/0.70/0.17 | ? |
@@ -111,7 +117,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 
 ## Reference test builds
 
-Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T28 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches, the Miyota 9 case, the ETA dial, the VH31 dial-feet adapter).
+Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T28 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches, the Miyota 9 case, the ETA dial, the VH31 dial-feet adapter), and `src/domain/rules/subdial-openwork.test.ts`, which adds T29–T38 (NH39 sub-dial and balance alignment, 24-hour hands, hole clearance, stack height; NH70 / NH72 ring dial, feet and opening limits).
 | # | Build | Expected |
 |---|---|---|
 | T1 | cs-diver42-38 + mv-nh35 + dl-diver-black + hd-nh-mercedes + bz-diver42-sloped + in-diver42-dive-black + cr-diver42-silver + cy-diver42-dd + cw-diver42 + st-oyster-22-diver42 | **Valid** |

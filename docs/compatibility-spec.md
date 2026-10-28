@@ -64,6 +64,8 @@ The standard crown positions are **whole steps of the date disc**:
 | Miyota 9019 | miyota-90 | 26.00 | – | 3.90 | 5.65 (hand stack 1.75) | 1.52 / 1.00 / 0.17 | 3:00 | – | Frame drawing 901900C0, dial drawing 9019-20A: the 9015 with a lower hand stack | V |
 | Miyota 9039 | miyota-90 | 26.00 | – | 3.90 | 5.65 (hand stack 0.90 + 0.40 + 0.45) | 1.52 / 1.00 / 0.17 | – | – | Frame drawing 903900C0, dial drawing 9039-20A: the 9015 without a date | V |
 | Miyota 90S5 | miyota-90 | 26.00 | – | 3.90 | 6.00 (hand stack 2.10) | 1.52 / 1.00 / 0.17 | – | – | Open heart: dial opening Ø9.20 at (1.575, −6.399) ≈ 166° (dial drawing 90S5-20A) | V |
+| Seiko NH39A | seiko-nh | 27.40 | 29.36 | 5.32 | 7.99 (tall post; only one listed) | 1.506 / 0.891 / 0.215 (stored 1.50 / 0.90 / 0.20) | – | – | 24-hour hand on its own post Ø0.21 at 5.78 from centre, 320.8° (dial hole Ø0.80 ± 0.05). Dial drawing also marks a max Ø10.00 open area at 265.3° (read as the balance aperture; the sheet does not name it). TMI spec sheet NH39_SS, rev. 16 Nov 2022 | V |
+| Seiko NH70A / NH72A | seiko-nh-skeleton | 27.40 | 27.00 (+0 / −0.32), casing clamps, no dial-holding spacer | 5.32 | 7.59 (type M post; 7.99 tall) | 1.506 / 0.891 / 0.215 (stored 1.50 / 0.90 / 0.20) | – | – | Open-worked, three hands, no date; the two sheets differ only in plating (nickel / ruthenium grey). Ring dial: Ø31.50 ± 0.05, opening Ø23.90 at most. TMI spec sheets NH70_SS, NH72_SS | V |
 | ETA 2824-2 | eta-2824 | 25.60 | ? | 4.60 | ? | 1.50 / 0.90 / 0.25 | 3:00 | – | | C |
 | Sellita SW200-1 | eta-2824* | 26.00 (case fitting 25.60) | ? | 4.60 | ? | 1.50 / 0.90 / 0.25 | 3:00 | – | *Some reports of ETA dial feet not lining up; model as its own system `sellita-sw200` until checked. Dims and hand fittings from the Sellita technical documentation (rev. 07, 2024); its dial drawing gives the feet only graphically | V dims, V hands, C feet |
 | Seiko VH31A (quartz sweep) | vh | 23.70 | 23.30 | 3.45 | ? | 1.20 / 0.70 / 0.17 (order fixed by the nested hand pipes) | – | – | Needs a spacer ring in an NH case; needs VH-specific hands | V dims (TMI datasheet), C hands (Caliber Corner) |
@@ -77,6 +79,7 @@ The standard crown positions are **whole steps of the date disc**:
 ## 4. Dial feet
 
 - **seiko-nh:** 2 feet, 180° apart. For crown 3.0 they sit at the **8- and 38-minute** marks (48° / 228°). For crown 3.8 they sit at the **12- and 42-minute** marks (72° / 252°). Mod dials often carry both pairs (C, Crystaltimes).
+- **seiko-nh-skeleton:** NH70A / NH72A dial drawing (V): F1 at (−10.600, +7.428) ≈ 305.0°, F2 at (+8.322, −9.932) ≈ 140.0°, both Ø0.74, for a 3:00 crown. Not the NH pair (the NH35 drawing puts F1 at (+9.672, +8.667) and F2 at (−9.466, −8.930), ≈ 48.1° / 226.7°, which the NH39 shares), so ring dials and ordinary NH dials do not swap without dial dots.
 - **miyota-82:** Miyota dial drawing 8215-33E (V): DH1 at (2.165, −11.855) ≈ 170°, DH2 at (−7.065, 9.800) ≈ 324°, both Ø0.725, for a 3:00 crown. Matches Caliber Corner's "5:30 and 10:30".
 - **miyota-90:** Miyota dial drawing 9015-20A (V): DH11 at (11.850, 2.830) ≈ 77°, DH12 at (−11.600, −3.760) ≈ 252°, both Ø0.70, for a 3:00 crown. Close to, but not the same as, the NH 3.8 pair (72° / 252°), so NH dials don't fit without dial dots.
 - **eta-2824:** multi-feet dials use the 12/42-minute pair for ETA (?, conflicts with the NH figure above; needs a drawing). Otto Frei sells the same 28.50 dials for ETA 2804-2 / 2824-2 and Sellita SW200-1, and says they fit "all ETA and Sellita movements which have the same dial feet location" (C, for SW200 = ETA 2824 feet).
@@ -141,6 +144,9 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 - **R-MD-4 Open heart:** the dial has an aperture but the movement isn't open-heart → **Error**. The movement is open-heart but the dial has no aperture → Info. Both present and a case chosen: aperture must be within 3° of the balance after crown rotation → otherwise **Error**.
 - **R-MD-5 GMT centre hole:** `dial.centerHole ≥ movement.minDialCenterHole` → **Error**.
 
+- **R-MD-6 Sub-dial posts:** each sub-dial hole on the dial needs a movement post that shows the same thing (24-hour, small seconds, chrono counters), else **Error**. The hole must be at least as wide as the post → **Error**. With a case chosen, the post is rotated by the crown position (`movementToDial`) and its distance from the hole centre must not exceed the hole's clearance, `(hole − post) / 2` plus 0.05 → otherwise **Error** (post would not pass through). A movement post the dial has no hole for → **Info** (the post is covered; there can be no hand).
+- **R-MD-7 Open-worked movement:** a movement with `openWork` and a dial with an open centre wider than `maxDialOpening` → **Error** (the dial loses its support). A solid dial over an open-worked movement → **Info** (valid, but it hides what you paid for). A dial with an open centre over a plain movement → **Warning** (it shows an ordinary plate, date wheel and all, not open-work). Feet are checked by R-MD-1, which is how a ring dial and an ordinary NH dial are kept apart.
+
 ### Case ↔ Dial
 - **R-CD-1 Crown:** `case.crownSteps ∈ dial.crownSteps` → **Error** (date/aperture misaligned; feet won't locate). Fix `dial-dots` → Warning. Skipped for feetless dials.
 - **R-CD-2 Diameter:** `case.dialSeat.min ≤ dial.diameter ≤ case.dialSeat.max`. Too big → **Error** (won't seat). Too small → **Error**, unless the chapter ring's inner diameter covers the gap (ring.innerDiameter < dial.diameter − 0.2), in which case it's a **Warning**.
@@ -171,11 +177,14 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 ### Movement ↔ Hands
 - **R-MH-1 Posts:** for each of hour/minute/seconds: `|hands.hole − movement.post| ≤ 0.015` → **Error**. One finding per mismatched hand. Hands without a seconds hand on a movement with a seconds post → **Warning**; a seconds hand on a movement with no seconds post → **Error**. No fix.
 - **R-MH-2 GMT hand:** the hands include a GMT hand and the movement isn't GMT → **Error**. The movement is GMT and the hands have no GMT hand → **Warning**. Both present: GMT hole must match the GMT post within 0.015 → **Error**.
+- **R-MH-3 Sub-dial hands:** for each movement sub-dial post, the hand set needs a hand of the same kind (missing → **Warning**, like GMT) with a hole within 0.015 of the post → **Error**. A hand for a post the movement lacks → **Error**.
 - *Quartz vs mechanical hands need no rule of their own: R-MH-1 catches them through post sizes.*
 
 ### Hands ↔ Dial / Ring
 - **R-HD-1 Length:** `hands.minuteLength ≤ ringOrDialRadius + 0.3` → **Warning** (may foul a sloped chapter ring).
 - **R-HD-2 GMT dial:** a dial with a 24h scale and no GMT hand → **Info**.
+
+- **R-HD-3 Sub-dial hand length:** a sub-dial hand longer than the dial's sub-dial radius + 0.3 → **Warning** (may cross the printing).
 
 ### Modification flags (v1)
 `dial-dots`, `movement-spacer`, `day-wheel-swap`, `dial-feet-adapter`. Each flag is stored on the build, shown in its parts list, and only downgrades the rules named above.
@@ -194,6 +203,7 @@ Implemented in `src/domain/rules/` (tolerances in `tolerances.ts`). Tests: `refe
 ---
 
 ## Sources
+- Time Module (TMI) spec sheets, rev. 16 Nov 2022: [NH39A](https://www.timemodule.com/upload/category/28/spec_sheet/NH39_SS.pdf), [NH70A](https://www.timemodule.com/upload/category/29/spec_sheet/NH70_SS.pdf), [NH72A](https://www.timemodule.com/upload/category/31/spec_sheet/NH72_SS.pdf), [NH35A](https://www.timemodule.com/upload/category/24/spec_sheet/NH35_SS.pdf)
 - [Caliber Corner — NH35A](https://calibercorner.com/seiko-caliber-nh35a/)
 - [Caliber Corner — NH34](https://calibercorner.com/seiko-caliber-nh34/)
 - [Horology Beats — NH34 guide](https://horologybeats.com/blogs/seiko-mod-guides/nh34-gmt-movement-guide)
