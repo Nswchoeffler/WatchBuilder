@@ -111,6 +111,26 @@
 <stop offset="1" stop-color="#838588">
 </stop>
 </radialGradient>
+<clipPath id="miyota-slim-diver-night-case-clip-cs-diver42-miyota">
+<circle r="21.25" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(-1 -1)">
+</path>
+<circle cx="20.118" cy="3.644" r="2.3" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+<circle cx="16.502" cy="12.07" r="2.3" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+</clipPath>
+<clipPath id="miyota-slim-diver-night-case-outside-cs-diver42-miyota">
+<path d="M -100 -100 H 100 V 100 H -100 Z M 21.25 0 A 21.25 21.25 0 1 0 -21.25 0 A 21.25 21.25 0 1 0 21.25 0 Z" clip-rule="evenodd">
+</path>
+</clipPath>
 </defs>
 <g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
 <circle r="21.25" fill="#5a5c5e">
@@ -143,6 +163,44 @@
 </circle>
 <circle cx="16.502" cy="12.07" r="2.3" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
 </circle>
+</g>
+<g>
+<g clip-path="url(#miyota-slim-diver-night-case-clip-cs-diver42-miyota)">
+<g clip-path="url(#miyota-slim-diver-night-case-outside-cs-diver42-miyota)">
+<g transform="scale(1 1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(-1 1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(-1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+</g>
+</g>
 </g>
 <circle r="15.350000000000001" fill="url(#miyota-slim-diver-night-case-flange-cs-diver42-miyota)">
 </circle>
@@ -802,6 +860,26 @@
 <stop offset="1" stop-color="#838588">
 </stop>
 </radialGradient>
+<clipPath id="miyota-slim-diver-night-lume-case-clip-cs-diver42-miyota">
+<circle r="21.25" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(-1 -1)">
+</path>
+<circle cx="20.118" cy="3.644" r="2.3" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+<circle cx="16.502" cy="12.07" r="2.3" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+</clipPath>
+<clipPath id="miyota-slim-diver-night-lume-case-outside-cs-diver42-miyota">
+<path d="M -100 -100 H 100 V 100 H -100 Z M 21.25 0 A 21.25 21.25 0 1 0 -21.25 0 A 21.25 21.25 0 1 0 21.25 0 Z" clip-rule="evenodd">
+</path>
+</clipPath>
 </defs>
 <g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
 <circle r="21.25" fill="#5a5c5e">
@@ -834,6 +912,44 @@
 </circle>
 <circle cx="16.502" cy="12.07" r="2.3" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
 </circle>
+</g>
+<g>
+<g clip-path="url(#miyota-slim-diver-night-lume-case-clip-cs-diver42-miyota)">
+<g clip-path="url(#miyota-slim-diver-night-lume-case-outside-cs-diver42-miyota)">
+<g transform="scale(1 1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(-1 1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+<g transform="scale(-1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 11.4 -23.2 L 11.4 -11.688 M 11.8 -23.2 L 11.8 -11.688 M 12.2 -23.2 L 12.2 -11.688 M 12.6 -23.2 L 12.6 -11.688 M 13 -23.2 L 13 -11.688 M 13.4 -23.2 L 13.4 -11.688 M 13.8 -23.2 L 13.8 -11.688" stroke="#f2f2f4" stroke-width="0.07" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#656669" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688" stroke="#ecedef" stroke-width="1" opacity="0.8">
+</path>
+</g>
+</g>
+</g>
 </g>
 <circle r="15.350000000000001" fill="url(#miyota-slim-diver-night-lume-case-flange-cs-diver42-miyota)">
 </circle>
