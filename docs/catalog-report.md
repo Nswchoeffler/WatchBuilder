@@ -30,7 +30,7 @@
 |---|---|---|
 | `cs-sub40` Sub-style 40 | case | Dial 28.5–29, insert 38×30.6, lugs 20, SKX013-spec ring (community). Lug-to-lug, crystal, stack height unverified. The 38×30.6 insert matches the sloped SKX007 insert (namokiMODS insert sizes: 38.0 outer × 30.6 inner). The nearest published 40mm sub, namokiMODS NMK909, gives 40 / 47.5 lug-to-lug / 11 case only / lugs 22 and "fits all original and aftermarket SKX007 mod parts"; it is a 22mm-lug SKX007 clone, not necessarily this case (lugs 20, 13.4 thick), so nothing here was changed from it. Still unpublished for either: crown position, crystal size, stack height, crown tube. |
 | `cs-fluted39` Fluted Classic 39 | case | Only diameter / lug-to-lug known (community listings). Other values copied from the 36 as placeholders. |
-| `dl-sterile-miyota` Sterile No-Date (Miyota 8215) | dial | Miyota 82xx dial-feet angles not yet checked against a Miyota drawing (compatibility spec §7, item 1). |
+| `dl-sterile-miyota` Sterile No-Date (Miyota 8215) | dial | Feet follow Miyota dial drawing 8215-33E (compatibility spec §4). Diameter and centre hole are not from any retail dial; no Miyota 8215 dial with published sizes has been checked. |
 | `bz-sub40` Sub-style 40 Bezel | bezel | No Sub-style 40 reference product checked yet (compatibility spec §7, item 4). |
 | `bz-fluted39` Fluted Bezel 39 | bezel | No fluted 39 reference product checked yet; values follow the 36 (compatibility spec §7, item 4). |
 | `bz-sub40-smooth` Sub-style 40 Bezel (smooth, no insert) | bezel | Measurements inherited from bz-sub40; what differs is a style choice (the smooth profile and deleted insert seat). Confirm against a listing before ordering. |

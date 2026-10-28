@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-10-27. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts); sourced parts pass the same day (135 parts)._
+_Last updated 2026-10-28. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts); sourced parts pass the same day (135 parts); 2026-10-28: golden images, perf budget, picker thumbnails, dial print, uploaded lume, NH39 / NH70 / NH72 with schema v3 (140 parts, 30 rules)._
 
 ## 1. Context
 
@@ -18,7 +18,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 | Naming | Generic style names only ("Diver 42", "Fluted Classic", "Octagon Integrated"), never watch trademarks |
 
 ### Reference docs
-- [`compatibility-spec.md`](compatibility-spec.md): measurements, crown geometry, the 26 fit rules, verification checklist
+- [`compatibility-spec.md`](compatibility-spec.md): measurements, crown geometry, the 30 fit rules, verification checklist
 - [`svg-canvas-spec.md`](svg-canvas-spec.md): drawing coordinate system, part anchors, upload rules
 - [`seed-catalog.md`](seed-catalog.md): summary of built-in parts and reference test builds (code is the source of truth)
 
@@ -27,7 +27,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 ## 2. Current state (Phases 0–5 done)
 
 - **Runs:** `npm run dev` → Builds library (`#/builds`), builder (`#/build/:id`), compare (`#/compare?ids=…`), parts catalog (`#/catalog`), packs (`#/packs`), shared build (`#/share/…`), part editor (`#/part/new?type=…`, `#/part/:packId/:partId`).
-- **Checks:** `npm test` (607 tests), `npm run lint`, `npm run build`, `npm run previews` (renders sample builds to PNG via resvg).
+- **Checks:** `npm test` (671 tests), `npm run lint`, `npm run build`, `npm run golden:check` (sample drawings against `test/golden/`; `npm run golden:update` to accept an intended change), `npm run bench` (performance), `npm run previews` (renders sample builds to PNG via resvg).
 - **Git:** committed on `main`, remote github.com/Nswchoeffler/WatchBuilder (private). CI in `.github/workflows/ci.yml`.
 - **Browser-verified 2026-09-22:** all five Phase 4 acceptance criteria plus PNG export, walked through by the user in a real browser. Automated tests still run in jsdom and drawings are still reviewed via resvg previews, so new UI work needs its own browser pass.
 - **Browser-verified 2026-10-23:** all four Phase 5 acceptance criteria (see 5.5), driven in Chrome. That run found and fixed two bugs:
@@ -40,7 +40,7 @@ A tool for designing mockups of modded watches from real parts: movement, case, 
 src/
   domain/
     schemas/     common.ts (units, crown steps, visuals), parts.ts (10 part types), build.ts, pack.ts
-    rules/       definitions/{movement,case,fittings}.ts (26 rules), evaluate.ts (evaluate, candidatesFor,
+    rules/       definitions/{movement,case,fittings}.ts (30 rules), evaluate.ts (evaluate, candidatesFor,
                  requiredSlots), geometry.ts, tolerances.ts, registry.ts, testkit.ts
   data/
     seed/        typed core catalog (movements, cases, dials, hands, accessories)
@@ -90,7 +90,7 @@ True-scale scene; templates for 4 case styles, 2 bezels, 2 insert types, 2 ring 
 
 **Status (2026-09-17):** screens, autosave, undo/redo, mods, parts list, compare and a new visual design (warm paper / graphite theme, brass accent, Instrument Serif + Manrope + JetBrains Mono, bundled via Fontsource) are in. 22 UI tests cover routes, draft history, picker filtering, the day-wheel acceptance case, missing-slot links, rename/autosave, library CRUD and compare. The octagon case drawing was reshaped (shorter case ends).
 **Verified in a browser (2026-09-22):** all five acceptance criteria below, plus PNG export — assembly from empty with incompatible dials hidden and reasons shown, the day-wheel warning clearing via `day-wheel-swap`, reload persistence, compare at a shared scale, and 375 px with no horizontal scrolling (`.bom` and `.compare-table` have no mobile override and were the suspected overflow risk; they held up).
-**Still open:** golden-image diffs for previews; lazily rendered part thumbnails in the picker; performance measurement against the < 50 ms budget. Mods live inside `CheckPanel.tsx` rather than a separate `ModsPanel.tsx`.
+**Closed 2026-10-28:** golden-image diffs, lazily rendered picker thumbnails and the performance measurement (see 8). Picker thumbnails show the candidate on the current build and are only tested in jsdom so far. Mods live inside `CheckPanel.tsx` rather than a separate `ModsPanel.tsx`.
 
 **Goal:** design, check, save and compare your own builds end to end without touching code.
 
@@ -142,7 +142,7 @@ src/ui/
 - Unit: `useBuildDraft` (autosave, undo/redo), hash router.
 - Component: picker hides incompatible parts by default and shows the reason; "show all" reveals them; selecting a part updates status; mod toggle downgrades a finding; missing-slot links open the right picker.
 - Storage: library CRUD against fake-indexeddb.
-- Visual: extend `npm run previews` to golden-image comparison (resvg + pixel diff with a small threshold) for sample builds, replacing the originally planned Playwright snapshots.
+- ~~Visual: golden-image comparison for sample builds~~ ✅ (2026-10-28). `scripts/golden.tsx`: exact SVG markup (covers text) plus a 4 px/mm PNG drawn with system fonts off (geometry and colour, pixelmatch, ≤ 0.05% of pixels may differ). No font is bundled, so text is checked only through the markup.
 
 ### 4.8 Acceptance criteria
 1. From an empty build, assemble the "Diver 42 Classic" using only the UI, with incompatible dials hidden and their reasons visible under "show all".
@@ -333,7 +333,7 @@ wasn't available).
 - **VH31:** no dial with VH31 feet is sold. Builds use a spacer or holder that carries NH feet, so this pass added the
   `dial-feet-adapter` flag: an NH dial on a VH movement is an R-MD-1 error that the flag reduces to a warning. The VH31 still
   needs mods in every case, as it always will in NH cases.
-- `Movement.casingDiameter` means two different things: the NH35 stores the size with the casing ring (larger than the
+- ~~`Movement.casingDiameter` means two different things~~ (settled 2026-10-28: the maker's case-fitting diameter, so both are right): the NH35 stores the size with the casing ring (larger than the
   movement), the VH31 stores the fitting diameter (smaller). No rule reads it yet; settle the meaning before one does.
 
 ### 6.2 More parts & styles
@@ -355,7 +355,7 @@ Movements and cases unchanged at 9 and 6.
 **Measurement sourcing decision:** genuinely new parts are measured by the user (calipers or listings) and modelled from
 what they supply. Nothing is estimated into the catalog.
 
-- **Movements:** NH39, NH70/NH72 (skeleton/open-worked), Miyota 9039, SW200 variants; `feetSystem` angle data once measured.
+- **Movements:** ~~NH39, NH70/NH72~~ ✅ (2026-10-28, see below), ~~Miyota 9039~~ ✅, SW200 variants; `feetSystem` angle data once measured.
 - **Cases (templates + reference products):** Turtle-style cushion, Tuna-style shroud, Samurai-style angular, SKX013-style 38mm, field/pilot, Explorer-style 36/39, Nautilus-style integrated.
 - **Dials:** Explorer 3-6-9, pilot type A/B, California, sector, fumé gradient, guilloché; open-worked dials for skeleton movements; dial logo/text controls.
 - **Bezels & inserts:** smooth polished bezel, 12-hour, countdown, compass, tachymeter; bezel rotation setting in the preview.
@@ -378,6 +378,14 @@ publishes the numbers.
 - **Drawing:** `case/cushion` template; `case/diver` gains a crown-guard switch; `case/fluted` can draw a smooth or fluted bezel that
   is part of the case. Four sample builds exercise them.
 
+**NH39 / NH70 / NH72 and schema v3 (2026-10-28):** catalog 135 → 140 parts, all movement numbers from Seiko TMI spec sheets.
+- **Schema v3:** `Movement.subdials[]` and `openWork`, `Dial.subdials[]` and `centerOpening`, `Hands.subdialHands[]`, feet `seiko-nh-skeleton`, mount `seiko-nh-27`. Migration 2 → 3 and Dexie `version(3)`. Sub-dial kinds already cover small seconds and chronograph counters.
+- **Rules 26 → 30:** R-MD-6 (sub-dial posts, rotated by crown position), R-MD-7 (open-worked movement vs dial opening), R-MH-3 (sub-dial hands), R-HD-3 (sub-dial hand length).
+- **NH39:** 24-hour post at 320.8°, 5.78 mm out; no date. **NH70 / NH72:** their own dial feet and a Ø31.50 ring dial (only the octagon's seat takes it today), and a 27.00 casing with clamps, so NH cases take them only with `movement-spacer` (user decision: strict over vendor listings).
+- Their new dial and hands are style parts on TMI geometry (`community`); no retail dial was checked. The editor edits the first sub-dial only.
+
+**Third research pass (2026-10-28):** SW200-1 dial feet verified from Sellita's DocTec drawing SW106765 A (71.96° / 251.96°, r 12.20); `casingDiameter` defined as the maker's case-fitting diameter (SW200 25.60 added; the ETA 2824's 25.6 is its fitting value). Diver 42 crowns 6.5 → 7.0 from vendor listings (tube still unknown). Still blocked without calipers or a vendor email: a Miyota 8215 case, ETA 2824 feet, Fluted 39, crown tube threads, the octagon crystal and a 30.8 dial's centre hole. Lead: Miyota's 8215-36E dial drawing.
+
 ### 6.3 Rendering polish
 - ~~Lume "night view" toggle; dark background option for exports.~~ ✅ (2026-10-23, checked in Chrome). Day / Night switch in
   the builder. Templates mark luminous shapes with `class="lume"` (`lumeClass` in `render/util.ts`), and only real lume:
@@ -386,8 +394,10 @@ publishes the numbers.
   (so hands still cover the markers). Glow is BGW9 blue when the dial's (else the hands') lume paint is blue-tinted, else C3
   green. Exports carry the backdrop, so SVG and PNG come out dark too. `npm run previews` also writes `<sample>-night.png`.
   Not done: uploaded SVG art can't mark lume yet (it would need a `lume` colour role); per-part glow colours.
-- Case-side detail (crown guards, bevels) per style; applied logo slot on dials.
-- Golden-image tests extended to every new template.
+- ~~Uploaded art can't mark lume~~ ✅ (2026-10-28): the `lume` role adds `class="lume"`, and an upload's lume colour picks the glow.
+- ~~Applied logo slot on dials~~ ✅ (2026-10-28): `textTop`, `textBottom` (16 characters max) and a generic `mark` (bar / triangle / shield), placed clear of `dialObstacles` (date window, open heart, sub-dials, ring opening). Lives in `render/templates/dialPrint.tsx`.
+- Case-side detail (crown guards, bevels) per style.
+- ~~Golden-image tests~~ ✅ every sample build, day and night. A new template needs a sample build to be covered.
 
 ### 6.4 Acceptance
 - No part in the core catalog is `unverified` on a rule-relevant field, or it is explicitly listed in the report with a reason.
@@ -429,10 +439,10 @@ publishes the numbers.
 | Item | When |
 |---|---|
 | ~~Commit Phases 1–3, add a GitHub remote~~ ✅ | Done |
-| CI (GitHub Actions): lint, typecheck, test, build ✅; previews golden diff still to add | Phase 4 |
+| CI (GitHub Actions): lint, typecheck, test, golden check, build ✅ (golden step added 2026-10-28; confirm its first Linux run) | Phase 4 |
 | Browser verification: manual checklist per phase until a browser test tool is chosen | Every phase |
 | Accessibility: keyboard navigation, focus states, colour contrast, SVG titles | Phase 4 onward |
-| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (~184 KB gzip main chunk as of 5.4, plus the lazily loaded sanitiser) | Phase 4 onward |
+| Performance budget: < 50 ms re-evaluate, < 100 ms render of a build, JS bundle watched (189.5 KB gzip main chunk on 2026-10-28, plus the lazily loaded sanitiser). Measured 2026-10-28 (`npm run bench`): evaluate ≈ 0.02 ms, worst picker slot ≈ 0.2 ms, render 1–17 ms (sunburst / fluted dials slowest); `src/domain/rules/perf.test.ts` fails at 50 ms | Phase 4 onward |
 | Docs kept in sync (spec rule ids already enforced by a test) | Always |
 
 ---
