@@ -33,21 +33,21 @@
 | `dl-sterile-miyota` Sterile No-Date (Miyota 8215) | dial | Miyota 82xx dial-feet angles not yet checked against a Miyota drawing (compatibility spec §7, item 1). |
 | `bz-sub40` Sub-style 40 Bezel | bezel | No Sub-style 40 reference product checked yet (compatibility spec §7, item 4). |
 | `bz-fluted39` Fluted Bezel 39 | bezel | No fluted 39 reference product checked yet; values follow the 36 (compatibility spec §7, item 4). |
-| `bz-sub40-smooth` Sub-style 40 Bezel (smooth, no insert) | bezel | Measurements inherited from bz-sub40; the smooth profile and deleted insert seat are a style choice. Confirm against a listing before ordering. |
+| `bz-sub40-smooth` Sub-style 40 Bezel (smooth, no insert) | bezel | Measurements inherited from bz-sub40; what differs is a style choice (the smooth profile and deleted insert seat). Confirm against a listing before ordering. |
 | `in-sub40-ceramic-black` Sub-style 40 Ceramic Insert, Black | bezelInsert | Size from community listings for the Sub-style 40 case (38 × 30.6); no reference product checked (compatibility spec §7, item 4). |
 | `in-sub40-gmt-black-blue` Sub-style 40 GMT Insert, Black/Blue | bezelInsert | Size from community listings for the Sub-style 40 case (38 × 30.6); no reference product checked (compatibility spec §7, item 4). |
-| `in-sub40-dive-green` Sub-style 40 Ceramic Insert, Green | bezelInsert | Measurements inherited from in-sub40-ceramic-black; colour and markers are a style choice. Confirm against a listing before ordering. |
+| `in-sub40-dive-green` Sub-style 40 Ceramic Insert, Green | bezelInsert | Measurements inherited from in-sub40-ceramic-black; what differs is a style choice (colour and markers). Confirm against a listing before ordering. |
 | `cy-sub40-magnifier` Sub-style 40 Sapphire, Date Magnifier | crystal | Sub-style 40 crystal size not checked against a reference product (compatibility spec §7, item 4). |
 | `cy-octagon41-flat` Octagon 41 Sapphire, Flat | crystal | Octagon 41 crystal size is missing from the case's vendor listing; still open (compatibility spec §7, item 4). |
-| `cy-sub40-dd` Sub-style 40 Sapphire, Double Dome | crystal | Measurements inherited from cy-sub40-magnifier; the dome profile and deleted magnifier are a style choice. Confirm against a listing before ordering. |
-| `cy-octagon41-dd` Octagon 41 Sapphire, Double Dome | crystal | Measurements inherited from cy-octagon41-flat; the dome profile are a style choice. Confirm against a listing before ordering. |
+| `cy-sub40-dd` Sub-style 40 Sapphire, Double Dome | crystal | Measurements inherited from cy-sub40-magnifier; what differs is a style choice (the dome profile and deleted magnifier). Confirm against a listing before ordering. |
+| `cy-octagon41-dd` Octagon 41 Sapphire, Double Dome | crystal | Measurements inherited from cy-octagon41-flat; what differs is a style choice (the dome profile). Confirm against a listing before ordering. |
 | `cw-diver42` Diver 42 Crown | crown | Crown diameter and tube not yet measured (roadmap 6.1). |
 | `cw-sub40` Sub-style 40 Crown | crown | Crown diameter and tube not yet measured (roadmap 6.1). |
 | `cw-fluted36` Fluted Classic Crown | crown | Crown diameter and tube not yet measured (roadmap 6.1). |
 | `cw-octagon41` Octagon 41 Crown | crown | Crown diameter and tube not yet measured (roadmap 6.1). |
-| `cw-diver42-signed` Diver 42 Crown, Signed | crown | Measurements inherited from cw-diver42; the signed face are a style choice. Confirm against a listing before ordering. |
-| `cw-diver42-gold` Diver 42 Crown, Gold | crown | Measurements inherited from cw-diver42; the plating colour are a style choice. Confirm against a listing before ordering. |
-| `cw-sub40-signed` Sub-style 40 Crown, Signed | crown | Measurements inherited from cw-sub40; the signed face are a style choice. Confirm against a listing before ordering. |
+| `cw-diver42-signed` Diver 42 Crown, Signed | crown | Measurements inherited from cw-diver42; what differs is a style choice (the signed face). Confirm against a listing before ordering. |
+| `cw-diver42-gold` Diver 42 Crown, Gold | crown | Measurements inherited from cw-diver42; what differs is a style choice (the plating colour). Confirm against a listing before ordering. |
+| `cw-sub40-signed` Sub-style 40 Crown, Signed | crown | Measurements inherited from cw-sub40; what differs is a style choice (the signed face). Confirm against a listing before ordering. |
 
 ## Parts that can't form a valid build
 
