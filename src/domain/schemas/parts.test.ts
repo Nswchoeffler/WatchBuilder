@@ -75,6 +75,12 @@ describe('Dial', () => {
   it('accepts a dual-feet dial', () => expect(Dial.parse(dial).gmtScale).toBe(false));
   it('rejects duplicate crown steps', () => expect(Dial.safeParse({ ...dial, crownSteps: [2, 2] }).success).toBe(false));
   it('rejects an angle of 360', () => expect(Dial.safeParse({ ...dial, dateWindow: { angle: 360 } }).success).toBe(false));
+  it('rejects two sub-dials of the same kind, on the repeated row', () => {
+    const sub = { indicates: '24-hour', angle: 320, distance: 5.8, hole: 0.8, radius: 2.5 };
+    expect(Dial.safeParse({ ...dial, subdials: [sub, { ...sub, indicates: 'small-seconds' }] }).success).toBe(true);
+    const r = Dial.safeParse({ ...dial, subdials: [sub, { ...sub, angle: 180 }] });
+    expect(r.error?.issues.map((i) => i.path.join('.'))).toEqual(['subdials.1.indicates']);
+  });
 });
 
 describe('Hands', () => {

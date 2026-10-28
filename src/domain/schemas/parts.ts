@@ -27,6 +27,22 @@ export type FeetSystem = z.infer<typeof FeetSystem>;
 export const SubdialKind = z.enum(['24-hour', 'small-seconds', 'chrono-minutes', 'chrono-hours']);
 export type SubdialKind = z.infer<typeof SubdialKind>;
 
+/**
+ * A list of sub-dial entries, at most one of each kind: rules, hands and drawing all pair entries by kind,
+ * so a second entry of the same kind would be silently ignored. The issue lands on the repeated row.
+ */
+const subdialList = <T extends z.ZodType<{ indicates: SubdialKind }>>(row: T) =>
+  z
+    .array(row)
+    .superRefine((rows, ctx) => {
+      rows.forEach((r, i) => {
+        if (rows.findIndex((o) => o.indicates === r.indicates) < i) {
+          ctx.addIssue({ code: 'custom', path: [i, 'indicates'], message: `only one ${r.indicates} sub-dial per part` });
+        }
+      });
+    })
+    .default([]);
+
 const HandSet = <T extends z.ZodType>(value: T) =>
   z.object({
     hour: value,
@@ -74,7 +90,7 @@ export const Movement = z.object({
    * Extra hand posts away from the centre, in the movement frame (crown at 3:00). `distance` is
    * from the centre post to this post, `post` its diameter.
    */
-  subdials: z.array(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, post: Mm })).default([]),
+  subdials: subdialList(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, post: Mm })),
   /** Open-worked movement (skeleton): the dial must leave the centre open, at most `maxDialOpening` wide. Null = plain plate. */
   openWork: z.object({ maxDialOpening: Mm }).nullable().default(null),
 });
@@ -135,7 +151,7 @@ export const Dial = z.object({
   openHeartAperture: Feature.nullable(),
   gmtScale: z.boolean().default(false),
   /** A hole for a sub-dial hand post, in dial coordinates (12:00 up). `radius` is the printed or recessed sub-dial. */
-  subdials: z.array(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, hole: Mm, radius: Mm })).default([]),
+  subdials: subdialList(z.object({ indicates: SubdialKind, angle: Angle, distance: Mm, hole: Mm, radius: Mm })),
   /** Diameter of an open centre (a ring dial for an open-worked movement). Null = solid dial. */
   centerOpening: Mm.nullable().default(null),
 });
@@ -150,7 +166,7 @@ export const Hands = z
     holes: HandSet(Mm),
     lengths: HandSet(Mm),
     /** Hands for a movement's sub-dial posts (24-hour hand, small seconds, counters). */
-    subdialHands: z.array(z.object({ indicates: SubdialKind, hole: Mm, length: Mm })).default([]),
+    subdialHands: subdialList(z.object({ indicates: SubdialKind, hole: Mm, length: Mm })),
   })
   .superRefine((h, ctx) => {
     if ((h.holes.gmt === undefined) !== (h.lengths.gmt === undefined)) {
