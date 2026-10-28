@@ -41,10 +41,12 @@ A part can be recoloured without editing the file. Any element may carry `data-r
 | `primary` | Main surface (dial base, case metal, insert base) |
 | `secondary` | Second colour (insert numerals, sub-surfaces) |
 | `accent` | Highlight colour (seconds hand tip, GMT hand, text) |
-| `lume` | Luminous material |
+| `lume` | Luminous material; also takes part in the night view (below) |
 | `metal` | Polished/brushed steel trim (indices, hand frames) |
 
 The renderer overrides `fill`/`stroke` for role-tagged elements with the part's visual settings. Untagged elements keep their own colours.
+
+**Lume at night.** The renderer adds `class="lume"` to every `data-role="lume"` element of an upload, the same marker the built-in templates use. In the night view those shapes glow and everything else goes dark; hands stay as silhouettes, so a hand still covers lume markers beneath it. The `lume` colour (or the file's own) is how the paint looks by day, and a blue-tinted one makes the glow BGW9 blue. An outline-only (`fill="none"`) lume shape is filled in at night, so draw luminous shapes as solid areas. An upload with no `lume` role is dark at night. The sanitiser is unchanged: the class is added after the file has been cleaned.
 
 Finishes (sunburst, matte, brushed, polished) are applied by the renderer as gradient/filter overlays clipped to the `primary` shape. Files don't need to draw them.
 

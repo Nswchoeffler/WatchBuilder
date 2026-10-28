@@ -6,7 +6,7 @@ import { Catalog } from '../../data/catalog';
 import { validatePack } from '../../data/packs';
 import { loadCorePack } from '../../data/catalog';
 import { PACK_FORMAT, PACK_SCHEMA_VERSION, type PartOf, type PartType } from '../../domain/schemas';
-import { WatchSvg } from '../WatchSvg';
+import { GLOW, WatchSvg, glowFor } from '../WatchSvg';
 import { prepareArt } from './prepare';
 
 const art = (body: string, attrs = '') =>
@@ -140,6 +140,64 @@ describe('WatchSvg with uploaded art', () => {
     const out = render({ dial, bezel } as ResolvedParts, { dial: gradient, bezel: gradient });
     expect(out).toContain('id="t-dial-art-g"');
     expect(out).toContain('id="t-bezel-art-g"');
+  });
+});
+
+describe('lume role on uploaded art', () => {
+  const night = (parts: ResolvedParts, artMap: Record<string, string>) =>
+    renderToStaticMarkup(<WatchSvg parts={parts} art={artMap} idPrefix="t" night />);
+  const lumeCount = (svg: string) => (svg.match(/class="lume"/g) ?? []).length;
+  const dial = { ...corePart('dial'), visual: svgVisual('a') };
+  const lit = art('<circle r="9" fill="#222222"/><circle cx="6" r="1" data-role="lume" fill="#ffffff"/><circle cx="-6" r="1" data-role="lume"/>');
+
+  it('marks lume-role shapes with the lume class, with or without a colour', () => {
+    expect(prepareArt(lit, { prefix: 'p-' })!.rest.match(/class="lume"/g)).toHaveLength(2);
+    const coloured = prepareArt(lit, { prefix: 'p-', colors: { lume: '#d8ecff' } })!.rest;
+    expect(coloured.match(/class="lume"/g)).toHaveLength(2);
+    expect(coloured).toContain('fill="#d8ecff"');
+  });
+
+  it('keeps any class the file already had', () => {
+    const out = prepareArt(art('<circle r="1" class="a b" data-role="lume"/>'), { prefix: 'p-' })!.rest;
+    expect(out).toContain('class="a b lume"');
+  });
+
+  it('does not mark other roles or untagged shapes', () => {
+    const out = prepareArt(art('<circle r="1" data-role="accent"/><circle r="2"/>'), { prefix: 'p-' })!.rest;
+    expect(out).not.toContain('lume');
+  });
+
+  it('draws the lume shapes in the night pass, in both passes of the scene', () => {
+    const out = night({ dial } as ResolvedParts, { dial: lit });
+    // Once in the dimmed watch, once in the lume pass.
+    expect(lumeCount(out)).toBe(4);
+    expect(out).toContain('class="t-lume"');
+  });
+
+  it('draws no lume for an upload without the role', () => {
+    expect(lumeCount(night({ dial } as ResolvedParts, { dial: art('<circle r="9" fill="#222222"/>') }))).toBe(0);
+  });
+
+  it('lights lume on uploaded hands, which stay above the markers', () => {
+    const hands = { ...corePart('hands'), visual: svgVisual('a') };
+    const out = night({ hands } as ResolvedParts, {
+      hands: art('<g id="hour"><path d="M0 0 L1 -5" /><path d="M0 -3 L1 -4" data-role="lume"/></g>'),
+    });
+    expect(lumeCount(out)).toBe(2);
+    expect(out).toContain('data-layer="hands"');
+  });
+
+  it('prefixes ids of art that carries lume', () => {
+    const out = night({ dial } as ResolvedParts, { dial: art('<defs><linearGradient id="g"/></defs><rect data-role="lume" fill="url(#g)"/>') });
+    expect(out).toContain('id="t-dial-art-g"');
+    expect(out).toContain('id="t-lume-dial-art-g"');
+    expect(out).not.toMatch(/id="g"/);
+  });
+
+  it('glows blue for a blue-tinted lume colour on an upload', () => {
+    const blue = { ...dial, visual: { ...svgVisual('a'), colors: { lume: '#d8ecff' } } };
+    expect(glowFor({ dial: blue } as ResolvedParts)).toBe(GLOW.bgw9);
+    expect(glowFor({ dial } as ResolvedParts)).toBe(GLOW.c3);
   });
 });
 

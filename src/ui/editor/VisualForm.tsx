@@ -248,7 +248,11 @@ function RoleColours({ art }: { art: string | undefined }) {
           key={r}
           path={`visual.colors.${r}`}
           label={ROLE_LABELS[r]}
-          hint={`Recolours elements with data-role="${r}". Leave empty to keep the file’s own colour.`}
+          hint={
+            r === 'lume'
+              ? 'Daytime colour of elements with data-role="lume". They glow in the night view whatever colour is set; leave empty to keep the file’s own colour.'
+              : `Recolours elements with data-role="${r}". Leave empty to keep the file’s own colour.`
+          }
         />
       ))}
     </FormSection>

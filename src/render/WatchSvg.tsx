@@ -155,10 +155,16 @@ export const NIGHT_BACKGROUND = '#0b0c10';
 /** Lume glow colours: BGW9 glows blue, C3 (and most other paints) green. */
 export const GLOW = { bgw9: '#74d4ff', c3: '#b6ff70' } as const;
 
+/** Lume paint of a part: a template's `lume` setting (null = none), or an upload's `lume` role colour. */
+function lumePaint(part: Part): string | null {
+  const v = part.visual;
+  return v.kind === 'svg' ? (v.colors?.lume ?? '#e8f0d8') : optionalColor(paramsOf(v), 'lume', '#e8f0d8');
+}
+
 /** Glow colour for a build, from the lume paint of its dial, else its hands. Blue-tinted paint means BGW9. */
 export function glowFor(parts: ResolvedParts): string {
   const paint = [parts.dial, parts.hands]
-    .map((p) => (p ? optionalColor(paramsOf(p.visual), 'lume', '#e8f0d8') : null))
+    .map((p) => (p ? lumePaint(p) : null))
     .find((c): c is string => c !== null);
   if (!paint) return GLOW.c3;
   const [r, g, b] = [1, 3, 5].map((i) => parseInt(paint.slice(i, i + 2), 16)) as [number, number, number];
