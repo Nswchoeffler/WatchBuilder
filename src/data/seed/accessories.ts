@@ -453,14 +453,19 @@ export const crystals: SeedPart<'crystal'>[] = [
   },
 ];
 
+const SKX007_CROWN_SOURCES = ['https://www.namokimods.com/products/skx007-chunky-crown-mk2', 'https://luciusatelier.com/products/skx013-crown-ii-diamond-7mm', 'https://assemble.watch/parts/crowns/namoki_skx_crown_polished_finish'];
+const SKX007_CROWN_NOTE =
+  'Diameter 7.0 as vendors give it for SKX007-spec crowns (namokiMODS Chunky Crown Mk2: 7.0; Lucius Crown II: 7 mm; assemble.watch: 7 mm, SKX007 / SKX013). ' +
+  'Tube thread (M2.5 or M3.0) is not published anywhere found, so the tube stays unknown (roadmap 6.1).';
+
 export const crowns: SeedPart<'crown'>[] = [
-  { type: 'crown', id: 'cw-diver42', name: 'Diver 42 Crown', confidence: 'unverified', notes: 'Crown diameter and tube not yet measured (roadmap 6.1).', tube: 'diver42', diameter: 6.5, signed: false, visual: tpl('crown/knurled', { metal: '#c9ccd1' }) },
-  { type: 'crown', id: 'cw-sub40', name: 'Sub-style 40 Crown', confidence: 'unverified', notes: 'Crown diameter and tube not yet measured (roadmap 6.1).', tube: 'sub40', diameter: 7.0, signed: false, visual: tpl('crown/knurled', { metal: '#d4d7db' }) },
+  { type: 'crown', id: 'cw-diver42', name: 'Diver 42 Crown', confidence: 'unverified', notes: SKX007_CROWN_NOTE, sources: SKX007_CROWN_SOURCES, tube: 'diver42', diameter: 7.0, signed: false, visual: tpl('crown/knurled', { metal: '#c9ccd1' }) },
+  { type: 'crown', id: 'cw-sub40', name: 'Sub-style 40 Crown', confidence: 'unverified', notes: SKX007_CROWN_NOTE + ' Applies here on the namokiMODS NMK909 listing, which says its case fits SKX007 parts.', sources: [...SKX007_CROWN_SOURCES, 'https://www.namokimods.com/products/nmk909-sub-skx007-srpd-watch-case-polished-black-finish'], tube: 'sub40', diameter: 7.0, signed: false, visual: tpl('crown/knurled', { metal: '#d4d7db' }) },
   { type: 'crown', id: 'cw-fluted36', name: 'Fluted Classic Crown', confidence: 'unverified', notes: 'Crown diameter and tube not yet measured (roadmap 6.1).', tube: 'fluted36', diameter: 5.5, signed: false, visual: tpl('crown/fluted', { metal: '#e1e3e6' }) },
   { type: 'crown', id: 'cw-octagon41', name: 'Octagon 41 Crown', confidence: 'unverified', notes: 'Crown diameter and tube not yet measured (roadmap 6.1).', tube: 'octagon41', diameter: 6.0, signed: false, visual: tpl('crown/hex-guard', { metal: '#c9ccd1' }) },
   // Same tubes and diameters as above; signing and plating are cosmetic.
-  { type: 'crown', id: 'cw-diver42-signed', name: 'Diver 42 Crown, Signed', confidence: 'unverified', notes: variantOf('cw-diver42', 'the signed face'), tube: 'diver42', diameter: 6.5, signed: true, visual: tpl('crown/knurled', { metal: '#c9ccd1' }) },
-  { type: 'crown', id: 'cw-diver42-gold', name: 'Diver 42 Crown, Gold', confidence: 'unverified', notes: variantOf('cw-diver42', 'the plating colour'), tube: 'diver42', diameter: 6.5, signed: false, visual: tpl('crown/knurled', { metal: '#d9b06a' }) },
+  { type: 'crown', id: 'cw-diver42-signed', name: 'Diver 42 Crown, Signed', confidence: 'unverified', notes: variantOf('cw-diver42', 'the signed face'), tube: 'diver42', diameter: 7.0, signed: true, visual: tpl('crown/knurled', { metal: '#c9ccd1' }) },
+  { type: 'crown', id: 'cw-diver42-gold', name: 'Diver 42 Crown, Gold', confidence: 'unverified', notes: variantOf('cw-diver42', 'the plating colour'), tube: 'diver42', diameter: 7.0, signed: false, visual: tpl('crown/knurled', { metal: '#d9b06a' }) },
   { type: 'crown', id: 'cw-sub40-signed', name: 'Sub-style 40 Crown, Signed', confidence: 'unverified', notes: variantOf('cw-sub40', 'the signed face'), tube: 'sub40', diameter: 7.0, signed: true, visual: tpl('crown/knurled', { metal: '#d4d7db' }) },
   // SKX013-spec crowns (Lucius Atelier listings give diameter and thickness). Tube `skx013` is the screw-down tube the
   // Lucius cases call "SKX-style" or "SKX013-spec".

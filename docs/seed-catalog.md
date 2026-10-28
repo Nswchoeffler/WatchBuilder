@@ -23,15 +23,15 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | mv-nh34 | Seiko NH34A GMT | C |
 | mv-nh38 | Seiko NH38A Open Heart | C |
 | mv-nh39 | Seiko NH39A (24-hour sub-dial) | V (TMI spec sheet) |
-| mv-nh70 | Seiko NH70A (open-worked, nickel) | V (TMI spec sheet) |
-| mv-nh72 | Seiko NH72A (open-worked, ruthenium) | V (TMI spec sheet) |
+| mv-nh70 | Seiko NH70A (open-worked, nickel) | V (TMI spec sheet); mount `seiko-nh-27`, so NH cases need `movement-spacer` |
+| mv-nh72 | Seiko NH72A (open-worked, ruthenium) | V (TMI spec sheet); mount `seiko-nh-27`, so NH cases need `movement-spacer` |
 | mv-m8215 | Miyota 8215 | V |
 | mv-m9015 | Miyota 9015 | V |
 | mv-m9019 | Miyota 9019 | V |
 | mv-m9039 | Miyota 9039 (no date) | V |
 | mv-m90s5 | Miyota 90S5 Open Heart | V |
-| mv-eta2824 | ETA 2824-2 | C |
-| mv-sw200 | Sellita SW200-1 | C |
+| mv-eta2824 | ETA 2824-2 | C (dims and hands from ETA; `casingDiameter` 25.60 is the fitting value, `diameter` repeats it because ETA publishes no overall) |
+| mv-sw200 | Sellita SW200-1 | C (dims, hands and feet from Sellita's documentation; `casingDiameter` 25.60) |
 | mv-vh31 | Seiko VH31 (quartz sweep) | ? |
 
 ## Cases (15)
@@ -42,7 +42,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | cs-diver42-ncg-30 / cs-angular43-30 / cs-mono42-30 / cs-cushion45-38 | namokiMODS cases for SKX007 parts | outer sizes per listing; Diver 42 fittings inside | C |
 | cs-explorer36-slim / cs-pilot34-slim / cs-fluted36-slim / cs-faceted39 | Lucius Atelier dress cases | integral bezel, crystal 29.5 (28.6 on the fluted), SKX013 ring required, `skx013` crown tube | C |
 | cs-diver42-miyota | Diver 42.5 Slim (Miyota 9) | Ø42.5, lug-to-lug 46.4, lugs 22, crown 3.8, dial 28.5 (dial dots), no ring, crystal 31.5, bezel seat and crown tube `diver42`, Miyota mount, stack ≤ 6.0 | C |
-| cs-sub40 | Sub-style 40 | Ø40, lugs 20, crown 3.0, dial 28.3–29.0, insert 38×30.6, mid-size ring optional, bezel seat `sub40` | ? |
+| cs-sub40 | Sub-style 40 | Ø40, lugs 20, crown 3.0, dial 28.3–29.0, insert 38×30.6, mid-size ring optional, bezel seat `sub40`; namokiMODS NMK909 (40 / 47.5 / 11 / lugs 22) cited but not the same product | ? |
 | cs-fluted36 | Fluted Classic 36 | Ø36, lug-to-lug 43, lugs 20, crown 3.0, dial 28.5, crystal 29.5, mid-size ring **required**, NH + ETA mounts, not NH34 (stack ≤ 7.7) | C |
 | cs-fluted39 | Fluted Classic 39 | Ø39, lug-to-lug 48, lugs 20, crown 3.0, bezel seat `fluted39` | ? |
 | cs-octagon41 | Octagon Integrated 41 | Ø41, lug-to-lug 51, thickness 12.6, crown 3.0, dial 30.8–31.8, no ring, bezel integral, integrated profile `octagon41` | C |
@@ -100,8 +100,8 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
   - `cy-fluted36-flat` (Ø29.5 × 1.5)
   - `cy-octagon41-flat` (?)
 - **Crowns:**
-  - `cw-diver42` (tube `diver42`)
-  - `cw-sub40` (tube `sub40`)
+  - `cw-diver42` (tube `diver42`; Ø7.0, SKX007-spec crown, community)
+  - `cw-sub40` (tube `sub40`; Ø7.0)
   - `cw-fluted36` (tube `fluted36`)
   - `cw-octagon41` (tube `octagon41`)
 
@@ -117,7 +117,9 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 
 ## Reference test builds
 
-Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T28 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches, the Miyota 9 case, the ETA dial, the VH31 dial-feet adapter), and `src/domain/rules/subdial-openwork.test.ts`, which adds T29–T38 (NH39 sub-dial and balance alignment, 24-hour hands, hole clearance, stack height; NH70 / NH72 ring dial, feet and opening limits).
+Implemented as `src/domain/rules/reference-builds.test.ts`, which also adds T14–T28 (stack height, complete GMT and octagon builds, ring requirements, feet on Miyota, magnifier, crown/crystal/strap mismatches, the Miyota 9 case, the ETA dial, the VH31 dial-feet adapter), and `src/domain/rules/subdial-openwork.test.ts`, which adds T29–T38 (NH39 sub-dial and balance alignment, 24-hour hands, hole clearance, stack height; NH70 / NH72 ring dial, feet and opening limits, and the spacer they need in any NH case: T35 / T35b).
+
+The NH cases (every core case with `seiko-nh` in `movementMounts`) list `seiko-nh-27` under `spacerMounts`, so the NH70 / NH72 sample builds carry the `movement-spacer` flag and show one warning (R-MC-1). The Miyota 9 case has no NH mount and does not take them at all.
 | # | Build | Expected |
 |---|---|---|
 | T1 | cs-diver42-38 + mv-nh35 + dl-diver-black + hd-nh-mercedes + bz-diver42-sloped + in-diver42-dive-black + cr-diver42-silver + cy-diver42-dd + cw-diver42 + st-oyster-22-diver42 | **Valid** |

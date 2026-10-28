@@ -158,6 +158,7 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
   {
     id: 'octagon-nh70',
     name: 'Octagon 41, NH70 Open-worked',
+    flags: ['movement-spacer'],
     slots: {
       case: 'cs-octagon41', movement: 'mv-nh70', dial: 'dl-nh70-ring-black', hands: 'hd-nh-sword', crystal: 'cy-octagon41-flat',
       crown: 'cw-octagon41', strap: 'st-octagon41-bracelet',
@@ -166,6 +167,7 @@ export const SAMPLE_BUILDS: SampleBuild[] = [
   {
     id: 'octagon-nh72',
     name: 'Octagon 41, NH72 Open-worked',
+    flags: ['movement-spacer'],
     slots: {
       case: 'cs-octagon41', movement: 'mv-nh72', dial: 'dl-nh70-ring-black', hands: 'hd-nh-snowflake', crystal: 'cy-octagon41-flat',
       crown: 'cw-octagon41', strap: 'st-octagon41-bracelet',
