@@ -21,7 +21,7 @@ export const dials: SeedPart<'dial'>[] = [
     name: 'Diver Black',
     confidence: 'community',
     crownSteps: [0, 2],
-    visual: tpl('dial/diver', { color: '#141518', finish: 'matte', markers: 'dots-bars', lume: '#e8f0d8' }),
+    visual: tpl('dial/diver', { color: '#141518', finish: 'matte', markers: 'dots-bars', lume: '#e8f0d8', mark: 'bar', textTop: 'AUTOMATIC', textBottom: '200M = 660FT' }),
   },
   {
     ...nhDial,
@@ -38,7 +38,7 @@ export const dials: SeedPart<'dial'>[] = [
     name: 'Sub-style Black',
     confidence: 'community',
     crownSteps: [0],
-    visual: tpl('dial/sub', { color: '#0f0f10', finish: 'gloss', markers: 'mercedes-classic', lume: '#f2ecd9' }),
+    visual: tpl('dial/sub', { color: '#0f0f10', finish: 'gloss', markers: 'mercedes-classic', lume: '#f2ecd9', mark: 'shield', textTop: 'AUTOMATIC', textBottom: '300M' }),
   },
   {
     ...nhDial,
@@ -46,7 +46,7 @@ export const dials: SeedPart<'dial'>[] = [
     name: 'Sunburst Blue Classic',
     confidence: 'community',
     crownSteps: [0],
-    visual: tpl('dial/classic', { color: '#1f3f7a', finish: 'sunburst', markers: 'batons', lume: null }),
+    visual: tpl('dial/classic', { color: '#1f3f7a', finish: 'sunburst', markers: 'batons', lume: null, mark: 'triangle', textTop: 'AUTOMATIC' }),
   },
   {
     ...nhDial,

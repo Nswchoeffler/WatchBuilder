@@ -39,12 +39,18 @@ const isStructural = (name: string) => {
 /**
  * Spec §3: a role-tagged element takes its colour from the part's settings. An element drawn as an
  * outline (`fill="none"`) is recoloured on its stroke instead, so outlines don't fill in.
+ *
+ * `lume` elements also get `class="lume"` whether or not a colour is set. That is how templates mark
+ * luminous shapes, and the night view (`WatchSvg`) lights exactly those.
  */
 function applyRoles(root: Element, colors: Partial<Record<Role, string>> | undefined): void {
-  if (!colors) return;
   const visit = (el: Element) => {
     const role = el.getAttribute('data-role') as Role | null;
-    const c = role ? colors[role] : undefined;
+    if (role === 'lume') {
+      const classes = (el.getAttribute('class') ?? '').split(/\s+/).filter(Boolean);
+      if (!classes.includes('lume')) el.setAttribute('class', [...classes, 'lume'].join(' '));
+    }
+    const c = role ? colors?.[role] : undefined;
     if (c) {
       if (el.getAttribute('fill') === 'none') el.setAttribute('stroke', c);
       else el.setAttribute('fill', c);
