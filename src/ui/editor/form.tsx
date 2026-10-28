@@ -1,4 +1,4 @@
-import { createContext, useContext, useId, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 
 // A small form kit over a plain object draft. Fields address the draft by path
 // ("dialSeat.min", "holes.gmt"), which is also how Zod reports its issues, so an
@@ -537,6 +537,92 @@ export function NullableGroup({ path, label, hint, whenOn, children }: Common & 
       </div>
       {hint && <p className="field-hint">{hint}</p>}
       {on && <div className="form-grid">{children}</div>}
+    </div>
+  );
+}
+
+// ── repeating rows ──────────────────────────────────────────────────────────
+
+/**
+ * A list of objects edited as numbered rows (`subdials.0`, `subdials.1`, …) with Add and Remove.
+ * `children` renders one row's fields; it gets the row's path prefix and its name ("Sub-dial 2"),
+ * which the fields use to label themselves so a screen reader hears which row an input is in.
+ * Rows keep a stable key, so a field's own state (the angle's clock/custom choice) follows its row
+ * when an earlier one is removed. Focus goes to the new row after Add, and to the row that took the
+ * removed one's place (or the Add button when none are left) after Remove.
+ */
+export function RowListField({
+  path,
+  label,
+  hint,
+  rowName,
+  blank,
+  children,
+}: Common & { rowName: string; blank: (existing: unknown[]) => Record<string, unknown>; children: (row: { path: string; name: string }) => ReactNode }) {
+  const form = useForm();
+  const found = getAt(form.value, path);
+  const list = Array.isArray(found) ? (found as unknown[]) : [];
+  const [ids, setIds] = useState({ keys: [] as number[], next: 0 });
+  let { keys, next } = ids;
+  if (keys.length !== list.length) {
+    keys = keys.slice(0, list.length);
+    while (keys.length < list.length) keys.push(next++);
+    setIds({ keys, next });
+  }
+
+  const container = useRef<HTMLDivElement>(null);
+  const addButton = useRef<HTMLButtonElement>(null);
+  // Set by Add / Remove, acted on once the new rows are in the DOM.
+  const pendingFocus = useRef<number | 'add' | null>(null);
+  useEffect(() => {
+    const focus = pendingFocus.current;
+    if (focus === null) return;
+    pendingFocus.current = null;
+    if (focus === 'add') return addButton.current?.focus();
+    container.current?.querySelectorAll<HTMLElement>('.row-list-item')[focus]?.querySelector<HTMLElement>('select, input')?.focus();
+  });
+
+  const singular = rowName.toLowerCase();
+  return (
+    <div className="row-list" ref={container}>
+      <div className="row-list-head">
+        <span className="field-row-label">{label}</span>
+        <button
+          ref={addButton}
+          type="button"
+          className="btn small"
+          onClick={() => {
+            setIds({ keys: [...keys, next], next: next + 1 });
+            form.set(path, [...list, blank(list)]);
+            pendingFocus.current = list.length;
+          }}
+        >
+          Add {singular}
+        </button>
+      </div>
+      {hint && <p className="field-hint">{hint}</p>}
+      {list.length === 0 && <p className="field-hint">None yet.</p>}
+      {list.map((_, i) => {
+        const name = `${rowName} ${i + 1}`;
+        return (
+          <fieldset key={keys[i]} className="row-list-item">
+            <legend>{name}</legend>
+            <div className="form-grid">{children({ path: `${path}.${i}`, name })}</div>
+            <button
+              type="button"
+              className="btn small danger"
+              aria-label={`Remove ${singular} ${i + 1}`}
+              onClick={() => {
+                setIds({ keys: keys.filter((_, j) => j !== i), next });
+                form.set(path, list.filter((_, j) => j !== i));
+                pendingFocus.current = list.length > 1 ? Math.min(i, list.length - 2) : 'add';
+              }}
+            >
+              Remove
+            </button>
+          </fieldset>
+        );
+      })}
     </div>
   );
 }
