@@ -1,8 +1,9 @@
 import { useMemo, useState, type KeyboardEvent } from 'react';
 import type { Catalog } from '../../data/catalog';
-import type { Candidate } from '../../domain/rules';
+import { resolveParts, type Candidate, type ResolvedParts } from '../../domain/rules';
 import type { Build, Confidence, PartRef, Slot } from '../../domain/schemas';
 import { SLOT_LABELS, summarize } from '../labels';
+import { CandidateThumb } from './CandidateThumb';
 import { useCandidates } from './useCandidates';
 
 interface Props {
@@ -24,6 +25,7 @@ export function PartPicker({ slot, build, catalog, onPick, onPreview }: Props) {
   const [confidence, setConfidence] = useState<Confidence | ''>('');
 
   const selected = build.slots[slot];
+  const base = useMemo(() => resolveParts({ slots: build.slots, flags: build.flags }, catalog).parts, [build.slots, build.flags, catalog]);
   const packs = useMemo(() => [...new Set(candidates.map((c) => c.ref.packId))], [candidates]);
 
   const matching = candidates.filter((c) => {
@@ -88,7 +90,7 @@ export function PartPicker({ slot, build, catalog, onPick, onPreview }: Props) {
         <ul className="candidates" role="listbox" aria-label={`${SLOT_LABELS[slot]} options`} onKeyDown={onKeyDown} onMouseLeave={() => onPreview(null)}>
           {visible.map((c) => (
             <li key={`${c.ref.packId}/${c.ref.partId}`} role="presentation">
-              <CandidateRow candidate={c} selected={sameRef(selected, c.ref)} onPick={onPick} onPreview={onPreview} />
+              <CandidateRow candidate={c} slot={slot} base={base} slots={build.slots} catalog={catalog} selected={sameRef(selected, c.ref)} onPick={onPick} onPreview={onPreview} />
             </li>
           ))}
         </ul>
@@ -102,7 +104,18 @@ export function PartPicker({ slot, build, catalog, onPick, onPreview }: Props) {
   );
 }
 
-function CandidateRow({ candidate: c, selected, onPick, onPreview }: { candidate: Candidate<Slot>; selected: boolean; onPick: (ref: PartRef) => void; onPreview: (ref: PartRef | null) => void }) {
+interface RowProps {
+  candidate: Candidate<Slot>;
+  slot: Slot;
+  base: ResolvedParts;
+  slots: Partial<Record<Slot, PartRef>>;
+  catalog: Catalog;
+  selected: boolean;
+  onPick: (ref: PartRef) => void;
+  onPreview: (ref: PartRef | null) => void;
+}
+
+function CandidateRow({ candidate: c, slot, base, slots, catalog, selected, onPick, onPreview }: RowProps) {
   const reasons = c.results.filter((r) => r.severity === 'error' || r.severity === 'warning');
   return (
     <button
@@ -114,17 +127,20 @@ function CandidateRow({ candidate: c, selected, onPick, onPreview }: { candidate
       onMouseEnter={() => onPreview(c.ref)}
       onFocus={() => onPreview(c.ref)}
     >
-      <span className="candidate-head">
-        <span className="candidate-name">{c.part.name}</span>
-        <span className={`badge ${c.part.confidence}`}>{c.part.confidence}</span>
-      </span>
-      <span className="candidate-specs">{summarize(c.part)}</span>
-      {reasons.slice(0, 3).map((r, i) => (
-        <span key={i} className={`reason ${r.severity}`}>
-          <span className={`dot ${r.severity}`} aria-hidden="true" />
-          <span>{r.message}</span>
+      <CandidateThumb slot={slot} part={c.part} partRef={c.ref} base={base} slots={slots} catalog={catalog} />
+      <span className="candidate-body">
+        <span className="candidate-head">
+          <span className="candidate-name">{c.part.name}</span>
+          <span className={`badge ${c.part.confidence}`}>{c.part.confidence}</span>
         </span>
-      ))}
+        <span className="candidate-specs">{summarize(c.part)}</span>
+        {reasons.slice(0, 3).map((r, i) => (
+          <span key={i} className={`reason ${r.severity}`}>
+            <span className={`dot ${r.severity}`} aria-hidden="true" />
+            <span>{r.message}</span>
+          </span>
+        ))}
+      </span>
     </button>
   );
 }

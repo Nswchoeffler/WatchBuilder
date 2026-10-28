@@ -467,13 +467,27 @@ select.input { width: auto; padding-right: 28px; }
   width: 100%;
   text-align: left;
   display: grid;
-  gap: 3px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
   padding: 9px 10px;
   border-radius: 10px;
   border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
 }
+.candidate-body { display: grid; gap: 3px; min-width: 0; }
+.candidate-thumb {
+  width: 44px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, var(--stage-hi), var(--stage-lo));
+  overflow: hidden;
+}
+.candidate-thumb svg { width: 100%; height: 100%; display: block; }
 .candidate:hover, .candidate:focus-visible { background: var(--sunken); outline: none; border-color: var(--border-strong); }
 .candidate[aria-selected='true'] { background: var(--brass-soft); border-color: var(--brass-line); }
 .candidate.incompatible { opacity: 0.55; }
