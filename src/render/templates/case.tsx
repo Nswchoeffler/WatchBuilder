@@ -6,22 +6,139 @@ import { MetalGradient, url, type MetalFinish, type Template, type TemplateProps
 // Case templates. Drawn 12:00-up at true size; the crown is a separate layer.
 // Shapes are drawn twice: a dark outline pass, then a fill pass on top, so overlapping
 // pieces (body + lugs) read as one silhouette.
+//
+// Side detail (chamfered edges, brushing, drilled lugs) is drawn inside that silhouette and clipped to it,
+// so it never changes the case's outline. It is driven by the template's `finish`, `bevel` and `drilled`
+// settings. Nothing here uses `lumeClass`: the case does not glow at night.
+
+type Mirror = readonly [number, number];
+const QUADRANTS: readonly Mirror[] = [
+  [1, 1],
+  [-1, 1],
+  [1, -1],
+  [-1, -1],
+];
+
+/**
+ * Side detail, drawn once per mirror. Coordinates are those of the first mirror
+ * (the top-right lug, or the whole body).
+ */
+interface Trim {
+  mirrors: readonly Mirror[];
+  /** Outline that gets the chamfer: open for a lug (so it leaves out the root), closed for a whole body. */
+  edge: string;
+  /** Fine straight lines for a brushed surface. */
+  grain?: string;
+  /** One sharp highlight along the piece, for a polished surface. */
+  glint?: string;
+  /** Drilled hole: x, y, radius. */
+  hole?: readonly [number, number, number];
+  /** Radius of the round case body that the trim stays out of (set for lugs, which join it). */
+  outside?: number;
+}
 
 interface Silhouette {
   shapes: ReactNode[];
   /** Extra detail drawn above the body (bevels, integral bezel…). */
   detail?: ReactNode;
+  trim?: Trim;
+  /** Circular brushing on the case top between these two radii. */
+  rings?: readonly [number, number];
+}
+
+const BEVEL_WIDTH = { none: 0, narrow: 0.5, wide: 0.9 } as const;
+type Bevel = keyof typeof BEVEL_WIDTH;
+
+/** Vertical lines `step` apart from x `from` to `to`, each running from y0 to y1. */
+function vlines(from: number, to: number, step: number, y0: number, y1: number): string {
+  const d: string[] = [];
+  for (let x = from; x <= to + 1e-6; x += step) d.push(`M ${f(x)} ${f(y0)} L ${f(x)} ${f(y1)}`);
+  return d.join(' ');
+}
+
+interface TrimProps {
+  trim?: Trim;
+  rings?: readonly [number, number];
+  metal: string;
+  finish: MetalFinish;
+  bevel: Bevel;
+  drilled: boolean;
+  clipId: string;
+  outsideId: string;
+}
+
+/**
+ * Chamfer, brushing and drilled holes. A brushed case gets a bright chamfer and fine grain, a polished one a brighter
+ * chamfer and a sharp highlight, a matte one a soft chamfer only.
+ */
+function CaseTrim({ trim, rings, metal, finish, bevel, drilled, clipId, outsideId }: TrimProps) {
+  const w = BEVEL_WIDTH[bevel];
+  const brushed = finish === 'brushed';
+  const grain = lighten(metal, 0.75);
+  const ringRadii = rings && brushed ? range(Math.max(0, Math.floor((rings[1] - rings[0]) / 0.45))).map((i) => rings[0] + 0.3 + i * 0.45) : [];
+  const edgeLight = lighten(metal, finish === 'polished' ? 0.78 : brushed ? 0.65 : 0.3);
+  return (
+    <g>
+      {ringRadii.length > 0 && (
+        <g clipPath={url(clipId)} fill="none" stroke={grain} strokeWidth={0.06} opacity={0.35}>
+          {ringRadii.map((r) => (
+            <circle key={r} r={f(r)} />
+          ))}
+        </g>
+      )}
+      {trim && (
+        <g clipPath={url(clipId)}>
+          <g clipPath={trim.outside ? url(outsideId) : undefined}>
+            {trim.mirrors.map(([sx, sy]) => (
+              <g key={`${sx}${sy}`} transform={`scale(${sx} ${sy})`} fill="none" strokeLinejoin="round">
+                {brushed && trim.grain && <path d={trim.grain} stroke={grain} strokeWidth={0.07} opacity={0.4} />}
+                {w > 0 && (
+                  <>
+                    <path d={trim.edge} stroke={darken(metal, 0.5)} strokeWidth={2 * (w + 0.1)} opacity={0.4} />
+                    <path d={trim.edge} stroke={edgeLight} strokeWidth={2 * w} opacity={finish === 'polished' ? 0.92 : 0.8} />
+                  </>
+                )}
+                {finish === 'polished' && trim.glint && (
+                  <path d={trim.glint} stroke={lighten(metal, 0.92)} strokeWidth={0.16} strokeLinecap="round" opacity={0.7} />
+                )}
+              </g>
+            ))}
+          </g>
+        </g>
+      )}
+      {drilled &&
+        trim?.hole &&
+        trim.mirrors.map(([sx, sy]) => (
+          <circle
+            key={`hole${sx}${sy}`}
+            cx={f(sx * trim.hole![0])}
+            cy={f(sy * trim.hole![1])}
+            r={trim.hole![2]}
+            fill={darken(metal, 0.78)}
+            stroke={lighten(metal, 0.6)}
+            strokeWidth={0.1}
+          />
+        ))}
+    </g>
+  );
 }
 
 function CaseBody({ ctx, part, params, silhouette }: TemplateProps<'case'> & { silhouette: (fill: string) => Silhouette }) {
   const metal = color(params, 'metal', '#c9ccd1');
   const finish = choice<MetalFinish>(params, 'finish', ['brushed', 'polished', 'matte'], 'brushed');
+  const bevel = choice<Bevel>(params, 'bevel', ['none', 'narrow', 'wide'], 'narrow');
+  const drilled = choice(params, 'drilled', ['no', 'yes'], 'no') === 'yes';
   const gid = ctx.id(`case-metal-${part.id}`);
+  const clipId = ctx.id(`case-clip-${part.id}`);
+  const outsideId = ctx.id(`case-outside-${part.id}`);
   const outline = silhouette(darken(metal, 0.55));
   const body = silhouette(url(gid));
   const { layout } = ctx;
   const flange = ctx.id(`case-flange-${part.id}`);
   const rf = layout.bezelInnerRadius + 0.05;
+  const o = body.trim?.outside;
+  // Everything outside a circle of radius `o` (even-odd): keeps lug trim off the round body.
+  const outside = o ? `M -100 -100 H 100 V 100 H -100 Z M ${f(o)} 0 A ${f(o)} ${f(o)} 0 1 0 ${f(-o)} 0 A ${f(o)} ${f(o)} 0 1 0 ${f(o)} 0 Z` : '';
   return (
     <g>
       <defs>
@@ -31,11 +148,18 @@ function CaseBody({ ctx, part, params, silhouette }: TemplateProps<'case'> & { s
           <stop offset={0.8} stopColor={darken(metal, 0.7)} />
           <stop offset={1} stopColor={darken(metal, 0.35)} />
         </radialGradient>
+        <clipPath id={clipId}>{body.shapes}</clipPath>
+        {o && (
+          <clipPath id={outsideId}>
+            <path d={outside} clipRule="evenodd" />
+          </clipPath>
+        )}
       </defs>
       <g stroke={darken(metal, 0.55)} strokeWidth={0.35} strokeLinejoin="round">
         {outline.shapes}
       </g>
       <g>{body.shapes}</g>
+      <CaseTrim trim={body.trim} rings={body.rings} metal={metal} finish={finish} bevel={bevel} drilled={drilled} clipId={clipId} outsideId={outsideId} />
       {body.detail}
       <circle r={rf} fill={url(flange)} />
     </g>
@@ -46,27 +170,40 @@ function CaseBody({ ctx, part, params, silhouette }: TemplateProps<'case'> & { s
  * Four lugs. Each has a straight inner edge at the lug width and an outer edge that flares into
  * the case (`flare` × thickness at the root), with a rounded tip. Drawn for the top-right lug and mirrored.
  */
-function lugs(fill: string, R: number, lugWidth: number, lugToLug: number, t: number, flare: number, key: string) {
+function lugGeometry(R: number, lugWidth: number, lugToLug: number, t: number, flare: number) {
   const h = lugToLug / 2;
   const xi = lugWidth / 2;
   const xo = xi + t;
   const rootY = -R * 0.55;
   const tip = Math.min(1.1, t / 2);
-  const d = [
+  const open = [
     `M ${f(xi)} ${f(rootY)}`,
     `L ${f(xi)} ${f(-h + tip)}`,
     `Q ${f(xi)} ${f(-h)} ${f(xi + tip)} ${f(-h)}`,
     `L ${f(xo - tip)} ${f(-h)}`,
     `Q ${f(xo)} ${f(-h)} ${f(xo)} ${f(-h + tip)}`,
     `C ${f(xo)} ${f(-R * 0.95)} ${f(xi + t * flare)} ${f(-R * 0.85)} ${f(xi + t * flare)} ${f(rootY)}`,
-    'Z',
   ].join(' ');
-  return [
-    [1, 1],
-    [-1, 1],
-    [1, -1],
-    [-1, -1],
-  ].map(([sx, sy]) => <path key={`${key}${sx}${sy}`} d={d} fill={fill} transform={`scale(${sx} ${sy})`} />);
+  return { h, xi, xo, rootY, tip, open, closed: `${open} Z` };
+}
+
+function lugs(fill: string, R: number, lugWidth: number, lugToLug: number, t: number, flare: number, key: string) {
+  const { closed } = lugGeometry(R, lugWidth, lugToLug, t, flare);
+  return QUADRANTS.map(([sx, sy]) => <path key={`${key}${sx}${sy}`} d={closed} fill={fill} transform={`scale(${sx} ${sy})`} />);
+}
+
+/** Trim for the four lugs: chamfer round the exposed edges, brushing along their length, a highlight down the middle, a hole at the spring bar. */
+function lugTrim(R: number, lugWidth: number, lugToLug: number, t: number, flare: number, springBarY: number): Trim {
+  const { h, xi, xo, rootY, open } = lugGeometry(R, lugWidth, lugToLug, t, flare);
+  const mid = (xi + xo) / 2;
+  return {
+    mirrors: QUADRANTS,
+    edge: open,
+    grain: vlines(xi + 0.4, xo - 0.2, 0.4, -h, rootY),
+    glint: `M ${f(mid)} ${f(-h + 1.2)} L ${f(mid)} ${f(rootY - 1)}`,
+    hole: [mid, -springBarY, Math.min(0.5, t * 0.17)],
+    outside: R,
+  };
 }
 
 /** Rounded crown-guard shoulders either side of the crown, leaving a gap the crown's width. */
@@ -91,6 +228,7 @@ const diver: Template<'case'> = (props) => {
           ...lugs(fill, R, layout.lugWidth, layout.lugToLug, 3.2, 2.2, 'lug'),
           ...(guards ? crownGuards(fill, R, layout.crownAngle, 2.3, props.ctx.parts.crown?.diameter ?? 6.5) : []),
         ],
+        trim: lugTrim(R, layout.lugWidth, layout.lugToLug, 3.2, 2.2, layout.springBarY),
       })}
     />
   );
@@ -114,13 +252,21 @@ const cushion: Template<'case'> = (props) => {
     `L ${f(endX)} ${f(half)}`,
     `C ${f(endX + (R - endX) * 0.55)} ${f(half)} ${f(R)} ${f(half * 0.62)} ${f(R)} 0 Z`,
   ].join(' ');
-  return <CaseBody {...props} silhouette={(fill) => ({ shapes: [<path key="body" d={body} fill={fill} />] })} />;
+  return (
+    <CaseBody
+      {...props}
+      silhouette={(fill) => ({
+        shapes: [<path key="body" d={body} fill={fill} />],
+        trim: { mirrors: [[1, 1]], edge: body, grain: vlines(-R, R, 0.5, -half, half) },
+      })}
+    />
+  );
 };
 
 const sub: Template<'case'> = (props) => {
   const { layout } = props.ctx;
   const R = layout.caseRadius;
-  const metal = color(props.params, 'metal', '#d4d7db');
+  const guards = choice(props.params, 'guards', ['yes', 'no'], 'yes') === 'yes';
   return (
     <CaseBody
       {...props}
@@ -128,19 +274,9 @@ const sub: Template<'case'> = (props) => {
         shapes: [
           <circle key="body" r={R} fill={fill} />,
           ...lugs(fill, R, layout.lugWidth, layout.lugToLug, 2.6, 1.8, 'lug'),
-          ...crownGuards(fill, R, layout.crownAngle, 1.7, props.ctx.parts.crown?.diameter ?? 7),
+          ...(guards ? crownGuards(fill, R, layout.crownAngle, 1.7, props.ctx.parts.crown?.diameter ?? 7) : []),
         ],
-        detail: (
-          // Polished lug bevels.
-          <g stroke={lighten(metal, 0.7)} strokeWidth={0.22} opacity={0.8}>
-            {[-1, 1].flatMap((sx) =>
-              [-1, 1].map((sy) => {
-                const x = sx * (layout.lugWidth / 2 + 1.3);
-                return <line key={`${sx}${sy}`} x1={x} y1={sy * R * 0.93} x2={x} y2={sy * (layout.lugToLug / 2 - 0.8)} />;
-              }),
-            )}
-          </g>
-        ),
+        trim: lugTrim(R, layout.lugWidth, layout.lugToLug, 2.6, 1.8, layout.springBarY),
       })}
     />
   );
@@ -162,6 +298,9 @@ const fluted: Template<'case'> = (props) => {
           <circle key="body" r={R} fill={fill} />,
           ...lugs(fill, R, layout.lugWidth, layout.lugToLug, 2.3, 1.6, 'lug'),
         ],
+        trim: lugTrim(R, layout.lugWidth, layout.lugToLug, 2.3, 1.6, layout.springBarY),
+        // The case top shows between the opening and the edge, or between the built-in bezel and the edge.
+        rings: [bezel === 'none' ? inner + 0.2 : outer + 0.2, R - 0.2],
         detail:
           bezel === 'fluted' ? (
             <FlutedRing inner={inner} outer={outer} metal={lighten(metal, 0.15)} />
@@ -213,6 +352,7 @@ const octagon: Template<'case'> = (props) => {
         {...props}
         silhouette={(fill) => ({
           shapes: [<path key="body" fill={fill} d={body} />],
+          trim: { mirrors: [[1, 1]], edge: body, grain: vlines(-R, R, 0.5, -endY, endY) },
           detail: (
             <g>
               <polygon points={octagonPts} fill={url(polishId)} stroke={darken(metal, 0.5)} strokeWidth={0.25} />

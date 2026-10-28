@@ -57,6 +57,33 @@ describe('WatchSvg', () => {
     expect(viewBoxOf(fluted)![2]).toBeLessThan(viewBoxOf(diver)![2]);
   });
 
+  describe('case side detail', () => {
+    const withCase = (settings: Record<string, string>) => {
+      const parts = partsOf({ case: 'cs-diver42-38', crown: 'cw-diver42' });
+      const c = parts.case!;
+      if (c.visual.kind !== 'template') throw new Error('template expected');
+      return render({ ...parts, case: { ...c, visual: { ...c.visual, params: { ...c.visual.params, ...settings } } } });
+    };
+    const caseLayer = (svg: string) => /data-layer="case"[\s\S]*?(?=data-layer="bezel"|data-layer="dial"|<\/svg>)/.exec(svg)![0];
+
+    it('draws the chamfer and brushing, and drilled holes only when asked', () => {
+      const plain = caseLayer(withCase({ bevel: 'none', drilled: 'no' }));
+      const bevelled = caseLayer(withCase({ bevel: 'wide', drilled: 'no' }));
+      const drilled = caseLayer(withCase({ bevel: 'wide', drilled: 'yes' }));
+      expect(bevelled.length).toBeGreaterThan(plain.length);
+      expect(drilled.match(/<circle/g)!.length - bevelled.match(/<circle/g)!.length).toBe(4);
+    });
+
+    it('keeps the outline the same whatever the detail', () => {
+      const variants: Record<string, string>[] = [{ bevel: 'none' }, { bevel: 'wide', drilled: 'yes', finish: 'polished' }, { finish: 'matte' }];
+      for (const settings of variants) {
+        const layer = caseLayer(withCase(settings));
+        expect(layer).toContain('<circle r="21"');
+        expect(layer).not.toContain('class="lume"');
+      }
+    });
+  });
+
   it('frames lug-to-lug plus strap; head framing crops at the lugs', () => {
     const parts = sample('diver-classic');
     const [, y, , h] = viewBoxOf(render(parts))!;

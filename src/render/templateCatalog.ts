@@ -67,9 +67,17 @@ const DIAL_PARAMS: ParamSpec[] = [
   color('textColor', 'Text colour', '#f2f2ef', { hint: 'Leave blank to use the marker ink.' }),
 ];
 
+const GUARDS: ParamSpec = { key: 'guards', label: 'Crown guards', kind: 'choice', choices: ['yes', 'no'], fallback: 'yes' };
+const BEVEL: ParamSpec = { key: 'bevel', label: 'Polished bevel', kind: 'choice', choices: ['none', 'narrow', 'wide'], fallback: 'narrow' };
+const DRILLED: ParamSpec = { key: 'drilled', label: 'Drilled lugs', kind: 'choice', choices: ['no', 'yes'], fallback: 'no' };
+
+/** Every case takes a bevel; lugged ones can also be drilled. The finish decides how the surface and bevel are drawn. */
 const CASE_EXTRA_PARAMS: Record<string, ParamSpec[]> = {
-  'case/diver': [{ key: 'guards', label: 'Crown guards', kind: 'choice', choices: ['yes', 'no'], fallback: 'yes' }],
-  'case/fluted': [{ key: 'bezel', label: 'Built-in bezel', kind: 'choice', choices: ['none', 'smooth', 'fluted'], fallback: 'none' }],
+  'case/diver': [GUARDS, BEVEL, DRILLED],
+  'case/sub': [GUARDS, BEVEL, DRILLED],
+  'case/fluted': [{ key: 'bezel', label: 'Built-in bezel', kind: 'choice', choices: ['none', 'smooth', 'fluted'], fallback: 'none' }, BEVEL, DRILLED],
+  'case/cushion': [BEVEL],
+  'case/octagon': [BEVEL],
 };
 
 const HAND_PARAMS: ParamSpec[] = [
