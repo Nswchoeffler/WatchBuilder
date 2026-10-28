@@ -147,6 +147,22 @@
 <stop offset="1" stop-color="#8a8c8e">
 </stop>
 </radialGradient>
+<clipPath id="explorer-slim-case-clip-cs-explorer36-slim">
+<circle r="18" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)">
+</circle>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)" transform="scale(1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)" transform="scale(-1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)" transform="scale(1 -1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)" transform="scale(-1 -1)">
+</path>
+</clipPath>
+<clipPath id="explorer-slim-case-outside-cs-explorer36-slim">
+<path d="M -100 -100 H 100 V 100 H -100 Z M 18 0 A 18 18 0 1 0 -18 0 A 18 18 0 1 0 18 0 Z" clip-rule="evenodd">
+</path>
+</clipPath>
 </defs>
 <g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
 <circle r="18" fill="#5f6163">
@@ -171,6 +187,28 @@
 </path>
 <path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#explorer-slim-case-metal-cs-explorer36-slim)" transform="scale(-1 -1)">
 </path>
+</g>
+<g>
+<g clip-path="url(#explorer-slim-case-clip-cs-explorer36-slim)">
+<g clip-path="url(#explorer-slim-case-outside-cs-explorer36-slim)">
+<g transform="scale(1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10.4 -21.5 L 10.4 -9.9 M 10.8 -21.5 L 10.8 -9.9 M 11.2 -21.5 L 11.2 -9.9 M 11.6 -21.5 L 11.6 -9.9 M 12 -21.5 L 12 -9.9" stroke="#f4f5f6" stroke-width="0.07" opacity="0.4">
+</path>
+</g>
+<g transform="scale(-1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10.4 -21.5 L 10.4 -9.9 M 10.8 -21.5 L 10.8 -9.9 M 11.2 -21.5 L 11.2 -9.9 M 11.6 -21.5 L 11.6 -9.9 M 12 -21.5 L 12 -9.9" stroke="#f4f5f6" stroke-width="0.07" opacity="0.4">
+</path>
+</g>
+<g transform="scale(1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10.4 -21.5 L 10.4 -9.9 M 10.8 -21.5 L 10.8 -9.9 M 11.2 -21.5 L 11.2 -9.9 M 11.6 -21.5 L 11.6 -9.9 M 12 -21.5 L 12 -9.9" stroke="#f4f5f6" stroke-width="0.07" opacity="0.4">
+</path>
+</g>
+<g transform="scale(-1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10.4 -21.5 L 10.4 -9.9 M 10.8 -21.5 L 10.8 -9.9 M 11.2 -21.5 L 11.2 -9.9 M 11.6 -21.5 L 11.6 -9.9 M 12 -21.5 L 12 -9.9" stroke="#f4f5f6" stroke-width="0.07" opacity="0.4">
+</path>
+</g>
+</g>
+</g>
 </g>
 <g>
 <defs>

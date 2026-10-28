@@ -71,7 +71,7 @@ export const cases: SeedPart<'case'>[] = [
     inspiredBy: 'SKX007 / SRPD',
     confidence: 'verified',
     crownSteps: 2,
-    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
+    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1', bevel: 'narrow' }),
   },
   {
     ...diver42,
@@ -80,7 +80,7 @@ export const cases: SeedPart<'case'>[] = [
     inspiredBy: 'SKX007-style with 3:00 crown',
     confidence: 'community',
     crownSteps: 0,
-    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
+    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1', bevel: 'narrow' }),
   },
   {
     type: 'case',
@@ -108,7 +108,7 @@ export const cases: SeedPart<'case'>[] = [
     chapterRing: { requirement: 'none' },
     bezelSeat: 'diver42',
     crystalSeat: 31.5,
-    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
+    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1', bevel: 'narrow' }),
   },
   {
     type: 'case',
@@ -139,7 +139,7 @@ export const cases: SeedPart<'case'>[] = [
     chapterRing: { requirement: 'optional', seatDiameter: 28.5 },
     bezelSeat: 'sub40',
     crystalSeat: 31.0,
-    visual: tpl('case/sub', { finish: 'polished', metal: '#d4d7db' }),
+    visual: tpl('case/sub', { finish: 'polished', metal: '#d4d7db', drilled: 'yes' }),
   },
   {
     type: 'case',
@@ -209,7 +209,7 @@ export const cases: SeedPart<'case'>[] = [
     chapterRing: { requirement: 'none' },
     bezelSeat: 'integral',
     crystalSeat: 32.0,
-    visual: tpl('case/octagon', { finish: 'brushed', metal: '#c9ccd1' }),
+    visual: tpl('case/octagon', { finish: 'brushed', metal: '#c9ccd1', bevel: 'narrow' }),
   },
 
   // ── namokiMODS cases sold as taking SKX007 parts ───────────────────────────────────────────────
@@ -227,7 +227,7 @@ export const cases: SeedPart<'case'>[] = [
     lugWidth: 22,
     endLinkProfile: 'diver42',
     crownSteps: 0,
-    visual: tpl('case/diver', { finish: 'polished', metal: '#d4d7db', guards: 'no' }),
+    visual: tpl('case/diver', { finish: 'polished', metal: '#d4d7db', guards: 'no', bevel: 'wide' }),
   },
   {
     ...skx007Fit,
@@ -241,7 +241,7 @@ export const cases: SeedPart<'case'>[] = [
     thickness: 12,
     lugWidth: 22,
     crownSteps: 0,
-    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1' }),
+    visual: tpl('case/diver', { finish: 'brushed', metal: '#c9ccd1', bevel: 'wide' }),
   },
   {
     ...skx007Fit,
@@ -255,7 +255,7 @@ export const cases: SeedPart<'case'>[] = [
     thickness: 11.1,
     lugWidth: 20,
     crownSteps: 0,
-    visual: tpl('case/diver', { finish: 'polished', metal: '#d4d7db', guards: 'no' }),
+    visual: tpl('case/diver', { finish: 'polished', metal: '#d4d7db', guards: 'no', drilled: 'yes' }),
   },
   {
     ...skx007Fit,
@@ -273,7 +273,7 @@ export const cases: SeedPart<'case'>[] = [
     thickness: 10.4,
     lugWidth: 22,
     crownSteps: 2,
-    visual: tpl('case/cushion', { finish: 'polished', metal: '#d4d7db' }),
+    visual: tpl('case/cushion', { finish: 'polished', metal: '#d4d7db', bevel: 'narrow' }),
   },
 
   // ── Lucius Atelier cases: full published tables, crystal pre-installed, SKX013-spec ring required ──────
@@ -293,7 +293,7 @@ export const cases: SeedPart<'case'>[] = [
     lugWidth: 20,
     maxMovementStack: 7.7,
     crystalSeat: 29.5,
-    visual: tpl('case/fluted', { finish: 'brushed', metal: '#d4d7db', bezel: 'smooth' }),
+    visual: tpl('case/fluted', { finish: 'brushed', metal: '#d4d7db', bezel: 'smooth', bevel: 'none' }),
   },
   {
     ...luciusFit,
@@ -309,7 +309,7 @@ export const cases: SeedPart<'case'>[] = [
     thickness: 10.96,
     lugWidth: 20,
     crystalSeat: 29.5,
-    visual: tpl('case/fluted', { finish: 'brushed', metal: '#c9ccd1', bezel: 'smooth' }),
+    visual: tpl('case/fluted', { finish: 'brushed', metal: '#c9ccd1', bezel: 'smooth', bevel: 'none' }),
   },
   {
     ...luciusFit,
@@ -343,6 +343,6 @@ export const cases: SeedPart<'case'>[] = [
     lugWidth: 20,
     movementMounts: ['seiko-nh', 'eta-25.6'],
     crystalSeat: 29.5,
-    visual: tpl('case/fluted', { finish: 'polished', metal: '#d4d7db', bezel: 'smooth' }),
+    visual: tpl('case/fluted', { finish: 'polished', metal: '#d4d7db', bezel: 'smooth', bevel: 'wide' }),
   },
 ];

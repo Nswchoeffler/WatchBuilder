@@ -167,6 +167,26 @@
 <stop offset="1" stop-color="#8a8c8e">
 </stop>
 </radialGradient>
+<clipPath id="sub-gmt-night-case-clip-cs-sub40">
+<circle r="20" fill="url(#sub-gmt-night-case-metal-cs-sub40)">
+</circle>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-case-metal-cs-sub40)" transform="scale(1 1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-case-metal-cs-sub40)" transform="scale(-1 1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-case-metal-cs-sub40)" transform="scale(1 -1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-case-metal-cs-sub40)" transform="scale(-1 -1)">
+</path>
+<circle cx="18.922" cy="-4.303" r="1.7" fill="url(#sub-gmt-night-case-metal-cs-sub40)">
+</circle>
+<circle cx="18.922" cy="4.303" r="1.7" fill="url(#sub-gmt-night-case-metal-cs-sub40)">
+</circle>
+</clipPath>
+<clipPath id="sub-gmt-night-case-outside-cs-sub40">
+<path d="M -100 -100 H 100 V 100 H -100 Z M 20 0 A 20 20 0 1 0 -20 0 A 20 20 0 1 0 20 0 Z" clip-rule="evenodd">
+</path>
+</clipPath>
 </defs>
 <g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
 <circle r="20" fill="#5f6163">
@@ -200,15 +220,51 @@
 <circle cx="18.922" cy="4.303" r="1.7" fill="url(#sub-gmt-night-case-metal-cs-sub40)">
 </circle>
 </g>
-<g stroke="#f2f3f4" stroke-width="0.22" opacity="0.8">
-<line x1="-11.3" y1="-18.6" x2="-11.3" y2="-23.2">
-</line>
-<line x1="-11.3" y1="18.6" x2="-11.3" y2="23.2">
-</line>
-<line x1="11.3" y1="-18.6" x2="11.3" y2="-23.2">
-</line>
-<line x1="11.3" y1="18.6" x2="11.3" y2="23.2">
-</line>
+<g>
+<g clip-path="url(#sub-gmt-night-case-clip-cs-sub40)">
+<g clip-path="url(#sub-gmt-night-case-outside-cs-sub40)">
+<g transform="scale(1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(-1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(-1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+</g>
+</g>
+<circle cx="11.3" cy="22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="-11.3" cy="22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="11.3" cy="-22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="-11.3" cy="-22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
 </g>
 <circle r="15.350000000000001" fill="url(#sub-gmt-night-case-flange-cs-sub40)">
 </circle>
@@ -857,6 +913,26 @@
 <stop offset="1" stop-color="#8a8c8e">
 </stop>
 </radialGradient>
+<clipPath id="sub-gmt-night-lume-case-clip-cs-sub40">
+<circle r="20" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)">
+</circle>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)" transform="scale(1 1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)" transform="scale(-1 1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)" transform="scale(1 -1)">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11 Z" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)" transform="scale(-1 -1)">
+</path>
+<circle cx="18.922" cy="-4.303" r="1.7" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)">
+</circle>
+<circle cx="18.922" cy="4.303" r="1.7" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)">
+</circle>
+</clipPath>
+<clipPath id="sub-gmt-night-lume-case-outside-cs-sub40">
+<path d="M -100 -100 H 100 V 100 H -100 Z M 20 0 A 20 20 0 1 0 -20 0 A 20 20 0 1 0 20 0 Z" clip-rule="evenodd">
+</path>
+</clipPath>
 </defs>
 <g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
 <circle r="20" fill="#5f6163">
@@ -890,15 +966,51 @@
 <circle cx="18.922" cy="4.303" r="1.7" fill="url(#sub-gmt-night-lume-case-metal-cs-sub40)">
 </circle>
 </g>
-<g stroke="#f2f3f4" stroke-width="0.22" opacity="0.8">
-<line x1="-11.3" y1="-18.6" x2="-11.3" y2="-23.2">
-</line>
-<line x1="-11.3" y1="18.6" x2="-11.3" y2="23.2">
-</line>
-<line x1="11.3" y1="-18.6" x2="11.3" y2="-23.2">
-</line>
-<line x1="11.3" y1="18.6" x2="11.3" y2="23.2">
-</line>
+<g>
+<g clip-path="url(#sub-gmt-night-lume-case-clip-cs-sub40)">
+<g clip-path="url(#sub-gmt-night-lume-case-outside-cs-sub40)">
+<g transform="scale(1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(-1 1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+<g transform="scale(-1 -1)" fill="none" stroke-linejoin="round">
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#6a6c6e" stroke-width="1.2" opacity="0.4">
+</path>
+<path d="M 10 -11 L 10 -22.9 Q 10 -24 11.1 -24 L 11.5 -24 Q 12.6 -24 12.6 -22.9 C 12.6 -19 14.68 -17 14.68 -11" stroke="#f6f6f7" stroke-width="1" opacity="0.92">
+</path>
+<path d="M 11.3 -22.8 L 11.3 -12" stroke="#fcfcfc" stroke-width="0.16" stroke-linecap="round" opacity="0.7">
+</path>
+</g>
+</g>
+</g>
+<circle cx="11.3" cy="22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="-11.3" cy="22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="11.3" cy="-22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
+<circle cx="-11.3" cy="-22" r="0.44200000000000006" fill="#2f2f30" stroke="#eeeff1" stroke-width="0.1">
+</circle>
 </g>
 <circle r="15.350000000000001" fill="url(#sub-gmt-night-lume-case-flange-cs-sub40)">
 </circle>

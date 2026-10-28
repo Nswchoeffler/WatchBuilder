@@ -83,6 +83,7 @@ A mismatch shows a warning in the part editor so contributors notice a drawing a
 ## 7. Implementation notes (Phase 3)
 
 - Scene: `src/render/WatchSvg.tsx`. Actual layer order (back → front): strap (top half drawn, bottom mirrored with `<use>`) → crown → case → bezel → bezel insert → dial → chapter ring → hands → crystal. The crown is **under** the case so the case edge hides the crown tube. Dial and chapter ring are clipped to the case opening (`bezelInnerRadius`).
+- Case side detail (`render/templates/case.tsx`): a polished chamfer along the lug or flank edges (`bevel`: none / narrow / wide), fine grain on brushed finishes, a sharp highlight on polished ones, and optional drilled lugs (`drilled`) and crown guards (`guards`, diver and sub). It is clipped to the case silhouette, so case diameter, lug-to-lug and lug width never change, and it never carries the `lume` class.
 - Every layer is a `<g data-layer="…" data-part="…">`; a template fallback adds `data-fallback`.
 - All `id`s are prefixed per render, so several watches can share a page (`idPrefix` prop, or a React id).
 - Date/day window centre sits at 0.76 × dial radius; window size scales with the dial.
