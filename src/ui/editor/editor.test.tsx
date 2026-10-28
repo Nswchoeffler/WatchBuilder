@@ -3,6 +3,7 @@ import 'fake-indexeddb/auto';
 import { cleanup, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import type { Dial, SubdialKind } from '../../domain/schemas';
 import { Catalog, loadCorePack } from '../../data/catalog';
 import { CORE_PACK_ID } from '../../data/seed';
 import { buildFromSample } from '../../data/builds';
@@ -345,5 +346,68 @@ describe('uploaded art (Phase 5.2)', () => {
     const warnings = await screen.findByRole('list', { name: 'Drawing warnings' });
     expect(warnings.textContent).toContain('<g id="minute">');
     expect(screen.getByRole('tab', { name: /Drawing/ }).textContent).toMatch(/1$/);
+  });
+});
+
+describe('sub-dial lists', () => {
+  const sub = (indicates: SubdialKind, angle: number) => ({ indicates, angle, distance: 6, hole: 0.8, radius: 2.4 });
+  const threeSubdials = () => [sub('chrono-minutes', 90), sub('chrono-hours', 180), sub('small-seconds', 270)];
+
+  const printed = () => document.querySelectorAll('[data-layer="dial"] circle[fill="#0b0b0c"]').length;
+
+  it('adds and removes rows, moving focus and redrawing the preview', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    expect(screen.queryByLabelText('Sub-dial 1 angle in degrees')).toBeNull();
+    const before = printed();
+
+    const add = screen.getByRole('button', { name: 'Add sub-dial' });
+    await user.click(add);
+    await user.click(add);
+    // Each row is labelled by its number, starts on a kind the dial does not show yet, and takes focus when added.
+    expect((field('Sub-dial 1 shows') as unknown as HTMLSelectElement).value).toBe('24-hour');
+    expect((field('Sub-dial 2 shows') as unknown as HTMLSelectElement).value).toBe('small-seconds');
+    expect(document.activeElement).toBe(field('Sub-dial 2 shows'));
+    await waitFor(() => expect(printed()).toBe(before + 2));
+
+    await type(user, 'Sub-dial 2 distance from centre', '7.5');
+    await user.click(screen.getByRole('button', { name: 'Remove sub-dial 1' }));
+    // The old second row is now the first, with its edit, and focus lands on it.
+    expect(field('Sub-dial 1 distance from centre').value).toBe('7.5');
+    expect(screen.queryByLabelText('Sub-dial 2 shows')).toBeNull();
+    expect(document.activeElement).toBe(field('Sub-dial 1 shows'));
+    await waitFor(() => expect(printed()).toBe(before + 1));
+
+    await user.click(screen.getByRole('button', { name: 'Remove sub-dial 1' }));
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Add sub-dial' }));
+    expect(printed()).toBe(before);
+  });
+
+  it('puts an error on the row that caused it', async () => {
+    const user = userEvent.setup();
+    open('#/part/new?type=dial');
+    await user.click(screen.getByRole('button', { name: 'Add sub-dial' }));
+    await user.click(screen.getByRole('button', { name: 'Add sub-dial' }));
+
+    await type(user, 'Sub-dial 2 hole diameter', '-1');
+    await waitFor(() => expect(field('Sub-dial 2 hole diameter').getAttribute('aria-invalid')).toBe('true'));
+    expect(field('Sub-dial 1 hole diameter').getAttribute('aria-invalid')).toBe(null);
+    expect(document.getElementById(field('Sub-dial 2 hole diameter').getAttribute('aria-describedby')!)?.textContent).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Save to My Parts' })).toHaveProperty('disabled', true);
+  });
+
+  it('keeps every sub-dial of a dial saved through the form', async () => {
+    const user = userEvent.setup();
+    const base = catalog.get({ packId: CORE_PACK_ID, partId: 'dl-diver-black' })!;
+    await savePart(db, MY_PARTS_ID, { ...(base as Dial), id: 'dl-chrono', name: 'Chrono', subdials: threeSubdials() });
+    catalog = new Catalog(await loadPacks(db));
+    open(`#/part/${MY_PARTS_ID}/dl-chrono`);
+
+    await type(user, 'Name', 'Chrono, renamed');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+    await waitFor(async () => {
+      const part = (await loadPacks(db)).find((p) => p.id === MY_PARTS_ID)?.parts[0];
+      expect(part).toMatchObject({ name: 'Chrono, renamed', subdials: threeSubdials() });
+    });
   });
 });

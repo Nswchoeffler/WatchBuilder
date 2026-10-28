@@ -1,5 +1,4 @@
-import type { ReactNode } from 'react';
-import type { PartType } from '../../domain/schemas';
+import { SubdialKind, type PartType } from '../../domain/schemas';
 import {
   AngleField,
   BoolField,
@@ -14,6 +13,7 @@ import {
   NullableGroup,
   NumberField,
   options,
+  RowListField,
   SelectField,
   SlugField,
   TextAreaField,
@@ -47,39 +47,16 @@ const FEET = options(['seiko-nh', 'seiko-nh-skeleton', 'miyota-82', 'miyota-90',
 
 const AT_3 = { angle: 90 };
 
+/** A new row starts on a kind the part does not show yet, since the drawing and the hands pair sub-dials by kind. */
+const unusedKind = (list: unknown[]) =>
+  SubdialKind.options.find((k) => !list.some((row) => (row as { indicates?: unknown }).indicates === k)) ?? SubdialKind.options[0];
+
 const SUBDIAL_KINDS = options(['24-hour', 'small-seconds', 'chrono-minutes', 'chrono-hours'], {
   '24-hour': '24-hour hand',
   'small-seconds': 'Small seconds',
   'chrono-minutes': 'Chronograph minutes',
   'chrono-hours': 'Chronograph hours',
 });
-
-/**
- * The form edits one sub-dial entry (the first). A part with several can still be written in a pack file;
- * the form leaves the others as they are.
- */
-function SubdialToggle({ label, hint, initial, children }: { label: string; hint?: string; initial: Record<string, unknown>; children: ReactNode }) {
-  const form = useForm();
-  const key = form.value.type === 'hands' ? 'subdialHands' : 'subdials';
-  const list = form.value[key];
-  const on = Array.isArray(list) && list.length > 0;
-  const toggle = (next: boolean) => {
-    const rest = Array.isArray(list) ? list.slice(1) : [];
-    form.set(key, next ? [structuredClone(initial), ...rest] : rest);
-  };
-  return (
-    <div className={`nullable${on ? ' on' : ''}`}>
-      <div className="nullable-head">
-        <label className="switch">
-          <input type="checkbox" checked={on} onChange={(e) => toggle(e.target.checked)} />
-          {label}
-        </label>
-      </div>
-      {hint && <p className="field-hint">{hint}</p>}
-      {on && <div className="form-grid">{children}</div>}
-    </div>
-  );
-}
 
 export const CONFIDENCE_CHOICES = options(['verified', 'community', 'unverified'], {
   verified: 'Verified — measured or from a spec sheet',
@@ -175,12 +152,16 @@ function MovementForm() {
         <NullableGroup path="openWork" label="Open-worked (skeleton)" whenOn={{ maxDialOpening: 23.9 }} hint="The dial has to leave the centre open; this is the widest opening it can have.">
           <MmField path="openWork.maxDialOpening" label="Max dial opening" />
         </NullableGroup>
-        <SubdialToggle label="Sub-dial hand post" hint="An extra hand post away from the centre, with the crown at 3:00." initial={{ indicates: '24-hour', angle: 320, distance: 5.8, post: 0.21 }}>
-          <SelectField path="subdials.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
-          <AngleField path="subdials.0.angle" label="Angle" />
-          <MmField path="subdials.0.distance" label="Distance from centre" />
-          <MmField path="subdials.0.post" label="Post diameter" />
-        </SubdialToggle>
+        <RowListField path="subdials" label="Sub-dial hand posts" hint="Extra hand posts away from the centre, with the crown at 3:00." rowName="Sub-dial" blank={(list) => ({ indicates: unusedKind(list), angle: 320, distance: 5.8, post: 0.21 })}>
+          {({ path, name }) => (
+            <>
+              <SelectField path={`${path}.indicates`} label={`${name} shows`} choices={SUBDIAL_KINDS} placeholder="Choose…" />
+              <AngleField path={`${path}.angle`} label={`${name} angle`} />
+              <MmField path={`${path}.distance`} label={`${name} distance from centre`} />
+              <MmField path={`${path}.post`} label={`${name} post diameter`} />
+            </>
+          )}
+        </RowListField>
       </FormSection>
     </>
   );
@@ -298,13 +279,17 @@ function DialForm() {
         <NullableGroup path="centerOpening" label="Open centre (ring dial)" whenOn={23.9} hint="For an open-worked movement: the dial is a ring around the visible movement.">
           <MmField path="centerOpening" label="Opening diameter" />
         </NullableGroup>
-        <SubdialToggle label="Sub-dial hole" hint="A hole for a sub-dial hand post, with the crown at 3:00." initial={{ indicates: '24-hour', angle: 320, distance: 5.8, hole: 0.8, radius: 2.4 }}>
-          <SelectField path="subdials.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
-          <AngleField path="subdials.0.angle" label="Angle" />
-          <MmField path="subdials.0.distance" label="Distance from centre" />
-          <MmField path="subdials.0.hole" label="Hole diameter" />
-          <MmField path="subdials.0.radius" label="Printed sub-dial radius" />
-        </SubdialToggle>
+        <RowListField path="subdials" label="Sub-dial holes" hint="Holes for sub-dial hand posts, with the crown at 3:00." rowName="Sub-dial" blank={(list) => ({ indicates: unusedKind(list), angle: 320, distance: 5.8, hole: 0.8, radius: 2.4 })}>
+          {({ path, name }) => (
+            <>
+              <SelectField path={`${path}.indicates`} label={`${name} shows`} choices={SUBDIAL_KINDS} placeholder="Choose…" />
+              <AngleField path={`${path}.angle`} label={`${name} angle`} />
+              <MmField path={`${path}.distance`} label={`${name} distance from centre`} />
+              <MmField path={`${path}.hole`} label={`${name} hole diameter`} />
+              <MmField path={`${path}.radius`} label={`${name} printed radius`} />
+            </>
+          )}
+        </RowListField>
       </FormSection>
     </>
   );
@@ -367,11 +352,15 @@ function HandsForm() {
       </FormSection>
 
       <FormSection title="Sub-dial hand">
-        <SubdialToggle label="Sub-dial hand" initial={{ indicates: '24-hour', hole: 0.2, length: 2.2 }}>
-          <SelectField path="subdialHands.0.indicates" label="Shows" choices={SUBDIAL_KINDS} placeholder="Choose…" />
-          <MmField path="subdialHands.0.hole" label="Hole" />
-          <MmField path="subdialHands.0.length" label="Length" />
-        </SubdialToggle>
+        <RowListField path="subdialHands" label="Sub-dial hands" rowName="Sub-dial hand" blank={(list) => ({ indicates: unusedKind(list), hole: 0.2, length: 2.2 })}>
+          {({ path, name }) => (
+            <>
+              <SelectField path={`${path}.indicates`} label={`${name} shows`} choices={SUBDIAL_KINDS} placeholder="Choose…" />
+              <MmField path={`${path}.hole`} label={`${name} hole`} />
+              <MmField path={`${path}.length`} label={`${name} length`} />
+            </>
+          )}
+        </RowListField>
       </FormSection>
     </>
   );
