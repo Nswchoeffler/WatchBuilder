@@ -1,0 +1,1404 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-26.25 -45.2 52.5 90.4" role="img" aria-label="Slim Diver, Miyota 9015" data-mm-width="52.5" data-mm-height="90.4" data-night="">
+<title>Slim Diver, Miyota 9015</title>
+<defs>
+<filter id="miyota-slim-diver-night-night-dim" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix" values="0.08 0 0 0 0  0 0.1 0 0 0  0 0 0.15 0 0  0 0 0 1 0">
+</feColorMatrix>
+</filter>
+<filter id="miyota-slim-diver-night-night-glow" x="-20%" y="-20%" width="140%" height="140%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="0.35" result="halo">
+</feGaussianBlur>
+<feMerge>
+<feMergeNode in="halo">
+</feMergeNode>
+<feMergeNode in="SourceGraphic">
+</feMergeNode>
+</feMerge>
+</filter>
+</defs>
+<style>.miyota-slim-diver-night-lume *{visibility:hidden}.miyota-slim-diver-night-lume clipPath *{visibility:visible}.miyota-slim-diver-night-lume [data-layer="hands"] *{visibility:visible;fill:#060708;stroke:#060708}.miyota-slim-diver-night-lume .lume,.miyota-slim-diver-night-lume .lume *{visibility:visible;fill:#b6ff70;stroke:none}</style>
+<rect x="-26.25" y="-45.2" width="52.5" height="90.4" fill="#0b0c10">
+</rect>
+<g filter="url(#miyota-slim-diver-night-night-dim)">
+<defs>
+<clipPath id="miyota-slim-diver-night-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-nato-22-black">
+<g id="miyota-slim-diver-night-strap-top">
+<g>
+<defs>
+<pattern id="miyota-slim-diver-night-strap-texture-st-nato-22-black" width="0.6" height="0.6" patternUnits="userSpaceOnUse">
+<rect width="0.6" height="0.3" fill="#fff" opacity="0.04">
+</rect>
+</pattern>
+</defs>
+<path d="M -11 -12.75 L 11 -12.75 L 11 -45.2 L -11 -45.2 Z" fill="#1b1c1e" stroke="#0f0f11" stroke-width="0.15">
+</path>
+<path d="M -11 -12.75 L 11 -12.75 L 11 -45.2 L -11 -45.2 Z" fill="url(#miyota-slim-diver-night-strap-texture-st-nato-22-black)">
+</path>
+<g stroke="#545556" stroke-width="0.12" stroke-dasharray="0.6 0.4" fill="none">
+<path d="M -10.1 -12.75 L -10.1 -45.2">
+</path>
+<path d="M 10.1 -12.75 L 10.1 -45.2">
+</path>
+</g>
+<rect x="-11.3" y="-30.598" width="22.6" height="1.4" rx="0.4" fill="#b9bcc1" stroke="#6d7075" stroke-width="0.1">
+</rect>
+</g>
+</g>
+<use href="#miyota-slim-diver-night-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(23.225806451612897)">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.85" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="21.75" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#miyota-slim-diver-night-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.9" y1="-2.6" x2="24.3" y2="-2.6">
+</line>
+<line x1="21.9" y1="-1.95" x2="24.3" y2="-1.95">
+</line>
+<line x1="21.9" y1="-1.3" x2="24.3" y2="-1.3">
+</line>
+<line x1="21.9" y1="-0.65" x2="24.3" y2="-0.65">
+</line>
+<line x1="21.9" y1="0" x2="24.3" y2="0">
+</line>
+<line x1="21.9" y1="0.65" x2="24.3" y2="0.65">
+</line>
+<line x1="21.9" y1="1.3" x2="24.3" y2="1.3">
+</line>
+<line x1="21.9" y1="1.95" x2="24.3" y2="1.95">
+</line>
+<line x1="21.9" y1="2.6" x2="24.3" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-diver42-miyota">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-case-metal-cs-diver42-miyota" gradientUnits="userSpaceOnUse" x1="-23.2" y1="-23.2" x2="23.2" y2="23.2">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="miyota-slim-diver-night-case-flange-cs-diver42-miyota" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<circle r="21.25" fill="#5a5c5e">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(-1 -1)">
+</path>
+<circle cx="20.072" cy="3.887" r="2.3" fill="#5a5c5e">
+</circle>
+<circle cx="16.646" cy="11.87" r="2.3" fill="#5a5c5e">
+</circle>
+</g>
+<g>
+<circle r="21.25" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)" transform="scale(-1 -1)">
+</path>
+<circle cx="20.072" cy="3.887" r="2.3" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+<circle cx="16.646" cy="11.87" r="2.3" fill="url(#miyota-slim-diver-night-case-metal-cs-diver42-miyota)">
+</circle>
+</g>
+<circle r="15.350000000000001" fill="url(#miyota-slim-diver-night-case-flange-cs-diver42-miyota)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-20.9" y1="-20.9" x2="20.9" y2="20.9">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -20.9 0 A 20.9 20.9 0 1 0 20.9 0 A 20.9 20.9 0 1 0 -20.9 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#miyota-slim-diver-night-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-20.35" x2="0" y2="-20.9">
+</line>
+<line x1="1.065" y1="-20.322" x2="1.094" y2="-20.871">
+</line>
+<line x1="2.127" y1="-20.239" x2="2.185" y2="-20.786">
+</line>
+<line x1="3.183" y1="-20.099" x2="3.269" y2="-20.643">
+</line>
+<line x1="4.231" y1="-19.905" x2="4.345" y2="-20.443">
+</line>
+<line x1="5.267" y1="-19.657" x2="5.409" y2="-20.188">
+</line>
+<line x1="6.288" y1="-19.354" x2="6.458" y2="-19.877">
+</line>
+<line x1="7.293" y1="-18.998" x2="7.49" y2="-19.512">
+</line>
+<line x1="8.277" y1="-18.591" x2="8.501" y2="-19.093">
+</line>
+<line x1="9.239" y1="-18.132" x2="9.488" y2="-18.622">
+</line>
+<line x1="10.175" y1="-17.624" x2="10.45" y2="-18.1">
+</line>
+<line x1="11.083" y1="-17.067" x2="11.383" y2="-17.528">
+</line>
+<line x1="11.961" y1="-16.463" x2="12.285" y2="-16.908">
+</line>
+<line x1="12.807" y1="-15.815" x2="13.153" y2="-16.242">
+</line>
+<line x1="13.617" y1="-15.123" x2="13.985" y2="-15.532">
+</line>
+<line x1="14.39" y1="-14.39" x2="14.779" y2="-14.779">
+</line>
+<line x1="15.123" y1="-13.617" x2="15.532" y2="-13.985">
+</line>
+<line x1="15.815" y1="-12.807" x2="16.242" y2="-13.153">
+</line>
+<line x1="16.463" y1="-11.961" x2="16.908" y2="-12.285">
+</line>
+<line x1="17.067" y1="-11.083" x2="17.528" y2="-11.383">
+</line>
+<line x1="17.624" y1="-10.175" x2="18.1" y2="-10.45">
+</line>
+<line x1="18.132" y1="-9.239" x2="18.622" y2="-9.488">
+</line>
+<line x1="18.591" y1="-8.277" x2="19.093" y2="-8.501">
+</line>
+<line x1="18.998" y1="-7.293" x2="19.512" y2="-7.49">
+</line>
+<line x1="19.354" y1="-6.288" x2="19.877" y2="-6.458">
+</line>
+<line x1="19.657" y1="-5.267" x2="20.188" y2="-5.409">
+</line>
+<line x1="19.905" y1="-4.231" x2="20.443" y2="-4.345">
+</line>
+<line x1="20.099" y1="-3.183" x2="20.643" y2="-3.269">
+</line>
+<line x1="20.239" y1="-2.127" x2="20.786" y2="-2.185">
+</line>
+<line x1="20.322" y1="-1.065" x2="20.871" y2="-1.094">
+</line>
+<line x1="20.35" y1="0" x2="20.9" y2="0">
+</line>
+<line x1="20.322" y1="1.065" x2="20.871" y2="1.094">
+</line>
+<line x1="20.239" y1="2.127" x2="20.786" y2="2.185">
+</line>
+<line x1="20.099" y1="3.183" x2="20.643" y2="3.269">
+</line>
+<line x1="19.905" y1="4.231" x2="20.443" y2="4.345">
+</line>
+<line x1="19.657" y1="5.267" x2="20.188" y2="5.409">
+</line>
+<line x1="19.354" y1="6.288" x2="19.877" y2="6.458">
+</line>
+<line x1="18.998" y1="7.293" x2="19.512" y2="7.49">
+</line>
+<line x1="18.591" y1="8.277" x2="19.093" y2="8.501">
+</line>
+<line x1="18.132" y1="9.239" x2="18.622" y2="9.488">
+</line>
+<line x1="17.624" y1="10.175" x2="18.1" y2="10.45">
+</line>
+<line x1="17.067" y1="11.083" x2="17.528" y2="11.383">
+</line>
+<line x1="16.463" y1="11.961" x2="16.908" y2="12.285">
+</line>
+<line x1="15.815" y1="12.807" x2="16.242" y2="13.153">
+</line>
+<line x1="15.123" y1="13.617" x2="15.532" y2="13.985">
+</line>
+<line x1="14.39" y1="14.39" x2="14.779" y2="14.779">
+</line>
+<line x1="13.617" y1="15.123" x2="13.985" y2="15.532">
+</line>
+<line x1="12.807" y1="15.815" x2="13.153" y2="16.242">
+</line>
+<line x1="11.961" y1="16.463" x2="12.285" y2="16.908">
+</line>
+<line x1="11.083" y1="17.067" x2="11.383" y2="17.528">
+</line>
+<line x1="10.175" y1="17.624" x2="10.45" y2="18.1">
+</line>
+<line x1="9.239" y1="18.132" x2="9.488" y2="18.622">
+</line>
+<line x1="8.277" y1="18.591" x2="8.501" y2="19.093">
+</line>
+<line x1="7.293" y1="18.998" x2="7.49" y2="19.512">
+</line>
+<line x1="6.288" y1="19.354" x2="6.458" y2="19.877">
+</line>
+<line x1="5.267" y1="19.657" x2="5.409" y2="20.188">
+</line>
+<line x1="4.231" y1="19.905" x2="4.345" y2="20.443">
+</line>
+<line x1="3.183" y1="20.099" x2="3.269" y2="20.643">
+</line>
+<line x1="2.127" y1="20.239" x2="2.185" y2="20.786">
+</line>
+<line x1="1.065" y1="20.322" x2="1.094" y2="20.871">
+</line>
+<line x1="0" y1="20.35" x2="0" y2="20.9">
+</line>
+<line x1="-1.065" y1="20.322" x2="-1.094" y2="20.871">
+</line>
+<line x1="-2.127" y1="20.239" x2="-2.185" y2="20.786">
+</line>
+<line x1="-3.183" y1="20.099" x2="-3.269" y2="20.643">
+</line>
+<line x1="-4.231" y1="19.905" x2="-4.345" y2="20.443">
+</line>
+<line x1="-5.267" y1="19.657" x2="-5.409" y2="20.188">
+</line>
+<line x1="-6.288" y1="19.354" x2="-6.458" y2="19.877">
+</line>
+<line x1="-7.293" y1="18.998" x2="-7.49" y2="19.512">
+</line>
+<line x1="-8.277" y1="18.591" x2="-8.501" y2="19.093">
+</line>
+<line x1="-9.239" y1="18.132" x2="-9.488" y2="18.622">
+</line>
+<line x1="-10.175" y1="17.624" x2="-10.45" y2="18.1">
+</line>
+<line x1="-11.083" y1="17.067" x2="-11.383" y2="17.528">
+</line>
+<line x1="-11.961" y1="16.463" x2="-12.285" y2="16.908">
+</line>
+<line x1="-12.807" y1="15.815" x2="-13.153" y2="16.242">
+</line>
+<line x1="-13.617" y1="15.123" x2="-13.985" y2="15.532">
+</line>
+<line x1="-14.39" y1="14.39" x2="-14.779" y2="14.779">
+</line>
+<line x1="-15.123" y1="13.617" x2="-15.532" y2="13.985">
+</line>
+<line x1="-15.815" y1="12.807" x2="-16.242" y2="13.153">
+</line>
+<line x1="-16.463" y1="11.961" x2="-16.908" y2="12.285">
+</line>
+<line x1="-17.067" y1="11.083" x2="-17.528" y2="11.383">
+</line>
+<line x1="-17.624" y1="10.175" x2="-18.1" y2="10.45">
+</line>
+<line x1="-18.132" y1="9.239" x2="-18.622" y2="9.488">
+</line>
+<line x1="-18.591" y1="8.277" x2="-19.093" y2="8.501">
+</line>
+<line x1="-18.998" y1="7.293" x2="-19.512" y2="7.49">
+</line>
+<line x1="-19.354" y1="6.288" x2="-19.877" y2="6.458">
+</line>
+<line x1="-19.657" y1="5.267" x2="-20.188" y2="5.409">
+</line>
+<line x1="-19.905" y1="4.231" x2="-20.443" y2="4.345">
+</line>
+<line x1="-20.099" y1="3.183" x2="-20.643" y2="3.269">
+</line>
+<line x1="-20.239" y1="2.127" x2="-20.786" y2="2.185">
+</line>
+<line x1="-20.322" y1="1.065" x2="-20.871" y2="1.094">
+</line>
+<line x1="-20.35" y1="0" x2="-20.9" y2="0">
+</line>
+<line x1="-20.322" y1="-1.065" x2="-20.871" y2="-1.094">
+</line>
+<line x1="-20.239" y1="-2.127" x2="-20.786" y2="-2.185">
+</line>
+<line x1="-20.099" y1="-3.183" x2="-20.643" y2="-3.269">
+</line>
+<line x1="-19.905" y1="-4.231" x2="-20.443" y2="-4.345">
+</line>
+<line x1="-19.657" y1="-5.267" x2="-20.188" y2="-5.409">
+</line>
+<line x1="-19.354" y1="-6.288" x2="-19.877" y2="-6.458">
+</line>
+<line x1="-18.998" y1="-7.293" x2="-19.512" y2="-7.49">
+</line>
+<line x1="-18.591" y1="-8.277" x2="-19.093" y2="-8.501">
+</line>
+<line x1="-18.132" y1="-9.239" x2="-18.622" y2="-9.488">
+</line>
+<line x1="-17.624" y1="-10.175" x2="-18.1" y2="-10.45">
+</line>
+<line x1="-17.067" y1="-11.083" x2="-17.528" y2="-11.383">
+</line>
+<line x1="-16.463" y1="-11.961" x2="-16.908" y2="-12.285">
+</line>
+<line x1="-15.815" y1="-12.807" x2="-16.242" y2="-13.153">
+</line>
+<line x1="-15.123" y1="-13.617" x2="-15.532" y2="-13.985">
+</line>
+<line x1="-14.39" y1="-14.39" x2="-14.779" y2="-14.779">
+</line>
+<line x1="-13.617" y1="-15.123" x2="-13.985" y2="-15.532">
+</line>
+<line x1="-12.807" y1="-15.815" x2="-13.153" y2="-16.242">
+</line>
+<line x1="-11.961" y1="-16.463" x2="-12.285" y2="-16.908">
+</line>
+<line x1="-11.083" y1="-17.067" x2="-11.383" y2="-17.528">
+</line>
+<line x1="-10.175" y1="-17.624" x2="-10.45" y2="-18.1">
+</line>
+<line x1="-9.239" y1="-18.132" x2="-9.488" y2="-18.622">
+</line>
+<line x1="-8.277" y1="-18.591" x2="-8.501" y2="-19.093">
+</line>
+<line x1="-7.293" y1="-18.998" x2="-7.49" y2="-19.512">
+</line>
+<line x1="-6.288" y1="-19.354" x2="-6.458" y2="-19.877">
+</line>
+<line x1="-5.267" y1="-19.657" x2="-5.409" y2="-20.188">
+</line>
+<line x1="-4.231" y1="-19.905" x2="-4.345" y2="-20.443">
+</line>
+<line x1="-3.183" y1="-20.099" x2="-3.269" y2="-20.643">
+</line>
+<line x1="-2.127" y1="-20.239" x2="-2.185" y2="-20.786">
+</line>
+<line x1="-1.065" y1="-20.322" x2="-1.094" y2="-20.871">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-dive-black">
+<g>
+<g>
+<defs>
+<radialGradient id="miyota-slim-diver-night-insert-shade-in-diver42-dive-black" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#141518" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#miyota-slim-diver-night-insert-shade-in-diver42-dive-black)" fill-rule="evenodd">
+</path>
+</g>
+<g stroke="#e6e7e9" stroke-linecap="butt">
+<line x1="1.831" y1="-17.424" x2="1.94" y2="-18.454" stroke-width="0.18">
+</line>
+<line x1="3.643" y1="-17.137" x2="3.858" y2="-18.151" stroke-width="0.18">
+</line>
+<line x1="5.414" y1="-16.663" x2="5.734" y2="-17.648" stroke-width="0.18">
+</line>
+<line x1="7.126" y1="-16.005" x2="7.547" y2="-16.952" stroke-width="0.18">
+</line>
+<line x1="8.353" y1="-14.468" x2="9.278" y2="-16.07" stroke-width="0.55">
+</line>
+<line x1="10.298" y1="-14.174" x2="10.907" y2="-15.012" stroke-width="0.18">
+</line>
+<line x1="11.723" y1="-13.02" x2="12.416" y2="-13.79" stroke-width="0.18">
+</line>
+<line x1="13.02" y1="-11.723" x2="13.79" y2="-12.416" stroke-width="0.18">
+</line>
+<line x1="14.174" y1="-10.298" x2="15.012" y2="-10.907" stroke-width="0.18">
+</line>
+<line x1="16.005" y1="-7.126" x2="16.952" y2="-7.547" stroke-width="0.18">
+</line>
+<line x1="16.663" y1="-5.414" x2="17.648" y2="-5.734" stroke-width="0.18">
+</line>
+<line x1="17.137" y1="-3.643" x2="18.151" y2="-3.858" stroke-width="0.18">
+</line>
+<line x1="17.424" y1="-1.831" x2="18.454" y2="-1.94" stroke-width="0.18">
+</line>
+<line x1="16.706" y1="0" x2="18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="8.353" y1="14.468" x2="9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="14.468" x2="-9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-16.706" y1="0" x2="-18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="-14.468" x2="-9.278" y2="-16.07" stroke-width="0.55">
+</line>
+</g>
+<text x="14.852" y="-8.575" transform="rotate(60 14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">10</text>
+<text x="14.852" y="8.575" transform="rotate(120 14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">20</text>
+<text x="0" y="17.15" transform="rotate(180 0 17.15)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">30</text>
+<text x="-14.852" y="8.575" transform="rotate(240 -14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">40</text>
+<text x="-14.852" y="-8.575" transform="rotate(300 -14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">50</text>
+<g>
+<path d="M 0 -18.45 L -1.25 -16.25 L 1.25 -16.25 Z" fill="#e6e7e9">
+</path>
+<circle class="lume" cy="-17.25" r="0.55" fill="#e8f0d8" stroke="#8b9082" stroke-width="0.08">
+</circle>
+</g>
+</g>
+</g>
+<g clip-path="url(#miyota-slim-diver-night-dial-clip)">
+<g data-layer="dial" data-part="dl-diver-nodate">
+<g>
+<defs>
+<filter id="miyota-slim-diver-night-dial-shadow-dl-diver-nodate" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="miyota-slim-diver-night-dial-vignette-dl-diver-nodate" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#miyota-slim-diver-night-dial-vignette-dl-diver-nodate)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#miyota-slim-diver-night-dial-shadow-dl-diver-nodate)">
+<g class="lume" fill="#e8f0d8" stroke="#dcdde0" stroke-width="0.18" stroke-linejoin="round">
+<path d="M -1.853 -12.825 L 1.853 -12.825 L 0 -9.12 Z">
+</path>
+<circle cx="5.629" cy="-9.749" r="1.211">
+</circle>
+<circle cx="9.749" cy="-5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(90)">
+</rect>
+<circle cx="9.749" cy="5.629" r="1.211">
+</circle>
+<circle cx="5.629" cy="9.749" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(180)">
+</rect>
+<circle cx="-5.629" cy="9.749" r="1.211">
+</circle>
+<circle cx="-9.749" cy="5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(270)">
+</rect>
+<circle cx="-9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="-5.629" cy="-9.749" r="1.211">
+</circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-m8215-baton">
+<g>
+<defs>
+<filter id="miyota-slim-diver-night-hands-shadow-hd-m8215-baton" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#miyota-slim-diver-night-hands-shadow-hd-m8215-baton)">
+<g transform="rotate(304.308)">
+<polygon points="0.55,1 0.55,-8.2 0,-8.5 0,-8.5 -0.55,-8.2 -0.55,1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.22000000000000003" y="-7.7" width="0.44" height="5.27" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.42,1 0.42,-12.2 0,-12.5 0,-12.5 -0.42,-12.2 -0.42,1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.168" y="-11.7" width="0.336" height="7.75" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="miyota-slim-diver-night-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#miyota-slim-diver-night-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+<g class="miyota-slim-diver-night-lume" filter="url(#miyota-slim-diver-night-night-glow)" aria-hidden="true">
+<defs>
+<clipPath id="miyota-slim-diver-night-lume-dial-clip">
+<circle r="15.3">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-nato-22-black">
+<g id="miyota-slim-diver-night-lume-strap-top">
+<g>
+<defs>
+<pattern id="miyota-slim-diver-night-lume-strap-texture-st-nato-22-black" width="0.6" height="0.6" patternUnits="userSpaceOnUse">
+<rect width="0.6" height="0.3" fill="#fff" opacity="0.04">
+</rect>
+</pattern>
+</defs>
+<path d="M -11 -12.75 L 11 -12.75 L 11 -45.2 L -11 -45.2 Z" fill="#1b1c1e" stroke="#0f0f11" stroke-width="0.15">
+</path>
+<path d="M -11 -12.75 L 11 -12.75 L 11 -45.2 L -11 -45.2 Z" fill="url(#miyota-slim-diver-night-lume-strap-texture-st-nato-22-black)">
+</path>
+<g stroke="#545556" stroke-width="0.12" stroke-dasharray="0.6 0.4" fill="none">
+<path d="M -10.1 -12.75 L -10.1 -45.2">
+</path>
+<path d="M 10.1 -12.75 L 10.1 -45.2">
+</path>
+</g>
+<rect x="-11.3" y="-30.598" width="22.6" height="1.4" rx="0.4" fill="#b9bcc1" stroke="#6d7075" stroke-width="0.1">
+</rect>
+</g>
+</g>
+<use href="#miyota-slim-diver-night-lume-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-diver42" transform="rotate(23.225806451612897)">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-lume-crown-cw-diver42" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#e4e6e8">
+</stop>
+<stop offset="0.45" stop-color="#c9ccd1">
+</stop>
+<stop offset="1" stop-color="#6f7073">
+</stop>
+</linearGradient>
+</defs>
+<rect x="20.85" y="-1.43" width="1.2" height="2.86" fill="#97999d">
+</rect>
+<rect x="21.75" y="-3.25" width="2.8" height="6.5" rx="0.4" fill="url(#miyota-slim-diver-night-lume-crown-cw-diver42)" stroke="#5a5c5e" stroke-width="0.15">
+</rect>
+<g stroke="#656669" stroke-width="0.07">
+<line x1="21.9" y1="-2.6" x2="24.3" y2="-2.6">
+</line>
+<line x1="21.9" y1="-1.95" x2="24.3" y2="-1.95">
+</line>
+<line x1="21.9" y1="-1.3" x2="24.3" y2="-1.3">
+</line>
+<line x1="21.9" y1="-0.65" x2="24.3" y2="-0.65">
+</line>
+<line x1="21.9" y1="0" x2="24.3" y2="0">
+</line>
+<line x1="21.9" y1="0.65" x2="24.3" y2="0.65">
+</line>
+<line x1="21.9" y1="1.3" x2="24.3" y2="1.3">
+</line>
+<line x1="21.9" y1="1.95" x2="24.3" y2="1.95">
+</line>
+<line x1="21.9" y1="2.6" x2="24.3" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-diver42-miyota">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota" gradientUnits="userSpaceOnUse" x1="-23.2" y1="-23.2" x2="23.2" y2="23.2">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+<radialGradient id="miyota-slim-diver-night-lume-case-flange-cs-diver42-miyota" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="15.350000000000001">
+<stop offset="0.8" stop-color="#3c3d3f">
+</stop>
+<stop offset="1" stop-color="#838588">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5a5c5e" stroke-width="0.35" stroke-linejoin="round">
+<circle r="21.25" fill="#5a5c5e">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="#5a5c5e" transform="scale(-1 -1)">
+</path>
+<circle cx="20.072" cy="3.887" r="2.3" fill="#5a5c5e">
+</circle>
+<circle cx="16.646" cy="11.87" r="2.3" fill="#5a5c5e">
+</circle>
+</g>
+<g>
+<circle r="21.25" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(-1 1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(1 -1)">
+</path>
+<path d="M 11 -11.688 L 11 -22.1 Q 11 -23.2 12.1 -23.2 L 13.1 -23.2 Q 14.2 -23.2 14.2 -22.1 C 14.2 -20.188 18.04 -18.063 18.04 -11.688 Z" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)" transform="scale(-1 -1)">
+</path>
+<circle cx="20.072" cy="3.887" r="2.3" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+<circle cx="16.646" cy="11.87" r="2.3" fill="url(#miyota-slim-diver-night-lume-case-metal-cs-diver42-miyota)">
+</circle>
+</g>
+<circle r="15.350000000000001" fill="url(#miyota-slim-diver-night-lume-case-flange-cs-diver42-miyota)">
+</circle>
+</g>
+</g>
+<g data-layer="bezel" data-part="bz-diver42-sloped">
+<g>
+<defs>
+<linearGradient id="miyota-slim-diver-night-lume-bezel-bz-diver42-sloped" gradientUnits="userSpaceOnUse" x1="-20.9" y1="-20.9" x2="20.9" y2="20.9">
+<stop offset="0" stop-color="#dedfe2">
+</stop>
+<stop offset="0.3" stop-color="#c9ccd1">
+</stop>
+<stop offset="0.55" stop-color="#9d9fa3">
+</stop>
+<stop offset="0.78" stop-color="#d5d7db">
+</stop>
+<stop offset="1" stop-color="#a5a7ab">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -20.9 0 A 20.9 20.9 0 1 0 20.9 0 A 20.9 20.9 0 1 0 -20.9 0 Z M -18.75 0 A 18.75 18.75 0 1 0 18.75 0 A 18.75 18.75 0 1 0 -18.75 0 Z" fill="url(#miyota-slim-diver-night-lume-bezel-bz-diver42-sloped)" fill-rule="evenodd" stroke="#656669" stroke-width="0.2">
+</path>
+<g stroke="#6f7073" stroke-width="0.12">
+<line x1="0" y1="-20.35" x2="0" y2="-20.9">
+</line>
+<line x1="1.065" y1="-20.322" x2="1.094" y2="-20.871">
+</line>
+<line x1="2.127" y1="-20.239" x2="2.185" y2="-20.786">
+</line>
+<line x1="3.183" y1="-20.099" x2="3.269" y2="-20.643">
+</line>
+<line x1="4.231" y1="-19.905" x2="4.345" y2="-20.443">
+</line>
+<line x1="5.267" y1="-19.657" x2="5.409" y2="-20.188">
+</line>
+<line x1="6.288" y1="-19.354" x2="6.458" y2="-19.877">
+</line>
+<line x1="7.293" y1="-18.998" x2="7.49" y2="-19.512">
+</line>
+<line x1="8.277" y1="-18.591" x2="8.501" y2="-19.093">
+</line>
+<line x1="9.239" y1="-18.132" x2="9.488" y2="-18.622">
+</line>
+<line x1="10.175" y1="-17.624" x2="10.45" y2="-18.1">
+</line>
+<line x1="11.083" y1="-17.067" x2="11.383" y2="-17.528">
+</line>
+<line x1="11.961" y1="-16.463" x2="12.285" y2="-16.908">
+</line>
+<line x1="12.807" y1="-15.815" x2="13.153" y2="-16.242">
+</line>
+<line x1="13.617" y1="-15.123" x2="13.985" y2="-15.532">
+</line>
+<line x1="14.39" y1="-14.39" x2="14.779" y2="-14.779">
+</line>
+<line x1="15.123" y1="-13.617" x2="15.532" y2="-13.985">
+</line>
+<line x1="15.815" y1="-12.807" x2="16.242" y2="-13.153">
+</line>
+<line x1="16.463" y1="-11.961" x2="16.908" y2="-12.285">
+</line>
+<line x1="17.067" y1="-11.083" x2="17.528" y2="-11.383">
+</line>
+<line x1="17.624" y1="-10.175" x2="18.1" y2="-10.45">
+</line>
+<line x1="18.132" y1="-9.239" x2="18.622" y2="-9.488">
+</line>
+<line x1="18.591" y1="-8.277" x2="19.093" y2="-8.501">
+</line>
+<line x1="18.998" y1="-7.293" x2="19.512" y2="-7.49">
+</line>
+<line x1="19.354" y1="-6.288" x2="19.877" y2="-6.458">
+</line>
+<line x1="19.657" y1="-5.267" x2="20.188" y2="-5.409">
+</line>
+<line x1="19.905" y1="-4.231" x2="20.443" y2="-4.345">
+</line>
+<line x1="20.099" y1="-3.183" x2="20.643" y2="-3.269">
+</line>
+<line x1="20.239" y1="-2.127" x2="20.786" y2="-2.185">
+</line>
+<line x1="20.322" y1="-1.065" x2="20.871" y2="-1.094">
+</line>
+<line x1="20.35" y1="0" x2="20.9" y2="0">
+</line>
+<line x1="20.322" y1="1.065" x2="20.871" y2="1.094">
+</line>
+<line x1="20.239" y1="2.127" x2="20.786" y2="2.185">
+</line>
+<line x1="20.099" y1="3.183" x2="20.643" y2="3.269">
+</line>
+<line x1="19.905" y1="4.231" x2="20.443" y2="4.345">
+</line>
+<line x1="19.657" y1="5.267" x2="20.188" y2="5.409">
+</line>
+<line x1="19.354" y1="6.288" x2="19.877" y2="6.458">
+</line>
+<line x1="18.998" y1="7.293" x2="19.512" y2="7.49">
+</line>
+<line x1="18.591" y1="8.277" x2="19.093" y2="8.501">
+</line>
+<line x1="18.132" y1="9.239" x2="18.622" y2="9.488">
+</line>
+<line x1="17.624" y1="10.175" x2="18.1" y2="10.45">
+</line>
+<line x1="17.067" y1="11.083" x2="17.528" y2="11.383">
+</line>
+<line x1="16.463" y1="11.961" x2="16.908" y2="12.285">
+</line>
+<line x1="15.815" y1="12.807" x2="16.242" y2="13.153">
+</line>
+<line x1="15.123" y1="13.617" x2="15.532" y2="13.985">
+</line>
+<line x1="14.39" y1="14.39" x2="14.779" y2="14.779">
+</line>
+<line x1="13.617" y1="15.123" x2="13.985" y2="15.532">
+</line>
+<line x1="12.807" y1="15.815" x2="13.153" y2="16.242">
+</line>
+<line x1="11.961" y1="16.463" x2="12.285" y2="16.908">
+</line>
+<line x1="11.083" y1="17.067" x2="11.383" y2="17.528">
+</line>
+<line x1="10.175" y1="17.624" x2="10.45" y2="18.1">
+</line>
+<line x1="9.239" y1="18.132" x2="9.488" y2="18.622">
+</line>
+<line x1="8.277" y1="18.591" x2="8.501" y2="19.093">
+</line>
+<line x1="7.293" y1="18.998" x2="7.49" y2="19.512">
+</line>
+<line x1="6.288" y1="19.354" x2="6.458" y2="19.877">
+</line>
+<line x1="5.267" y1="19.657" x2="5.409" y2="20.188">
+</line>
+<line x1="4.231" y1="19.905" x2="4.345" y2="20.443">
+</line>
+<line x1="3.183" y1="20.099" x2="3.269" y2="20.643">
+</line>
+<line x1="2.127" y1="20.239" x2="2.185" y2="20.786">
+</line>
+<line x1="1.065" y1="20.322" x2="1.094" y2="20.871">
+</line>
+<line x1="0" y1="20.35" x2="0" y2="20.9">
+</line>
+<line x1="-1.065" y1="20.322" x2="-1.094" y2="20.871">
+</line>
+<line x1="-2.127" y1="20.239" x2="-2.185" y2="20.786">
+</line>
+<line x1="-3.183" y1="20.099" x2="-3.269" y2="20.643">
+</line>
+<line x1="-4.231" y1="19.905" x2="-4.345" y2="20.443">
+</line>
+<line x1="-5.267" y1="19.657" x2="-5.409" y2="20.188">
+</line>
+<line x1="-6.288" y1="19.354" x2="-6.458" y2="19.877">
+</line>
+<line x1="-7.293" y1="18.998" x2="-7.49" y2="19.512">
+</line>
+<line x1="-8.277" y1="18.591" x2="-8.501" y2="19.093">
+</line>
+<line x1="-9.239" y1="18.132" x2="-9.488" y2="18.622">
+</line>
+<line x1="-10.175" y1="17.624" x2="-10.45" y2="18.1">
+</line>
+<line x1="-11.083" y1="17.067" x2="-11.383" y2="17.528">
+</line>
+<line x1="-11.961" y1="16.463" x2="-12.285" y2="16.908">
+</line>
+<line x1="-12.807" y1="15.815" x2="-13.153" y2="16.242">
+</line>
+<line x1="-13.617" y1="15.123" x2="-13.985" y2="15.532">
+</line>
+<line x1="-14.39" y1="14.39" x2="-14.779" y2="14.779">
+</line>
+<line x1="-15.123" y1="13.617" x2="-15.532" y2="13.985">
+</line>
+<line x1="-15.815" y1="12.807" x2="-16.242" y2="13.153">
+</line>
+<line x1="-16.463" y1="11.961" x2="-16.908" y2="12.285">
+</line>
+<line x1="-17.067" y1="11.083" x2="-17.528" y2="11.383">
+</line>
+<line x1="-17.624" y1="10.175" x2="-18.1" y2="10.45">
+</line>
+<line x1="-18.132" y1="9.239" x2="-18.622" y2="9.488">
+</line>
+<line x1="-18.591" y1="8.277" x2="-19.093" y2="8.501">
+</line>
+<line x1="-18.998" y1="7.293" x2="-19.512" y2="7.49">
+</line>
+<line x1="-19.354" y1="6.288" x2="-19.877" y2="6.458">
+</line>
+<line x1="-19.657" y1="5.267" x2="-20.188" y2="5.409">
+</line>
+<line x1="-19.905" y1="4.231" x2="-20.443" y2="4.345">
+</line>
+<line x1="-20.099" y1="3.183" x2="-20.643" y2="3.269">
+</line>
+<line x1="-20.239" y1="2.127" x2="-20.786" y2="2.185">
+</line>
+<line x1="-20.322" y1="1.065" x2="-20.871" y2="1.094">
+</line>
+<line x1="-20.35" y1="0" x2="-20.9" y2="0">
+</line>
+<line x1="-20.322" y1="-1.065" x2="-20.871" y2="-1.094">
+</line>
+<line x1="-20.239" y1="-2.127" x2="-20.786" y2="-2.185">
+</line>
+<line x1="-20.099" y1="-3.183" x2="-20.643" y2="-3.269">
+</line>
+<line x1="-19.905" y1="-4.231" x2="-20.443" y2="-4.345">
+</line>
+<line x1="-19.657" y1="-5.267" x2="-20.188" y2="-5.409">
+</line>
+<line x1="-19.354" y1="-6.288" x2="-19.877" y2="-6.458">
+</line>
+<line x1="-18.998" y1="-7.293" x2="-19.512" y2="-7.49">
+</line>
+<line x1="-18.591" y1="-8.277" x2="-19.093" y2="-8.501">
+</line>
+<line x1="-18.132" y1="-9.239" x2="-18.622" y2="-9.488">
+</line>
+<line x1="-17.624" y1="-10.175" x2="-18.1" y2="-10.45">
+</line>
+<line x1="-17.067" y1="-11.083" x2="-17.528" y2="-11.383">
+</line>
+<line x1="-16.463" y1="-11.961" x2="-16.908" y2="-12.285">
+</line>
+<line x1="-15.815" y1="-12.807" x2="-16.242" y2="-13.153">
+</line>
+<line x1="-15.123" y1="-13.617" x2="-15.532" y2="-13.985">
+</line>
+<line x1="-14.39" y1="-14.39" x2="-14.779" y2="-14.779">
+</line>
+<line x1="-13.617" y1="-15.123" x2="-13.985" y2="-15.532">
+</line>
+<line x1="-12.807" y1="-15.815" x2="-13.153" y2="-16.242">
+</line>
+<line x1="-11.961" y1="-16.463" x2="-12.285" y2="-16.908">
+</line>
+<line x1="-11.083" y1="-17.067" x2="-11.383" y2="-17.528">
+</line>
+<line x1="-10.175" y1="-17.624" x2="-10.45" y2="-18.1">
+</line>
+<line x1="-9.239" y1="-18.132" x2="-9.488" y2="-18.622">
+</line>
+<line x1="-8.277" y1="-18.591" x2="-8.501" y2="-19.093">
+</line>
+<line x1="-7.293" y1="-18.998" x2="-7.49" y2="-19.512">
+</line>
+<line x1="-6.288" y1="-19.354" x2="-6.458" y2="-19.877">
+</line>
+<line x1="-5.267" y1="-19.657" x2="-5.409" y2="-20.188">
+</line>
+<line x1="-4.231" y1="-19.905" x2="-4.345" y2="-20.443">
+</line>
+<line x1="-3.183" y1="-20.099" x2="-3.269" y2="-20.643">
+</line>
+<line x1="-2.127" y1="-20.239" x2="-2.185" y2="-20.786">
+</line>
+<line x1="-1.065" y1="-20.322" x2="-1.094" y2="-20.871">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="bezelInsert" data-part="in-diver42-dive-black">
+<g>
+<g>
+<defs>
+<radialGradient id="miyota-slim-diver-night-lume-insert-shade-in-diver42-dive-black" gradientUnits="userSpaceOnUse" r="19">
+<stop offset="0.8052631578947369" stop-color="#000" stop-opacity="0.35">
+</stop>
+<stop offset="0.8734210526315789" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.15">
+</stop>
+</radialGradient>
+</defs>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="#141518" fill-rule="evenodd">
+</path>
+<path d="M -19 0 A 19 19 0 1 0 19 0 A 19 19 0 1 0 -19 0 Z M -15.3 0 A 15.3 15.3 0 1 0 15.3 0 A 15.3 15.3 0 1 0 -15.3 0 Z" fill="url(#miyota-slim-diver-night-lume-insert-shade-in-diver42-dive-black)" fill-rule="evenodd">
+</path>
+</g>
+<g stroke="#e6e7e9" stroke-linecap="butt">
+<line x1="1.831" y1="-17.424" x2="1.94" y2="-18.454" stroke-width="0.18">
+</line>
+<line x1="3.643" y1="-17.137" x2="3.858" y2="-18.151" stroke-width="0.18">
+</line>
+<line x1="5.414" y1="-16.663" x2="5.734" y2="-17.648" stroke-width="0.18">
+</line>
+<line x1="7.126" y1="-16.005" x2="7.547" y2="-16.952" stroke-width="0.18">
+</line>
+<line x1="8.353" y1="-14.468" x2="9.278" y2="-16.07" stroke-width="0.55">
+</line>
+<line x1="10.298" y1="-14.174" x2="10.907" y2="-15.012" stroke-width="0.18">
+</line>
+<line x1="11.723" y1="-13.02" x2="12.416" y2="-13.79" stroke-width="0.18">
+</line>
+<line x1="13.02" y1="-11.723" x2="13.79" y2="-12.416" stroke-width="0.18">
+</line>
+<line x1="14.174" y1="-10.298" x2="15.012" y2="-10.907" stroke-width="0.18">
+</line>
+<line x1="16.005" y1="-7.126" x2="16.952" y2="-7.547" stroke-width="0.18">
+</line>
+<line x1="16.663" y1="-5.414" x2="17.648" y2="-5.734" stroke-width="0.18">
+</line>
+<line x1="17.137" y1="-3.643" x2="18.151" y2="-3.858" stroke-width="0.18">
+</line>
+<line x1="17.424" y1="-1.831" x2="18.454" y2="-1.94" stroke-width="0.18">
+</line>
+<line x1="16.706" y1="0" x2="18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="8.353" y1="14.468" x2="9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="14.468" x2="-9.278" y2="16.07" stroke-width="0.55">
+</line>
+<line x1="-16.706" y1="0" x2="-18.556" y2="0" stroke-width="0.55">
+</line>
+<line x1="-8.353" y1="-14.468" x2="-9.278" y2="-16.07" stroke-width="0.55">
+</line>
+</g>
+<text x="14.852" y="-8.575" transform="rotate(60 14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">10</text>
+<text x="14.852" y="8.575" transform="rotate(120 14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">20</text>
+<text x="0" y="17.15" transform="rotate(180 0 17.15)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">30</text>
+<text x="-14.852" y="8.575" transform="rotate(240 -14.852 8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">40</text>
+<text x="-14.852" y="-8.575" transform="rotate(300 -14.852 -8.575)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" font-size="1.9239999999999997" fill="#e6e7e9" text-anchor="middle" dominant-baseline="central">50</text>
+<g>
+<path d="M 0 -18.45 L -1.25 -16.25 L 1.25 -16.25 Z" fill="#e6e7e9">
+</path>
+<circle class="lume" cy="-17.25" r="0.55" fill="#e8f0d8" stroke="#8b9082" stroke-width="0.08">
+</circle>
+</g>
+</g>
+</g>
+<g clip-path="url(#miyota-slim-diver-night-lume-dial-clip)">
+<g data-layer="dial" data-part="dl-diver-nodate">
+<g>
+<defs>
+<filter id="miyota-slim-diver-night-lume-dial-shadow-dl-diver-nodate" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#141518">
+</circle>
+<g>
+<defs>
+<radialGradient id="miyota-slim-diver-night-lume-dial-vignette-dl-diver-nodate" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.04">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.28">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#miyota-slim-diver-night-lume-dial-vignette-dl-diver-nodate)">
+</circle>
+</g>
+<g stroke="#f2f2ef" opacity="0.75">
+<line x1="0" y1="-13.324" x2="0" y2="-14.107" stroke-width="0.18">
+</line>
+<line x1="1.423" y1="-13.534" x2="1.475" y2="-14.03" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="-13.311" x2="2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="-12.943" x2="4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="5.535" y1="-12.432" x2="5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="-11.539" x2="7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="7.999" y1="-11.01" x2="8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="-10.113" x2="9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="-9.106" x2="10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="11.01" y1="-7.999" x2="11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="-6.662" x2="12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="12.432" y1="-5.535" x2="12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="-4.205" x2="13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="-2.829" x2="13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="13.534" y1="-1.423" x2="14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="13.324" y1="0" x2="14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="13.534" y1="1.423" x2="14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="13.311" y1="2.829" x2="13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="12.943" y1="4.205" x2="13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="12.432" y1="5.535" x2="12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="11.539" y1="6.662" x2="12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="11.01" y1="7.999" x2="11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="10.113" y1="9.106" x2="10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="9.106" y1="10.113" x2="9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="7.999" y1="11.01" x2="8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="6.662" y1="11.539" x2="7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="5.535" y1="12.432" x2="5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="4.205" y1="12.943" x2="4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="2.829" y1="13.311" x2="2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="1.423" y1="13.534" x2="1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="0" y1="13.324" x2="0" y2="14.107" stroke-width="0.18">
+</line>
+<line x1="-1.423" y1="13.534" x2="-1.475" y2="14.03" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="13.311" x2="-2.933" y2="13.799" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="12.943" x2="-4.359" y2="13.417" stroke-width="0.08">
+</line>
+<line x1="-5.535" y1="12.432" x2="-5.738" y2="12.888" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="11.539" x2="-7.054" y2="12.217" stroke-width="0.18">
+</line>
+<line x1="-7.999" y1="11.01" x2="-8.292" y2="11.413" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="10.113" x2="-9.44" y2="10.484" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="9.106" x2="-10.484" y2="9.44" stroke-width="0.08">
+</line>
+<line x1="-11.01" y1="7.999" x2="-11.413" y2="8.292" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="6.662" x2="-12.217" y2="7.054" stroke-width="0.18">
+</line>
+<line x1="-12.432" y1="5.535" x2="-12.888" y2="5.738" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="4.205" x2="-13.417" y2="4.359" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="2.829" x2="-13.799" y2="2.933" stroke-width="0.08">
+</line>
+<line x1="-13.534" y1="1.423" x2="-14.03" y2="1.475" stroke-width="0.08">
+</line>
+<line x1="-13.324" y1="0" x2="-14.107" y2="0" stroke-width="0.18">
+</line>
+<line x1="-13.534" y1="-1.423" x2="-14.03" y2="-1.475" stroke-width="0.08">
+</line>
+<line x1="-13.311" y1="-2.829" x2="-13.799" y2="-2.933" stroke-width="0.08">
+</line>
+<line x1="-12.943" y1="-4.205" x2="-13.417" y2="-4.359" stroke-width="0.08">
+</line>
+<line x1="-12.432" y1="-5.535" x2="-12.888" y2="-5.738" stroke-width="0.08">
+</line>
+<line x1="-11.539" y1="-6.662" x2="-12.217" y2="-7.054" stroke-width="0.18">
+</line>
+<line x1="-11.01" y1="-7.999" x2="-11.413" y2="-8.292" stroke-width="0.08">
+</line>
+<line x1="-10.113" y1="-9.106" x2="-10.484" y2="-9.44" stroke-width="0.08">
+</line>
+<line x1="-9.106" y1="-10.113" x2="-9.44" y2="-10.484" stroke-width="0.08">
+</line>
+<line x1="-7.999" y1="-11.01" x2="-8.292" y2="-11.413" stroke-width="0.08">
+</line>
+<line x1="-6.662" y1="-11.539" x2="-7.054" y2="-12.217" stroke-width="0.18">
+</line>
+<line x1="-5.535" y1="-12.432" x2="-5.738" y2="-12.888" stroke-width="0.08">
+</line>
+<line x1="-4.205" y1="-12.943" x2="-4.359" y2="-13.417" stroke-width="0.08">
+</line>
+<line x1="-2.829" y1="-13.311" x2="-2.933" y2="-13.799" stroke-width="0.08">
+</line>
+<line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
+</line>
+</g>
+<g filter="url(#miyota-slim-diver-night-lume-dial-shadow-dl-diver-nodate)">
+<g class="lume" fill="#e8f0d8" stroke="#dcdde0" stroke-width="0.18" stroke-linejoin="round">
+<path d="M -1.853 -12.825 L 1.853 -12.825 L 0 -9.12 Z">
+</path>
+<circle cx="5.629" cy="-9.749" r="1.211">
+</circle>
+<circle cx="9.749" cy="-5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(90)">
+</rect>
+<circle cx="9.749" cy="5.629" r="1.211">
+</circle>
+<circle cx="5.629" cy="9.749" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(180)">
+</rect>
+<circle cx="-5.629" cy="9.749" r="1.211">
+</circle>
+<circle cx="-9.749" cy="5.629" r="1.211">
+</circle>
+<rect x="-0.926" y="-12.825" width="1.8525" height="3.705" rx="0.15" transform="rotate(270)">
+</rect>
+<circle cx="-9.749" cy="-5.629" r="1.211">
+</circle>
+<circle cx="-5.629" cy="-9.749" r="1.211">
+</circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-m8215-baton">
+<g>
+<defs>
+<filter id="miyota-slim-diver-night-lume-hands-shadow-hd-m8215-baton" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#miyota-slim-diver-night-lume-hands-shadow-hd-m8215-baton)">
+<g transform="rotate(304.308)">
+<polygon points="0.55,1 0.55,-8.2 0,-8.5 0,-8.5 -0.55,-8.2 -0.55,1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.22000000000000003" y="-7.7" width="0.44" height="5.27" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.42,1 0.42,-12.2 0,-12.5 0,-12.5 -0.42,-12.2 -0.42,1" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<rect class="lume" x="-0.168" y="-11.7" width="0.336" height="7.75" fill="#e8f0d8">
+</rect>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#e6e7e9">
+</polygon>
+</g>
+<circle r="0.5" fill="#e6e7e9">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-diver42-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="miyota-slim-diver-night-lume-glare-cy-diver42-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="15.75" fill="#5d7dff" opacity="0.06">
+</circle>
+<path d="M -14.453 -3.873 A 14.962499999999999 14.962499999999999 0 0 1 -3.873 -14.453 L -2.935 -10.954 A 11.34 11.34 0 0 0 -10.954 -2.935 Z" fill="url(#miyota-slim-diver-night-lume-glare-cy-diver42-dd)">
+</path>
+<path d="M 13.764 5.01 A 14.6475 14.6475 0 0 1 7.324 12.685 L 6.772 11.73 A 13.545 13.545 0 0 0 12.728 4.633 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</g>
+</svg>

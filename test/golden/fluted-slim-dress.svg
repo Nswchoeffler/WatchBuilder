@@ -1,0 +1,766 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23 -43.5 46 87" role="img" aria-label="Fluted Dress 36, Black Enamel" data-mm-width="46" data-mm-height="87">
+<title>Fluted Dress 36, Black Enamel</title>
+<defs>
+<clipPath id="fluted-slim-dress-dial-clip">
+<circle r="14.700000000000001">
+</circle>
+</clipPath>
+</defs>
+<g data-layer="strap" data-part="st-jubilee-20">
+<g id="fluted-slim-dress-strap-top">
+<g>
+<defs>
+<linearGradient id="fluted-slim-dress-bracelet-brushed-st-jubilee-20" gradientUnits="userSpaceOnUse" x1="-30" y1="-30" x2="30" y2="30">
+<stop offset="0" stop-color="#e4e6e9">
+</stop>
+<stop offset="0.3" stop-color="#d4d7db">
+</stop>
+<stop offset="0.55" stop-color="#a5a8ab">
+</stop>
+<stop offset="0.78" stop-color="#dde0e3">
+</stop>
+<stop offset="1" stop-color="#aeb0b4">
+</stop>
+</linearGradient>
+<linearGradient id="fluted-slim-dress-bracelet-polished-st-jubilee-20" gradientUnits="userSpaceOnUse" x1="-12" y1="-12" x2="12" y2="12">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -10 -10.8 L 10 -10.8 L 9 -43.5 L -9 -43.5 Z" fill="#5f6163">
+</path>
+<path d="M -9.92 -10.8 L -4.88 -10.8 L -4.88 -13.72 L -9.92 -13.72 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.92 -13.9 L -4.88 -13.9 L -4.88 -16.82 L -9.92 -16.82 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.92 -17 L -4.88 -17 L -4.871 -19.92 L -9.903 -19.92 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.895 -20.1 L -4.868 -20.1 L -4.808 -23.02 L -9.775 -23.02 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.767 -23.2 L -4.805 -23.2 L -4.745 -26.12 L -9.646 -26.12 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.639 -26.3 L -4.742 -26.3 L -4.682 -29.22 L -9.518 -29.22 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.511 -29.4 L -4.679 -29.4 L -4.619 -32.32 L -9.39 -32.32 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.383 -32.5 L -4.616 -32.5 L -4.556 -35.42 L -9.262 -35.42 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.255 -35.6 L -4.553 -35.6 L -4.493 -38.52 L -9.134 -38.52 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -9.126 -38.7 L -4.49 -38.7 L -4.43 -41.62 L -9.006 -41.62 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -8.998 -41.8 L -4.427 -41.8 L -4.392 -43.5 L -8.928 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -8.87 -44.9 L -4.364 -44.9 L -4.392 -43.5 L -8.928 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.72 -11.9 L -1.68 -11.9 L -1.68 -13.92 L -4.72 -13.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.72 -14.1 L -1.68 -14.1 L -1.68 -16.12 L -4.72 -16.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.72 -16.3 L -1.68 -16.3 L -1.68 -18.32 L -4.72 -18.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.72 -18.5 L -1.68 -18.5 L -1.673 -20.52 L -4.7 -20.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.696 -20.7 L -1.672 -20.7 L -1.657 -22.72 L -4.657 -22.72 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.653 -22.9 L -1.656 -22.9 L -1.642 -24.92 L -4.613 -24.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.61 -25.1 L -1.641 -25.1 L -1.627 -27.12 L -4.57 -27.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.567 -27.3 L -1.625 -27.3 L -1.611 -29.32 L -4.527 -29.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.523 -29.5 L -1.61 -29.5 L -1.596 -31.52 L -4.484 -31.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.48 -31.7 L -1.595 -31.7 L -1.58 -33.72 L -4.44 -33.72 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.437 -33.9 L -1.579 -33.9 L -1.565 -35.92 L -4.397 -35.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.394 -36.1 L -1.564 -36.1 L -1.55 -38.12 L -4.354 -38.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.35 -38.3 L -1.548 -38.3 L -1.534 -40.32 L -4.311 -40.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.307 -40.5 L -1.533 -40.5 L -1.519 -42.52 L -4.267 -42.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.264 -42.7 L -1.518 -42.7 L -1.512 -43.5 L -4.248 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -4.22 -44.9 L -1.502 -44.9 L -1.512 -43.5 L -4.248 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.52 -10.8 L 1.52 -10.8 L 1.52 -12.82 L -1.52 -12.82 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.52 -13 L 1.52 -13 L 1.52 -15.02 L -1.52 -15.02 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.52 -15.2 L 1.52 -15.2 L 1.52 -17.22 L -1.52 -17.22 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.52 -17.4 L 1.52 -17.4 L 1.52 -19.42 L -1.52 -19.42 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.519 -19.6 L 1.519 -19.6 L 1.507 -21.62 L -1.507 -21.62 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.505 -21.8 L 1.505 -21.8 L 1.493 -23.82 L -1.493 -23.82 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.491 -24 L 1.492 -24 L 1.479 -26.02 L -1.479 -26.02 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.478 -26.2 L 1.478 -26.2 L 1.465 -28.22 L -1.465 -28.22 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.464 -28.4 L 1.464 -28.4 L 1.451 -30.42 L -1.451 -30.42 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.45 -30.6 L 1.45 -30.6 L 1.437 -32.62 L -1.437 -32.62 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.436 -32.8 L 1.436 -32.8 L 1.423 -34.82 L -1.423 -34.82 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.422 -35 L 1.422 -35 L 1.409 -37.02 L -1.409 -37.02 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.408 -37.2 L 1.408 -37.2 L 1.395 -39.22 L -1.395 -39.22 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.394 -39.4 L 1.394 -39.4 L 1.381 -41.42 L -1.381 -41.42 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.38 -41.6 L 1.38 -41.6 L 1.368 -43.5 L -1.368 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M -1.366 -43.8 L 1.366 -43.8 L 1.368 -43.5 L -1.368 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.68 -11.9 L 4.72 -11.9 L 4.72 -13.92 L 1.68 -13.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.68 -14.1 L 4.72 -14.1 L 4.72 -16.12 L 1.68 -16.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.68 -16.3 L 4.72 -16.3 L 4.72 -18.32 L 1.68 -18.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.68 -18.5 L 4.72 -18.5 L 4.7 -20.52 L 1.673 -20.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.672 -20.7 L 4.696 -20.7 L 4.657 -22.72 L 1.657 -22.72 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.656 -22.9 L 4.653 -22.9 L 4.613 -24.92 L 1.642 -24.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.641 -25.1 L 4.61 -25.1 L 4.57 -27.12 L 1.627 -27.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.625 -27.3 L 4.567 -27.3 L 4.527 -29.32 L 1.611 -29.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.61 -29.5 L 4.523 -29.5 L 4.484 -31.52 L 1.596 -31.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.595 -31.7 L 4.48 -31.7 L 4.44 -33.72 L 1.58 -33.72 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.579 -33.9 L 4.437 -33.9 L 4.397 -35.92 L 1.565 -35.92 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.564 -36.1 L 4.394 -36.1 L 4.354 -38.12 L 1.55 -38.12 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.548 -38.3 L 4.35 -38.3 L 4.311 -40.32 L 1.534 -40.32 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.533 -40.5 L 4.307 -40.5 L 4.267 -42.52 L 1.519 -42.52 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.518 -42.7 L 4.264 -42.7 L 4.248 -43.5 L 1.512 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 1.502 -44.9 L 4.22 -44.9 L 4.248 -43.5 L 1.512 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-polished-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.88 -10.8 L 9.92 -10.8 L 9.92 -13.72 L 4.88 -13.72 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.88 -13.9 L 9.92 -13.9 L 9.92 -16.82 L 4.88 -16.82 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.88 -17 L 9.92 -17 L 9.903 -19.92 L 4.871 -19.92 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.868 -20.1 L 9.895 -20.1 L 9.775 -23.02 L 4.808 -23.02 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.805 -23.2 L 9.767 -23.2 L 9.646 -26.12 L 4.745 -26.12 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.742 -26.3 L 9.639 -26.3 L 9.518 -29.22 L 4.682 -29.22 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.679 -29.4 L 9.511 -29.4 L 9.39 -32.32 L 4.619 -32.32 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.616 -32.5 L 9.383 -32.5 L 9.262 -35.42 L 4.556 -35.42 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.553 -35.6 L 9.255 -35.6 L 9.134 -38.52 L 4.493 -38.52 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.49 -38.7 L 9.126 -38.7 L 9.006 -41.62 L 4.43 -41.62 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.427 -41.8 L 8.998 -41.8 L 8.928 -43.5 L 4.392 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+<path d="M 4.364 -44.9 L 8.87 -44.9 L 8.928 -43.5 L 4.392 -43.5 Z" fill="url(#fluted-slim-dress-bracelet-brushed-st-jubilee-20)" stroke="#6a6c6e" stroke-width="0.08">
+</path>
+</g>
+</g>
+<use href="#fluted-slim-dress-strap-top" transform="scale(1 -1)">
+</use>
+</g>
+<g data-layer="crown" data-part="cw-skx013-coin-6" transform="rotate(0)">
+<g>
+<defs>
+<linearGradient id="fluted-slim-dress-crown-cw-skx013-coin-6" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#eaebed">
+</stop>
+<stop offset="0.45" stop-color="#d4d7db">
+</stop>
+<stop offset="1" stop-color="#757678">
+</stop>
+</linearGradient>
+</defs>
+<rect x="17.6" y="-1.32" width="1.2" height="2.64" fill="#9fa1a4">
+</rect>
+<rect x="18.5" y="-3" width="2.8" height="6" rx="0.9" fill="url(#fluted-slim-dress-crown-cw-skx013-coin-6)" stroke="#5f6163" stroke-width="0.15">
+</rect>
+<g stroke="#6a6c6e" stroke-width="0.07">
+<line x1="18.65" y1="-2.6" x2="21.05" y2="-2.6">
+</line>
+<line x1="18.65" y1="-2.2" x2="21.05" y2="-2.2">
+</line>
+<line x1="18.65" y1="-1.8" x2="21.05" y2="-1.8">
+</line>
+<line x1="18.65" y1="-1.4" x2="21.05" y2="-1.4">
+</line>
+<line x1="18.65" y1="-1" x2="21.05" y2="-1">
+</line>
+<line x1="18.65" y1="-0.6" x2="21.05" y2="-0.6">
+</line>
+<line x1="18.65" y1="-0.2" x2="21.05" y2="-0.2">
+</line>
+<line x1="18.65" y1="0.2" x2="21.05" y2="0.2">
+</line>
+<line x1="18.65" y1="0.6" x2="21.05" y2="0.6">
+</line>
+<line x1="18.65" y1="1" x2="21.05" y2="1">
+</line>
+<line x1="18.65" y1="1.4" x2="21.05" y2="1.4">
+</line>
+<line x1="18.65" y1="1.8" x2="21.05" y2="1.8">
+</line>
+<line x1="18.65" y1="2.2" x2="21.05" y2="2.2">
+</line>
+<line x1="18.65" y1="2.6" x2="21.05" y2="2.6">
+</line>
+</g>
+</g>
+</g>
+<g data-layer="case" data-part="cs-fluted36-slim">
+<g>
+<defs>
+<linearGradient id="fluted-slim-dress-case-metal-cs-fluted36-slim" gradientUnits="userSpaceOnUse" x1="-21.5" y1="-21.5" x2="21.5" y2="21.5">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+<radialGradient id="fluted-slim-dress-case-flange-cs-fluted36-slim" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.750000000000002">
+<stop offset="0.8" stop-color="#404142">
+</stop>
+<stop offset="1" stop-color="#8a8c8e">
+</stop>
+</radialGradient>
+</defs>
+<g stroke="#5f6163" stroke-width="0.35" stroke-linejoin="round">
+<circle r="18" fill="#5f6163">
+</circle>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="#5f6163" transform="scale(1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="#5f6163" transform="scale(-1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="#5f6163" transform="scale(1 -1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="#5f6163" transform="scale(-1 -1)">
+</path>
+</g>
+<g>
+<circle r="18" fill="url(#fluted-slim-dress-case-metal-cs-fluted36-slim)">
+</circle>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#fluted-slim-dress-case-metal-cs-fluted36-slim)" transform="scale(1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#fluted-slim-dress-case-metal-cs-fluted36-slim)" transform="scale(-1 1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#fluted-slim-dress-case-metal-cs-fluted36-slim)" transform="scale(1 -1)">
+</path>
+<path d="M 10 -9.9 L 10 -20.4 Q 10 -21.5 11.1 -21.5 L 11.2 -21.5 Q 12.3 -21.5 12.3 -20.4 C 12.3 -17.1 13.68 -15.3 13.68 -9.9 Z" fill="url(#fluted-slim-dress-case-metal-cs-fluted36-slim)" transform="scale(-1 -1)">
+</path>
+</g>
+<g>
+<path d="M -17.65 0 A 17.65 17.65 0 1 0 17.65 0 A 17.65 17.65 0 1 0 -17.65 0 Z M -14.7 0 A 14.7 14.7 0 1 0 14.7 0 A 14.7 14.7 0 1 0 -14.7 0 Z" fill="#dadde0" fill-rule="evenodd">
+</path>
+<g>
+<path d="M 0 -17.65 A 17.65 17.65 0 0 1 0.924 -17.626 L 0.769 -14.68 A 14.700000000000001 14.700000000000001 0 0 0 0 -14.7 Z" fill="#f1f2f3">
+</path>
+<path d="M 0.924 -17.626 A 17.65 17.65 0 0 1 1.845 -17.553 L 1.537 -14.619 A 14.700000000000001 14.700000000000001 0 0 0 0.769 -14.68 Z" fill="#a3a5a8">
+</path>
+</g>
+<g>
+<path d="M 1.845 -17.553 A 17.65 17.65 0 0 1 2.761 -17.433 L 2.3 -14.519 A 14.700000000000001 14.700000000000001 0 0 0 1.537 -14.619 Z" fill="#f0f1f3">
+</path>
+<path d="M 2.761 -17.433 A 17.65 17.65 0 0 1 3.67 -17.264 L 3.056 -14.379 A 14.700000000000001 14.700000000000001 0 0 0 2.3 -14.519 Z" fill="#a0a2a5">
+</path>
+</g>
+<g>
+<path d="M 3.67 -17.264 A 17.65 17.65 0 0 1 4.568 -17.049 L 3.805 -14.199 A 14.700000000000001 14.700000000000001 0 0 0 3.056 -14.379 Z" fill="#eff1f2">
+</path>
+<path d="M 4.568 -17.049 A 17.65 17.65 0 0 1 5.454 -16.786 L 4.543 -13.981 A 14.700000000000001 14.700000000000001 0 0 0 3.805 -14.199 Z" fill="#9d9fa1">
+</path>
+</g>
+<g>
+<path d="M 5.454 -16.786 A 17.65 17.65 0 0 1 6.325 -16.478 L 5.268 -13.724 A 14.700000000000001 14.700000000000001 0 0 0 4.543 -13.981 Z" fill="#eef0f1">
+</path>
+<path d="M 6.325 -16.478 A 17.65 17.65 0 0 1 7.179 -16.124 L 5.979 -13.429 A 14.700000000000001 14.700000000000001 0 0 0 5.268 -13.724 Z" fill="#9a9c9e">
+</path>
+</g>
+<g>
+<path d="M 7.179 -16.124 A 17.65 17.65 0 0 1 8.013 -15.726 L 6.674 -13.098 A 14.700000000000001 14.700000000000001 0 0 0 5.979 -13.429 Z" fill="#edeff0">
+</path>
+<path d="M 8.013 -15.726 A 17.65 17.65 0 0 1 8.825 -15.285 L 7.35 -12.731 A 14.700000000000001 14.700000000000001 0 0 0 6.674 -13.098 Z" fill="#96989a">
+</path>
+</g>
+<g>
+<path d="M 8.825 -15.285 A 17.65 17.65 0 0 1 9.613 -14.803 L 8.006 -12.328 A 14.700000000000001 14.700000000000001 0 0 0 7.35 -12.731 Z" fill="#eceeef">
+</path>
+<path d="M 9.613 -14.803 A 17.65 17.65 0 0 1 10.374 -14.279 L 8.64 -11.893 A 14.700000000000001 14.700000000000001 0 0 0 8.006 -12.328 Z" fill="#929496">
+</path>
+</g>
+<g>
+<path d="M 10.374 -14.279 A 17.65 17.65 0 0 1 11.108 -13.717 L 9.251 -11.424 A 14.700000000000001 14.700000000000001 0 0 0 8.64 -11.893 Z" fill="#ebedef">
+</path>
+<path d="M 11.108 -13.717 A 17.65 17.65 0 0 1 11.81 -13.117 L 9.836 -10.924 A 14.700000000000001 14.700000000000001 0 0 0 9.251 -11.424 Z" fill="#8e9092">
+</path>
+</g>
+<g>
+<path d="M 11.81 -13.117 A 17.65 17.65 0 0 1 12.48 -12.48 L 10.394 -10.394 A 14.700000000000001 14.700000000000001 0 0 0 9.836 -10.924 Z" fill="#eaecee">
+</path>
+<path d="M 12.48 -12.48 A 17.65 17.65 0 0 1 13.117 -11.81 L 10.924 -9.836 A 14.700000000000001 14.700000000000001 0 0 0 10.394 -10.394 Z" fill="#8a8c8e">
+</path>
+</g>
+<g>
+<path d="M 13.117 -11.81 A 17.65 17.65 0 0 1 13.717 -11.108 L 11.424 -9.251 A 14.700000000000001 14.700000000000001 0 0 0 10.924 -9.836 Z" fill="#e9ebed">
+</path>
+<path d="M 13.717 -11.108 A 17.65 17.65 0 0 1 14.279 -10.374 L 11.893 -8.64 A 14.700000000000001 14.700000000000001 0 0 0 11.424 -9.251 Z" fill="#86888a">
+</path>
+</g>
+<g>
+<path d="M 14.279 -10.374 A 17.65 17.65 0 0 1 14.803 -9.613 L 12.328 -8.006 A 14.700000000000001 14.700000000000001 0 0 0 11.893 -8.64 Z" fill="#e8eaec">
+</path>
+<path d="M 14.803 -9.613 A 17.65 17.65 0 0 1 15.285 -8.825 L 12.731 -7.35 A 14.700000000000001 14.700000000000001 0 0 0 12.328 -8.006 Z" fill="#828486">
+</path>
+</g>
+<g>
+<path d="M 15.285 -8.825 A 17.65 17.65 0 0 1 15.726 -8.013 L 13.098 -6.674 A 14.700000000000001 14.700000000000001 0 0 0 12.731 -7.35 Z" fill="#e7e9eb">
+</path>
+<path d="M 15.726 -8.013 A 17.65 17.65 0 0 1 16.124 -7.179 L 13.429 -5.979 A 14.700000000000001 14.700000000000001 0 0 0 13.098 -6.674 Z" fill="#7e8082">
+</path>
+</g>
+<g>
+<path d="M 16.124 -7.179 A 17.65 17.65 0 0 1 16.478 -6.325 L 13.724 -5.268 A 14.700000000000001 14.700000000000001 0 0 0 13.429 -5.979 Z" fill="#e6e8ea">
+</path>
+<path d="M 16.478 -6.325 A 17.65 17.65 0 0 1 16.786 -5.454 L 13.981 -4.543 A 14.700000000000001 14.700000000000001 0 0 0 13.724 -5.268 Z" fill="#7b7c7e">
+</path>
+</g>
+<g>
+<path d="M 16.786 -5.454 A 17.65 17.65 0 0 1 17.049 -4.568 L 14.199 -3.805 A 14.700000000000001 14.700000000000001 0 0 0 13.981 -4.543 Z" fill="#e5e7e9">
+</path>
+<path d="M 17.049 -4.568 A 17.65 17.65 0 0 1 17.264 -3.67 L 14.379 -3.056 A 14.700000000000001 14.700000000000001 0 0 0 14.199 -3.805 Z" fill="#77797a">
+</path>
+</g>
+<g>
+<path d="M 17.264 -3.67 A 17.65 17.65 0 0 1 17.433 -2.761 L 14.519 -2.3 A 14.700000000000001 14.700000000000001 0 0 0 14.379 -3.056 Z" fill="#e4e6e9">
+</path>
+<path d="M 17.433 -2.761 A 17.65 17.65 0 0 1 17.553 -1.845 L 14.619 -1.537 A 14.700000000000001 14.700000000000001 0 0 0 14.519 -2.3 Z" fill="#737577">
+</path>
+</g>
+<g>
+<path d="M 17.553 -1.845 A 17.65 17.65 0 0 1 17.626 -0.924 L 14.68 -0.769 A 14.700000000000001 14.700000000000001 0 0 0 14.619 -1.537 Z" fill="#e3e6e8">
+</path>
+<path d="M 17.626 -0.924 A 17.65 17.65 0 0 1 17.65 0 L 14.7 0 A 14.700000000000001 14.700000000000001 0 0 0 14.68 -0.769 Z" fill="#707273">
+</path>
+</g>
+<g>
+<path d="M 17.65 0 A 17.65 17.65 0 0 1 17.626 0.924 L 14.68 0.769 A 14.700000000000001 14.700000000000001 0 0 0 14.7 0 Z" fill="#e3e5e7">
+</path>
+<path d="M 17.626 0.924 A 17.65 17.65 0 0 1 17.553 1.845 L 14.619 1.537 A 14.700000000000001 14.700000000000001 0 0 0 14.68 0.769 Z" fill="#6d6f70">
+</path>
+</g>
+<g>
+<path d="M 17.553 1.845 A 17.65 17.65 0 0 1 17.433 2.761 L 14.519 2.3 A 14.700000000000001 14.700000000000001 0 0 0 14.619 1.537 Z" fill="#e2e4e7">
+</path>
+<path d="M 17.433 2.761 A 17.65 17.65 0 0 1 17.264 3.67 L 14.379 3.056 A 14.700000000000001 14.700000000000001 0 0 0 14.519 2.3 Z" fill="#6b6c6e">
+</path>
+</g>
+<g>
+<path d="M 17.264 3.67 A 17.65 17.65 0 0 1 17.049 4.568 L 14.199 3.805 A 14.700000000000001 14.700000000000001 0 0 0 14.379 3.056 Z" fill="#e1e4e6">
+</path>
+<path d="M 17.049 4.568 A 17.65 17.65 0 0 1 16.786 5.454 L 13.981 4.543 A 14.700000000000001 14.700000000000001 0 0 0 14.199 3.805 Z" fill="#686a6b">
+</path>
+</g>
+<g>
+<path d="M 16.786 5.454 A 17.65 17.65 0 0 1 16.478 6.325 L 13.724 5.268 A 14.700000000000001 14.700000000000001 0 0 0 13.981 4.543 Z" fill="#e1e3e6">
+</path>
+<path d="M 16.478 6.325 A 17.65 17.65 0 0 1 16.124 7.179 L 13.429 5.979 A 14.700000000000001 14.700000000000001 0 0 0 13.724 5.268 Z" fill="#666869">
+</path>
+</g>
+<g>
+<path d="M 16.124 7.179 A 17.65 17.65 0 0 1 15.726 8.013 L 13.098 6.674 A 14.700000000000001 14.700000000000001 0 0 0 13.429 5.979 Z" fill="#e0e3e5">
+</path>
+<path d="M 15.726 8.013 A 17.65 17.65 0 0 1 15.285 8.825 L 12.731 7.35 A 14.700000000000001 14.700000000000001 0 0 0 13.098 6.674 Z" fill="#656667">
+</path>
+</g>
+<g>
+<path d="M 15.285 8.825 A 17.65 17.65 0 0 1 14.803 9.613 L 12.328 8.006 A 14.700000000000001 14.700000000000001 0 0 0 12.731 7.35 Z" fill="#e0e2e5">
+</path>
+<path d="M 14.803 9.613 A 17.65 17.65 0 0 1 14.279 10.374 L 11.893 8.64 A 14.700000000000001 14.700000000000001 0 0 0 12.328 8.006 Z" fill="#636566">
+</path>
+</g>
+<g>
+<path d="M 14.279 10.374 A 17.65 17.65 0 0 1 13.717 11.108 L 11.424 9.251 A 14.700000000000001 14.700000000000001 0 0 0 11.893 8.64 Z" fill="#e0e2e5">
+</path>
+<path d="M 13.717 11.108 A 17.65 17.65 0 0 1 13.117 11.81 L 10.924 9.836 A 14.700000000000001 14.700000000000001 0 0 0 11.424 9.251 Z" fill="#636465">
+</path>
+</g>
+<g>
+<path d="M 13.117 11.81 A 17.65 17.65 0 0 1 12.48 12.48 L 10.394 10.394 A 14.700000000000001 14.700000000000001 0 0 0 10.924 9.836 Z" fill="#e0e2e5">
+</path>
+<path d="M 12.48 12.48 A 17.65 17.65 0 0 1 11.81 13.117 L 9.836 10.924 A 14.700000000000001 14.700000000000001 0 0 0 10.394 10.394 Z" fill="#626465">
+</path>
+</g>
+<g>
+<path d="M 11.81 13.117 A 17.65 17.65 0 0 1 11.108 13.717 L 9.251 11.424 A 14.700000000000001 14.700000000000001 0 0 0 9.836 10.924 Z" fill="#e0e2e5">
+</path>
+<path d="M 11.108 13.717 A 17.65 17.65 0 0 1 10.374 14.279 L 8.64 11.893 A 14.700000000000001 14.700000000000001 0 0 0 9.251 11.424 Z" fill="#626465">
+</path>
+</g>
+<g>
+<path d="M 10.374 14.279 A 17.65 17.65 0 0 1 9.613 14.803 L 8.006 12.328 A 14.700000000000001 14.700000000000001 0 0 0 8.64 11.893 Z" fill="#e0e2e5">
+</path>
+<path d="M 9.613 14.803 A 17.65 17.65 0 0 1 8.825 15.285 L 7.35 12.731 A 14.700000000000001 14.700000000000001 0 0 0 8.006 12.328 Z" fill="#636465">
+</path>
+</g>
+<g>
+<path d="M 8.825 15.285 A 17.65 17.65 0 0 1 8.013 15.726 L 6.674 13.098 A 14.700000000000001 14.700000000000001 0 0 0 7.35 12.731 Z" fill="#e0e2e5">
+</path>
+<path d="M 8.013 15.726 A 17.65 17.65 0 0 1 7.179 16.124 L 5.979 13.429 A 14.700000000000001 14.700000000000001 0 0 0 6.674 13.098 Z" fill="#636566">
+</path>
+</g>
+<g>
+<path d="M 7.179 16.124 A 17.65 17.65 0 0 1 6.325 16.478 L 5.268 13.724 A 14.700000000000001 14.700000000000001 0 0 0 5.979 13.429 Z" fill="#e0e3e5">
+</path>
+<path d="M 6.325 16.478 A 17.65 17.65 0 0 1 5.454 16.786 L 4.543 13.981 A 14.700000000000001 14.700000000000001 0 0 0 5.268 13.724 Z" fill="#656667">
+</path>
+</g>
+<g>
+<path d="M 5.454 16.786 A 17.65 17.65 0 0 1 4.568 17.049 L 3.805 14.199 A 14.700000000000001 14.700000000000001 0 0 0 4.543 13.981 Z" fill="#e1e3e6">
+</path>
+<path d="M 4.568 17.049 A 17.65 17.65 0 0 1 3.67 17.264 L 3.056 14.379 A 14.700000000000001 14.700000000000001 0 0 0 3.805 14.199 Z" fill="#666869">
+</path>
+</g>
+<g>
+<path d="M 3.67 17.264 A 17.65 17.65 0 0 1 2.761 17.433 L 2.3 14.519 A 14.700000000000001 14.700000000000001 0 0 0 3.056 14.379 Z" fill="#e1e4e6">
+</path>
+<path d="M 2.761 17.433 A 17.65 17.65 0 0 1 1.845 17.553 L 1.537 14.619 A 14.700000000000001 14.700000000000001 0 0 0 2.3 14.519 Z" fill="#686a6b">
+</path>
+</g>
+<g>
+<path d="M 1.845 17.553 A 17.65 17.65 0 0 1 0.924 17.626 L 0.769 14.68 A 14.700000000000001 14.700000000000001 0 0 0 1.537 14.619 Z" fill="#e2e4e7">
+</path>
+<path d="M 0.924 17.626 A 17.65 17.65 0 0 1 0 17.65 L 0 14.7 A 14.700000000000001 14.700000000000001 0 0 0 0.769 14.68 Z" fill="#6b6c6e">
+</path>
+</g>
+<g>
+<path d="M 0 17.65 A 17.65 17.65 0 0 1 -0.924 17.626 L -0.769 14.68 A 14.700000000000001 14.700000000000001 0 0 0 0 14.7 Z" fill="#e3e5e7">
+</path>
+<path d="M -0.924 17.626 A 17.65 17.65 0 0 1 -1.845 17.553 L -1.537 14.619 A 14.700000000000001 14.700000000000001 0 0 0 -0.769 14.68 Z" fill="#6d6f70">
+</path>
+</g>
+<g>
+<path d="M -1.845 17.553 A 17.65 17.65 0 0 1 -2.761 17.433 L -2.3 14.519 A 14.700000000000001 14.700000000000001 0 0 0 -1.537 14.619 Z" fill="#e3e6e8">
+</path>
+<path d="M -2.761 17.433 A 17.65 17.65 0 0 1 -3.67 17.264 L -3.056 14.379 A 14.700000000000001 14.700000000000001 0 0 0 -2.3 14.519 Z" fill="#707273">
+</path>
+</g>
+<g>
+<path d="M -3.67 17.264 A 17.65 17.65 0 0 1 -4.568 17.049 L -3.805 14.199 A 14.700000000000001 14.700000000000001 0 0 0 -3.056 14.379 Z" fill="#e4e6e9">
+</path>
+<path d="M -4.568 17.049 A 17.65 17.65 0 0 1 -5.454 16.786 L -4.543 13.981 A 14.700000000000001 14.700000000000001 0 0 0 -3.805 14.199 Z" fill="#737577">
+</path>
+</g>
+<g>
+<path d="M -5.454 16.786 A 17.65 17.65 0 0 1 -6.325 16.478 L -5.268 13.724 A 14.700000000000001 14.700000000000001 0 0 0 -4.543 13.981 Z" fill="#e5e7e9">
+</path>
+<path d="M -6.325 16.478 A 17.65 17.65 0 0 1 -7.179 16.124 L -5.979 13.429 A 14.700000000000001 14.700000000000001 0 0 0 -5.268 13.724 Z" fill="#77797a">
+</path>
+</g>
+<g>
+<path d="M -7.179 16.124 A 17.65 17.65 0 0 1 -8.013 15.726 L -6.674 13.098 A 14.700000000000001 14.700000000000001 0 0 0 -5.979 13.429 Z" fill="#e6e8ea">
+</path>
+<path d="M -8.013 15.726 A 17.65 17.65 0 0 1 -8.825 15.285 L -7.35 12.731 A 14.700000000000001 14.700000000000001 0 0 0 -6.674 13.098 Z" fill="#7b7c7e">
+</path>
+</g>
+<g>
+<path d="M -8.825 15.285 A 17.65 17.65 0 0 1 -9.613 14.803 L -8.006 12.328 A 14.700000000000001 14.700000000000001 0 0 0 -7.35 12.731 Z" fill="#e7e9eb">
+</path>
+<path d="M -9.613 14.803 A 17.65 17.65 0 0 1 -10.374 14.279 L -8.64 11.893 A 14.700000000000001 14.700000000000001 0 0 0 -8.006 12.328 Z" fill="#7e8082">
+</path>
+</g>
+<g>
+<path d="M -10.374 14.279 A 17.65 17.65 0 0 1 -11.108 13.717 L -9.251 11.424 A 14.700000000000001 14.700000000000001 0 0 0 -8.64 11.893 Z" fill="#e8eaec">
+</path>
+<path d="M -11.108 13.717 A 17.65 17.65 0 0 1 -11.81 13.117 L -9.836 10.924 A 14.700000000000001 14.700000000000001 0 0 0 -9.251 11.424 Z" fill="#828486">
+</path>
+</g>
+<g>
+<path d="M -11.81 13.117 A 17.65 17.65 0 0 1 -12.48 12.48 L -10.394 10.394 A 14.700000000000001 14.700000000000001 0 0 0 -9.836 10.924 Z" fill="#e9ebed">
+</path>
+<path d="M -12.48 12.48 A 17.65 17.65 0 0 1 -13.117 11.81 L -10.924 9.836 A 14.700000000000001 14.700000000000001 0 0 0 -10.394 10.394 Z" fill="#86888a">
+</path>
+</g>
+<g>
+<path d="M -13.117 11.81 A 17.65 17.65 0 0 1 -13.717 11.108 L -11.424 9.251 A 14.700000000000001 14.700000000000001 0 0 0 -10.924 9.836 Z" fill="#eaecee">
+</path>
+<path d="M -13.717 11.108 A 17.65 17.65 0 0 1 -14.279 10.374 L -11.893 8.64 A 14.700000000000001 14.700000000000001 0 0 0 -11.424 9.251 Z" fill="#8a8c8e">
+</path>
+</g>
+<g>
+<path d="M -14.279 10.374 A 17.65 17.65 0 0 1 -14.803 9.613 L -12.328 8.006 A 14.700000000000001 14.700000000000001 0 0 0 -11.893 8.64 Z" fill="#ebedef">
+</path>
+<path d="M -14.803 9.613 A 17.65 17.65 0 0 1 -15.285 8.825 L -12.731 7.35 A 14.700000000000001 14.700000000000001 0 0 0 -12.328 8.006 Z" fill="#8e9092">
+</path>
+</g>
+<g>
+<path d="M -15.285 8.825 A 17.65 17.65 0 0 1 -15.726 8.013 L -13.098 6.674 A 14.700000000000001 14.700000000000001 0 0 0 -12.731 7.35 Z" fill="#eceeef">
+</path>
+<path d="M -15.726 8.013 A 17.65 17.65 0 0 1 -16.124 7.179 L -13.429 5.979 A 14.700000000000001 14.700000000000001 0 0 0 -13.098 6.674 Z" fill="#929496">
+</path>
+</g>
+<g>
+<path d="M -16.124 7.179 A 17.65 17.65 0 0 1 -16.478 6.325 L -13.724 5.268 A 14.700000000000001 14.700000000000001 0 0 0 -13.429 5.979 Z" fill="#edeff0">
+</path>
+<path d="M -16.478 6.325 A 17.65 17.65 0 0 1 -16.786 5.454 L -13.981 4.543 A 14.700000000000001 14.700000000000001 0 0 0 -13.724 5.268 Z" fill="#96989a">
+</path>
+</g>
+<g>
+<path d="M -16.786 5.454 A 17.65 17.65 0 0 1 -17.049 4.568 L -14.199 3.805 A 14.700000000000001 14.700000000000001 0 0 0 -13.981 4.543 Z" fill="#eef0f1">
+</path>
+<path d="M -17.049 4.568 A 17.65 17.65 0 0 1 -17.264 3.67 L -14.379 3.056 A 14.700000000000001 14.700000000000001 0 0 0 -14.199 3.805 Z" fill="#9a9c9e">
+</path>
+</g>
+<g>
+<path d="M -17.264 3.67 A 17.65 17.65 0 0 1 -17.433 2.761 L -14.519 2.3 A 14.700000000000001 14.700000000000001 0 0 0 -14.379 3.056 Z" fill="#eff1f2">
+</path>
+<path d="M -17.433 2.761 A 17.65 17.65 0 0 1 -17.553 1.845 L -14.619 1.537 A 14.700000000000001 14.700000000000001 0 0 0 -14.519 2.3 Z" fill="#9d9fa1">
+</path>
+</g>
+<g>
+<path d="M -17.553 1.845 A 17.65 17.65 0 0 1 -17.626 0.924 L -14.68 0.769 A 14.700000000000001 14.700000000000001 0 0 0 -14.619 1.537 Z" fill="#f0f1f3">
+</path>
+<path d="M -17.626 0.924 A 17.65 17.65 0 0 1 -17.65 0 L -14.7 0 A 14.700000000000001 14.700000000000001 0 0 0 -14.68 0.769 Z" fill="#a0a2a5">
+</path>
+</g>
+<g>
+<path d="M -17.65 0 A 17.65 17.65 0 0 1 -17.626 -0.924 L -14.68 -0.769 A 14.700000000000001 14.700000000000001 0 0 0 -14.7 0 Z" fill="#f1f2f3">
+</path>
+<path d="M -17.626 -0.924 A 17.65 17.65 0 0 1 -17.553 -1.845 L -14.619 -1.537 A 14.700000000000001 14.700000000000001 0 0 0 -14.68 -0.769 Z" fill="#a3a5a8">
+</path>
+</g>
+<g>
+<path d="M -17.553 -1.845 A 17.65 17.65 0 0 1 -17.433 -2.761 L -14.519 -2.3 A 14.700000000000001 14.700000000000001 0 0 0 -14.619 -1.537 Z" fill="#f2f3f4">
+</path>
+<path d="M -17.433 -2.761 A 17.65 17.65 0 0 1 -17.264 -3.67 L -14.379 -3.056 A 14.700000000000001 14.700000000000001 0 0 0 -14.519 -2.3 Z" fill="#a6a8aa">
+</path>
+</g>
+<g>
+<path d="M -17.264 -3.67 A 17.65 17.65 0 0 1 -17.049 -4.568 L -14.199 -3.805 A 14.700000000000001 14.700000000000001 0 0 0 -14.379 -3.056 Z" fill="#f2f3f4">
+</path>
+<path d="M -17.049 -4.568 A 17.65 17.65 0 0 1 -16.786 -5.454 L -13.981 -4.543 A 14.700000000000001 14.700000000000001 0 0 0 -14.199 -3.805 Z" fill="#a8abad">
+</path>
+</g>
+<g>
+<path d="M -16.786 -5.454 A 17.65 17.65 0 0 1 -16.478 -6.325 L -13.724 -5.268 A 14.700000000000001 14.700000000000001 0 0 0 -13.981 -4.543 Z" fill="#f3f4f5">
+</path>
+<path d="M -16.478 -6.325 A 17.65 17.65 0 0 1 -16.124 -7.179 L -13.429 -5.979 A 14.700000000000001 14.700000000000001 0 0 0 -13.724 -5.268 Z" fill="#aaadaf">
+</path>
+</g>
+<g>
+<path d="M -16.124 -7.179 A 17.65 17.65 0 0 1 -15.726 -8.013 L -13.098 -6.674 A 14.700000000000001 14.700000000000001 0 0 0 -13.429 -5.979 Z" fill="#f3f4f5">
+</path>
+<path d="M -15.726 -8.013 A 17.65 17.65 0 0 1 -15.285 -8.825 L -12.731 -7.35 A 14.700000000000001 14.700000000000001 0 0 0 -13.098 -6.674 Z" fill="#acaeb1">
+</path>
+</g>
+<g>
+<path d="M -15.285 -8.825 A 17.65 17.65 0 0 1 -14.803 -9.613 L -12.328 -8.006 A 14.700000000000001 14.700000000000001 0 0 0 -12.731 -7.35 Z" fill="#f4f4f5">
+</path>
+<path d="M -14.803 -9.613 A 17.65 17.65 0 0 1 -14.279 -10.374 L -11.893 -8.64 A 14.700000000000001 14.700000000000001 0 0 0 -12.328 -8.006 Z" fill="#adafb2">
+</path>
+</g>
+<g>
+<path d="M -14.279 -10.374 A 17.65 17.65 0 0 1 -13.717 -11.108 L -11.424 -9.251 A 14.700000000000001 14.700000000000001 0 0 0 -11.893 -8.64 Z" fill="#f4f5f6">
+</path>
+<path d="M -13.717 -11.108 A 17.65 17.65 0 0 1 -13.117 -11.81 L -10.924 -9.836 A 14.700000000000001 14.700000000000001 0 0 0 -11.424 -9.251 Z" fill="#aeb0b3">
+</path>
+</g>
+<g>
+<path d="M -13.117 -11.81 A 17.65 17.65 0 0 1 -12.48 -12.48 L -10.394 -10.394 A 14.700000000000001 14.700000000000001 0 0 0 -10.924 -9.836 Z" fill="#f4f5f6">
+</path>
+<path d="M -12.48 -12.48 A 17.65 17.65 0 0 1 -11.81 -13.117 L -9.836 -10.924 A 14.700000000000001 14.700000000000001 0 0 0 -10.394 -10.394 Z" fill="#aeb1b3">
+</path>
+</g>
+<g>
+<path d="M -11.81 -13.117 A 17.65 17.65 0 0 1 -11.108 -13.717 L -9.251 -11.424 A 14.700000000000001 14.700000000000001 0 0 0 -9.836 -10.924 Z" fill="#f4f5f6">
+</path>
+<path d="M -11.108 -13.717 A 17.65 17.65 0 0 1 -10.374 -14.279 L -8.64 -11.893 A 14.700000000000001 14.700000000000001 0 0 0 -9.251 -11.424 Z" fill="#aeb1b3">
+</path>
+</g>
+<g>
+<path d="M -10.374 -14.279 A 17.65 17.65 0 0 1 -9.613 -14.803 L -8.006 -12.328 A 14.700000000000001 14.700000000000001 0 0 0 -8.64 -11.893 Z" fill="#f4f5f6">
+</path>
+<path d="M -9.613 -14.803 A 17.65 17.65 0 0 1 -8.825 -15.285 L -7.35 -12.731 A 14.700000000000001 14.700000000000001 0 0 0 -8.006 -12.328 Z" fill="#aeb0b3">
+</path>
+</g>
+<g>
+<path d="M -8.825 -15.285 A 17.65 17.65 0 0 1 -8.013 -15.726 L -6.674 -13.098 A 14.700000000000001 14.700000000000001 0 0 0 -7.35 -12.731 Z" fill="#f4f4f5">
+</path>
+<path d="M -8.013 -15.726 A 17.65 17.65 0 0 1 -7.179 -16.124 L -5.979 -13.429 A 14.700000000000001 14.700000000000001 0 0 0 -6.674 -13.098 Z" fill="#adafb2">
+</path>
+</g>
+<g>
+<path d="M -7.179 -16.124 A 17.65 17.65 0 0 1 -6.325 -16.478 L -5.268 -13.724 A 14.700000000000001 14.700000000000001 0 0 0 -5.979 -13.429 Z" fill="#f3f4f5">
+</path>
+<path d="M -6.325 -16.478 A 17.65 17.65 0 0 1 -5.454 -16.786 L -4.543 -13.981 A 14.700000000000001 14.700000000000001 0 0 0 -5.268 -13.724 Z" fill="#acaeb1">
+</path>
+</g>
+<g>
+<path d="M -5.454 -16.786 A 17.65 17.65 0 0 1 -4.568 -17.049 L -3.805 -14.199 A 14.700000000000001 14.700000000000001 0 0 0 -4.543 -13.981 Z" fill="#f3f4f5">
+</path>
+<path d="M -4.568 -17.049 A 17.65 17.65 0 0 1 -3.67 -17.264 L -3.056 -14.379 A 14.700000000000001 14.700000000000001 0 0 0 -3.805 -14.199 Z" fill="#aaadaf">
+</path>
+</g>
+<g>
+<path d="M -3.67 -17.264 A 17.65 17.65 0 0 1 -2.761 -17.433 L -2.3 -14.519 A 14.700000000000001 14.700000000000001 0 0 0 -3.056 -14.379 Z" fill="#f2f3f4">
+</path>
+<path d="M -2.761 -17.433 A 17.65 17.65 0 0 1 -1.845 -17.553 L -1.537 -14.619 A 14.700000000000001 14.700000000000001 0 0 0 -2.3 -14.519 Z" fill="#a8abad">
+</path>
+</g>
+<g>
+<path d="M -1.845 -17.553 A 17.65 17.65 0 0 1 -0.924 -17.626 L -0.769 -14.68 A 14.700000000000001 14.700000000000001 0 0 0 -1.537 -14.619 Z" fill="#f2f3f4">
+</path>
+<path d="M -0.924 -17.626 A 17.65 17.65 0 0 1 0 -17.65 L 0 -14.7 A 14.700000000000001 14.700000000000001 0 0 0 -0.769 -14.68 Z" fill="#a6a8aa">
+</path>
+</g>
+<path d="M -17.65 0 A 17.65 17.65 0 1 0 17.65 0 A 17.65 17.65 0 1 0 -17.65 0 Z M -14.7 0 A 14.7 14.7 0 1 0 14.7 0 A 14.7 14.7 0 1 0 -14.7 0 Z" fill="none" stroke="#6d6f70" stroke-width="0.2">
+</path>
+</g>
+<circle r="14.750000000000002" fill="url(#fluted-slim-dress-case-flange-cs-fluted36-slim)">
+</circle>
+</g>
+</g>
+<g clip-path="url(#fluted-slim-dress-dial-clip)">
+<g data-layer="dial" data-part="dl-enamel-black-date">
+<g>
+<defs>
+<filter id="fluted-slim-dress-dial-shadow-dl-enamel-black-date" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.12" dy="0.18" stdDeviation="0.12" flood-color="#000" flood-opacity="0.5">
+</feDropShadow>
+</filter>
+</defs>
+<circle r="14.25" fill="#0b0b0c">
+</circle>
+<g>
+<defs>
+<radialGradient id="fluted-slim-dress-dial-vignette-dl-enamel-black-date" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="14.25">
+<stop offset="0" stop-color="#fff" stop-opacity="0.14">
+</stop>
+<stop offset="0.7" stop-color="#000" stop-opacity="0">
+</stop>
+<stop offset="1" stop-color="#000" stop-opacity="0.2">
+</stop>
+</radialGradient>
+</defs>
+<circle r="14.25" fill="url(#fluted-slim-dress-dial-vignette-dl-enamel-black-date)">
+</circle>
+</g>
+<g filter="url(#fluted-slim-dress-dial-shadow-dl-enamel-black-date)">
+<g transform="translate(10.83 0) rotate(0)" font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">
+<rect x="-1.646" y="-1.361" width="3.292" height="2.723" rx="0.2" fill="#dcdde0" stroke="#6e6f70" stroke-width="0.1">
+</rect>
+<rect x="-1.496" y="-1.211" width="2.992" height="2.423" fill="#f4f3ef">
+</rect>
+<text x="0" y="0.05" font-size="1.744" fill="#16171a">17</text>
+</g>
+</g>
+</g>
+</g>
+<g data-layer="chapterRing" data-part="cr-mid-thin-silver">
+<g>
+<defs>
+<linearGradient id="fluted-slim-dress-ring-cr-mid-thin-silver" gradientUnits="userSpaceOnUse" x1="-14.25" y1="-14.25" x2="14.25" y2="14.25">
+<stop offset="0" stop-color="#f0f1f2">
+</stop>
+<stop offset="0.28" stop-color="#949799">
+</stop>
+<stop offset="0.5" stop-color="#ecedef">
+</stop>
+<stop offset="0.72" stop-color="#7b7d7f">
+</stop>
+<stop offset="1" stop-color="#e3e5e8">
+</stop>
+</linearGradient>
+</defs>
+<path d="M -14.25 0 A 14.25 14.25 0 1 0 14.25 0 A 14.25 14.25 0 1 0 -14.25 0 Z M -13.25 0 A 13.25 13.25 0 1 0 13.25 0 A 13.25 13.25 0 1 0 -13.25 0 Z" fill="url(#fluted-slim-dress-ring-cr-mid-thin-silver)" fill-rule="evenodd">
+</path>
+<circle r="13.25" fill="none" stroke="#6a6c6e" stroke-width="0.1">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="hands" data-part="hd-nh-sword">
+<g>
+<defs>
+<filter id="fluted-slim-dress-hands-shadow-hd-nh-sword" x="-50%" y="-50%" width="200%" height="200%">
+<feDropShadow dx="0.25" dy="0.35" stdDeviation="0.25" flood-color="#000" flood-opacity="0.45">
+</feDropShadow>
+</filter>
+</defs>
+<g filter="url(#fluted-slim-dress-hands-shadow-hd-nh-sword)">
+<g transform="rotate(304.308)">
+<polygon points="0.45,1.2 0.45,-1.02 1.05,-5.27 0,-8.5 0,-8.5 -1.05,-5.27 -0.45,-1.02 -0.45,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.12,-1.7 0.7,-5.27 0,-7.6 0,-7.6 -0.7,-5.27 -0.12,-1.7" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="1.25" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(51.7)">
+<polygon points="0.45,1.2 0.45,-1.5 0.8,-7.75 0,-12.5 0,-12.5 -0.8,-7.75 -0.45,-1.5 -0.45,1.2" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</polygon>
+<polygon class="lume" points="0.12,-2.5 0.45,-7.75 0,-11.6 0,-11.6 -0.45,-7.75 -0.12,-2.5" fill="#e8f0d8">
+</polygon>
+</g>
+<circle r="0.95" fill="#e6e7e9" stroke="#676869" stroke-width="0.08">
+</circle>
+<g transform="rotate(222)">
+<polygon points="0.35,3.2 0.12,0 0.06,-13 -0.06,-13 -0.12,0 -0.35,3.2" fill="#c8302c">
+</polygon>
+<circle class="lume" cy="-9.88" r="0.62" fill="#e8f0d8" stroke="#c8302c" stroke-width="0.22">
+</circle>
+</g>
+<circle r="0.5" fill="#c8302c">
+</circle>
+</g>
+</g>
+</g>
+<g data-layer="crystal" data-part="cy-dress28-dd">
+<g pointer-events="none">
+<defs>
+<linearGradient id="fluted-slim-dress-glare-cy-dress28-dd" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.32">
+</stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0">
+</stop>
+</linearGradient>
+</defs>
+<circle r="14.3" fill="#ffffff" opacity="0.015">
+</circle>
+<path d="M -13.122 -3.516 A 13.585 13.585 0 0 1 -3.516 -13.122 L -2.665 -9.945 A 10.296 10.296 0 0 0 -9.945 -2.665 Z" fill="url(#fluted-slim-dress-glare-cy-dress28-dd)">
+</path>
+<path d="M 12.497 4.549 A 13.299000000000001 13.299000000000001 0 0 1 6.649 11.517 L 6.149 10.65 A 12.298 12.298 0 0 0 11.556 4.206 Z" fill="#fff" opacity="0.08">
+</path>
+</g>
+</g>
+</svg>
