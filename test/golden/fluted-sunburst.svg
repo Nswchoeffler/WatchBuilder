@@ -1041,6 +1041,17 @@
 <line x1="-1.423" y1="-13.534" x2="-1.475" y2="-14.03" stroke-width="0.08">
 </line>
 </g>
+<g data-dial-print="">
+<g font-family="&#x27;Helvetica Neue&#x27;, Helvetica, Arial, sans-serif" font-size="0.969" font-weight="700" fill="#f2f2ef" text-anchor="middle" dominant-baseline="central" letter-spacing="0.078">
+<text x="0" y="-5.7">AUTOMATIC</text>
+</g>
+<g filter="url(#fluted-sunburst-dial-shadow-dl-sunburst-blue)">
+<g fill="#dcdde0" stroke="#797a7b" stroke-width="0.07" stroke-linejoin="round">
+<path d="M 0 -8.123 L 0.718 -6.982 L -0.718 -6.982 Z">
+</path>
+</g>
+</g>
+</g>
 <g filter="url(#fluted-sunburst-dial-shadow-dl-sunburst-blue)">
 <g>
 <g transform="rotate(0) translate(-0.855 0)">

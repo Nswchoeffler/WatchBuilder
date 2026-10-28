@@ -6,3 +6,4 @@ coverage
 previews
 *.tsbuildinfo
 .vs
+.claude/worktrees
