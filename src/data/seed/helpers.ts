@@ -17,4 +17,4 @@ export const AT_9 = { angle: 270 } as const;
  * label describes the measurements — not whether anyone sells this exact colourway.
  */
 export const variantOf = (partId: string, what = 'colour and markers') =>
-  `Measurements inherited from ${partId}; ${what} are a style choice. Confirm against a listing before ordering.`;
+  `Measurements inherited from ${partId}; what differs is a style choice (${what}). Confirm against a listing before ordering.`;
