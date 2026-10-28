@@ -25,8 +25,14 @@ import type { Suggestions } from './suggestions';
 // Measurement forms, one per part type. Every field addresses the draft by the same
 // path Zod reports issues on, so validation messages land inline without any mapping.
 
-const MOUNT_LABELS = { 'seiko-nh': 'Seiko NH', 'miyota-26': 'Miyota 26mm', 'eta-25.6': 'ETA 25.6mm', 'seiko-vh': 'Seiko VH' };
-const MOUNTS = options(['seiko-nh', 'miyota-26', 'eta-25.6', 'seiko-vh'], MOUNT_LABELS);
+const MOUNT_LABELS = {
+  'seiko-nh': 'Seiko NH',
+  'seiko-nh-27': 'Seiko NH70 / NH72 (27.00 casing)',
+  'miyota-26': 'Miyota 26mm',
+  'eta-25.6': 'ETA 25.6mm',
+  'seiko-vh': 'Seiko VH',
+};
+const MOUNTS = options(['seiko-nh', 'seiko-nh-27', 'miyota-26', 'eta-25.6', 'seiko-vh'], MOUNT_LABELS);
 
 const FEET = options(['seiko-nh', 'seiko-nh-skeleton', 'miyota-82', 'miyota-90', 'eta-2824', 'sellita-sw200', 'seiko-vh', 'none'], {
   'seiko-nh': 'Seiko NH',
@@ -140,7 +146,7 @@ function MovementForm() {
 
       <FormSection title="Measurements">
         <MmField path="diameter" label="Diameter" />
-        <MmField path="casingDiameter" label="Casing diameter" hint="With the casing ring fitted. Optional." />
+        <MmField path="casingDiameter" label="Casing diameter" hint="The maker's case-fitting diameter (Seiko casing diameter, Sellita / ETA case fitting diameter), not the outside diameter. Optional." />
         <MmField path="height" label="Height" hint="Without hands." />
         <MmField path="heightWithHands" label="Height with hands" hint="Checked against the case's movement stack." />
         <MmField path="minDialCenterHole" label="Min dial centre hole" />

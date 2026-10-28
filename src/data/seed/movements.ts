@@ -7,6 +7,7 @@ const nhBase = {
   kind: 'mechanical',
   mountSystem: 'seiko-nh',
   feetSystem: 'seiko-nh',
+  // Outside Ø27.40; "casing diameter" is the maker's case-fitting value (29.36 with the dial-holding spacer), so it is larger.
   diameter: 27.4,
   casingDiameter: 29.36,
   height: 5.32,
@@ -24,6 +25,7 @@ const nhOpenWorked = {
   ...nhBase,
   type: 'movement',
   confidence: 'verified',
+  mountSystem: 'seiko-nh-27',
   feetSystem: 'seiko-nh-skeleton',
   // Casing Ø27.00 (+0 / −0.32) on the open-worked pair, against 29.36 with the NH35's dial-holding spacer.
   casingDiameter: 27.0,
@@ -36,7 +38,8 @@ const nhOpenWorkedNotes =
   'Ø27.40, height 5.32, hand posts as the NH35, total height 7.59 with the type M centre post (7.99 with the tall post), casing Ø27.00 +0 / −0.32 ' +
   '(clamped with casing clamps, no dial-holding spacer). Own dial feet: F1 at (−10.600, +7.428), F2 at (+8.322, −9.932), i.e. 305.0° and 140.0° at radius ≈12.9, ' +
   'Ø0.74, for a 3:00 crown (the NH35 pair sits at 48° / 228°), so NH dials do not fit. The dial is a ring: Ø31.50 ± 0.05, 0.40 thick, with an opening of Ø23.90 at most. ' +
-  'Modelled with the NH mount because vendors list the pair for NH cases (e.g. the octagon case), but the sheet gives no mount drawing for an NH35 case ring; confirm before ordering.';
+  'Own mount system (seiko-nh-27) because the sheets give Ø27.00 with casing clamps against the NH35\'s 29.36 with its spacer: an NH case takes the pair only with a ' +
+  'spacer ring (the movement-spacer modification). Vendors list the pair for NH cases (e.g. the octagon case); the sheets give no ring drawing, so the ring itself is not specified here.';
 
 /** Miyota 9 series: one frame (Ø26.00, height 3.90), the same hand posts, feet and dial hole. Miyota drawings, see mv-m9015. */
 const miyota9Base = {
@@ -211,10 +214,18 @@ export const movements: SeedPart<'movement'>[] = [
     caliber: '2824-2',
     kind: 'mechanical',
     confidence: 'community',
-    notes: 'heightWithHands and dial centre hole unverified.',
+    notes:
+      'Height 4.60, hand fittings 1.50 / 0.90 / 0.25 and the 25.60 figure are from ETA\'s technical communication (CT 2801-2, 2006). 25.60 is the case FITTING diameter: ETA publishes no overall diameter, ' +
+      'so `diameter` repeats it as a stand-in and `casingDiameter` carries the real figure (Sellita\'s SW200-1 is 26.00 overall). Dial feet: ETA gives no feet drawing; the pair is community-only ' +
+      '(vendor and forum: "12 and 42 minutes", about Ø0.75), matching Sellita\'s verified SW200-1 drawing. heightWithHands and dial centre hole unverified.',
+    sources: [
+      'https://www.cousinsuk.com/pdf/categories/29_eta2801.2-eta2836.2.pdf',
+      'https://forums.timezone.com/index.php?t=msg&th=291327&rid=0',
+    ],
     mountSystem: 'eta-25.6',
     feetSystem: 'eta-2824',
     diameter: 25.6,
+    casingDiameter: 25.6,
     height: 4.6,
     heightWithHands: 6.6,
     handPosts: { hour: 1.5, minute: 0.9, seconds: 0.25 },
@@ -234,11 +245,13 @@ export const movements: SeedPart<'movement'>[] = [
     confidence: 'community',
     notes:
       'Overall diameter 26.00, case fitting diameter 25.60, height 4.60 and hand fittings 1.50 / 0.90 / 0.25 verified (Sellita technical documentation SW200-1, rev. 07, 2024). ' +
-      'heightWithHands unverified. Own feet system until SW200 vs ETA 2824 dial-feet compatibility is confirmed: the Sellita dial drawing gives the feet only graphically.',
+      'Dial feet from the same document (drawing SW106765 A): 71.96° / 251.96° at radius 12.20, Ø0.75, centre hole Ø2.00 (docs/compatibility-spec.md §4). ' +
+      'heightWithHands unverified. Kept as its own feet system until it is confirmed that ETA 2824 dials match (vendor and forum say so; ETA publishes no feet drawing).',
     sources: ['https://www.sellita.ch/scripts/calibres/images/DocTec_SW200-1_7.pdf'],
     mountSystem: 'eta-25.6',
     feetSystem: 'sellita-sw200',
     diameter: 26.0,
+    casingDiameter: 25.6,
     height: 4.6,
     heightWithHands: 6.6,
     handPosts: { hour: 1.5, minute: 0.9, seconds: 0.25 },

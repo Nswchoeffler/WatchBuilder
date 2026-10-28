@@ -1,9 +1,14 @@
-import { DATE_STEP_DEG, DAY_STEP_DEG } from '../../schemas';
+import { DATE_STEP_DEG, DAY_STEP_DEG, type MountSystem } from '../../schemas';
 import { angularDistance, crownName, deg, mm, movementToDial, offGrid, polarDistance } from '../geometry';
 import { TOL } from '../tolerances';
 import { defineRule, error, info, warning, type Finding } from '../types';
 
 // Movement ↔ Case, Movement ↔ Dial. IDs match docs/compatibility-spec.md §6.
+
+/** Why a mount needs a spacer ring in a case that lists it under `spacerMounts`; appended to the finding. */
+const SPACER_REASON: Partial<Record<MountSystem, string>> = {
+  'seiko-nh-27': ' Its casing diameter is 27.00mm (casing clamps, no dial-holding spacer) and this case is built for the 29.36mm NH casing, so the movement needs a ring to fill the gap.',
+};
 
 export const movementCaseRules = [
   defineRule({
@@ -13,7 +18,7 @@ export const movementCaseRules = [
     check: ({ movement, case: c }) => {
       if (c.movementMounts.includes(movement.mountSystem)) return [];
       if (c.spacerMounts.includes(movement.mountSystem)) {
-        return [error(`${movement.caliber} needs a spacer ring to sit in this case.`, 'movement-spacer')];
+        return [error(`${movement.caliber} needs a spacer ring to sit in this case.${SPACER_REASON[movement.mountSystem] ?? ''}`, 'movement-spacer')];
       }
       return [error(`${movement.caliber} (${movement.mountSystem} mount) doesn't fit this case (takes ${c.movementMounts.join(', ')}).`)];
     },

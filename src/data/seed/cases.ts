@@ -3,6 +3,9 @@ import { tpl, type SeedPart } from './helpers';
 // Reference products: Diver 42 ≈ namokiMODS NMK901; Fluted Classic 36 ≈ Lucius Atelier Datejust 36;
 // Octagon 41 ≈ Nomods 41mm; Diver 42.5 Slim ≈ namokiMODS NMK948. See docs/compatibility-spec.md §5.
 
+/** The NH70A / NH72A are cased at Ø27.00 against the NH35's 29.36 (see mv-nh70); an NH case takes them only with a spacer ring. */
+const SPACER_NH27 = 'seiko-nh-27' as const;
+
 const diver42 = {
   type: 'case',
   style: 'diver42',
@@ -13,7 +16,7 @@ const diver42 = {
   endLinkProfile: 'diver42',
   crownTube: 'diver42',
   movementMounts: ['seiko-nh'],
-  spacerMounts: ['seiko-vh'],
+  spacerMounts: ['seiko-vh', SPACER_NH27],
   maxMovementStack: 8.2,
   dialSeat: { min: 28.3, max: 28.7 },
   chapterRing: { requirement: 'optional', seatDiameter: 30.5 },
@@ -53,6 +56,7 @@ const luciusFit = {
   crownSteps: 0,
   crownTube: 'skx013',
   movementMounts: ['seiko-nh'],
+  spacerMounts: [SPACER_NH27],
   maxMovementStack: 8.2,
   dialSeat: { min: 28.3, max: 28.7 },
   chapterRing: { requirement: 'required', seatDiameter: 28.5 },
@@ -113,7 +117,15 @@ export const cases: SeedPart<'case'>[] = [
     style: 'sub40',
     inspiredBy: 'Classic 40mm dive case',
     confidence: 'unverified',
-    notes: 'Dial 28.5–29, insert 38×30.6, lugs 20, SKX013-spec ring (community). Lug-to-lug, crystal, stack height unverified.',
+    notes:
+      'Dial 28.5–29, insert 38×30.6, lugs 20, SKX013-spec ring (community). Lug-to-lug, crystal, stack height unverified. ' +
+      'The 38×30.6 insert matches the sloped SKX007 insert (namokiMODS insert sizes: 38.0 outer × 30.6 inner). The nearest published 40mm sub, namokiMODS NMK909, ' +
+      'gives 40 / 47.5 lug-to-lug / 11 case only / lugs 22 and "fits all original and aftermarket SKX007 mod parts"; it is a 22mm-lug SKX007 clone, not necessarily this ' +
+      'case (lugs 20, 13.4 thick), so nothing here was changed from it. Still unpublished for either: crown position, crystal size, stack height, crown tube.',
+    sources: [
+      'https://www.namokimods.com/products/nmk909-sub-skx007-srpd-watch-case-polished-black-finish',
+      'https://www.namokimods.com/pages/seiko-bezel-insert-sizes',
+    ],
     diameter: 40,
     lugToLug: 48,
     thickness: 13.4,
@@ -121,6 +133,7 @@ export const cases: SeedPart<'case'>[] = [
     crownSteps: 0,
     crownTube: 'sub40',
     movementMounts: ['seiko-nh'],
+    spacerMounts: [SPACER_NH27],
     maxMovementStack: 8.2,
     dialSeat: { min: 28.3, max: 29.0 },
     chapterRing: { requirement: 'optional', seatDiameter: 28.5 },
@@ -143,6 +156,7 @@ export const cases: SeedPart<'case'>[] = [
     crownSteps: 0,
     crownTube: 'fluted36',
     movementMounts: ['seiko-nh', 'eta-25.6'],
+    spacerMounts: [SPACER_NH27],
     maxMovementStack: 7.7,
     dialSeat: { min: 28.3, max: 28.7 },
     chapterRing: { requirement: 'required', seatDiameter: 28.5 },
@@ -165,6 +179,7 @@ export const cases: SeedPart<'case'>[] = [
     crownSteps: 0,
     crownTube: 'fluted36',
     movementMounts: ['seiko-nh'],
+    spacerMounts: [SPACER_NH27],
     maxMovementStack: 7.7,
     dialSeat: { min: 28.3, max: 28.7 },
     chapterRing: { requirement: 'required', seatDiameter: 28.5 },
@@ -188,6 +203,7 @@ export const cases: SeedPart<'case'>[] = [
     crownSteps: 0,
     crownTube: 'octagon41',
     movementMounts: ['seiko-nh'],
+    spacerMounts: [SPACER_NH27],
     maxMovementStack: 7.8,
     dialSeat: { min: 30.8, max: 31.8 },
     chapterRing: { requirement: 'none' },

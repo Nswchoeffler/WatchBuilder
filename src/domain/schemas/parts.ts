@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { Angle, CrownSteps, Feature, HexColor, Mm, Slug, partBaseShape } from './common';
 
-/** How a movement sits in the case (casing ring / movement holder standard). */
-export const MountSystem = z.enum(['seiko-nh', 'miyota-26', 'eta-25.6', 'seiko-vh']);
+/**
+ * How a movement sits in the case (casing ring / movement holder standard).
+ * `seiko-nh-27` is the NH70A / NH72A: casing diameter 27.00 held by casing clamps with no dial-holding spacer,
+ * against the 29.36 of `seiko-nh` (NH35 family, with its spacer). NH cases take it only with a spacer ring.
+ */
+export const MountSystem = z.enum(['seiko-nh', 'seiko-nh-27', 'miyota-26', 'eta-25.6', 'seiko-vh']);
 export type MountSystem = z.infer<typeof MountSystem>;
 
 /** Dial-feet pattern. `none` = feetless dial mounted with dial dots. */
@@ -46,7 +50,14 @@ export const Movement = z.object({
   kind: z.enum(['mechanical', 'quartz']),
   mountSystem: MountSystem,
   feetSystem: FeetSystem,
+  /** Overall outside diameter of the bare movement (the maker's "outside / overall diameter"). */
   diameter: Mm,
+  /**
+   * The maker's case-fitting diameter (Seiko "casing diameter", Sellita / ETA "case fitting diameter"): what the case or its
+   * casing ring must provide to take the movement as supplied. It is not the outside diameter, so it can be larger (NH35: 27.40 outside,
+   * 29.36 with the dial-holding spacer) or smaller (VH31: 23.70 outside, 23.30 for a non-round plate); both are right.
+   * No rule reads it yet. Optional.
+   */
   casingDiameter: Mm.optional(),
   height: Mm,
   /** Stack height including hands; used against case.maxMovementStack. */

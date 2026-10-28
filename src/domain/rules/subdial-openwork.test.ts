@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { evaluate } from './index';
-import { build, catalogWith, coreCatalog, corePart, ids, mixedBuild } from './testkit';
+import { build, catalogWith, core, coreCatalog, corePart, ids, mixedBuild } from './testkit';
 
 // Reference builds for the NH39 (24-hour sub-dial) and NH70 / NH72 (open-worked): rules R-MD-6, R-MD-7, R-MH-3, R-HD-3.
 
@@ -116,12 +116,31 @@ describe('NH39 sub-dial builds', () => {
 });
 
 describe('NH70 / NH72 open-worked builds', () => {
-  it('T35: NH70 and NH72 with the ring dial in the octagon case are valid with no findings', () => {
+  it('T35: NH70 and NH72 with the ring dial in the octagon case need a spacer; with the flag the only finding is that warning', () => {
     for (const movement of ['mv-nh70', 'mv-nh72']) {
-      const r = run({ ...NH70_BUILD, movement });
-      expect(r.results, movement).toEqual([]);
-      expect(r.status, movement).toBe('valid');
+      const bare = run({ ...NH70_BUILD, movement });
+      expect(ids(bare, 'error'), movement).toEqual(['R-MC-1']);
+      expect(bare.results.find((x) => x.ruleId === 'R-MC-1'), movement).toMatchObject({ fix: 'movement-spacer' });
+      const fixed = run({ ...NH70_BUILD, movement }, ['movement-spacer']);
+      expect(ids(fixed, 'error'), movement).toEqual([]);
+      expect(ids(fixed, 'warning'), movement).toEqual(['R-MC-1']);
+      expect(fixed.results.map((x) => x.ruleId), movement).toEqual(['R-MC-1']);
+      expect(fixed.status, movement).toBe('warnings');
+      expect(fixed.unusedFlags, movement).toEqual([]);
     }
+  });
+
+  it('T35b: the spacer finding explains the 27.00 against 29.36 casing, and an NH35 (29.36) needs no spacer', () => {
+    const r = run({ case: 'cs-octagon41', movement: 'mv-nh70' });
+    expect(r.results.find((x) => x.ruleId === 'R-MC-1')?.message).toBe(
+      'NH70A needs a spacer ring to sit in this case. Its casing diameter is 27.00mm (casing clamps, no dial-holding spacer) and this case is built for the 29.36mm NH casing, so the movement needs a ring to fill the gap.',
+    );
+    expect(ids(run({ case: 'cs-octagon41', movement: 'mv-nh35' }), 'error')).toEqual([]);
+    // Every core case that takes the NH35 offers the spacer path, and the Miyota case (no NH mount) does not.
+    const nhCases = core.parts.filter((p) => p.type === 'case' && p.movementMounts.includes('seiko-nh'));
+    expect(nhCases.length).toBeGreaterThan(0);
+    for (const c of nhCases) expect(c.type === 'case' && c.spacerMounts, c.id).toContain('seiko-nh-27');
+    expect(corePart('cs-diver42-miyota', 'case').spacerMounts).not.toContain('seiko-nh-27');
   });
 
   it('T36: an NH35 under the ring dial → feet do not match, and the opening shows a plain plate', () => {
@@ -132,24 +151,24 @@ describe('NH70 / NH72 open-worked builds', () => {
   });
 
   it('T37: an NH70 under a solid date dial → feet and date errors, and an info that the dial hides the open-work', () => {
-    const r = run({ ...NH70_BUILD, dial: 'dl-tapisserie-blue' });
+    const r = run({ ...NH70_BUILD, dial: 'dl-tapisserie-blue' }, ['movement-spacer']);
     expect(ids(r, 'error')).toEqual(['R-MD-1', 'R-MD-2']);
     expect(ids(r, 'info')).toEqual(['R-MD-7']);
     expect(r.results.find((x) => x.ruleId === 'R-MD-1')).toMatchObject({ fix: 'dial-dots' });
     // Dial dots fix the feet only; the date window still has nothing behind it.
-    expect(ids(run({ ...NH70_BUILD, dial: 'dl-tapisserie-blue' }, ['dial-dots']), 'error')).toEqual(['R-MD-2']);
+    expect(ids(run({ ...NH70_BUILD, dial: 'dl-tapisserie-blue' }, ['movement-spacer', 'dial-dots']), 'error')).toEqual(['R-MD-2']);
   });
 
   it('T38: the ring dial seats only where the case allows a Ø31.5 dial', () => {
-    const r = run({ case: 'cs-sub40', movement: 'mv-nh70', dial: 'dl-nh70-ring-black' });
+    const r = run({ case: 'cs-sub40', movement: 'mv-nh70', dial: 'dl-nh70-ring-black' }, ['movement-spacer']);
     expect(ids(r, 'error')).toEqual(['R-CD-2']);
   });
 
   it('R-MD-7: an opening wider than the movement allows is an error', () => {
     const dial = corePart('dl-nh70-ring-black', 'dial');
     const catalog = catalogWith([{ ...dial, id: 'dl-wide-open', centerOpening: 24.5, centerHole: 24.5 }]);
-    const r = evaluate(mixedBuild({ ...NH70_BUILD, dial: 'test:dl-wide-open' }), catalog);
+    const r = evaluate(mixedBuild({ ...NH70_BUILD, dial: 'test:dl-wide-open' }, ['movement-spacer']), catalog);
     expect(ids(r, 'error')).toEqual(['R-MD-7']);
-    expect(r.results[0]?.message).toMatch(/at most 23\.9mm/);
+    expect(r.results.find((x) => x.ruleId === 'R-MD-7')?.message).toMatch(/at most 23\.9mm/);
   });
 });
