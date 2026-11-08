@@ -345,4 +345,78 @@ export const cases: SeedPart<'case'>[] = [
     crystalSeat: 29.5,
     visual: tpl('case/fluted', { finish: 'polished', metal: '#d4d7db', bezel: 'smooth', bevel: 'wide' }),
   },
+
+  // ── Added 2026-11-08 as unverified: published tables that leave out the crystal size (roadmap 6.1, fourth pass) ──
+  // The user chose to add them with the crystal as a named placeholder rather than wait for the vendors.
+  {
+    ...luciusFit,
+    id: 'cs-diver38-slim',
+    name: 'Diver 38 Slim',
+    style: 'diver38',
+    inspiredBy: 'SKX013-style 38mm dive case',
+    confidence: 'unverified',
+    notes:
+      'Lucius Atelier SKX013 Diver 38 Ultra Thin: Ø38 (40 with crown guards), lug-to-lug 46, 10.86 thick (Ultra Thin solid back; 11.36 thick solid, ' +
+      '11.76 sapphire), lugs 20, crown at 3, 7 mm SKX-style screw-down crowns, SKX013-spec chapter ring required, 28.5 dials, NH35 / 36 / 38 / 70 / 71 / 72 ' +
+      'Type M only (so the stack limit is set below the NH34). The bezel, ceramic insert and flat sapphire are exclusive to this case and ship pre-fitted; ' +
+      'their sizes are not published. PLACEHOLDER: crystal seat 28.0 and the bezel seat are the SKX013 family\'s (see cy-diver38-slim-flat, bz-diver38-slim), not measurements.',
+    sources: ['https://luciusatelier.com/collections/skx013-diver-38/products/skx013-diver-38-black-ultra-thin-edition'],
+    diameter: 38,
+    lugToLug: 46,
+    thickness: 10.86,
+    lugWidth: 20,
+    maxMovementStack: 7.7,
+    bezelSeat: 'diver38-slim',
+    crystalSeat: 28.0,
+    visual: tpl('case/sub', { finish: 'brushed', metal: '#d4d7db', bevel: 'narrow' }),
+  },
+  {
+    ...skx007Fit,
+    id: 'cs-field38-38',
+    name: 'Field 38 (crown 3.8)',
+    style: 'field38',
+    inspiredBy: 'Angular field / tool case',
+    confidence: 'unverified',
+    notes:
+      'namokiMODS NMK932: Ø38, lug-to-lug 46.5, 9.2 thick without caseback, lugs 20, 100 m, fixed bezel, takes SKX007 chapter rings, SKX013 crowns, ' +
+      'SKX casebacks and their 28.5 dials; flat AR sapphire included, fitted after the chapter ring. Crown at about 3.8 read from the build photo (angled). ' +
+      'PLACEHOLDER: crystal size not published, set to 31.5 because the SKX007 ring (30.5) sits under it; stack limit is the Diver 42\'s, not published either.',
+    sources: ['https://www.namokimods.com/products/nmk932-field-watch-case-bundle-steel-finish'],
+    diameter: 38,
+    lugToLug: 46.5,
+    thickness: 9.2,
+    lugWidth: 20,
+    crownSteps: 2,
+    crownTube: 'skx013',
+    bezelSeat: 'integral',
+    crystalSeat: 31.5,
+    visual: tpl('case/fluted', { finish: 'brushed', metal: '#c9ccd1', bezel: 'smooth', bevel: 'wide' }),
+  },
+  {
+    type: 'case',
+    id: 'cs-field38-miyota',
+    name: 'Field 38 Slim (Miyota 9)',
+    style: 'field38',
+    inspiredBy: 'Field case for Miyota 9 series',
+    confidence: 'unverified',
+    notes:
+      'namokiMODS NMK949: Ø38, lug-to-lug 46.9, 9.15 total thickness with crystal and caseback, lugs 20, integrated rehaut (no chapter ring), ' +
+      'flat AR sapphire and sterile crown included, fits SKX013 crowns, Miyota 9015 / 90S5 / 9019 / 9029 / 9039 only. Seiko no-date dials fit with ' +
+      'feet clipped and dial dots, like the NMK948. Crown at 3 from the straight-on product photo. Stack limit as the NMK948 (Miyota 9). ' +
+      'PLACEHOLDER: crystal size not published; 31.5 is the NMK948\'s (same maker, same integrated rehaut), not a measurement.',
+    sources: ['https://www.namokimods.com/products/nmk948-miyota-field-case-steel-finish'],
+    diameter: 38,
+    lugToLug: 46.9,
+    thickness: 9.15,
+    lugWidth: 20,
+    crownSteps: 0,
+    crownTube: 'skx013',
+    movementMounts: ['miyota-26'],
+    maxMovementStack: 6.0,
+    dialSeat: { min: 28.3, max: 28.7 },
+    chapterRing: { requirement: 'none' },
+    bezelSeat: 'integral',
+    crystalSeat: 31.5,
+    visual: tpl('case/fluted', { finish: 'brushed', metal: '#d4d7db', bezel: 'smooth', bevel: 'narrow' }),
+  },
 ];

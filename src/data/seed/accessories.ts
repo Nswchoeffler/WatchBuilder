@@ -4,6 +4,16 @@ import { AT_3, tpl, variantOf, type SeedPart } from './helpers';
 const SLOPED_SEAT = { outerDiameter: 38.0, innerDiameter: 30.6, profile: 'sloped' } as const;
 const FLAT_SEAT = { outerDiameter: 38.0, innerDiameter: 31.5, profile: 'flat' } as const;
 
+/**
+ * Lucius Atelier's Diver 38 Slim ships its bezel, ceramic insert and sapphire pre-fitted and exclusive, with no sizes published.
+ * Placeholders are the SKX013 family's: insert 33.7 × 27.5 (namokiMODS insert table) and crystal 28.0 (Lucius' SKX013 crystal note).
+ */
+const DIVER38_SEAT = { outerDiameter: 33.7, innerDiameter: 27.5, profile: 'flat' } as const;
+const DIVER38_SOURCE = 'https://luciusatelier.com/collections/skx013-diver-38/products/skx013-diver-38-black-ultra-thin-edition';
+const DIVER38_NOTE =
+  'Exclusive to the Lucius Atelier Diver 38 Ultra Thin and pre-fitted; sizes not published. PLACEHOLDER: SKX013-family sizes ' +
+  '(insert 33.7 × 27.5 from the namokiMODS insert table, crystal 28.0 from Lucius\' SKX013 crystal listing), not measurements of this part.';
+
 export const chapterRings: SeedPart<'chapterRing'>[] = [
   {
     type: 'chapterRing',
@@ -148,6 +158,18 @@ export const bezels: SeedPart<'bezel'>[] = [
     insert: null,
     visual: tpl('bezel/smooth', { metal: '#d4d7db' }),
   },
+  {
+    type: 'bezel',
+    id: 'bz-diver38-slim',
+    name: 'Diver 38 Slim Bezel',
+    confidence: 'unverified',
+    notes: DIVER38_NOTE,
+    sources: [DIVER38_SOURCE],
+    seat: 'diver38-slim',
+    action: 'unidirectional',
+    insert: DIVER38_SEAT,
+    visual: tpl('bezel/coin-edge', { metal: '#d4d7db' }),
+  },
 ];
 
 export const bezelInserts: SeedPart<'bezelInsert'>[] = [
@@ -288,6 +310,28 @@ export const bezelInserts: SeedPart<'bezelInsert'>[] = [
     confidence: 'unverified',
     notes: variantOf('in-sub40-ceramic-black'),
     ...SLOPED_SEAT,
+    scale: 'dive-60',
+    visual: tpl('bezelInsert/dive', { primary: '#0d3a25', secondary: '#d9d9d9', finish: 'ceramic' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver38-slim-black',
+    name: 'Diver 38 Slim Ceramic Insert, Black',
+    confidence: 'unverified',
+    notes: `${DIVER38_NOTE} Black ceramic, BGW9 lume pip.`,
+    sources: [DIVER38_SOURCE],
+    ...DIVER38_SEAT,
+    scale: 'dive-60',
+    visual: tpl('bezelInsert/dive', { primary: '#0c0c0d', secondary: '#d9d9d9', finish: 'ceramic' }),
+  },
+  {
+    type: 'bezelInsert',
+    id: 'in-diver38-slim-green',
+    name: 'Diver 38 Slim Ceramic Insert, Green',
+    confidence: 'unverified',
+    notes: `${DIVER38_NOTE} Green ceramic, BGW9 lume pip.`,
+    sources: ['https://luciusatelier.com/collections/skx013-diver-38'],
+    ...DIVER38_SEAT,
     scale: 'dive-60',
     visual: tpl('bezelInsert/dive', { primary: '#0d3a25', secondary: '#d9d9d9', finish: 'ceramic' }),
   },
@@ -450,6 +494,50 @@ export const crystals: SeedPart<'crystal'>[] = [
     magnifier: null,
     arCoating: 'clear',
     visual: tpl('crystal/dome'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-diver38-slim-flat',
+    name: 'Diver 38 Slim Sapphire, Flat',
+    confidence: 'unverified',
+    notes: `${DIVER38_NOTE} Flat, clear AR, no cyclops. Thickness not published either (placeholder 1.5).`,
+    sources: [DIVER38_SOURCE],
+    diameter: 28.0,
+    thickness: 1.5,
+    shape: 'flat',
+    magnifier: null,
+    arCoating: 'clear',
+    visual: tpl('crystal/flat'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-diver38-slim-cyclops',
+    name: 'Diver 38 Slim Sapphire, Cyclops',
+    confidence: 'unverified',
+    notes: variantOf('cy-diver38-slim-flat', 'the date magnifier at 3, offered for NH35 builds'),
+    sources: [DIVER38_SOURCE],
+    diameter: 28.0,
+    thickness: 1.5,
+    shape: 'flat',
+    magnifier: AT_3,
+    arCoating: 'clear',
+    visual: tpl('crystal/flat'),
+  },
+  {
+    type: 'crystal',
+    id: 'cy-field38-flat',
+    name: 'Field 38 Sapphire, Flat',
+    confidence: 'unverified',
+    notes:
+      'The flat clear-AR sapphire namokiMODS includes with its NMK932 and NMK949 field cases. PLACEHOLDER: size and thickness not published; ' +
+      '31.5 follows the cases\' placeholder crystal seat, 2.0 is not a measurement.',
+    sources: ['https://www.namokimods.com/products/nmk932-field-watch-case-bundle-steel-finish', 'https://www.namokimods.com/products/nmk948-miyota-field-case-steel-finish'],
+    diameter: 31.5,
+    thickness: 2.0,
+    shape: 'flat',
+    magnifier: null,
+    arCoating: 'clear',
+    visual: tpl('crystal/flat'),
   },
 ];
 

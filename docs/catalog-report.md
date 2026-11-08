@@ -1,12 +1,12 @@
 # Catalog report: `core`
 
-141 parts: 38 verified, 83 community, 20 unverified.
+150 parts: 38 verified, 83 community, 29 unverified.
 
 ## Problems
 
 - Unverified parts with no reason in their notes: **0**
 - Parts that can't form any valid build: **1**
-- Parts that only form a valid build with a mod: **13**
+- Parts that only form a valid build with a mod: **14**
 - Cases with fewer than two valid builds: **0**
 
 ## Confidence by type
@@ -14,13 +14,13 @@
 | Type | Verified | Community | Unverified |
 |---|---:|---:|---:|
 | movement | 9 | 6 | 0 |
-| case | 1 | 12 | 2 |
+| case | 1 | 12 | 5 |
 | dial | 0 | 30 | 1 |
 | hands | 4 | 10 | 0 |
 | chapterRing | 4 | 2 | 0 |
-| bezel | 2 | 2 | 3 |
-| bezelInsert | 10 | 0 | 3 |
-| crystal | 4 | 4 | 4 |
+| bezel | 2 | 2 | 4 |
+| bezelInsert | 10 | 0 | 5 |
+| crystal | 4 | 4 | 7 |
 | crown | 0 | 3 | 7 |
 | strap | 4 | 14 | 0 |
 
@@ -30,17 +30,26 @@
 |---|---|---|
 | `cs-sub40` Sub-style 40 | case | Dial 28.5–29, insert 38×30.6, lugs 20, SKX013-spec ring (community). Lug-to-lug, crystal, stack height unverified. The 38×30.6 insert matches the sloped SKX007 insert (namokiMODS insert sizes: 38.0 outer × 30.6 inner). The nearest published 40mm sub, namokiMODS NMK909, gives 40 / 47.5 lug-to-lug / 11 case only / lugs 22 and "fits all original and aftermarket SKX007 mod parts"; it is a 22mm-lug SKX007 clone, not necessarily this case (lugs 20, 13.4 thick), so nothing here was changed from it. Still unpublished for either: crown position, crystal size, stack height, crown tube. |
 | `cs-fluted39` Fluted Classic 39 | case | Only diameter / lug-to-lug known (community listings). Other values copied from the 36 as placeholders. |
+| `cs-diver38-slim` Diver 38 Slim | case | Lucius Atelier SKX013 Diver 38 Ultra Thin: Ø38 (40 with crown guards), lug-to-lug 46, 10.86 thick (Ultra Thin solid back; 11.36 thick solid, 11.76 sapphire), lugs 20, crown at 3, 7 mm SKX-style screw-down crowns, SKX013-spec chapter ring required, 28.5 dials, NH35 / 36 / 38 / 70 / 71 / 72 Type M only (so the stack limit is set below the NH34). The bezel, ceramic insert and flat sapphire are exclusive to this case and ship pre-fitted; their sizes are not published. PLACEHOLDER: crystal seat 28.0 and the bezel seat are the SKX013 family's (see cy-diver38-slim-flat, bz-diver38-slim), not measurements. |
+| `cs-field38-38` Field 38 (crown 3.8) | case | namokiMODS NMK932: Ø38, lug-to-lug 46.5, 9.2 thick without caseback, lugs 20, 100 m, fixed bezel, takes SKX007 chapter rings, SKX013 crowns, SKX casebacks and their 28.5 dials; flat AR sapphire included, fitted after the chapter ring. Crown at about 3.8 read from the build photo (angled). PLACEHOLDER: crystal size not published, set to 31.5 because the SKX007 ring (30.5) sits under it; stack limit is the Diver 42's, not published either. |
+| `cs-field38-miyota` Field 38 Slim (Miyota 9) | case | namokiMODS NMK949: Ø38, lug-to-lug 46.9, 9.15 total thickness with crystal and caseback, lugs 20, integrated rehaut (no chapter ring), flat AR sapphire and sterile crown included, fits SKX013 crowns, Miyota 9015 / 90S5 / 9019 / 9029 / 9039 only. Seiko no-date dials fit with feet clipped and dial dots, like the NMK948. Crown at 3 from the straight-on product photo. Stack limit as the NMK948 (Miyota 9). PLACEHOLDER: crystal size not published; 31.5 is the NMK948's (same maker, same integrated rehaut), not a measurement. |
 | `dl-sterile-miyota` Sterile No-Date (Miyota 8215) | dial | Feet follow Miyota dial drawing 8215-33E (compatibility spec §4). Diameter and centre hole are not from any retail dial; no Miyota 8215 dial with published sizes has been checked. |
 | `bz-sub40` Sub-style 40 Bezel | bezel | No Sub-style 40 reference product checked yet (compatibility spec §7, item 4). |
 | `bz-fluted39` Fluted Bezel 39 | bezel | No fluted 39 reference product checked yet; values follow the 36 (compatibility spec §7, item 4). |
 | `bz-sub40-smooth` Sub-style 40 Bezel (smooth, no insert) | bezel | Measurements inherited from bz-sub40; what differs is a style choice (the smooth profile and deleted insert seat). Confirm against a listing before ordering. |
+| `bz-diver38-slim` Diver 38 Slim Bezel | bezel | Exclusive to the Lucius Atelier Diver 38 Ultra Thin and pre-fitted; sizes not published. PLACEHOLDER: SKX013-family sizes (insert 33.7 × 27.5 from the namokiMODS insert table, crystal 28.0 from Lucius' SKX013 crystal listing), not measurements of this part. |
 | `in-sub40-ceramic-black` Sub-style 40 Ceramic Insert, Black | bezelInsert | Size from community listings for the Sub-style 40 case (38 × 30.6); no reference product checked (compatibility spec §7, item 4). |
 | `in-sub40-gmt-black-blue` Sub-style 40 GMT Insert, Black/Blue | bezelInsert | Size from community listings for the Sub-style 40 case (38 × 30.6); no reference product checked (compatibility spec §7, item 4). |
 | `in-sub40-dive-green` Sub-style 40 Ceramic Insert, Green | bezelInsert | Measurements inherited from in-sub40-ceramic-black; what differs is a style choice (colour and markers). Confirm against a listing before ordering. |
+| `in-diver38-slim-black` Diver 38 Slim Ceramic Insert, Black | bezelInsert | Exclusive to the Lucius Atelier Diver 38 Ultra Thin and pre-fitted; sizes not published. PLACEHOLDER: SKX013-family sizes (insert 33.7 × 27.5 from the namokiMODS insert table, crystal 28.0 from Lucius' SKX013 crystal listing), not measurements of this part. Black ceramic, BGW9 lume pip. |
+| `in-diver38-slim-green` Diver 38 Slim Ceramic Insert, Green | bezelInsert | Exclusive to the Lucius Atelier Diver 38 Ultra Thin and pre-fitted; sizes not published. PLACEHOLDER: SKX013-family sizes (insert 33.7 × 27.5 from the namokiMODS insert table, crystal 28.0 from Lucius' SKX013 crystal listing), not measurements of this part. Green ceramic, BGW9 lume pip. |
 | `cy-sub40-magnifier` Sub-style 40 Sapphire, Date Magnifier | crystal | Sub-style 40 crystal size not checked against a reference product (compatibility spec §7, item 4). |
 | `cy-octagon41-flat` Octagon 41 Sapphire, Flat | crystal | Octagon 41 crystal size is missing from the case's vendor listing; still open (compatibility spec §7, item 4). |
 | `cy-sub40-dd` Sub-style 40 Sapphire, Double Dome | crystal | Measurements inherited from cy-sub40-magnifier; what differs is a style choice (the dome profile and deleted magnifier). Confirm against a listing before ordering. |
 | `cy-octagon41-dd` Octagon 41 Sapphire, Double Dome | crystal | Measurements inherited from cy-octagon41-flat; what differs is a style choice (the dome profile). Confirm against a listing before ordering. |
+| `cy-diver38-slim-flat` Diver 38 Slim Sapphire, Flat | crystal | Exclusive to the Lucius Atelier Diver 38 Ultra Thin and pre-fitted; sizes not published. PLACEHOLDER: SKX013-family sizes (insert 33.7 × 27.5 from the namokiMODS insert table, crystal 28.0 from Lucius' SKX013 crystal listing), not measurements of this part. Flat, clear AR, no cyclops. Thickness not published either (placeholder 1.5). |
+| `cy-diver38-slim-cyclops` Diver 38 Slim Sapphire, Cyclops | crystal | Measurements inherited from cy-diver38-slim-flat; what differs is a style choice (the date magnifier at 3, offered for NH35 builds). Confirm against a listing before ordering. |
+| `cy-field38-flat` Field 38 Sapphire, Flat | crystal | The flat clear-AR sapphire namokiMODS includes with its NMK932 and NMK949 field cases. PLACEHOLDER: size and thickness not published; 31.5 follows the cases' placeholder crystal seat, 2.0 is not a measurement. |
 | `cw-diver42` Diver 42 Crown | crown | Diameter 7.0 as vendors give it for SKX007-spec crowns (namokiMODS Chunky Crown Mk2: 7.0; Lucius Crown II: 7 mm; assemble.watch: 7 mm, SKX007 / SKX013). Tube thread (M2.5 or M3.0) is not published anywhere found, so the tube stays unknown (roadmap 6.1). |
 | `cw-sub40` Sub-style 40 Crown | crown | Diameter 7.0 as vendors give it for SKX007-spec crowns (namokiMODS Chunky Crown Mk2: 7.0; Lucius Crown II: 7 mm; assemble.watch: 7 mm, SKX007 / SKX013). Tube thread (M2.5 or M3.0) is not published anywhere found, so the tube stays unknown (roadmap 6.1). Applies here on the namokiMODS NMK909 listing, which says its case fits SKX007 parts. |
 | `cw-fluted36` Fluted Classic Crown | crown | Crown diameter and tube not yet measured (roadmap 6.1). |
@@ -61,6 +70,7 @@
 - `mv-sw200` Sellita SW200-1 (movement): only with a mod, e.g. mv-sw200, cs-fluted36, dl-diver-black, cr-mid-silver, hd-eta-dauphine, bz-fluted36, cy-fluted36-flat, cw-fluted36, st-oyster-20.
 - `mv-vh31` Seiko VH31 (quartz sweep) (movement): only with a mod, e.g. mv-vh31, cs-diver42-38, dl-sterile-miyota, cr-diver42-silver, hd-vh31-pencil, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `cs-diver42-miyota` Diver 42.5 Slim (Miyota 9) (case): only with a mod, e.g. cs-diver42-miyota, mv-m9015, dl-diver-black, hd-m8215-baton, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
+- `cs-field38-miyota` Field 38 Slim (Miyota 9) (case): only with a mod, e.g. cs-field38-miyota, mv-m9015, dl-diver-black, hd-m8215-baton, cy-diver42-flat, cw-skx013-coin-6, st-oyster-20.
 - `dl-sterile-miyota` Sterile No-Date (Miyota 8215) (dial): only with a mod, e.g. dl-sterile-miyota, cs-diver42-38, mv-nh35, cr-diver42-silver, hd-nh-mercedes, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
 - `dl-nh70-ring-black` Open-worked Ring Black (NH70 / NH72) (dial): only with a mod, e.g. dl-nh70-ring-black, cs-octagon41, mv-nh35, hd-nh-mercedes, cy-octagon41-flat, cw-octagon41, st-octagon41-bracelet.
 - `hd-m8215-baton` Baton (Miyota 82 / 90) (hands): only with a mod, e.g. hd-m8215-baton, cs-diver42-miyota, mv-m9015, dl-diver-black, bz-diver42-sloped, in-diver42-dive-black, cy-diver42-flat, cw-diver42, st-oyster-22-diver42.
@@ -85,3 +95,6 @@
 | `cs-pilot34-slim` Pilot-style 34 Slim | 1000+ |
 | `cs-fluted36-slim` Fluted Dress 36 Slim | 1000+ |
 | `cs-faceted39` Faceted Dress 39 | 1000+ |
+| `cs-diver38-slim` Diver 38 Slim | 1000+ |
+| `cs-field38-38` Field 38 (crown 3.8) | 1000+ |
+| `cs-field38-miyota` Field 38 Slim (Miyota 9) (with dial-dots) | 1000+ |

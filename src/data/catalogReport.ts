@@ -18,6 +18,7 @@ const ALL_FLAGS = ModFlag.options;
  */
 export const MOD_BUILD_CASES: Readonly<Record<string, readonly ModFlag[]>> = {
   'cs-diver42-miyota': ['dial-dots'],
+  'cs-field38-miyota': ['dial-dots'],
 };
 
 export interface SearchOptions {

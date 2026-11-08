@@ -1,6 +1,6 @@
 # Mod Watch Mockup Builder — Full Plan
 
-_Last updated 2026-10-28. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts); sourced parts pass the same day (135 parts); 2026-10-28: golden images, perf budget, picker thumbnails, dial print, uploaded lume, NH39 / NH70 / NH72 with schema v3 (140 parts, 30 rules)._
+_Last updated 2026-11-08. Phases 0–5 done: Phase 4 verified in a browser 2026-09-22, 5.2 on 2026-09-24, and the rest of Phase 5 (part editor, packs, share links) on 2026-10-23; Phase 6.2 variant pass done 2026-09-18 (112 parts); Miyota case, ETA dial and VH31 adapter added 2026-10-27 (114 parts); sourced parts pass the same day (135 parts); 2026-10-28: golden images, perf budget, picker thumbnails, dial print, uploaded lume, NH39 / NH70 / NH72 with schema v3 (140 parts, 30 rules); 2026-11-08: Miyota 8215 case abandoned, three unverified cases with placeholder crystals (150 parts)._
 
 ## 1. Context
 
@@ -328,6 +328,9 @@ wasn't available).
   crown is sold, and the vendor says to fit Seiko no-date dials with dial dots, so the catalog report counts this case's builds
   with `dial-dots` (`MOD_BUILD_CASES`, decided with the user). The Miyota baton hands fit both the 8215 and the 9015.
   **Still open:** no case takes the 8215. Its listings (DIY Watch Club Mosel, Tandorio, field cases) give no crystal or dial seat.
+  **User decision (2026-11-08): the user has no Miyota movement or Miyota-mount case to measure.** Miyota parts can come only from
+  published sources (maker drawings, vendor tables). If a final online search finds no 8215 case with published specs, the
+  8215 case is **abandoned**: `mv-m8215` stays in the catalog and stays listed in the report as having no valid build (its dial and baton hands already build with the Miyota 9 series).
 - **ETA:** added `dl-eta-plain-white` from Otto Frei's published dial specs. The ETA 2824-2 and the ETA Dauphine hands now have
   builds with no mods. Otto Frei sells the same dials for the SW200-1, but `sellita-sw200` stays its own feet system (spec §7, item 3).
 - **VH31:** no dial with VH31 feet is sold. Builds use a spacer or holder that carries NH feet, so this pass added the
@@ -335,6 +338,30 @@ wasn't available).
   needs mods in every case, as it always will in NH cases.
 - ~~`Movement.casingDiameter` means two different things~~ (settled 2026-10-28: the maker's case-fitting diameter, so both are right): the NH35 stores the size with the casing ring (larger than the
   movement), the VH31 stores the fitting diameter (smaller). No rule reads it yet; settle the meaning before one does.
+
+**Fourth research pass (2026-11-08): Miyota 8215 case, then new cases.**
+- **Miyota 8215 case: abandoned** (per the user decision above). The only listing with a dial seat and crystal, alpha-1993's
+  Planet Ocean-style case set for 8205 / 8215 (search snippet: Ø43 with crown, 49 lug-to-lug, 14 thick with crystal, lugs 20,
+  case inside 31.3, visible-dial shoulder 29.4, crystal 30.2), is no longer online: every alpha-1993.com URL now redirects to
+  the home page. It never gave a crown position or the dial size it takes, and no Miyota-82 dial with a sourced size exists in
+  the catalog to fill a 29.4–31.3 seat anyway. Tandorio, GE Watch Parts and eBay listings for "8215" cases give a 28.5 dial at
+  best, never a crystal, crown position or holder. Note why the NMK948 can't take it: its `maxMovementStack` is 6.0 (Miyota 9),
+  the 8215 is 7.4 with hands. `mv-m8215` stays, with no valid build.
+- **Added as `unverified` with named placeholders (user decision 2026-11-08: add now, upgrade when a size is found).** The
+  first three cases below, plus the Diver 38's own bezel, two inserts and two crystals, and one field crystal (141 → 150 parts).
+  Every placeholder says `PLACEHOLDER` in its notes, and the catalog report lists it. Each case has 1000+ valid builds (the Miyota
+  field case with dial dots, added to `MOD_BUILD_CASES`). Ids: `cs-diver38-slim`, `cs-field38-38`, `cs-field38-miyota`,
+  `bz-diver38-slim`, `in-diver38-slim-*`, `cy-diver38-slim-*`, `cy-field38-flat`. Not yet browser-checked.
+- **The cases and what they lack:**
+  - namokiMODS **NMK949 Miyota Field** (38 / 46.9 lug-to-lug / 9.15 total / lugs 20, integrated rehaut, SKX013 crowns, Seiko
+    no-date dials with dial dots, Miyota 9 series only) and **NMK932 Field** (NH; 38 / 46.5 / 9.2 without caseback / lugs 20,
+    SKX007 chapter rings, SKX013 crowns). Neither publishes the crystal size or crown position; namokiMODS has no crystal chart
+    (only the bezel insert one).
+  - Lucius Atelier **SKX013 Diver 38 Ultra Thin** (38, 40 with guards, 46 lug-to-lug, 10.86 / 11.36 / 11.76 by caseback, lugs 20,
+    28.5 dials, SKX013-spec chapter ring required, 7 mm SKX crowns, crown at 3:00, NH Type M only). Its bezel, insert and crystal are
+    exclusive and pre-fitted, with no sizes published. It is also the first case limited to Type M movements, which the schema can't express.
+  - Tandorio **40.5 Submariner** (40.5 / 48.5 / 13 / lugs 20, dial 28.5–29, insert 38 × 30.5) and GE Watch Parts **40 sub**
+    (40 / 13.2 / dial 28.5 / insert 38 × 30.6): both close to the Sub-style 40, neither gives crystal, crown position or tube.
 
 ### 6.2 More parts & styles
 
@@ -384,7 +411,7 @@ publishes the numbers.
 - **NH39:** 24-hour post at 320.8°, 5.78 mm out; no date. **NH70 / NH72:** their own dial feet and a Ø31.50 ring dial (only the octagon's seat takes it today), and a 27.00 casing with clamps, so NH cases take them only with `movement-spacer` (user decision: strict over vendor listings).
 - Their new dial and hands are style parts on TMI geometry (`community`); no retail dial was checked. The editor edits any number of sub-dials (add / remove rows, `RowListField` in `ui/editor/form.tsx`); the schema allows one sub-dial of each kind per part, since rules, hands and drawing pair them by kind.
 
-**Third research pass (2026-10-28):** SW200-1 dial feet verified from Sellita's DocTec drawing SW106765 A (71.96° / 251.96°, r 12.20); `casingDiameter` defined as the maker's case-fitting diameter (SW200 25.60 added; the ETA 2824's 25.6 is its fitting value). Diver 42 crowns 6.5 → 7.0 from vendor listings (tube still unknown). Still blocked without calipers or a vendor email: a Miyota 8215 case, ETA 2824 feet, Fluted 39, crown tube threads, the octagon crystal and a 30.8 dial's centre hole. Lead: Miyota's 8215-36E dial drawing.
+**Third research pass (2026-10-28):** SW200-1 dial feet verified from Sellita's DocTec drawing SW106765 A (71.96° / 251.96°, r 12.20); `casingDiameter` defined as the maker's case-fitting diameter (SW200 25.60 added; the ETA 2824's 25.6 is its fitting value). Diver 42 crowns 6.5 → 7.0 from vendor listings (tube still unknown). Still blocked without calipers or a vendor email: a Miyota 8215 case (no calipers possible: user has no Miyota, see 6.1; abandon if nothing is published), ETA 2824 feet, Fluted 39, crown tube threads, the octagon crystal and a 30.8 dial's centre hole. Lead: Miyota's 8215-36E dial drawing.
 
 ### 6.3 Rendering polish
 - ~~Lume "night view" toggle; dark background option for exports.~~ ✅ (2026-10-23, checked in Chrome). Day / Night switch in
