@@ -1,6 +1,6 @@
 # Catalog report: `core`
 
-150 parts: 38 verified, 83 community, 29 unverified.
+155 parts: 38 verified, 87 community, 30 unverified.
 
 ## Problems
 
@@ -15,8 +15,8 @@
 |---|---:|---:|---:|
 | movement | 9 | 6 | 0 |
 | case | 1 | 12 | 5 |
-| dial | 0 | 30 | 1 |
-| hands | 4 | 10 | 0 |
+| dial | 0 | 34 | 1 |
+| hands | 4 | 10 | 1 |
 | chapterRing | 4 | 2 | 0 |
 | bezel | 2 | 2 | 4 |
 | bezelInsert | 10 | 0 | 5 |
@@ -34,6 +34,7 @@
 | `cs-field38-38` Field 38 (crown 3.8) | case | namokiMODS NMK932: Ø38, lug-to-lug 46.5, 9.2 thick without caseback, lugs 20, 100 m, fixed bezel, takes SKX007 chapter rings, SKX013 crowns, SKX casebacks and their 28.5 dials; flat AR sapphire included, fitted after the chapter ring. Crown at about 3.8 read from the build photo (angled). PLACEHOLDER: crystal size not published, set to 31.5 because the SKX007 ring (30.5) sits under it; stack limit is the Diver 42's, not published either. |
 | `cs-field38-miyota` Field 38 Slim (Miyota 9) | case | namokiMODS NMK949: Ø38, lug-to-lug 46.9, 9.15 total thickness with crystal and caseback, lugs 20, integrated rehaut (no chapter ring), flat AR sapphire and sterile crown included, fits SKX013 crowns, Miyota 9015 / 90S5 / 9019 / 9029 / 9039 only. Seiko no-date dials fit with feet clipped and dial dots, like the NMK948. Crown at 3 from the straight-on product photo. Stack limit as the NMK948 (Miyota 9). PLACEHOLDER: crystal size not published; 31.5 is the NMK948's (same maker, same integrated rehaut), not a measurement. |
 | `dl-sterile-miyota` Sterile No-Date (Miyota 8215) | dial | Feet follow Miyota dial drawing 8215-33E (compatibility spec §4). Diameter and centre hole are not from any retail dial; no Miyota 8215 dial with published sizes has been checked. |
+| `hd-nh-baton-long` Baton Elongated (NH, 30.8 dials) | hands | Nomods "Elongated Hands – Oak 41mm": polished baton with C3, NH35 / NH72, made for 30.8 dials in the Oak 41mm case. Holes are the NH standard. PLACEHOLDER: lengths not published; LEN_28 scaled by 30.8 / 28.5, not measured. |
 | `bz-sub40` Sub-style 40 Bezel | bezel | No Sub-style 40 reference product checked yet (compatibility spec §7, item 4). |
 | `bz-fluted39` Fluted Bezel 39 | bezel | No fluted 39 reference product checked yet; values follow the 36 (compatibility spec §7, item 4). |
 | `bz-sub40-smooth` Sub-style 40 Bezel (smooth, no insert) | bezel | Measurements inherited from bz-sub40; what differs is a style choice (the smooth profile and deleted insert seat). Confirm against a listing before ordering. |
@@ -86,7 +87,7 @@
 | `cs-sub40` Sub-style 40 | 1000+ |
 | `cs-fluted36` Fluted Classic 36 | 1000+ |
 | `cs-fluted39` Fluted Classic 39 | 1000+ |
-| `cs-octagon41` Octagon Integrated 41 | 32 |
+| `cs-octagon41` Octagon Integrated 41 | 180 |
 | `cs-diver42-ncg-30` Diver 42 No-Guard (crown 3.0) | 1000+ |
 | `cs-angular43-30` Angular Diver 43 (crown 3.0) | 1000+ |
 | `cs-mono42-30` Monobloc Diver 42.5 (crown 3.0) | 1000+ |

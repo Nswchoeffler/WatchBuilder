@@ -194,10 +194,15 @@ export const cases: SeedPart<'case'>[] = [
     style: 'octagon41',
     inspiredBy: 'Integrated octagonal sports case',
     confidence: 'community',
-    notes: 'Crystal seat and stack height unverified. Vendor recommends longer handsets.',
+    notes:
+      'Nomods Oak 41mm (listing as of 2026-11-08): Ø41, lug-to-lug 51, 12.2 thick (11.6 without crystal; was listed 12.6), dial fit 30.8–31.8 ' +
+      '(its own dials are 30.8), NH35 / 38 / 70 / 71 / 72, screw-down crown included on the case\'s own tube (Nomods: each of its cases uses a ' +
+      'different tube), longer handsets recommended. The spec table also gives "lug width 22 mm, any standard 22 mm strap"; modelled as ' +
+      'integrated here. Crystal size, crown size and stack height still unpublished.',
+    sources: ['https://nomods.co/products/oak-41mm-case', 'https://nomods.co/products/royal-oak-37mm-spare-crown'],
     diameter: 41,
     lugToLug: 51,
-    thickness: 12.6,
+    thickness: 12.2,
     lugWidth: null,
     integratedProfile: 'octagon41',
     crownSteps: 0,

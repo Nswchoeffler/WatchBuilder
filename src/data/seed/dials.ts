@@ -10,6 +10,8 @@ const nhDial = {
   openHeartAperture: null,
 } as const;
 
+const NOMODS_WAFFLE = 'https://nomods.co/products/waffle-dial-oak-41mm';
+
 /** Lucius Atelier listings give the face, the 28.5 diameter, the window and both crown positions; not the centre hole. */
 const luciusDial = (listing: string, face: string) =>
   `Lucius Atelier "${listing}": Ø28.5, ${face}; four legs for a 3:00 or 3.8 crown. Centre hole not published (NH standard 2.1 assumed, as for the other NH dials).`;
@@ -73,10 +75,34 @@ export const dials: SeedPart<'dial'>[] = [
     id: 'dl-tapisserie-blue',
     name: 'Tapisserie Blue',
     confidence: 'community',
+    notes:
+      'Nomods "Waffle Dial – Oak 41mm": Ø30.8, NH35 / NH36, crown at 3, date window at 3 (product photo), applied batons with C3, 12 colours; ' +
+      'made for the Oak 41mm case (the octagon reference). Centre hole not published (NH standard 2.1 assumed, as for the other NH dials).',
+    sources: [NOMODS_WAFFLE],
     diameter: 30.8,
     crownSteps: [0],
     visual: tpl('dial/tapisserie', { color: '#23407a', finish: 'tapisserie', markers: 'batons', lume: '#e8f0d8' }),
   },
+  ...(
+    [
+      ['black', 'Black', '#16171a'],
+      ['ice', 'Ice Blue', '#a9c6d8'],
+      ['green', 'Green', '#1f3d2e'],
+      ['salmon', 'Salmon', '#d9876c'],
+    ] as const
+  ).map(
+    ([key, colour, color]): SeedPart<'dial'> => ({
+      ...nhDial,
+      id: `dl-tapisserie-${key}`,
+      name: `Tapisserie ${colour}`,
+      confidence: 'community',
+      notes: variantOf('dl-tapisserie-blue', 'the dial colour; Nomods sells the waffle dial in 12 colours'),
+      sources: [NOMODS_WAFFLE],
+      diameter: 30.8,
+      crownSteps: [0],
+      visual: tpl('dial/tapisserie', { color, finish: 'tapisserie', markers: 'batons', lume: '#e8f0d8' }),
+    }),
+  ),
   {
     type: 'dial',
     id: 'dl-eta-plain-white',

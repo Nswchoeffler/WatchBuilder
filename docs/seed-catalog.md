@@ -34,7 +34,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | mv-sw200 | Sellita SW200-1 | C (dims, hands and feet from Sellita's documentation; `casingDiameter` 25.60) |
 | mv-vh31 | Seiko VH31 (quartz sweep) | ? |
 
-## Cases (15)
+## Cases (18)
 | id | Name | Key measurements | Conf. |
 |---|---|---|---|
 | cs-diver42-38 | Diver 42 (crown 3.8) | Ø42, lug-to-lug 46, lugs 22, dial 28.5, ring 30.5 optional, crystal 31.5, bezel seat `diver42`, NH mount (VH via spacer) | V |
@@ -45,7 +45,10 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | cs-sub40 | Sub-style 40 | Ø40, lugs 20, crown 3.0, dial 28.3–29.0, insert 38×30.6, mid-size ring optional, bezel seat `sub40`; namokiMODS NMK909 (40 / 47.5 / 11 / lugs 22) cited but not the same product | ? |
 | cs-fluted36 | Fluted Classic 36 | Ø36, lug-to-lug 43, lugs 20, crown 3.0, dial 28.5, crystal 29.5, mid-size ring **required**, NH + ETA mounts, not NH34 (stack ≤ 7.7) | C |
 | cs-fluted39 | Fluted Classic 39 | Ø39, lug-to-lug 48, lugs 20, crown 3.0, bezel seat `fluted39` | ? |
-| cs-octagon41 | Octagon Integrated 41 | Ø41, lug-to-lug 51, thickness 12.6, crown 3.0, dial 30.8–31.8, no ring, bezel integral, integrated profile `octagon41` | C |
+| cs-octagon41 | Octagon Integrated 41 | Ø41, lug-to-lug 51, thickness 12.2 (Nomods Oak 41mm, 2026-11-08), crown 3.0, dial 30.8–31.8, no ring, bezel integral, integrated profile `octagon41` | C |
+| cs-diver38-slim | Diver 38 Slim | Lucius Atelier SKX013 Diver 38: Ø38, lug-to-lug 46, lugs 20, crown 3.0, dial 28.5, SKX013 ring required, NH Type M (stack ≤ 7.7), own bezel seat `diver38-slim`; **placeholder** crystal 28.0 and insert 33.7×27.5 | ? |
+| cs-field38-38 | Field 38 (crown 3.8) | namokiMODS NMK932: Ø38, lug-to-lug 46.5, lugs 20, SKX007 ring optional, `skx013` crowns, bezel integral; **placeholder** crystal 31.5 and stack | ? |
+| cs-field38-miyota | Field 38 Slim (Miyota 9) | namokiMODS NMK949: Ø38, lug-to-lug 46.9, lugs 20, crown 3.0, no ring, Miyota mount, stack ≤ 6.0, dial dots; **placeholder** crystal 31.5 | ? |
 
 ## Bezels (4) / inserts (5)
 - **Bezels:**
@@ -69,7 +72,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | dl-sunburst-blue | Sunburst Blue Classic | 28.5 | seiko-nh / [0] | date 3 | C |
 | dl-gmt-black | GMT Black 24h | 28.5 | seiko-nh / [0] | date 3, centre hole 2.9 | C |
 | dl-openheart-silver | Open Heart Silver | 28.5 | seiko-nh / [0] | aperture 9 | C |
-| dl-tapisserie-blue | Tapisserie Blue | 30.8 | seiko-nh / [0] | date 3 | C |
+| dl-tapisserie-blue / -black / -ice / -green / -salmon | Tapisserie (Nomods Waffle Dial – Oak 41mm) | 30.8 | seiko-nh / [0] | date 3 | C |
 | dl-sterile-miyota | Sterile No-Date (Miyota) | 28.5 | miyota-82 / [0] | none | ? |
 | dl-enamel-black-date / dl-velvet-black / dl-explorer-1016 / dl-sector-silver-date | Lucius Atelier dials | 28.5 | seiko-nh / [0, 2] | per listing | C |
 | dl-nh39-24h-black | 24-Hour Sub-dial Black (NH39) | 28.5 | seiko-nh / [0] | no date, 24-hour sub-dial hole at 5.78 / 320.8°, balance aperture at 265.3° | C |
@@ -86,6 +89,7 @@ Seiko caliber names (NH35 etc.) are fine: they're sold as components under those
 | hd-m8215-baton | Baton (Miyota 82 / 90) | 1.52/1.00/0.17 | V |
 | hd-eta-dauphine | Dauphine (ETA/SW) | 1.50/0.90/0.25 | C |
 | hd-vh31-pencil | Pencil (VH31) | 1.20/0.70/0.17 | ? |
+| hd-nh-baton-long | Baton Elongated (NH, 30.8 dials) — Nomods Oak 41mm hands; **placeholder** lengths | 1.50/0.90/0.20 | ? |
 
 ## Chapter rings (4), crystals (5), crowns (4)
 - **Rings:**

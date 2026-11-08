@@ -365,6 +365,19 @@ wasn't available).
   - Tandorio **40.5 Submariner** (40.5 / 48.5 / 13 / lugs 20, dial 28.5–29, insert 38 × 30.5) and GE Watch Parts **40 sub**
     (40 / 13.2 / dial 28.5 / insert 38 × 30.6): both close to the Sub-style 40, neither gives crystal, crown position or tube.
 
+**Octagon dial and crowns (2026-11-08).**
+- **Octagon dial: sourced.** Nomods now sells parts made for its Oak 41mm (the octagon reference): a "Waffle Dial – Oak 41mm" (Ø30.8,
+  NH35 / 36, crown 3, date at 3, 12 colours). `dl-tapisserie-blue`, which had no source, now cites it, and four colour variants were
+  added. Centre hole follows the NH-standard convention used for the Lucius dials. The case listing also changed: 12.2 thick (11.6
+  without crystal; was 12.6), and its spec table now says "lug width 22 mm, any standard 22 mm strap" (still modelled as integrated).
+- **Elongated hands:** `hd-nh-baton-long` from Nomods' "Elongated Hands – Oak 41mm", `unverified`: lengths are a PLACEHOLDER
+  (LEN_28 × 30.8 / 28.5); hand length is cosmetic only (R-HD-1).
+- **Not added:** Nomods' "Oak Skeleton Dial 30.8mm" (NH7x) gives no opening size; the "Seikonaut 40mm" integrated case (30.8 dials)
+  is a lead for the Nautilus-style case.
+- **Crowns: still blocked.** No vendor publishes a crown tube thread or the octagon crown's diameter. Nomods confirms each of its
+  cases has its own tube and ships its crown, which supports the separate `octagon41` tube. The only SKX007 tube figure found is a
+  forum post (M3 × 0.35) that other posts dispute, so nothing changed. Unblocking this needs calipers or a vendor answer.
+
 ### 6.2 More parts & styles
 
 **Variant pass done (2026-09-18):** catalog 58 → 112 parts. Every part added inherits its measurements from one

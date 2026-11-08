@@ -3,6 +3,8 @@ import { tpl, variantOf, type SeedPart } from './helpers';
 const NH_HOLES = { hour: 1.5, minute: 0.9, seconds: 0.2 } as const;
 /** Lengths sized for a 28.5mm dial. Cosmetic only (R-HD-1 warning). */
 const LEN_28 = { hour: 8.5, minute: 12.5, seconds: 13.0 } as const;
+/** PLACEHOLDER for hands made for a 30.8mm dial: LEN_28 scaled by 30.8 / 28.5. Not measured; cosmetic only (R-HD-1). */
+const LEN_31_PLACEHOLDER = { hour: 9.2, minute: 13.5, seconds: 14.0 } as const;
 
 export const hands: SeedPart<'hands'>[] = [
   {
@@ -149,5 +151,18 @@ export const hands: SeedPart<'hands'>[] = [
     lengths: LEN_28,
     subdialHands: [{ indicates: '24-hour', hole: 0.2, length: 2.2 }],
     visual: tpl('hands/sword', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#c8302c' }),
+  },
+  {
+    type: 'hands',
+    id: 'hd-nh-baton-long',
+    name: 'Baton Elongated (NH, 30.8 dials)',
+    confidence: 'unverified',
+    notes:
+      'Nomods "Elongated Hands – Oak 41mm": polished baton with C3, NH35 / NH72, made for 30.8 dials in the Oak 41mm case. Holes are the NH standard. ' +
+      'PLACEHOLDER: lengths not published; LEN_28 scaled by 30.8 / 28.5, not measured.',
+    sources: ['https://nomods.co/products/oak-hands-elongated'],
+    holes: NH_HOLES,
+    lengths: LEN_31_PLACEHOLDER,
+    visual: tpl('hands/baton', { metal: '#e6e7e9', lume: '#e8f0d8', accent: '#e6e7e9' }),
   },
 ];
