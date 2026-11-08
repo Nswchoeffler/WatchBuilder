@@ -351,7 +351,9 @@ wasn't available).
   first three cases below, plus the Diver 38's own bezel, two inserts and two crystals, and one field crystal (141 → 150 parts).
   Every placeholder says `PLACEHOLDER` in its notes, and the catalog report lists it. Each case has 1000+ valid builds (the Miyota
   field case with dial dots, added to `MOD_BUILD_CASES`). Ids: `cs-diver38-slim`, `cs-field38-38`, `cs-field38-miyota`,
-  `bz-diver38-slim`, `in-diver38-slim-*`, `cy-diver38-slim-*`, `cy-field38-flat`. Not yet browser-checked.
+  `bz-diver38-slim`, `in-diver38-slim-*`, `cy-diver38-slim-*`, `cy-field38-flat`. Browser-checked 2026-11-08 in Chrome (one share
+  link per case): all three render, crown positions as listed, Diver 38 and Field 38 "fits", the Miyota field case "warnings" (dial
+  dots), no console errors. Both field cases borrow the dress `case/fluted` drawing; a real field-case template is still to do.
 - **The cases and what they lack:**
   - namokiMODS **NMK949 Miyota Field** (38 / 46.9 lug-to-lug / 9.15 total / lugs 20, integrated rehaut, SKX013 crowns, Seiko
     no-date dials with dial dots, Miyota 9 series only) and **NMK932 Field** (NH; 38 / 46.5 / 9.2 without caseback / lugs 20,
